@@ -138,17 +138,19 @@ class TestBuildPrompt:
         assert "technology: bullish" in prompt
         assert "energy: bearish" in prompt
 
-    def test_contains_action_item(self):
-        ctx = {**CONTEXT_A, "action_item": "IT sector supply check"}
+    def test_action_item_not_in_prompt(self):
+        # action_item is Korean user-facing text — must NOT appear in English LLM prompt (P5-A)
+        ctx = {**CONTEXT_A, "action_item": "금리 인하 수혜 섹터 비중 확대"}
         prompt = build_prompt(ctx)
-        assert "Action:" in prompt
-        assert "IT sector supply check" in prompt
+        assert "금리" not in prompt
+        assert "Action:" not in prompt
 
-    def test_contains_action_checklist(self):
-        ctx = {**CONTEXT_A, "action_checklist": ["Check FOMC schedule", "Monitor VIX"]}
+    def test_action_checklist_not_in_prompt(self):
+        # action_checklist is Korean user-facing — must NOT appear in English LLM prompt (P5-A)
+        ctx = {**CONTEXT_A, "action_checklist": ["금리 인하 수혜주 목록 업데이트"]}
         prompt = build_prompt(ctx)
-        assert "Checklist:" in prompt
-        assert "Check FOMC schedule" in prompt
+        assert "금리" not in prompt
+        assert "Checklist:" not in prompt
 
     def test_contains_macro_summary(self):
         ctx = {**CONTEXT_A, "macro_summary": "Rate hold, moderate risk appetite, USD strong"}
@@ -161,10 +163,11 @@ class TestBuildPrompt:
         prompt = build_prompt(ctx)
         assert "Sector Directions" not in prompt
 
-    def test_empty_action_checklist_skipped(self):
-        ctx = {**CONTEXT_A, "action_checklist": [], "action_item": ""}
+    def test_empty_sector_directions_no_section(self):
+        # Redundant with test_empty_sector_directions_skipped — verifies no stray header
+        ctx = {**CONTEXT_A, "sector_directions": {}}
         prompt = build_prompt(ctx)
-        assert "Checklist:" not in prompt
+        assert "## Sector Directions" not in prompt
 
 
 class TestMockNarrative:

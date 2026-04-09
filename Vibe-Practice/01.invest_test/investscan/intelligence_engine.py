@@ -160,18 +160,9 @@ def _build_user_prompt(context_data: dict, failure_context: list[str]) -> str:
         for sector_name, direction in sector_dirs.items():
             prompt_lines.append(f"{sector_name}: {direction}")
 
-    # Weekly Action Guidance — show if action_item or checklist is present
-    action_item: str = context_data.get("action_item") or ""
-    action_checklist: list = context_data.get("action_checklist") or []
-    has_action = action_item and action_item != "DATA_UNAVAILABLE"
-    if has_action or action_checklist:
-        prompt_lines += ["", "## Weekly Action Guidance"]
-        if has_action:
-            prompt_lines.append(f"Action: {action_item}")
-        if action_checklist:
-            prompt_lines.append("Checklist:")
-            for item in action_checklist:
-                prompt_lines.append(f"- {item}")
+    # NOTE: action_item and action_checklist are Korean user-facing text (synthesize_macro.py P6).
+    # They must NOT appear in the English LLM prompt (P5-A violation).
+    # They remain in context_data for dashboard/report use outside LLM.
 
     prompt_lines += [
         "",

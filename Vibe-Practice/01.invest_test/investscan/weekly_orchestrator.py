@@ -472,6 +472,8 @@ def run_data_only_pipeline(
             "inflation_trend": meta.inflation_trend,
             "risk_appetite": meta.risk_appetite,
             "usd_strength": meta.usd_strength,
+            "sector_directions": meta.sector_directions,
+            "macro_summary": meta.macro_summary,
         },
         "signals_summary": top_signals,
         # Stock contexts: empty in envscan_only mode (stock selection not yet performed)
