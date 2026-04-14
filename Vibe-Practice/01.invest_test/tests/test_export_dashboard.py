@@ -231,6 +231,23 @@ class TestAssembleDashboardData:
         assert len(data["p6_not_passed"]) == 1
         assert data["p6_not_passed"][0]["current"] == "N/A"
 
+    def test_fetch_stocks_receives_dict(self, tmp_path):
+        """fetch_stocks must be called with a dict, not a list."""
+        self._write_fixtures(tmp_path)
+        with patch("investscan.export_dashboard.fetch_stocks",
+                   return_value=MOCK_STOCK_INFO) as mock_fs, \
+             patch("investscan.export_dashboard.fetch_kospi_index",
+                   return_value=MOCK_KOSPI):
+            assemble_dashboard_data(
+                "2026-04-09",
+                temp_dir=tmp_path, reports_dir=tmp_path,
+            )
+        called_arg = mock_fs.call_args[0][0]
+        assert isinstance(called_arg, dict), f"Expected dict, got {type(called_arg)}"
+        assert "017670" in called_arg
+        assert "053800" in called_arg
+        assert "012450" in called_arg
+
     def test_network_failure_returns_na_prices(self, tmp_path):
         self._write_fixtures(tmp_path)
         with patch("investscan.export_dashboard.fetch_stocks",

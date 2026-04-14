@@ -172,12 +172,13 @@ def assemble_dashboard_data(
     forecast = load_kospi_forecast(date, reports_dir=reports_dir)
 
     live_tickers = wl["cat_a"] + wl["cat_b"]
+    live_tickers_dict = {t: t for t in live_tickers}  # fetch_stocks expects dict[ticker, name]
     live_data: dict = {}
     kospi_index = None
 
     if live and live_tickers:
         try:
-            live_data = fetch_stocks(live_tickers)
+            live_data = fetch_stocks(live_tickers_dict)
         except Exception as e:
             print(f"  ⚠  주가 조회 실패: {e}")
         try:
