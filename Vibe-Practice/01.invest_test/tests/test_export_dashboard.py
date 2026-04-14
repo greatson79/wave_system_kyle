@@ -61,3 +61,74 @@ class TestFetchKospiIndex:
         with patch("investscan.naver_finance._fetch", return_value=soup):
             result = fetch_kospi_index()
         assert result["direction"] == "flat"
+
+
+from investscan.export_dashboard import load_watchlist, load_kospi_forecast
+
+# ── Fixtures ──────────────────────────────────────────────────────────────────
+
+WATCHLIST_FIXTURE = {
+    "date": "2026-04-09",
+    "agent_weights": {"tech": 0.35, "korea": 0.25, "valuation": 0.2,
+                      "macro": 0.15, "risk": 0.05},
+    "base_sector_directions": {"technology": "neutral", "telecom": "bullish",
+                                "energy": "bearish"},
+    "cat_a": ["017670", "053800"],
+    "cat_b": ["012450"],
+    "rationale": {"p6_not_passed": ["009540"]},
+}
+
+REPORT_FIXTURE = """
+### 2.3 KOSPI 4주 전망 (에이전트 합의 범위)
+
+| 시나리오 | 에이전트 합의 (원본) | **실시간 기준 수정값** |
+|---------|---------------|-------------------|
+| **Low** | 2,725 (오류) | **5,500** (-5.2% from 5,800) |
+| **Base** | 2,860~2,875 (오류) | **5,800~5,900** (현 수준 유지) |
+| **High** | 3,000~3,050 (오류) | **6,200~6,350** (52주 최고 6,347 재도전) |
+
+*현재가 기준: KOSPI 5,801.71 (2026-04-09) / 전일 종가 5,872.34 / 52주 범위 2,284~6,347*
+"""
+
+
+class TestLoadWatchlist:
+
+    def test_parses_cat_a_and_cat_b(self, tmp_path):
+        p = tmp_path / "confirmed_watchlist_2026-04-09.json"
+        p.write_text(json.dumps(WATCHLIST_FIXTURE), encoding="utf-8")
+        data = load_watchlist("2026-04-09", temp_dir=tmp_path)
+        assert data["cat_a"] == ["017670", "053800"]
+        assert data["cat_b"] == ["012450"]
+
+    def test_parses_agent_weights(self, tmp_path):
+        p = tmp_path / "confirmed_watchlist_2026-04-09.json"
+        p.write_text(json.dumps(WATCHLIST_FIXTURE), encoding="utf-8")
+        data = load_watchlist("2026-04-09", temp_dir=tmp_path)
+        assert data["agent_weights"]["tech"] == 0.35
+
+    def test_raises_on_missing_file(self, tmp_path):
+        with pytest.raises(FileNotFoundError):
+            load_watchlist("2026-04-09", temp_dir=tmp_path)
+
+
+class TestLoadKospiForecast:
+
+    def test_parses_low_base_high(self, tmp_path):
+        p = tmp_path / "weekly-report-2026-04-09.md"
+        p.write_text(REPORT_FIXTURE, encoding="utf-8")
+        forecast = load_kospi_forecast("2026-04-09", reports_dir=tmp_path)
+        assert forecast["low"] == "5,500"
+        assert "5,800" in forecast["base"]
+        assert "6,200" in forecast["high"]
+
+    def test_returns_na_on_parse_failure(self, tmp_path):
+        p = tmp_path / "weekly-report-2026-04-09.md"
+        p.write_text("no forecast section here", encoding="utf-8")
+        forecast = load_kospi_forecast("2026-04-09", reports_dir=tmp_path)
+        assert forecast["low"] == "N/A"
+        assert forecast["base"] == "N/A"
+        assert forecast["high"] == "N/A"
+
+    def test_returns_na_on_missing_file(self, tmp_path):
+        forecast = load_kospi_forecast("2026-04-09", reports_dir=tmp_path)
+        assert forecast["low"] == "N/A"
