@@ -25,7 +25,7 @@ from investscan.naver_finance import fetch_stocks, fetch_kospi_index
 _PROJECT_ROOT = Path(__file__).parent.parent
 TEMP_DIR      = _PROJECT_ROOT / "output" / "temp"
 REPORTS_DIR   = _PROJECT_ROOT / "output" / "reports"
-OUTPUT_DIR    = Path.home() / "Desktop" / "Ai_works" / "output" / "투자분析제안"
+OUTPUT_DIR    = Path.home() / "Desktop" / "Ai_works" / "output" / "투자분\uC11D제안"  # 한글 석(U+C11D)
 
 # ── sector display name mapping (English key → Korean) ─────────────────────────
 
@@ -1063,8 +1063,8 @@ body::before{{content:'';position:fixed;inset:0;background-image:url("data:image
         <span class="modal-price" id="md-price">—</span>
         <span class="modal-price-change" id="md-change">—</span>
       </div>
-      <!-- Financial metrics -->
-      <div class="modal-section">
+      <!-- Financial metrics (replaced by JS if all N/A) -->
+      <div class="modal-section" id="md-metrics-section">
         <div class="modal-section-label">재무 지표</div>
         <div class="metrics-grid">
           <div class="metric-cell"><span class="metric-label">PER</span><span class="metric-value" id="md-per">—</span></div>
@@ -1075,8 +1075,8 @@ body::before{{content:'';position:fixed;inset:0;background-image:url("data:image
           <div class="metric-cell"><span class="metric-label">외국인</span><span class="metric-value" id="md-foreign">—</span></div>
         </div>
       </div>
-      <!-- Target prices -->
-      <div class="modal-section">
+      <!-- Target prices (replaced by JS if all N/A) -->
+      <div class="modal-section" id="md-target-section">
         <div class="modal-section-label">목표주가 (5인 에이전트 합의)</div>
         <div class="target-rows">
           <div class="target-row">
@@ -1173,23 +1173,47 @@ function showStockModal(ticker) {{
   $('md-change').textContent = d.change_pct !== 'N/A' ? d.change_pct : '—';
   $('md-change').style.color = priceColor;
 
-  $('md-per').textContent    = d.per;
-  $('md-pbr').textContent    = d.pbr;
-  $('md-roe').textContent    = d.roe;
-  $('md-eps').textContent    = d.eps;
-  $('md-mktcap').textContent = d.market_cap;
-  $('md-foreign').textContent= d.foreign_ratio;
+  // Financial metrics — show N/A if missing, hide whole section if all N/A
+  const metricsNA = [d.per, d.pbr, d.roe, d.eps, d.market_cap, d.foreign_ratio].every(v => !v || v === 'N/A');
+  const metricsSection = $('md-metrics-section');
+  if (metricsNA) {{
+    metricsSection.innerHTML = '<div class="modal-section-label">재무 지표</div>'
+      + '<p style="color:var(--text-dim);font-size:12px;padding:8px 0">실시간 데이터 미포함 — 파이프라인 실행 시 자동 수집</p>';
+  }} else {{
+    metricsSection.innerHTML = `<div class="modal-section-label">재무 지표</div>
+      <div class="metrics-grid">
+        <div class="metric-cell"><span class="metric-label">PER</span><span class="metric-value">${{d.per}}</span></div>
+        <div class="metric-cell"><span class="metric-label">PBR</span><span class="metric-value">${{d.pbr}}</span></div>
+        <div class="metric-cell"><span class="metric-label">ROE</span><span class="metric-value">${{d.roe}}</span></div>
+        <div class="metric-cell"><span class="metric-label">EPS</span><span class="metric-value">${{d.eps}}</span></div>
+        <div class="metric-cell"><span class="metric-label">시가총액</span><span class="metric-value">${{d.market_cap}}</span></div>
+        <div class="metric-cell"><span class="metric-label">외국인</span><span class="metric-value">${{d.foreign_ratio}}</span></div>
+      </div>`;
+  }}
 
-  $('md-bull-price').textContent = d.target_bull_price;
-  $('md-bull-up').textContent    = d.target_bull_upside;
-  $('md-base-price').textContent = d.target_base_price;
-  $('md-base-up').textContent    = d.target_base_upside;
-  $('md-bear-price').textContent = d.target_bear_price;
-  $('md-bear-up').textContent    = d.target_bear_upside;
+  // Target prices — hide section if all N/A (e.g. overview-level telecom stocks)
+  const allTargetNA = [d.target_bull_price, d.target_base_price, d.target_bear_price].every(v => !v || v === 'N/A');
+  const targetSection = $('md-target-section');
+  if (allTargetNA) {{
+    targetSection.innerHTML = '<div class="modal-section-label">목표주가</div>'
+      + '<p style="color:var(--text-dim);font-size:12px;padding:8px 0">개요 수준 분석 — 에이전트 12종목 감시 우주에 포함되지 않아 심층 밸류에이션 미설정</p>';
+  }} else {{
+    $('md-bull-price').textContent = d.target_bull_price;
+    $('md-bull-up').textContent    = d.target_bull_upside;
+    $('md-base-price').textContent = d.target_base_price;
+    $('md-base-up').textContent    = d.target_base_upside;
+    $('md-bear-price').textContent = d.target_bear_price;
+    $('md-bear-up').textContent    = d.target_bear_upside;
+  }}
 
-  $('md-dca-agg').textContent   = d.dca_aggressive;
-  $('md-dca-ideal').textContent = d.dca_ideal;
-  $('md-dca-cons').textContent  = d.dca_conservative;
+  // DCA — hide if all N/A
+  const allDcaNA = [d.dca_aggressive, d.dca_ideal, d.dca_conservative].every(v => !v || v === 'N/A');
+  $('md-dca-section').style.display = allDcaNA ? 'none' : '';
+  if (!allDcaNA) {{
+    $('md-dca-agg').textContent   = d.dca_aggressive;
+    $('md-dca-ideal').textContent = d.dca_ideal;
+    $('md-dca-cons').textContent  = d.dca_conservative;
+  }}
 
   const ul = $('md-rationale');
   ul.innerHTML = '';

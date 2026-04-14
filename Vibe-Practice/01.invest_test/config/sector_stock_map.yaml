@@ -1,0 +1,422 @@
+# sector_stock_map.yaml
+# Maps STEEPs categories and macro sectors to Korean stock universe
+# All keys in English (P5-A). Orchestrator writes; SubAgents read-only.
+# v3: 20 Korea-specific sectors — AI/tech stack, energy infra, industrial clusters
+#
+# Sector Design Principles:
+#   - Each sector = distinct investment thesis (different FRED triggers or signal types)
+#   - Korea market focus: semiconductors, 2차전지, 조선, 방산, K-콘텐츠 as first-class sectors
+#   - GICS removed: 'industrials' and 'materials' replaced by granular sub-sectors
+#
+# Sector Index (20):
+#   AI/Tech Stack:    semiconductor, semiconductor_equipment, ai_platform, technology,
+#                     optical_network, cybersecurity
+#   Energy/Infra:     power_infrastructure, nuclear, energy
+#   Korean Industrial: battery_ev, automotive, shipbuilding, defense, steel_materials, chemicals
+#   Finance/Services: financials, biotech, telecom, entertainment, consumer
+
+sectors:
+
+  # ── AI / Tech Stack ────────────────────────────────────────────────────────
+
+  semiconductor:
+    description: "HBM/DRAM/NAND 메모리 — 한국 최대 수출 섹터"
+    steeps_tags: ["T"]
+    fred_proxy: "DFF + VIX (AI 수요 대리지표)"
+    sample_stocks:
+      - code: "000660"
+        name: "SK Hynix"
+        category_hint: "A"
+      - code: "005930"
+        name: "Samsung Electronics"
+        category_hint: "A"
+      - code: "000990"
+        name: "DB HiTek"
+        category_hint: "B"
+
+  semiconductor_equipment:
+    description: "반도체 장비·소재·부품 — HBM 패키징 및 전공정 장비"
+    steeps_tags: ["T"]
+    fred_proxy: "semiconductor 사이클 후행 (DFF + VIX)"
+    sample_stocks:
+      - code: "042700"
+        name: "Hanmi Semiconductor"
+        category_hint: "A"
+      - code: "240810"
+        name: "Wonik IPS"
+        category_hint: "B"
+      - code: "039030"
+        name: "Iotoechnics"
+        category_hint: "B"
+      - code: "403870"
+        name: "HPSP"
+        category_hint: "B"
+      - code: "009150"
+        name: "Samsung Electro-Mechanics"
+        category_hint: "A"
+
+  ai_platform:
+    description: "AI 서비스·플랫폼·클라우드 — 국내 AI 애플리케이션 레이어"
+    steeps_tags: ["T", "s"]
+    fred_proxy: "DFF + VIX (성장주 성격)"
+    sample_stocks:
+      - code: "035420"
+        name: "NAVER"
+        category_hint: "A"
+      - code: "035720"
+        name: "Kakao"
+        category_hint: "B"
+      - code: "259960"
+        name: "Krafton"
+        category_hint: "B"
+      - code: "047560"
+        name: "Krafton (AI gaming)"
+        category_hint: "B"
+
+  technology:
+    description: "IT 하드웨어·가전·디스플레이 — 비AI 일반 기술주"
+    steeps_tags: ["T", "s"]
+    fred_proxy: "DFF + VIX (성장주)"
+    sample_stocks:
+      - code: "066570"
+        name: "LG Electronics"
+        category_hint: "A"
+      - code: "034220"
+        name: "LG Display"
+        category_hint: "B"
+      - code: "000270"
+        name: "Kia Motors (EV tech)"
+        category_hint: "A"
+      - code: "096770"
+        name: "SK Innovation"
+        category_hint: "A"
+
+  optical_network:
+    description: "광통신·AI 데이터센터 네트워크 장비 — AI 인프라 연결망"
+    steeps_tags: ["T"]
+    fred_proxy: "signal-count dominant (FRED 비적합 — AI capex 직접 연동)"
+    sample_stocks:
+      - code: "050890"
+        name: "Solid (쏠리드)"
+        category_hint: "B"
+      - code: "138080"
+        name: "Oi Solution (오이솔루션)"
+        category_hint: "B"
+      - code: "032500"
+        name: "KMW (케이엠더블유)"
+        category_hint: "B"
+      - code: "078070"
+        name: "Ubiquoss (유비쿼스)"
+        category_hint: "B"
+      - code: "093640"
+        name: "Waveoptics"
+        category_hint: "B"
+
+  cybersecurity:
+    description: "사이버보안·정보보안 — 지정학 리스크 상승 시 방어적 수혜"
+    steeps_tags: ["P", "s"]
+    fred_proxy: "VIX (지정학 리스크 대리지표)"
+    sample_stocks:
+      - code: "053800"
+        name: "AhnLab (안랩)"
+        category_hint: "A"
+      - code: "150900"
+        name: "Fasoo (파수)"
+        category_hint: "B"
+      - code: "067920"
+        name: "Igloo Security (이글루)"
+        category_hint: "B"
+      - code: "115310"
+        name: "Genians (지니언스)"
+        category_hint: "B"
+
+  # ── Energy / Infrastructure ────────────────────────────────────────────────
+
+  power_infrastructure:
+    description: "전력기기·변압기·HVDC·전력망 — AI 데이터센터 전력 수요 폭증 수혜"
+    steeps_tags: ["T", "E_env"]
+    fred_proxy: "DFF + CPI (capex 집약적, 저금리+인플레 수혜)"
+    sample_stocks:
+      - code: "267260"
+        name: "HD Hyundai Electric"
+        category_hint: "A"
+      - code: "298040"
+        name: "Hyosung Heavy Industries"
+        category_hint: "A"
+      - code: "010120"
+        name: "LS Electric"
+        category_hint: "A"
+      - code: "103590"
+        name: "Iljin Electric (일진전기)"
+        category_hint: "B"
+      - code: "011690"
+        name: "Woosung Heavy Industries"
+        category_hint: "B"
+
+  nuclear:
+    description: "원전·SMR·원전 기자재 — 에너지 전환 + AI 전력 수요 장기 수혜"
+    steeps_tags: ["T", "E_env"]
+    fred_proxy: "CPI (에너지 인플레 대리지표)"
+    sample_stocks:
+      - code: "034020"
+        name: "Doosan Enerbility (두산에너빌리티)"
+        category_hint: "A"
+      - code: "051600"
+        name: "KEPCO KPS (한전KPS)"
+        category_hint: "A"
+      - code: "130500"
+        name: "KEPCO Engineering (한전기술)"
+        category_hint: "B"
+      - code: "048260"
+        name: "Hanil Nuclear (한일원자력)"
+        category_hint: "B"
+      - code: "015760"
+        name: "KEPCO (한국전력)"
+        category_hint: "A"
+
+  energy:
+    description: "정유·가스·신재생에너지 — 유가·원자재 가격 직접 연동"
+    steeps_tags: ["E_env", "E"]
+    fred_proxy: "CPI + DXY (원자재 가격 대리)"
+    sample_stocks:
+      - code: "010950"
+        name: "S-Oil"
+        category_hint: "A"
+      - code: "036460"
+        name: "Korea Gas (한국가스공사)"
+        category_hint: "A"
+      - code: "096770"
+        name: "SK Innovation"
+        category_hint: "A"
+      - code: "078930"
+        name: "GS Holdings"
+        category_hint: "A"
+
+  # ── Korean Industrial Cluster ──────────────────────────────────────────────
+
+  battery_ev:
+    description: "2차전지·EV 배터리·양극재 — 반도체와 함께 한국 핵심 수출 테마"
+    steeps_tags: ["T", "E_env"]
+    fred_proxy: "DFF + VIX + CPI (저금리+안정된 원자재 비용 수혜)"
+    sample_stocks:
+      - code: "373220"
+        name: "LG Energy Solution"
+        category_hint: "A"
+      - code: "006400"
+        name: "Samsung SDI"
+        category_hint: "A"
+      - code: "247540"
+        name: "Ecopro BM (에코프로비엠)"
+        category_hint: "B"
+      - code: "086520"
+        name: "Ecopro (에코프로)"
+        category_hint: "B"
+      - code: "011790"
+        name: "SKC"
+        category_hint: "B"
+
+  automotive:
+    description: "완성차·자동차 부품 — 관세·환율·유가 3중 변수"
+    steeps_tags: ["E", "P"]
+    fred_proxy: "DFF + DXY (오토론 금리 + 수출 환율)"
+    sample_stocks:
+      - code: "005380"
+        name: "Hyundai Motor"
+        category_hint: "A"
+      - code: "000270"
+        name: "Kia Motors"
+        category_hint: "A"
+      - code: "012330"
+        name: "Hyundai Mobis"
+        category_hint: "A"
+      - code: "161390"
+        name: "Hankook Tire"
+        category_hint: "B"
+      - code: "204320"
+        name: "Mando"
+        category_hint: "B"
+
+  shipbuilding:
+    description: "조선·해양플랜트 — 세계 1위 경쟁력, 방산 수주 + LNG선 호황"
+    steeps_tags: ["E", "P"]
+    fred_proxy: "DXY + OAS (수출 경쟁력 + 신용 스프레드)"
+    sample_stocks:
+      - code: "009540"
+        name: "HD Korea Shipbuilding (HD한국조선해양)"
+        category_hint: "A"
+      - code: "042660"
+        name: "Hanwha Ocean (한화오션)"
+        category_hint: "A"
+      - code: "010140"
+        name: "Samsung Heavy Industries"
+        category_hint: "B"
+      - code: "329180"
+        name: "HD Hyundai Heavy Industries"
+        category_hint: "B"
+
+  defense:
+    description: "방산·항공우주·무기체계 — 지정학 리스크 + K-방산 수출 테마"
+    steeps_tags: ["P"]
+    fred_proxy: "VIX (지정학 리스크 대리)"
+    sample_stocks:
+      - code: "012450"
+        name: "Hanwha Aerospace (한화에어로스페이스)"
+        category_hint: "A"
+      - code: "064350"
+        name: "Hyundai Rotem"
+        category_hint: "B"
+      - code: "079550"
+        name: "LIG Nex1 (LIG넥스원)"
+        category_hint: "B"
+      - code: "272210"
+        name: "Hanwha Systems (한화시스템)"
+        category_hint: "B"
+      - code: "047810"
+        name: "Korea Aerospace Industries (KAI)"
+        category_hint: "B"
+
+  steel_materials:
+    description: "철강·비철금속 — 글로벌 경기+원자재 가격 연동"
+    steeps_tags: ["E_env", "E"]
+    fred_proxy: "CPI + DXY (원자재 가격)"
+    sample_stocks:
+      - code: "005490"
+        name: "POSCO Holdings"
+        category_hint: "A"
+      - code: "010130"
+        name: "Korea Zinc (고려아연)"
+        category_hint: "A"
+      - code: "004020"
+        name: "Hyundai Steel (현대제철)"
+        category_hint: "A"
+      - code: "047050"
+        name: "Posco International"
+        category_hint: "B"
+
+  chemicals:
+    description: "석유화학·정밀화학·반도체 소재 — 원가 스프레드 + 수출 가격"
+    steeps_tags: ["E_env", "E"]
+    fred_proxy: "CPI + DXY (원자재 원가)"
+    sample_stocks:
+      - code: "051910"
+        name: "LG Chem"
+        category_hint: "A"
+      - code: "011170"
+        name: "Lotte Chemical (롯데케미칼)"
+        category_hint: "B"
+      - code: "011780"
+        name: "Kumho Petro (금호석유)"
+        category_hint: "B"
+      - code: "036830"
+        name: "Soulbrain (솔브레인)"
+        category_hint: "B"
+
+  # ── Finance / Services ─────────────────────────────────────────────────────
+
+  financials:
+    description: "은행·보험·증권 — 금리·신용 스프레드 직접 연동"
+    steeps_tags: ["E"]
+    fred_proxy: "DFF + OAS (금리 + 스프레드)"
+    sample_stocks:
+      - code: "105560"
+        name: "KB Financial Group"
+        category_hint: "A"
+      - code: "055550"
+        name: "Shinhan Financial Group"
+        category_hint: "A"
+      - code: "086790"
+        name: "Hana Financial Group"
+        category_hint: "A"
+      - code: "316140"
+        name: "Woori Financial Group"
+        category_hint: "A"
+      - code: "032830"
+        name: "Samsung Life Insurance"
+        category_hint: "A"
+
+  biotech:
+    description: "바이오신약·CMO·의료기기 — 금리 인하 수혜 + K-바이오 수출 테마"
+    steeps_tags: ["S", "T"]
+    fred_proxy: "DFF + VIX (성장/방어 하이브리드)"
+    sample_stocks:
+      - code: "207940"
+        name: "Samsung Biologics"
+        category_hint: "A"
+      - code: "068270"
+        name: "Celltrion"
+        category_hint: "A"
+      - code: "000100"
+        name: "Yuhan Pharma (유한양행)"
+        category_hint: "A"
+      - code: "128940"
+        name: "HanAll Biopharma"
+        category_hint: "B"
+      - code: "326030"
+        name: "SK Biopharmaceuticals"
+        category_hint: "B"
+
+  telecom:
+    description: "통신·5G·AI-ICT 전환 — 배당 방어주 + AICT 성장"
+    steeps_tags: ["T", "E"]
+    fred_proxy: "DFF + VIX (고금리/고변동성 → 배당 매력)"
+    sample_stocks:
+      - code: "017670"
+        name: "SK Telecom (SK텔레콤)"
+        category_hint: "A"
+      - code: "030200"
+        name: "KT"
+        category_hint: "A"
+      - code: "032640"
+        name: "LG Uplus (LG유플러스)"
+        category_hint: "A"
+
+  entertainment:
+    description: "K-콘텐츠·엔터·게임 — 한류 수출 + 플랫폼 성장 테마"
+    steeps_tags: ["S", "T"]
+    fred_proxy: "VIX + DFF (소비심리 + 금리)"
+    sample_stocks:
+      - code: "352820"
+        name: "HYBE"
+        category_hint: "A"
+      - code: "041510"
+        name: "SM Entertainment"
+        category_hint: "B"
+      - code: "035900"
+        name: "JYP Entertainment"
+        category_hint: "B"
+      - code: "036570"
+        name: "NCSoft (엔씨소프트)"
+        category_hint: "B"
+      - code: "293490"
+        name: "Kakao Games"
+        category_hint: "B"
+
+  consumer:
+    description: "내수소비·유통·식품 — 한국 내수 경기 바로미터"
+    steeps_tags: ["S", "E"]
+    fred_proxy: "DFF + VIX (가계 부채 부담 + 소비심리)"
+    sample_stocks:
+      - code: "282330"
+        name: "BGF Retail"
+        category_hint: "A"
+      - code: "097950"
+        name: "CJ CheilJedang"
+        category_hint: "A"
+      - code: "139480"
+        name: "E-Mart (이마트)"
+        category_hint: "A"
+      - code: "023530"
+        name: "Lotte Shopping"
+        category_hint: "B"
+      - code: "004370"
+        name: "Nongshim (농심)"
+        category_hint: "B"
+
+# Category thresholds (P6: Python-First — numeric only, no LLM judgment)
+# Used by stock_selector.classify_category() and agent_consensus.py
+category_thresholds:
+  bullish_threshold: 0.01        # +1% (v3.6 I-4: relaxed from +2%)
+  neutral_band: 0.03             # ±3%
+  min_weeks_tracked: 4           # v3.6 I-7: Category B zero-guard
+  min_abs_count: 1               # absolute safety net
+  category_b_min_theme_weeks: 4  # minimum weeks theme must be trackable
