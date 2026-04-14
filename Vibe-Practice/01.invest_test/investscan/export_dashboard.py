@@ -202,3 +202,237 @@ def assemble_dashboard_data(
         agent_weights=wl["agent_weights"],
         sector_directions=wl["base_sector_directions"],
     )
+
+
+# ── HTML rendering helpers ─────────────────────────────────────────────────────
+
+def _direction_arrow(direction: str) -> str:
+    return {"up": "▲", "down": "▼", "flat": "–"}.get(direction, "–")
+
+
+def _direction_color(direction: str) -> str:
+    return {"up": "var(--green)", "down": "var(--red)", "flat": "var(--text-dim)"}.get(
+        direction, "var(--text-dim)"
+    )
+
+
+def _sector_badge(direction: str) -> str:
+    colors = {"bullish": "#22c55e", "bearish": "#ef4444", "neutral": "#64748b"}
+    labels = {"bullish": "BULL", "bearish": "BEAR", "neutral": "—"}
+    color = colors.get(direction, "#64748b")
+    label = labels.get(direction, direction.upper()[:4])
+    return f'<span style="color:{color};font-weight:600;font-size:11px">{label}</span>'
+
+
+def _stock_cards_html(cards: list) -> str:
+    if not cards:
+        return '<p style="color:var(--text-dim);padding:16px">해당 없음</p>'
+    rows = []
+    for c in cards:
+        arrow = _direction_arrow(c["direction"])
+        color = _direction_color(c["direction"])
+        rows.append(f"""
+        <div class="stock-card">
+          <div class="sc-header">
+            <span class="sc-name">{c['name']}</span>
+            <span class="sc-ticker">{c['ticker']}</span>
+          </div>
+          <div class="sc-price" style="color:{color}">
+            {c['current']} <span class="sc-arrow">{arrow}</span>
+            <span class="sc-pct">{c['change_pct']}</span>
+          </div>
+          <div class="sc-meta">
+            섹터 {c['sector']} &nbsp;|&nbsp; 신뢰도 {c['confidence']}
+            &nbsp;|&nbsp; 목표가 <span style="color:var(--text-dim)">{c['target']}</span>
+          </div>
+        </div>""")
+    return "\n".join(rows)
+
+
+def _weights_js(weights: dict) -> str:
+    labels = [f"'{k}'" for k in weights]
+    values = list(weights.values())
+    colors = ["'#f5c518'", "'#60a5fa'", "'#22c55e'", "'#f59e0b'", "'#ef4444'"]
+    return (f"labels:[{','.join(labels)}],"
+            f"data:[{','.join(str(v) for v in values)}],"
+            f"backgroundColor:[{','.join(colors[:len(values)])}]")
+
+
+def _sector_grid_html(directions: dict) -> str:
+    cells = []
+    for sector, direction in sorted(directions.items()):
+        badge = _sector_badge(direction)
+        cells.append(
+            f'<div class="sector-cell"><span class="sector-name">{sector}</span>'
+            f'<span class="sector-dir">{badge}</span></div>'
+        )
+    return "\n".join(cells)
+
+
+def render_html(data: DashboardData) -> str:
+    """Render DashboardData into a self-contained HTML string."""
+    cat_a_html  = _stock_cards_html(data["cat_a"])
+    cat_b_html  = _stock_cards_html(data["cat_b"])
+    p6_html     = _stock_cards_html(data["p6_not_passed"])
+    sector_html = _sector_grid_html(data["sector_directions"])
+    weights_js  = _weights_js(data["agent_weights"])
+    forecast    = data["kospi_forecast"]
+    kospi_arrow = _direction_arrow(data["kospi_direction"])
+    kospi_color = _direction_color(data["kospi_direction"])
+
+    # Extract numeric values for Chart.js (strip commas, take upper bound of range)
+    def _chart_val(s: str) -> str:
+        if s == "N/A":
+            return "0"
+        upper = s.split("~")[-1].strip()
+        return upper.replace(",", "")
+
+    return f"""<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>InvestScan 대시보드 — {data['date']}</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Mono:ital,wght@0,300;0,400;0,500;1,400&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+<style>
+:root {{
+  --bg:#06090f;--bg-2:#0c1220;--bg-3:#111827;
+  --border:rgba(255,255,255,0.07);--border-hi:rgba(245,197,24,0.35);
+  --gold:#f5c518;--gold-dim:#b38e10;
+  --green:#22c55e;--red:#ef4444;--amber:#f59e0b;--blue:#60a5fa;
+  --text:#e2e8f0;--text-dim:#64748b;--text-mid:#94a3b8;
+  --mono:'DM Mono',monospace;--display:'Bebas Neue',sans-serif;--body:'Outfit',sans-serif;
+}}
+*,*::before,*::after{{box-sizing:border-box;margin:0;padding:0}}
+body{{background:var(--bg);color:var(--text);font-family:var(--body);font-size:14px;line-height:1.6;min-height:100vh}}
+body::before{{content:'';position:fixed;inset:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");pointer-events:none;z-index:0;opacity:0.6}}
+.wrap{{position:relative;z-index:1;max-width:1200px;margin:0 auto;padding:0 32px 80px}}
+.ticker{{background:var(--gold);color:#000;font-family:var(--mono);font-size:11px;font-weight:500;letter-spacing:.05em;padding:5px 0;overflow:hidden;white-space:nowrap;position:sticky;top:0;z-index:100}}
+.ticker-inner{{display:inline-block;animation:ticker-scroll 24s linear infinite}}
+.ticker-inner span{{margin:0 40px}}
+@keyframes ticker-scroll{{from{{transform:translateX(0)}}to{{transform:translateX(-50%)}}}}
+.header{{padding:48px 0 32px;border-bottom:1px solid var(--border)}}
+.header h1{{font-family:var(--display);font-size:48px;letter-spacing:.05em;color:var(--gold);line-height:1}}
+.header .sub{{color:var(--text-mid);font-size:13px;margin-top:8px;font-family:var(--mono)}}
+.grid-2{{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:32px}}
+.card{{background:var(--bg-2);border:1px solid var(--border);border-radius:12px;padding:24px}}
+.card-title{{font-family:var(--mono);font-size:11px;letter-spacing:.1em;color:var(--gold);text-transform:uppercase;margin-bottom:16px}}
+.tab-bar{{display:flex;gap:4px;margin-bottom:16px}}
+.tab{{padding:6px 14px;border-radius:6px;font-size:12px;cursor:pointer;border:1px solid var(--border);background:transparent;color:var(--text-dim);font-family:var(--mono)}}
+.tab.active{{background:var(--gold);color:#000;border-color:var(--gold);font-weight:600}}
+.tab-content{{display:none}}.tab-content.active{{display:block}}
+.stock-card{{background:var(--bg-3);border:1px solid var(--border);border-radius:8px;padding:14px;margin-bottom:10px}}
+.sc-header{{display:flex;justify-content:space-between;margin-bottom:6px}}
+.sc-name{{font-weight:600;font-size:14px}}
+.sc-ticker{{font-family:var(--mono);font-size:11px;color:var(--text-dim)}}
+.sc-price{{font-size:20px;font-weight:600;font-family:var(--mono);margin-bottom:4px}}
+.sc-pct{{font-size:13px;margin-left:8px}}
+.sc-meta{{font-size:11px;color:var(--text-dim)}}
+.sector-grid{{display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:8px}}
+.sector-cell{{background:var(--bg-3);border:1px solid var(--border);border-radius:6px;padding:10px 14px;display:flex;justify-content:space-between;align-items:center}}
+.sector-name{{font-size:12px;color:var(--text-mid);text-transform:capitalize}}
+.forecast-row{{display:flex;justify-content:space-between;align-items:center;padding:10px 0;border-bottom:1px solid var(--border)}}
+.forecast-row:last-child{{border-bottom:none}}
+.forecast-label{{font-family:var(--mono);font-size:11px;color:var(--text-dim)}}
+.forecast-val{{font-family:var(--mono);font-size:14px;font-weight:600}}
+</style>
+</head>
+<body>
+<div class="ticker">
+  <div class="ticker-inner">
+    <span>KOSPI <strong>{data['kospi_current']}</strong> {kospi_arrow} {data['kospi_change_pct']}</span>
+    <span>InvestScan {data['pipeline_version']}</span>
+    <span>기준일 {data['date']}</span>
+    <span>KOSPI <strong>{data['kospi_current']}</strong> {kospi_arrow} {data['kospi_change_pct']}</span>
+    <span>InvestScan {data['pipeline_version']}</span>
+    <span>기준일 {data['date']}</span>
+  </div>
+</div>
+<div class="wrap">
+  <div class="header">
+    <h1>INVESTSCAN</h1>
+    <div class="sub">주간 투자 분析 대시보드 &nbsp;|&nbsp; {data['date']} &nbsp;|&nbsp; {data['pipeline_version']}</div>
+  </div>
+  <div class="grid-2">
+    <div class="card">
+      <div class="card-title">P6 포트폴리오</div>
+      <div class="tab-bar">
+        <button class="tab active" onclick="showTab(event,'tab-a')">Cat A ({len(data['cat_a'])})</button>
+        <button class="tab" onclick="showTab(event,'tab-b')">Cat B ({len(data['cat_b'])})</button>
+        <button class="tab" onclick="showTab(event,'tab-p6')">P6미통과 ({len(data['p6_not_passed'])})</button>
+      </div>
+      <div id="tab-a" class="tab-content active">{cat_a_html}</div>
+      <div id="tab-b" class="tab-content">{cat_b_html}</div>
+      <div id="tab-p6" class="tab-content">{p6_html}</div>
+    </div>
+    <div class="card">
+      <div class="card-title">KOSPI 4주 전망</div>
+      <div style="font-family:var(--mono);font-size:32px;font-weight:600;color:{kospi_color};margin-bottom:24px">
+        {data['kospi_current']} <span style="font-size:16px">{kospi_arrow} {data['kospi_change_pct']}</span>
+      </div>
+      <div class="forecast-row">
+        <span class="forecast-label">HIGH</span>
+        <span class="forecast-val" style="color:var(--green)">{forecast['high']}</span>
+      </div>
+      <div class="forecast-row">
+        <span class="forecast-label">BASE</span>
+        <span class="forecast-val" style="color:var(--gold)">{forecast['base']}</span>
+      </div>
+      <div class="forecast-row">
+        <span class="forecast-label">LOW</span>
+        <span class="forecast-val" style="color:var(--red)">{forecast['low']}</span>
+      </div>
+      <canvas id="kospiChart" style="margin-top:24px;max-height:120px"></canvas>
+    </div>
+  </div>
+  <div class="grid-2" style="margin-top:24px">
+    <div class="card">
+      <div class="card-title">에이전트 가중치</div>
+      <canvas id="weightsChart" style="max-height:220px"></canvas>
+    </div>
+    <div class="card">
+      <div class="card-title">섹터 방향</div>
+      <div class="sector-grid">{sector_html}</div>
+    </div>
+  </div>
+</div>
+<script>
+function showTab(e, id) {{
+  document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+  document.querySelectorAll('.tab-content').forEach(t => t.classList.remove('active'));
+  e.target.classList.add('active');
+  document.getElementById(id).classList.add('active');
+}}
+new Chart(document.getElementById('weightsChart'), {{
+  type: 'doughnut',
+  data: {{ {weights_js} }},
+  options: {{
+    responsive: true,
+    plugins: {{ legend: {{ labels: {{ color: '#e2e8f0', font: {{ family: 'Outfit' }} }} }} }}
+  }}
+}});
+new Chart(document.getElementById('kospiChart'), {{
+  type: 'bar',
+  data: {{
+    labels: ['LOW', 'BASE', 'HIGH'],
+    datasets: [{{
+      data: [{_chart_val(forecast['low'])}, {_chart_val(forecast['base'])}, {_chart_val(forecast['high'])}],
+      backgroundColor: ['#ef4444aa', '#f5c518aa', '#22c55eaa'],
+      borderRadius: 4
+    }}]
+  }},
+  options: {{
+    indexAxis: 'y',
+    responsive: true,
+    plugins: {{ legend: {{ display: false }} }},
+    scales: {{
+      x: {{ ticks: {{ color: '#94a3b8' }}, grid: {{ color: 'rgba(255,255,255,0.05)' }} }},
+      y: {{ ticks: {{ color: '#94a3b8' }}, grid: {{ display: false }} }}
+    }}
+  }}
+}});
+</script>
+</body>
+</html>"""

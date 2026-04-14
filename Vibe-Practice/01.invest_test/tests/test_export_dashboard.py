@@ -63,7 +63,7 @@ class TestFetchKospiIndex:
         assert result["direction"] == "flat"
 
 
-from investscan.export_dashboard import load_watchlist, load_kospi_forecast, assemble_dashboard_data
+from investscan.export_dashboard import load_watchlist, load_kospi_forecast, assemble_dashboard_data, render_html, DashboardData
 
 # ── Fixtures ──────────────────────────────────────────────────────────────────
 
@@ -244,3 +244,77 @@ class TestAssembleDashboardData:
         # Should not raise — graceful degradation
         assert data["cat_a"][0]["current"] == "N/A"
         assert data["kospi_current"] == "N/A"
+
+
+SAMPLE_DATA: DashboardData = {
+    "date": "2026-04-09",
+    "pipeline_version": "v4.0.0",
+    "kospi_current": "5,801.71",
+    "kospi_change_pct": "1.20%",
+    "kospi_direction": "down",
+    "kospi_forecast": {"low": "5,500", "base": "5,800~5,900", "high": "6,200~6,350"},
+    "cat_a": [
+        {"ticker": "017670", "name": "SK텔레콤", "current": "60,000",
+         "change_pct": "+1.50%", "direction": "up",
+         "sector": "통신", "confidence": "0.74", "target": "N/A"},
+    ],
+    "cat_b": [
+        {"ticker": "012450", "name": "한화에어로스페이스", "current": "550,000",
+         "change_pct": "-2.43%", "direction": "down",
+         "sector": "방산", "confidence": "0.63", "target": "N/A"},
+    ],
+    "p6_not_passed": [
+        {"ticker": "009540", "name": "009540", "current": "N/A",
+         "change_pct": "N/A", "direction": "unknown",
+         "sector": "조선", "confidence": "N/A", "target": "N/A"},
+    ],
+    "agent_weights": {"tech": 0.35, "korea": 0.25,
+                      "valuation": 0.2, "macro": 0.15, "risk": 0.05},
+    "sector_directions": {"telecom": "bullish", "energy": "bearish",
+                          "technology": "neutral"},
+}
+
+
+class TestRenderHtml:
+
+    def test_produces_valid_html_doctype(self):
+        html = render_html(SAMPLE_DATA)
+        assert html.strip().startswith("<!DOCTYPE html>")
+
+    def test_contains_stock_name(self):
+        html = render_html(SAMPLE_DATA)
+        assert "SK텔레콤" in html
+
+    def test_contains_kospi_current(self):
+        html = render_html(SAMPLE_DATA)
+        assert "5,801.71" in html
+
+    def test_contains_kospi_forecast_values(self):
+        html = render_html(SAMPLE_DATA)
+        assert "5,500" in html
+        assert "5,800" in html
+        assert "6,200" in html
+
+    def test_contains_chartjs(self):
+        html = render_html(SAMPLE_DATA)
+        assert "chart.js" in html.lower()
+
+    def test_contains_agent_weights(self):
+        html = render_html(SAMPLE_DATA)
+        assert "0.35" in html
+
+    def test_sector_direction_telecom_present(self):
+        html = render_html(SAMPLE_DATA)
+        assert "telecom" in html.lower()
+
+    def test_p6_not_passed_ticker_present(self):
+        html = render_html(SAMPLE_DATA)
+        assert "009540" in html
+
+    def test_date_in_header(self):
+        html = render_html(SAMPLE_DATA)
+        assert "2026-04-09" in html
+
+    def test_cat_b_stock_present(self):
+        html = render_html(SAMPLE_DATA)
+        assert "한화에어로스페이스" in html
