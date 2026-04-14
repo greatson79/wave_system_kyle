@@ -73,6 +73,8 @@ WATCHLIST_FIXTURE = {
                       "macro": 0.15, "risk": 0.05},
     "base_sector_directions": {"technology": "neutral", "telecom": "bullish",
                                 "energy": "bearish"},
+    "final_sector_confidence": {"telecom": 0.7445, "cybersecurity": 0.65,
+                                 "defense": 0.6255},
     "cat_a": ["017670", "053800"],
     "cat_b": ["012450"],
     "rationale": {"p6_not_passed": ["009540"]},
@@ -289,6 +291,12 @@ SAMPLE_DATA: DashboardData = {
                       "valuation": 0.2, "macro": 0.15, "risk": 0.05},
     "sector_directions": {"telecom": "bullish", "energy": "bearish",
                           "technology": "neutral"},
+    "risk_scenarios": [
+        {"name": "미-중 반도체 제재", "probability": 24},
+        {"name": "LIG 실적 디레이팅", "probability": 31},
+    ],
+    "overall_bias": "BULLISH",
+    "overall_confidence": "0.767",
 }
 
 
@@ -322,7 +330,8 @@ class TestRenderHtml:
 
     def test_sector_direction_telecom_present(self):
         html = render_html(SAMPLE_DATA)
-        assert "telecom" in html.lower()
+        # "telecom" key is now rendered as "통신" via _SECTOR_KO mapping
+        assert "통신" in html
 
     def test_p6_not_passed_ticker_present(self):
         html = render_html(SAMPLE_DATA)
