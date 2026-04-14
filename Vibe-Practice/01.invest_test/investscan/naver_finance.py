@@ -29,6 +29,7 @@ from bs4 import BeautifulSoup
 _BASE_URL   = "https://finance.naver.com/item/main.naver"
 _SISE_URL   = "https://finance.naver.com/item/sise.naver"
 _FOREIGN_URL = "https://finance.naver.com/item/frgn.naver"
+_KOSPI_URL  = "https://finance.naver.com/sise/sise_index.naver"
 
 _HEADERS = {
     "User-Agent": (
@@ -84,9 +85,6 @@ class KospiIndex(TypedDict):
     direction: str    # "up" | "down" | "flat"
 
 
-_KOSPI_URL = "https://finance.naver.com/sise/sise_index.naver"
-
-
 def fetch_kospi_index() -> KospiIndex | None:
     """Fetch current KOSPI index price and change from Naver Finance.
 
@@ -97,22 +95,23 @@ def fetch_kospi_index() -> KospiIndex | None:
         return None
     try:
         spans = soup.select(".num_e")
-        current = _clean(spans[0].get_text()) if len(spans) > 0 else "—"
-        change  = _clean(spans[1].get_text()) if len(spans) > 1 else "—"
-        pct     = _clean(spans[2].get_text()) if len(spans) > 2 else "—"
+        current = _clean(spans[0].get_text()) if len(spans) > 0 else "N/A"
+        change  = _clean(spans[1].get_text()) if len(spans) > 1 else "N/A"
+        pct     = _clean(spans[2].get_text()) if len(spans) > 2 else "N/A"
 
         em = soup.select_one(".point_flag em")
         direction = "flat"
         if em:
             cls = em.get("class", [])
-            if any("up" in c for c in cls):
+            if "no_up" in cls:
                 direction = "up"
-            elif any("down" in c for c in cls):
+            elif "no_down" in cls:
                 direction = "down"
 
         return KospiIndex(current=current, change=change,
                           change_pct=pct, direction=direction)
-    except Exception:
+    except Exception as e:
+        print(f"  ⚠  KOSPI 지수 파싱 실패: {e}")
         return None
 
 

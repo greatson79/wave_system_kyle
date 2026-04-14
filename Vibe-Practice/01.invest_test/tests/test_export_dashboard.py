@@ -44,3 +44,20 @@ class TestFetchKospiIndex:
         with patch("investscan.naver_finance._fetch", return_value=None):
             result = fetch_kospi_index()
         assert result is None
+
+    def test_returns_dashes_when_spans_empty(self):
+        soup = MagicMock()
+        soup.select.return_value = []
+        soup.select_one.return_value = None
+        with patch("investscan.naver_finance._fetch", return_value=soup):
+            result = fetch_kospi_index()
+        assert result is not None
+        assert result["current"] == "N/A"
+        assert result["direction"] == "flat"
+
+    def test_flat_direction_when_em_missing(self):
+        soup = self._make_soup("5,801.71", "70.63", "1.20%")
+        soup.select_one.return_value = None
+        with patch("investscan.naver_finance._fetch", return_value=soup):
+            result = fetch_kospi_index()
+        assert result["direction"] == "flat"
