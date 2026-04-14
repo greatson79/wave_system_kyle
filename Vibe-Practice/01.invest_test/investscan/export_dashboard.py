@@ -18,6 +18,8 @@ import re
 from pathlib import Path
 from typing import TypedDict
 
+from investscan.naver_finance import fetch_stocks, fetch_kospi_index
+
 # ── paths ──────────────────────────────────────────────────────────────────────
 
 _PROJECT_ROOT = Path(__file__).parent.parent
@@ -129,4 +131,74 @@ def load_kospi_forecast(
         low=_extract(low_m),
         base=_extract(base_m),
         high=_extract(high_m),
+    )
+
+
+# ── stock card builder ─────────────────────────────────────────────────────────
+
+def _make_stock_card(
+    ticker: str,
+    live_data: dict,
+    sector: str = "N/A",
+    confidence: str = "N/A",
+) -> StockCard:
+    """Build a StockCard from live price data dict (may be empty on failure)."""
+    info = live_data.get(ticker, {})
+    return StockCard(
+        ticker=ticker,
+        name=info.get("name", ticker),
+        current=info.get("current_price", "N/A"),
+        change_pct=info.get("change_pct", "N/A"),
+        direction=info.get("direction", "unknown"),
+        sector=sector,
+        confidence=confidence,
+        target="N/A",
+    )
+
+
+# ── data assembler ─────────────────────────────────────────────────────────────
+
+def assemble_dashboard_data(
+    date: str,
+    temp_dir: Path = TEMP_DIR,
+    reports_dir: Path = REPORTS_DIR,
+    live: bool = True,
+) -> DashboardData:
+    """Load all data sources and assemble DashboardData.
+
+    live=False skips all network calls (for testing / --no-live mode).
+    """
+    wl       = load_watchlist(date, temp_dir=temp_dir)
+    forecast = load_kospi_forecast(date, reports_dir=reports_dir)
+
+    live_tickers = wl["cat_a"] + wl["cat_b"]
+    live_data: dict = {}
+    kospi_index = None
+
+    if live and live_tickers:
+        try:
+            live_data = fetch_stocks(live_tickers)
+        except Exception as e:
+            print(f"  ⚠  주가 조회 실패: {e}")
+        try:
+            kospi_index = fetch_kospi_index()
+        except Exception as e:
+            print(f"  ⚠  KOSPI 지수 조회 실패: {e}")
+
+    cat_a_cards    = [_make_stock_card(t, live_data) for t in wl["cat_a"]]
+    cat_b_cards    = [_make_stock_card(t, live_data) for t in wl["cat_b"]]
+    p6_cards       = [_make_stock_card(t, {})        for t in wl["p6_not_passed"]]
+
+    return DashboardData(
+        date=date,
+        pipeline_version="v4.0.0",
+        kospi_current=kospi_index["current"]    if kospi_index else "N/A",
+        kospi_change_pct=kospi_index["change_pct"] if kospi_index else "N/A",
+        kospi_direction=kospi_index["direction"] if kospi_index else "unknown",
+        kospi_forecast=forecast,
+        cat_a=cat_a_cards,
+        cat_b=cat_b_cards,
+        p6_not_passed=p6_cards,
+        agent_weights=wl["agent_weights"],
+        sector_directions=wl["base_sector_directions"],
     )

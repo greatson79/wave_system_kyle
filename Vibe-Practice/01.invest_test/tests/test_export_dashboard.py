@@ -63,7 +63,7 @@ class TestFetchKospiIndex:
         assert result["direction"] == "flat"
 
 
-from investscan.export_dashboard import load_watchlist, load_kospi_forecast
+from investscan.export_dashboard import load_watchlist, load_kospi_forecast, assemble_dashboard_data
 
 # ── Fixtures ──────────────────────────────────────────────────────────────────
 
@@ -132,3 +132,115 @@ class TestLoadKospiForecast:
     def test_returns_na_on_missing_file(self, tmp_path):
         forecast = load_kospi_forecast("2026-04-09", reports_dir=tmp_path)
         assert forecast["low"] == "N/A"
+
+
+MOCK_STOCK_INFO = {
+    "017670": {
+        "ticker": "017670", "name": "SK텔레콤",
+        "current_price": "60,000", "change_pct": "+1.50%",
+        "direction": "up", "change": "900",
+        "prev_close": "", "open_price": "", "high": "", "low": "",
+        "volume": "", "market_cap": "", "per": "", "eps": "",
+        "foreign_ratio": "", "op_income_growth": "", "roe": "",
+        "pbr": "", "revenue_100m": "", "fetched_at": "2026-04-09T10:00:00",
+    },
+    "053800": {
+        "ticker": "053800", "name": "안랩",
+        "current_price": "85,000", "change_pct": "-0.50%",
+        "direction": "down", "change": "430",
+        "prev_close": "", "open_price": "", "high": "", "low": "",
+        "volume": "", "market_cap": "", "per": "", "eps": "",
+        "foreign_ratio": "", "op_income_growth": "", "roe": "",
+        "pbr": "", "revenue_100m": "", "fetched_at": "2026-04-09T10:00:00",
+    },
+    "012450": {
+        "ticker": "012450", "name": "한화에어로스페이스",
+        "current_price": "550,000", "change_pct": "-2.43%",
+        "direction": "down", "change": "13700",
+        "prev_close": "", "open_price": "", "high": "", "low": "",
+        "volume": "", "market_cap": "", "per": "", "eps": "",
+        "foreign_ratio": "", "op_income_growth": "", "roe": "",
+        "pbr": "", "revenue_100m": "", "fetched_at": "2026-04-09T10:00:00",
+    },
+}
+
+MOCK_KOSPI = {
+    "current": "5,801.71", "change": "70.63",
+    "change_pct": "1.20%", "direction": "down",
+}
+
+
+class TestAssembleDashboardData:
+
+    def _write_fixtures(self, tmp_path):
+        wl = tmp_path / "confirmed_watchlist_2026-04-09.json"
+        wl.write_text(json.dumps(WATCHLIST_FIXTURE), encoding="utf-8")
+        rpt = tmp_path / "weekly-report-2026-04-09.md"
+        rpt.write_text(REPORT_FIXTURE, encoding="utf-8")
+
+    def test_cat_a_cards_populated(self, tmp_path):
+        self._write_fixtures(tmp_path)
+        with patch("investscan.export_dashboard.fetch_stocks",
+                   return_value=MOCK_STOCK_INFO), \
+             patch("investscan.export_dashboard.fetch_kospi_index",
+                   return_value=MOCK_KOSPI):
+            data = assemble_dashboard_data(
+                "2026-04-09",
+                temp_dir=tmp_path, reports_dir=tmp_path,
+            )
+        assert len(data["cat_a"]) == 2
+        assert data["cat_a"][0]["ticker"] == "017670"
+        assert data["cat_a"][0]["name"] == "SK텔레콤"
+        assert data["cat_a"][0]["current"] == "60,000"
+        assert data["cat_a"][0]["target"] == "N/A"
+
+    def test_live_false_skips_network(self, tmp_path):
+        self._write_fixtures(tmp_path)
+        with patch("investscan.export_dashboard.fetch_stocks") as mock_fs, \
+             patch("investscan.export_dashboard.fetch_kospi_index") as mock_ki:
+            assemble_dashboard_data(
+                "2026-04-09",
+                temp_dir=tmp_path, reports_dir=tmp_path, live=False,
+            )
+        mock_fs.assert_not_called()
+        mock_ki.assert_not_called()
+
+    def test_kospi_live_data_in_result(self, tmp_path):
+        self._write_fixtures(tmp_path)
+        with patch("investscan.export_dashboard.fetch_stocks",
+                   return_value=MOCK_STOCK_INFO), \
+             patch("investscan.export_dashboard.fetch_kospi_index",
+                   return_value=MOCK_KOSPI):
+            data = assemble_dashboard_data(
+                "2026-04-09",
+                temp_dir=tmp_path, reports_dir=tmp_path,
+            )
+        assert data["kospi_current"] == "5,801.71"
+        assert data["kospi_direction"] == "down"
+
+    def test_p6_cards_have_na_prices(self, tmp_path):
+        self._write_fixtures(tmp_path)
+        with patch("investscan.export_dashboard.fetch_stocks",
+                   return_value=MOCK_STOCK_INFO), \
+             patch("investscan.export_dashboard.fetch_kospi_index",
+                   return_value=MOCK_KOSPI):
+            data = assemble_dashboard_data(
+                "2026-04-09",
+                temp_dir=tmp_path, reports_dir=tmp_path,
+            )
+        assert len(data["p6_not_passed"]) == 1
+        assert data["p6_not_passed"][0]["current"] == "N/A"
+
+    def test_network_failure_returns_na_prices(self, tmp_path):
+        self._write_fixtures(tmp_path)
+        with patch("investscan.export_dashboard.fetch_stocks",
+                   side_effect=Exception("network error")), \
+             patch("investscan.export_dashboard.fetch_kospi_index",
+                   side_effect=Exception("network error")):
+            data = assemble_dashboard_data(
+                "2026-04-09",
+                temp_dir=tmp_path, reports_dir=tmp_path,
+            )
+        # Should not raise — graceful degradation
+        assert data["cat_a"][0]["current"] == "N/A"
+        assert data["kospi_current"] == "N/A"
