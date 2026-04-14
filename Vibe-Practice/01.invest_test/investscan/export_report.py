@@ -28,6 +28,7 @@ from investscan import export_dashboard as _dashboard
 
 OUTPUT_DIR  = Path.home() / "Desktop" / "Ai_works" / "output" / "투자분석제안"
 REPORTS_DIR = Path("output/reports")
+TEMP_DIR    = Path("output/temp")
 
 _FONT_CACHE = Path.home() / ".cache" / "investscan" / "fonts"
 
@@ -750,6 +751,15 @@ def get_report_by_date(report_date: str, reports_dir: Path = REPORTS_DIR) -> Pat
     return p if p.exists() else None
 
 
+def get_latest_watchlist_date(temp_dir: Path = TEMP_DIR) -> str | None:
+    """Return the latest date with a confirmed_watchlist_{date}.json file."""
+    files = sorted(temp_dir.glob("confirmed_watchlist_*.json"))
+    if not files:
+        return None
+    stem = files[-1].stem  # "confirmed_watchlist_2026-04-09"
+    return stem[len("confirmed_watchlist_"):]
+
+
 def main() -> int:
     parser = argparse.ArgumentParser(description="InvestScan 리포트 내보내기")
     parser.add_argument("--date",    help="리포트 날짜 YYYY-MM-DD")
@@ -784,12 +794,26 @@ def main() -> int:
             return 1
         report_date = args.date
     else:
-        md_path = get_latest_report()
-        if not md_path:
-            print("⚠️  리포트 없음 — 파이프라인을 먼저 실행하세요.")
-            return 1
-        m = re.search(r"(\d{4}-\d{2}-\d{2})", md_path.stem)
-        report_date = m.group(1) if m else md_path.stem.replace("weekly-report-", "")
+        # For HTML: derive date from latest confirmed_watchlist (not latest report MD)
+        if "html" in formats:
+            watchlist_date = get_latest_watchlist_date()
+            if watchlist_date:
+                report_date = watchlist_date
+                md_path = get_report_by_date(watchlist_date) or get_latest_report()
+            else:
+                md_path = get_latest_report()
+                if not md_path:
+                    print("⚠️  리포트 없음 — 파이프라인을 먼저 실행하세요.")
+                    return 1
+                m = re.search(r"(\d{4}-\d{2}-\d{2})", md_path.stem)
+                report_date = m.group(1) if m else md_path.stem.replace("weekly-report-", "")
+        else:
+            md_path = get_latest_report()
+            if not md_path:
+                print("⚠️  리포트 없음 — 파이프라인을 먼저 실행하세요.")
+                return 1
+            m = re.search(r"(\d{4}-\d{2}-\d{2})", md_path.stem)
+            report_date = m.group(1) if m else md_path.stem.replace("weekly-report-", "")
 
     print(f"""
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━

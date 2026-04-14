@@ -15,6 +15,7 @@ from __future__ import annotations
 
 import json
 import re
+from datetime import date as _date
 from pathlib import Path
 from typing import TypedDict
 
@@ -183,7 +184,7 @@ def _load_agent_context(date: str, temp_dir: Path = TEMP_DIR) -> dict:
 # ── stock detail parser ────────────────────────────────────────────────────────
 
 def _parse_target_scenarios(section_text: str) -> dict[str, TargetScenario]:
-    """Parse Bull/Base/Bear target price rows from a stock section."""
+    """Parse Bull/Base/Bear target price rows from a stock section (table format)."""
     results: dict[str, TargetScenario] = {}
     for scenario in ("Bull", "Base", "Bear"):
         m = re.search(
@@ -202,6 +203,44 @@ def _parse_target_scenarios(section_text: str) -> dict[str, TargetScenario]:
         upside   = upside_m.group(1) if upside_m else "N/A"
         results[scenario] = TargetScenario(price=price, upside=upside)
     return results
+
+
+def _parse_p6_targets_from_bullet(section_text: str) -> dict[str, TargetScenario]:
+    """Parse Bull/Base/Bear from P6 inline format.
+
+    Handles patterns like:
+      '밸류에이션 에이전트 R2 목표: Bull 620,000원 / Base 510,000원 / Bear 320,000원'
+      '밸류에이션 에이전트 R2 목표: Base 32,000원 (변경 없음)'
+    """
+    line_m = re.search(r"밸류에이션[^:\n]*목표[^:\n]*:([^\n]+)", section_text)
+    empty  = {s: TargetScenario(price="N/A", upside="N/A") for s in ("Bull", "Base", "Bear")}
+    if not line_m:
+        return empty
+    line = line_m.group(1)
+    results: dict[str, TargetScenario] = {}
+    for scenario in ("Bull", "Base", "Bear"):
+        m = re.search(rf"{scenario}\s+([\d,]+원)", line)
+        results[scenario] = TargetScenario(
+            price=m.group(1) if m else "N/A",
+            upside="N/A",
+        )
+    return results
+
+
+def _parse_p6_metrics_from_text(section_text: str) -> dict[str, str]:
+    """Parse PER/PBR/ROE/EPS from P6 bullet text (no agent_context entry)."""
+    per_m    = re.search(r"PER\s+([\d.]+x|[\d.]+배)", section_text, re.IGNORECASE)
+    pbr_m    = re.search(r"PBR\s+([\d.]+x|[\d.]+배)", section_text, re.IGNORECASE)
+    roe_m    = re.search(r"ROE[:\s]+([\d.]+%)", section_text)
+    eps_m    = re.search(r"EPS[:\s]+([\d,]+원)", section_text)
+    mktcap_m = re.search(r"시가총액[:\s]+([\d.]+[조억])", section_text)
+    return {
+        "per":        per_m.group(1)    if per_m    else "N/A",
+        "pbr":        pbr_m.group(1)    if pbr_m    else "N/A",
+        "roe":        roe_m.group(1)    if roe_m    else "N/A",
+        "eps":        eps_m.group(1)    if eps_m    else "N/A",
+        "market_cap": mktcap_m.group(1) if mktcap_m else "N/A",
+    }
 
 
 def _parse_dca(section_text: str) -> tuple[str, str, str]:
@@ -306,7 +345,7 @@ def load_stock_details(
         else:
             category = "P6 미통과"
 
-        # Financial metrics: prefer agent_context (live data), else "N/A"
+        # Financial metrics: prefer agent_context, else parse from section text (P6)
         sc = stocks_ctx.get(ticker, {})
         per           = sc.get("per",           "N/A") or "N/A"
         pbr           = sc.get("pbr",           "N/A") or "N/A"
@@ -314,11 +353,22 @@ def load_stock_details(
         eps           = sc.get("eps",           "N/A") or "N/A"
         market_cap    = sc.get("market_cap",    "N/A") or "N/A"
         foreign_ratio = sc.get("foreign_ratio", "N/A") or "N/A"
+        # For P6 stocks (not in agent_context), parse metrics from section text
+        if category == "P6 미통과" and all(v == "N/A" for v in [per, pbr, roe, eps]):
+            p6m = _parse_p6_metrics_from_text(section)
+            per        = p6m["per"]
+            pbr        = p6m["pbr"]
+            roe        = p6m["roe"]
+            eps        = p6m["eps"]
+            market_cap = p6m["market_cap"]
 
-        # Parse target scenarios
+        # Parse target scenarios — table format first, then bullet format (P6)
         targets = _parse_target_scenarios(section)
+        all_na  = all(t["price"] == "N/A" for t in targets.values())
+        if all_na:
+            targets = _parse_p6_targets_from_bullet(section)
 
-        # DCA prices
+        # DCA prices (P6 may have 스탑로스 as conservative)
         dca_agg, dca_ideal, dca_cons = _parse_dca(section)
 
         # Stop-loss
@@ -943,11 +993,13 @@ body::before{{content:'';position:fixed;inset:0;background-image:url("data:image
   <div class="ticker-inner">
     <span>KOSPI <strong>{data['kospi_current']}</strong> {kospi_arrow} {data['kospi_change_pct']}</span>
     <span>InvestScan {data['pipeline_version']}</span>
-    <span>기준일 {data['date']}</span>
+    <span>분析기준 {data['date']}</span>
+    <span>생성일 {_date.today().isoformat()}</span>
     <span>바이어스 {overall_bias} — 합의 신뢰도 {overall_confidence}</span>
     <span>KOSPI <strong>{data['kospi_current']}</strong> {kospi_arrow} {data['kospi_change_pct']}</span>
     <span>InvestScan {data['pipeline_version']}</span>
-    <span>기준일 {data['date']}</span>
+    <span>분析기준 {data['date']}</span>
+    <span>생성일 {_date.today().isoformat()}</span>
     <span>바이어스 {overall_bias} — 합의 신뢰도 {overall_confidence}</span>
   </div>
 </div>
@@ -1191,12 +1243,15 @@ function showStockModal(ticker) {{
       </div>`;
   }}
 
-  // Target prices — hide section if all N/A (e.g. overview-level telecom stocks)
+  // Target prices — contextual message when all N/A
   const allTargetNA = [d.target_bull_price, d.target_base_price, d.target_bear_price].every(v => !v || v === 'N/A');
   const targetSection = $('md-target-section');
   if (allTargetNA) {{
-    targetSection.innerHTML = '<div class="modal-section-label">목표주가</div>'
-      + '<p style="color:var(--text-dim);font-size:12px;padding:8px 0">개요 수준 분석 — 에이전트 12종목 감시 우주에 포함되지 않아 심층 밸류에이션 미설정</p>';
+    const naMsg = d.category === 'P6 미통과'
+      ? '⚠️ P6 임계값 미달 종목 — 투자 권장 불가. 아래 핵심 논거는 서사적 이해 참고용입니다.'
+      : '개요 수준 분析 — 에이전트 감시 우주 미포함으로 심층 밸류에이션 미설정';
+    targetSection.innerHTML = '<div class="modal-section-label">목표주가 (서사 참고용)</div>'
+      + `<p style="color:var(--amber);font-size:12px;padding:8px 0">${{naMsg}}</p>`;
   }} else {{
     $('md-bull-price').textContent = d.target_bull_price;
     $('md-bull-up').textContent    = d.target_bull_upside;
