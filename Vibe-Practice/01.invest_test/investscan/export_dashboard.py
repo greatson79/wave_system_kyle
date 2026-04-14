@@ -436,3 +436,22 @@ new Chart(document.getElementById('kospiChart'), {{
 </script>
 </body>
 </html>"""
+
+
+# ── public entry point ─────────────────────────────────────────────────────────
+
+def generate(
+    date: str,
+    out_dir: Path = OUTPUT_DIR,
+    temp_dir: Path = TEMP_DIR,
+    reports_dir: Path = REPORTS_DIR,
+    live: bool = True,
+) -> Path:
+    """Assemble data, render HTML, write file. Returns output Path."""
+    data     = assemble_dashboard_data(date, temp_dir=temp_dir,
+                                       reports_dir=reports_dir, live=live)
+    html     = render_html(data)
+    out_dir.mkdir(parents=True, exist_ok=True)
+    out_path = out_dir / f"{date}_주간투자분析_대시보드.html"
+    out_path.write_text(html, encoding="utf-8")
+    return out_path

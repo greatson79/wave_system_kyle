@@ -63,7 +63,7 @@ class TestFetchKospiIndex:
         assert result["direction"] == "flat"
 
 
-from investscan.export_dashboard import load_watchlist, load_kospi_forecast, assemble_dashboard_data, render_html, DashboardData
+from investscan.export_dashboard import load_watchlist, load_kospi_forecast, assemble_dashboard_data, render_html, DashboardData, generate
 
 # ── Fixtures ──────────────────────────────────────────────────────────────────
 
@@ -318,3 +318,37 @@ class TestRenderHtml:
     def test_cat_b_stock_present(self):
         html = render_html(SAMPLE_DATA)
         assert "한화에어로스페이스" in html
+
+
+class TestGenerate:
+
+    def test_writes_html_file(self, tmp_path):
+        with patch("investscan.export_dashboard.assemble_dashboard_data",
+                   return_value=SAMPLE_DATA), \
+             patch("investscan.export_dashboard.render_html",
+                   return_value="<!DOCTYPE html><html></html>"):
+            out = generate(
+                "2026-04-09",
+                out_dir=tmp_path,
+                temp_dir=tmp_path,
+                reports_dir=tmp_path,
+                live=False,
+            )
+        assert out.exists()
+        assert out.name == "2026-04-09_주간투자분析_대시보드.html"
+        assert "<!DOCTYPE html>" in out.read_text(encoding="utf-8")
+
+    def test_creates_output_dir_if_missing(self, tmp_path):
+        nested = tmp_path / "a" / "b" / "c"
+        with patch("investscan.export_dashboard.assemble_dashboard_data",
+                   return_value=SAMPLE_DATA), \
+             patch("investscan.export_dashboard.render_html",
+                   return_value="<!DOCTYPE html><html></html>"):
+            out = generate(
+                "2026-04-09",
+                out_dir=nested,
+                temp_dir=tmp_path,
+                reports_dir=tmp_path,
+                live=False,
+            )
+        assert out.exists()
