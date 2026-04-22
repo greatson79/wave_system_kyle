@@ -5,55 +5,35 @@
     {
       "step": 0,
       "name": "project-setup",
-      "status": "blocked",
-      "started_at": "2026-04-22T15:26:33+0900",
-      "blocked_reason": "clasp push 실패: Apps Script API 미활성화. https://script.google.com/home/usersettings 에서 API 활성화 후 `clasp create --type standalone --title 'Wave Academy 수강관리' --rootDir src` 실행 필요. npm test는 4/4 통과. 디렉토리 구조 및 모든 파일 생성 완료."
+      "status": "completed",
+      "started_at": "2026-04-22T15:58:30+0900",
+      "summary": "Python 프로젝트 구조(src/tests/credentials) 생성, pyproject.toml·requirements.txt 작성, .venv 설치 완료, pytest 51 tests collected, 의존성 import 성공"
     },
     {
       "step": 1,
-      "name": "utils-layer",
+      "name": "drive-client",
       "status": "pending"
     },
     {
       "step": 2,
-      "name": "auth-config",
+      "name": "parsers",
       "status": "pending"
     },
     {
       "step": 3,
-      "name": "scanners-parsers",
+      "name": "processors",
       "status": "pending"
     },
     {
       "step": 4,
-      "name": "student-manager",
+      "name": "exporter",
       "status": "pending"
     },
     {
       "step": 5,
-      "name": "assignment-grade",
-      "status": "pending"
-    },
-    {
-      "step": 6,
-      "name": "exporter-trigger",
-      "status": "pending"
-    },
-    {
-      "step": 7,
-      "name": "frontend-shell",
-      "status": "pending"
-    },
-    {
-      "step": 8,
-      "name": "frontend-pages",
-      "status": "pending"
-    },
-    {
-      "step": 9,
-      "name": "integration-test",
+      "name": "main-pipeline",
       "status": "pending"
     }
   ],
-  "created_at": "2026-04-22T15:21:00+0900"
+  "created_at": "2026-04-22T15:58:30+0900"
 }
