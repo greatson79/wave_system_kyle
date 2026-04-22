@@ -1,0 +1,13 @@
+{
+  "name": "wave-academy",
+  "version": "0.1.0",
+  "scripts": {
+    "test": "jest",
+    "push": "clasp push",
+    "pull": "clasp pull",
+    "open": "clasp open"
+  },
+  "devDependencies": {
+    "jest": "^29.0.0"
+  }
+}
