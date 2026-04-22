@@ -24,7 +24,7 @@
       "status": "completed",
       "started_at": "2026-04-22T16:01:37+0900",
       "summary": "filename_parser(6패턴 A-F)·column_mapper(키워드 매핑)·normalizer(bool/phone/email 정규화) 구현, 56 tests all PASSED",
-      "completed_at": "2026-04-22T16:30:00+0900"
+      "completed_at": "2026-04-22T16:03:24+0900"
     },
     {
       "step": 3,
