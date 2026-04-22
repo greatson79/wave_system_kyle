@@ -1,0 +1,81 @@
+{
+  "description": "Few-shot examples for intelligence_engine.py CATEGORY_A/B_SYSTEM_PROMPT",
+  "language": "English (P5-A)",
+  "version": "2.0.0",
+  "note": "4 examples required per workflow.md Step 5: Cat-A Bullish, Cat-A Bearish, Cat-B Bullish, Cat-A Neutral",
+  "examples": [
+    {
+      "example_id": 1,
+      "category": "A",
+      "direction": "Bullish",
+      "sector": "반도체",
+      "input_context": {
+        "stock": "SK Hynix (000660)",
+        "yoy_growth": "Revenue +41.2% YoY, Operating Income +220.4% (2025Q4) — HBM3E volume ramp",
+        "per_vs_sector": "13.1x, 7.7% discount vs. sector avg 14.2x",
+        "foreign_flow_direction": "4-week net buy: +$520M cumulative",
+        "downside_risk": "HBM supply glut if Samsung/Micron capacity expands faster than AI server demand — est. -18% ASP impact"
+      },
+      "expected_output": "SK Hynix enters Q1 2026 as the primary HBM3E beneficiary in the AI infrastructure buildout. Revenue surged 41.2% YoY in Q4 2025 as hyperscaler allocations accelerated, with operating income recovering 220.4% on ASP normalization and cost discipline. At 13.1x PER — a 7.7% discount to the semiconductor sector average — valuation remains undemanding relative to the earnings recovery trajectory. Foreign institutional net buying of $520M over 4 weeks signals sustained accumulation. Key downside: if Samsung and Micron execute aggressive HBM capacity expansions ahead of schedule, ASP compression of up to 18% could materialize in H2 2026. Direction: Positive momentum maintained.",
+      "direction_label": "Positive momentum maintained"
+    },
+    {
+      "example_id": 2,
+      "category": "A",
+      "direction": "Bearish",
+      "sector": "바이오",
+      "input_context": {
+        "stock": "Samsung Biologics (207940)",
+        "yoy_growth": "Revenue +22.1% YoY, Operating Income +18.3% (2025Q3) — CMO capacity utilization plateauing",
+        "per_vs_sector": "48.7x, 34.2% premium vs. sector avg 36.3x — elevated valuation with execution risk",
+        "foreign_flow_direction": "4-week net sell: -$145M cumulative — institutional distribution",
+        "downside_risk": "FDA inspection at Incheon Plant 4 (Q2 2026 scheduled) — adverse finding could halt 23% of CMO revenue for 6-12 months"
+      },
+      "expected_output": "Samsung Biologics faces a valuation-versus-execution challenge entering Q2 2026. While Q3 2025 revenue grew 22.1% YoY, the growth trajectory is moderating as Plant 4 approaches full utilization. At 48.7x PER — a 34.2% premium to the biotech sector average — the stock prices in near-flawless execution. The upcoming FDA inspection at Incheon Plant 4 represents the primary binary risk: an adverse finding could suspend 23% of CMO contracted revenue for 6-12 months, which at current margins implies a material earnings revision. Foreign net selling of $145M over 4 weeks suggests institutional risk reduction ahead of the inspection catalyst. Direction: Risk zone.",
+      "direction_label": "Risk zone"
+    },
+    {
+      "example_id": 3,
+      "category": "B",
+      "direction": "Bullish",
+      "sector": "AI 에이전트 테마",
+      "input_context": {
+        "stock": "Kakao (035720)",
+        "market_size": "Korean AI agent market: $8.2bn, CAGR 34% (2025-2028 IDC)",
+        "stock_positioning": "KakaoTalk 47M DAU base as AI agent deployment platform — enterprise channel integration in progress",
+        "catalyst": "KakaoWork AI Agent beta launch Q2 2026 — 180K enterprise customers as initial addressable market",
+        "theme_duration": "12-24 week momentum expected as enterprise AI adoption accelerates",
+        "dissolution_risk": "Competition from Naver Works + Microsoft Teams Korea deployment — feature parity by Q4 2026 likely"
+      },
+      "expected_output": "Kakao's AI agent opportunity is defined by its KakaoTalk distribution moat rather than model capability. With 47M daily active users and an existing enterprise channel through KakaoWork, the company is positioned to monetize AI agent deployments without the customer acquisition costs facing new entrants. The $8.2bn Korean AI agent market growing at 34% CAGR creates a multi-year runway. The Q2 2026 KakaoWork AI Agent beta targets 180K enterprise customers — a conversion rate of 15% would add approximately ₩180bn in incremental ARR. Theme dissolution risk comes from Naver Works achieving feature parity by Q4 2026 and Microsoft Teams accelerating Korea enterprise penetration. Note: This analysis is based on theme momentum and market positioning rather than trailing earnings. Direction: Positive momentum maintained.",
+      "direction_label": "Positive momentum maintained"
+    },
+    {
+      "example_id": 4,
+      "category": "A",
+      "direction": "Neutral",
+      "sector": "IT서비스",
+      "input_context": {
+        "stock": "NAVER (035420)",
+        "yoy_growth": "Revenue +12.3% YoY, Operating Income +4.1% (2025Q4) — Search revenue resilient, Webtoon margin drag",
+        "per_vs_sector": "22.4x, 8.9% premium vs. sector avg 20.6x — modest premium with mixed segment outlook",
+        "foreign_flow_direction": "4-week: flat (-$12M net) — no directional conviction",
+        "downside_risk": "Webtoon Entertainment operating losses widening — Q3 2025 EBIT -$38M; consolidation timeline unclear"
+      },
+      "expected_output": "NAVER presents a mixed picture entering Q1 2026 — resilient Search and Commerce partially offset by deepening Webtoon drag. Q4 2025 revenue grew 12.3% YoY, but operating income expanded only 4.1%, reflecting Webtoon Entertainment's -$38M EBIT consolidation impact. At 22.4x PER, the stock trades at a modest 8.9% premium to the IT services sector, pricing in Search stability without requiring Webtoon resolution. Foreign flows are inconclusive (-$12M net over 4 weeks), consistent with institutional observation mode. Near-term catalysts are limited until the Webtoon cost optimization timeline clarifies in the Q1 2026 earnings call. This is a monitoring position — no directional action warranted until segment margin trajectory becomes clearer. Direction: Neutral — monitor and wait.",
+      "direction_label": "Neutral — monitor and wait"
+    }
+  ],
+  "prohibited_expressions": [
+    "매수 추천",
+    "목표가",
+    "확실한 상승",
+    "매도 권고",
+    "강력 매수",
+    "손절",
+    "급등 예상",
+    "100% 수익",
+    "must buy",
+    "guaranteed return"
+  ]
+}

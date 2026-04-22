@@ -1,0 +1,123 @@
+{
+  "_description": "Mock prediction history for accuracy_tracker.py TDD. 8+ weeks of PredictionRecord entries.",
+  "_version": "1.0.0",
+  "_generated_for": "dry-run and TDD only — not real prediction data",
+
+  "records": [
+    {
+      "week_label": "2026-W05",
+      "stock_code": "005930",
+      "direction": "Positive momentum maintained",
+      "actual_return_4w": 0.034,
+      "actual_return_8w": 0.052,
+      "recorded_at": "2026-01-26T09:00:00Z"
+    },
+    {
+      "week_label": "2026-W06",
+      "stock_code": "005930",
+      "direction": "Positive momentum maintained",
+      "actual_return_4w": 0.021,
+      "actual_return_8w": 0.038,
+      "recorded_at": "2026-02-02T09:00:00Z"
+    },
+    {
+      "week_label": "2026-W07",
+      "stock_code": "005930",
+      "direction": "Neutral — monitor and wait",
+      "actual_return_4w": -0.008,
+      "actual_return_8w": 0.005,
+      "recorded_at": "2026-02-09T09:00:00Z"
+    },
+    {
+      "week_label": "2026-W08",
+      "stock_code": "005930",
+      "direction": "Positive momentum maintained",
+      "actual_return_4w": 0.045,
+      "actual_return_8w": 0.071,
+      "recorded_at": "2026-02-16T09:00:00Z"
+    },
+    {
+      "week_label": "2026-W09",
+      "stock_code": "005930",
+      "direction": "Neutral — monitor and wait",
+      "actual_return_4w": 0.002,
+      "actual_return_8w": null,
+      "recorded_at": "2026-02-23T09:00:00Z"
+    },
+    {
+      "week_label": "2026-W10",
+      "stock_code": "005930",
+      "direction": "Risk zone",
+      "actual_return_4w": -0.038,
+      "actual_return_8w": null,
+      "recorded_at": "2026-03-02T09:00:00Z"
+    },
+    {
+      "week_label": "2026-W11",
+      "stock_code": "005930",
+      "direction": "Positive momentum maintained",
+      "actual_return_4w": 0.028,
+      "actual_return_8w": null,
+      "recorded_at": "2026-03-09T09:00:00Z"
+    },
+    {
+      "week_label": "2026-W12",
+      "stock_code": "005930",
+      "direction": "Positive momentum maintained",
+      "actual_return_4w": null,
+      "actual_return_8w": null,
+      "recorded_at": "2026-03-16T09:00:00Z"
+    },
+    {
+      "week_label": "2026-W13",
+      "stock_code": "005930",
+      "direction": "Positive momentum maintained",
+      "actual_return_4w": null,
+      "actual_return_8w": null,
+      "recorded_at": "2026-03-23T09:00:00Z"
+    },
+    {
+      "week_label": "2026-W05",
+      "stock_code": "035420",
+      "direction": "Neutral — monitor and wait",
+      "actual_return_4w": -0.012,
+      "actual_return_8w": 0.018,
+      "recorded_at": "2026-01-26T09:00:00Z"
+    },
+    {
+      "week_label": "2026-W06",
+      "stock_code": "035420",
+      "direction": "Positive momentum maintained",
+      "actual_return_4w": 0.056,
+      "actual_return_8w": 0.089,
+      "recorded_at": "2026-02-02T09:00:00Z"
+    },
+    {
+      "week_label": "2026-W07",
+      "stock_code": "035420",
+      "direction": "Positive momentum maintained",
+      "actual_return_4w": 0.033,
+      "actual_return_8w": null,
+      "recorded_at": "2026-02-09T09:00:00Z"
+    }
+  ],
+
+  "naive_baselines": {
+    "_description": "3 naive baseline strategies for KS-1 comparison (v3.6 I-13)",
+    "always_bullish": {
+      "description": "Always predict Positive momentum maintained",
+      "accuracy_4w": 0.556,
+      "accuracy_8w": 0.612
+    },
+    "momentum": {
+      "description": "Predict same direction as previous week",
+      "accuracy_4w": 0.498,
+      "accuracy_8w": 0.521
+    },
+    "random": {
+      "description": "Random direction (uniform 3-way)",
+      "accuracy_4w": 0.333,
+      "accuracy_8w": 0.333
+    }
+  }
+}

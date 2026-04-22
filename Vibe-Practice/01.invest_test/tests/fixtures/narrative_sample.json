@@ -1,0 +1,63 @@
+{
+  "_description": "Mock NarrativeOutput fixtures for TDD. Both Category A and B examples.",
+  "_version": "1.0.0",
+  "_language": "English (P5-A)",
+
+  "category_a": {
+    "category": "A",
+    "text": "Samsung Electronics enters Q1 2026 with memory fundamentals showing structural recovery. HBM3E ramp for AI training clusters positions the DRAM segment as the primary growth vector, with Q4 2025 operating income surging 34.2% YoY on improved ASP mix. The 4-week cumulative foreign institutional net buy of +$380M signals sustained conviction from global asset managers. Current PER of 10.2x represents a 28.4% discount to the sector average of 14.2x, creating a compelling entry window for value-oriented investors. Primary downside risk remains DRAM oversupply resurgence if the AI capex cycle moderates faster than anticipated, with an estimated revenue impact of -12% in that scenario. The stock's trajectory aligns with the broader technology sector bullish regime established by stabilizing Fed policy and improving risk appetite indicators.",
+    "sentiment_weight": 0.0,
+    "yoy_growth": "Revenue +8.3% YoY, Operating Income +34.2% (Q4 2025) — memory recovery driving margin expansion",
+    "per_vs_sector": "10.2x, 28.4% discount vs. sector avg 14.2x — undervaluation thesis intact",
+    "foreign_flow_direction": "4-week net buy: +$380M cumulative — institutional accumulation pattern confirmed",
+    "downside_risk": "DRAM oversupply resurgence → est. -12% revenue if AI capex cycle moderates Q3 2026",
+    "direction": "Positive momentum maintained",
+    "market_size": "",
+    "stock_positioning": "",
+    "catalyst": "",
+    "theme_duration": "",
+    "dissolution_risk": "",
+    "disclaimer": ""
+  },
+
+  "category_b": {
+    "category": "B",
+    "text": "NAVER's convergence of AI capability and commerce dominance creates a defensible growth runway through 2026. The HyperCLOVA X integration into Smart Store ecosystem positions NAVER at the intersection of Korea's two fastest-growing digital verticals: AI services and e-commerce. With 78% Korean search market share and 12M monthly active users primed for AI shopping assistant adoption, the upcoming Q2 2026 launch represents a significant monetization inflection point. The global AI commerce market trajectory of $42bn with 19% CAGR through 2028 provides the macro tailwind. Theme duration estimate of 18-30 weeks reflects the adoption curve of AI-integrated commerce features. Primary dissolution risk remains Google's AI Mode expansion into the Korean market, with potential search share erosion of 3-8 percentage points by Q4 2026 if Google's Korean language capabilities improve materially.",
+    "sentiment_weight": 0.0,
+    "yoy_growth": "",
+    "per_vs_sector": "",
+    "foreign_flow_direction": "",
+    "downside_risk": "",
+    "direction": "",
+    "market_size": "Korean AI commerce market: $42bn, CAGR 19% (2025-2028, Gartner estimate)",
+    "stock_positioning": "Dominant search-to-commerce funnel with HyperCLOVA X integration — 78% Korean search market share",
+    "catalyst": "Q2 2026 AI shopping assistant launch targeting 12M monthly active users",
+    "theme_duration": "18-30 week momentum expected as AI commerce adoption curve steepens",
+    "dissolution_risk": "Google AI Mode Korean market entry by Q4 2026 — search share erosion risk (est. 3-8pp)",
+    "disclaimer": "This analysis is based on publicly available information and does not constitute investment advice. The author receives no compensation for this analysis. Investment decisions are solely the reader's responsibility."
+  },
+
+  "category_a_short_INVALID": {
+    "_note": "Invalid fixture: text too short (< 1000 bytes). For testing content_gate failure.",
+    "category": "A",
+    "text": "Short text that will fail content gate.",
+    "sentiment_weight": 0.0,
+    "yoy_growth": "Revenue +5%",
+    "per_vs_sector": "12x vs 15x",
+    "foreign_flow_direction": "Net buy",
+    "downside_risk": "Supply chain risk",
+    "direction": "Positive momentum maintained"
+  },
+
+  "sentinel_violation_INVALID": {
+    "_note": "Invalid fixture: sentiment_weight != 0.0. For testing sentinel enforcement.",
+    "category": "A",
+    "text": "Samsung Electronics enters Q1 2026 with memory fundamentals showing structural recovery. This is a longer text to meet the minimum byte requirement for testing purposes only and should never appear in production output.",
+    "sentiment_weight": 0.7,
+    "yoy_growth": "Revenue +8%",
+    "per_vs_sector": "10x vs 14x",
+    "foreign_flow_direction": "Net buy",
+    "downside_risk": "Risk scenario",
+    "direction": "Positive momentum maintained"
+  }
+}

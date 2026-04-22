@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<title>InvestScan Health Dashboard</title>
+<style>
+body { font-family: -apple-system, BlinkMacSystemFont, sans-serif; margin: 24px; background: #f8f9fa; }
+h1 { color: #343a40; }
+.card { background: white; border-radius: 8px; padding: 16px; margin: 12px 0; box-shadow: 0 1px 3px rgba(0,0,0,.1); }
+table { border-collapse: collapse; width: 100%; }
+td, th { padding: 8px 12px; border-bottom: 1px solid #dee2e6; text-align: left; }
+.badge { padding: 2px 8px; border-radius: 12px; font-size: 12px; }
+.green { background: #d4edda; color: #155724; }
+.red { background: #f8d7da; color: #721c24; }
+.gray { background: #e2e3e5; color: #383d41; }
+</style>
+</head>
+<body>
+<h1>📊 InvestScan Health Dashboard</h1>
+<p style="color:#6c757d">Generated: 2026-03-29 19:01:21</p>
+
+<div class="card">
+<h3>🕐 Last Run</h3>
+<table>
+<tr><td>Last Updated</td><td>2026-03-29T19:01:21.007768</td></tr>
+<tr><td>Last Report</td><td>output/context/context_2026-03-29.json</td></tr>
+<tr><td>Runtime Mode</td><td><span class="badge gray">envscan_only</span></td></tr>
+</table>
+</div>
+
+<div class="card">
+<h3>📦 Library Availability (4-week rolling)</h3>
+<table><tr><th>Library</th><th>Availability</th></tr>
+<tr><td>dart_fss</td><td>N/A</td></tr><tr><td>fdr</td><td>N/A</td></tr><tr><td>pykrx</td><td>N/A</td></tr>
+</table>
+</div>
+
+<div class="card">
+<h3>✅ Test Status</h3>
+<p>21/21 modules passing
+<span class="badge green">21/21</span>
+</p>
+</div>
+
+<div class="card">
+<h3>🏆 Milestones</h3>
+<table>
+<tr><td>M0.5 DG-01~08</td><td><span class="badge green">PASS</span></td></tr>
+<tr><td>M0.5 Tests Passing</td><td>704</td></tr>
+<tr><td>M1 DG-09~16</td><td><span class="badge green">PASS</span></td></tr>
+<tr><td>Full Pipeline</td><td><span class="badge gray">pending</span></td></tr>
+</table>
+</div>
+
+<div class="card">
+<h3>⚠️ Recent Errors (last 5)</h3>
+<ul><li>No errors</li></ul>
+</div>
+</body>
+</html>

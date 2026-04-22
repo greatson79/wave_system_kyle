@@ -1,0 +1,675 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<title>Wave AI Networks — 3D Pixel Office</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    background: #0a0a1a;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+    font-family: 'Courier New', monospace;
+    overflow-x: hidden;
+  }
+  header {
+    text-align: center;
+    padding: 24px 0 8px;
+    color: #fff;
+  }
+  header h1 {
+    font-size: 22px;
+    letter-spacing: 4px;
+    color: #FFD700;
+    text-shadow: 0 0 20px #FFD70088;
+  }
+  header p { font-size: 11px; color: #666; letter-spacing: 2px; margin-top: 4px; }
+  #canvas-wrap { position: relative; margin: 10px auto; }
+  canvas { display: block; image-rendering: pixelated; }
+  #tooltip {
+    position: fixed;
+    background: #111827;
+    border: 2px solid #374151;
+    border-radius: 4px;
+    padding: 10px 14px;
+    color: #fff;
+    font-size: 12px;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.15s;
+    z-index: 100;
+    max-width: 200px;
+    line-height: 1.6;
+  }
+  #tooltip.show { opacity: 1; }
+  #tooltip .agent-color-bar { height: 3px; border-radius: 2px; margin-bottom: 8px; }
+  #tooltip .t-name  { font-size: 13px; font-weight: bold; color: #fff; }
+  #tooltip .t-title { font-size: 11px; color: #9CA3AF; }
+  #tooltip .t-engine { font-size: 10px; color: #6B7280; margin-top: 4px; }
+  #legend {
+    display: flex; flex-wrap: wrap; gap: 8px;
+    justify-content: center; padding: 0 20px 24px; max-width: 860px;
+  }
+  .legend-item { display: flex; align-items: center; gap: 6px; font-size: 10px; color: #9CA3AF; }
+  .legend-dot { width: 10px; height: 10px; border-radius: 2px; flex-shrink: 0; }
+</style>
+</head>
+<body>
+<header>
+  <h1>⬡ WAVE AI NETWORKS ⬡</h1>
+  <p>3D PIXEL VIRTUAL OFFICE — LIVE OPERATIONS</p>
+</header>
+<div id="canvas-wrap"><canvas id="office"></canvas></div>
+<div id="legend"></div>
+<div id="tooltip">
+  <div class="agent-color-bar" id="tt-bar"></div>
+  <div class="t-name"   id="tt-name"></div>
+  <div class="t-title"  id="tt-title"></div>
+  <div class="t-engine" id="tt-engine"></div>
+</div>
+
+<script>
+// ═══════════════════════════════════════════════════════════
+// AGENTS
+// ═══════════════════════════════════════════════════════════
+const AGENTS = [
+  { id:'ceo',      name:'Kyle Choi',              title:'Chief Wave Architect', color:'#FFD700', engine:'Human',        dept:'Executive',     floor:0, col:0 },
+  { id:'flo-orch', name:'Flow Ops Orchestrator',  title:'운영총괄 오케스트레이터', color:'#3B82F6', engine:'Claude',       dept:'Executive',     floor:1, col:0 },
+  { id:'ai-orch',  name:'AI Systems Orchestrator',title:'CTO',                  color:'#8B5CF6', engine:'Codex/GPT',    dept:'Executive',     floor:1, col:1 },
+  { id:'learn',    name:'Learning Wave Lead',      title:'교육본부 팀장',         color:'#10B981', engine:'Claude',       dept:'Learning',      floor:2, col:0 },
+  { id:'content',  name:'Content Wave Lead',       title:'콘텐츠본부 팀장',       color:'#F97316', engine:'Codex/GPT',    dept:'Content',       floor:2, col:1 },
+  { id:'network',  name:'Network Wave Lead',       title:'네트워크본부 팀장',     color:'#14B8A6', engine:'Claude',       dept:'Network',       floor:2, col:2 },
+  { id:'know',     name:'Knowledge Wave Lead',     title:'출판본부 팀장',         color:'#BE185D', engine:'Gemini Pro',   dept:'Knowledge',     floor:2, col:3 },
+  { id:'flo-lead', name:'Flow Ops Lead',           title:'운영본부 팀장',         color:'#94A3B8', engine:'Gemini Flash', dept:'Flow Ops',      floor:3, col:0 },
+  { id:'ai-lead',  name:'AI Systems Lead',         title:'AI개발본부 팀장',       color:'#7C3AED', engine:'Codex/GPT',    dept:'AI Systems',    floor:3, col:1 },
+  { id:'design',   name:'Design Wave Lead',        title:'디자인본부 팀장',       color:'#EC4899', engine:'Claude',       dept:'Design',        floor:3, col:2 },
+  { id:'env',      name:'Environment Scanner',     title:'환경스캐닝 에이전트',   color:'#84CC16', engine:'Claude',       dept:'Research',      floor:4, col:0 },
+  { id:'news',     name:'News Crawler',            title:'뉴스크롤링 에이전트',   color:'#1E40AF', engine:'Claude',       dept:'Research',      floor:4, col:1 },
+];
+
+// ═══════════════════════════════════════════════════════════
+// CANVAS SETUP
+// ═══════════════════════════════════════════════════════════
+const canvas = document.getElementById('office');
+const ctx    = canvas.getContext('2d');
+
+const TW   = 90;
+const TH   = 46;
+const BLOCK = 72;
+const COLS  = 4;
+const ROWS  = 5;
+const W = canvas.width  = (COLS + ROWS) * (TW / 2) + 200;
+const H = canvas.height = (COLS + ROWS) * (TH / 2) + BLOCK * 5 + 170;
+const OX = W / 2;
+const OY = 110;
+
+function isoX(col, row) { return OX + (col - row) * (TW / 2); }
+function isoY(col, row) { return OY + (col + row) * (TH / 2); }
+
+function hexToRgb(hex) {
+  return { r: parseInt(hex.slice(1,3),16), g: parseInt(hex.slice(3,5),16), b: parseInt(hex.slice(5,7),16) };
+}
+function darken(hex, amt=0.5) {
+  const {r,g,b} = hexToRgb(hex);
+  return `rgb(${Math.floor(r*amt)},${Math.floor(g*amt)},${Math.floor(b*amt)})`;
+}
+function lighten(hex, amt=1.4) {
+  const {r,g,b} = hexToRgb(hex);
+  return `rgb(${Math.min(255,Math.floor(r*amt))},${Math.min(255,Math.floor(g*amt))},${Math.min(255,Math.floor(b*amt))})`;
+}
+
+function getAgentIsoPos(agent) {
+  const floorRow    = [0, 1.2, 2.7, 4.2, 5.7];
+  const floorColOff = [1.5, 1, 0, 0.5, 1];
+  return {
+    col: agent.col + floorColOff[agent.floor],
+    row: floorRow[agent.floor],
+  };
+}
+
+// ═══════════════════════════════════════════════════════════
+// GROUND
+// ═══════════════════════════════════════════════════════════
+function drawGround() {
+  for (let r = 0; r < ROWS + 2; r++) {
+    for (let c = 0; c < COLS + 2; c++) {
+      const gx = isoX(c - 1, r - 1);
+      const gy = isoY(c - 1, r - 1) + BLOCK * 5;
+      ctx.beginPath();
+      ctx.moveTo(gx, gy);
+      ctx.lineTo(gx + TW/2, gy + TH/2);
+      ctx.lineTo(gx, gy + TH);
+      ctx.lineTo(gx - TW/2, gy + TH/2);
+      ctx.closePath();
+      ctx.fillStyle = (r+c) % 2 === 0 ? '#0f172a' : '#111827';
+      ctx.fill();
+      ctx.strokeStyle = '#1e293b';
+      ctx.lineWidth = 0.5;
+      ctx.stroke();
+    }
+  }
+}
+
+// ═══════════════════════════════════════════════════════════
+// DESK DETAILS (drawn on top face)
+// ═══════════════════════════════════════════════════════════
+function drawDeskDetails(x, y, color, frame) {
+  // Desk surface — front-lower diamond quadrant
+  ctx.beginPath();
+  ctx.moveTo(x,         y + TH * 0.48);
+  ctx.lineTo(x + TW*0.38, y + TH * 0.74);
+  ctx.lineTo(x,         y + TH);
+  ctx.lineTo(x - TW*0.38, y + TH * 0.74);
+  ctx.closePath();
+  ctx.fillStyle = '#1e120844';
+  ctx.fill();
+  ctx.strokeStyle = '#00000022';
+  ctx.lineWidth = 0.5;
+  ctx.stroke();
+
+  // Keyboard strip on desk edge
+  const kbX = x - 11;
+  const kbY = y + TH * 0.68;
+  ctx.fillStyle = '#2a2a2a';
+  ctx.fillRect(kbX, kbY, 22, 4);
+  for (let k = 0; k < 6; k++) {
+    ctx.fillStyle = '#444';
+    ctx.fillRect(kbX + 2 + k * 3, kbY + 1, 2, 2);
+  }
+
+  // Monitor (back-center of top face)
+  const monW = 16;
+  const monH = 12;
+  const monX = x - monW / 2;
+  const monY = y + TH * 0.09;
+  const glow  = Math.sin(frame * 0.045) * 0.15 + 0.85;
+  const {r,g,b} = hexToRgb(color);
+
+  // Frame
+  ctx.fillStyle = '#0d0d0d';
+  ctx.fillRect(monX - 1, monY - 1, monW + 2, monH + 2);
+  // Screen
+  ctx.fillStyle = `rgba(${Math.floor(r*0.25)},${Math.floor(g*0.45)},${Math.floor(b*0.9+40)},${glow.toFixed(2)})`;
+  ctx.fillRect(monX, monY, monW, monH);
+  // Color bar
+  ctx.fillStyle = color + '66';
+  ctx.fillRect(monX + 1, monY + 1, monW - 2, 2);
+  // Scanlines
+  for (let sy = monY + 4; sy < monY + monH; sy += 3) {
+    ctx.fillStyle = '#00000044';
+    ctx.fillRect(monX, sy, monW, 1);
+  }
+  // Stand
+  ctx.fillStyle = '#222';
+  ctx.fillRect(x - 1, monY + monH, 2, 3);
+  ctx.fillRect(x - 4, monY + monH + 3, 8, 1);
+}
+
+// ═══════════════════════════════════════════════════════════
+// WORKSTATION BLOCK
+// ═══════════════════════════════════════════════════════════
+function drawWorkstation(x, y, agent, isHovered, frame) {
+  const color = agent.color;
+  const bh    = BLOCK - agent.floor * 3;
+
+  if (isHovered) {
+    ctx.save();
+    ctx.shadowColor = color;
+    ctx.shadowBlur  = 22;
+  }
+
+  // Top face
+  ctx.beginPath();
+  ctx.moveTo(x, y);
+  ctx.lineTo(x + TW/2, y + TH/2);
+  ctx.lineTo(x, y + TH);
+  ctx.lineTo(x - TW/2, y + TH/2);
+  ctx.closePath();
+  ctx.fillStyle = isHovered ? lighten(color, 1.35) : lighten(color, 1.18);
+  ctx.fill();
+  ctx.strokeStyle = '#00000044'; ctx.lineWidth = 1; ctx.stroke();
+
+  // Left face (shadow)
+  ctx.beginPath();
+  ctx.moveTo(x - TW/2, y + TH/2);
+  ctx.lineTo(x, y + TH);
+  ctx.lineTo(x, y + TH + bh);
+  ctx.lineTo(x - TW/2, y + TH/2 + bh);
+  ctx.closePath();
+  ctx.fillStyle = darken(color, 0.32);
+  ctx.fill();
+  ctx.strokeStyle = '#00000066'; ctx.stroke();
+
+  // Right face (light)
+  ctx.beginPath();
+  ctx.moveTo(x, y + TH);
+  ctx.lineTo(x + TW/2, y + TH/2);
+  ctx.lineTo(x + TW/2, y + TH/2 + bh);
+  ctx.lineTo(x, y + TH + bh);
+  ctx.closePath();
+  ctx.fillStyle = darken(color, 0.52);
+  ctx.fill();
+  ctx.strokeStyle = '#00000066'; ctx.stroke();
+
+  if (isHovered) ctx.restore();
+
+  // Window (right face)
+  const wx = x + TW/4 - 5;
+  const wy = y + TH/2 + bh * 0.18;
+  const ww = TW/5, wh = bh * 0.28;
+  ctx.fillStyle = '#001122';
+  ctx.fillRect(wx, wy, ww, wh);
+  ctx.fillStyle = color + '55';
+  ctx.fillRect(wx+1, wy+1, ww-2, wh-2);
+  for (let sy = wy+3; sy < wy+wh-1; sy+=3) {
+    ctx.fillStyle = '#00000033';
+    ctx.fillRect(wx+1, sy, ww-2, 1);
+  }
+
+  // Door (left face)
+  const dx = x - TW/4 - 5;
+  const dy = y + TH/2 + bh * 0.52;
+  ctx.fillStyle = '#00000044';
+  ctx.fillRect(dx, dy, 10, bh * 0.35);
+  ctx.fillStyle = '#FFD70055';
+  ctx.fillRect(dx + 7, dy + bh * 0.12, 2, 2);
+
+  // Floor line (bottom of block)
+  ctx.strokeStyle = darken(color, 0.25);
+  ctx.lineWidth = 1;
+  ctx.beginPath();
+  ctx.moveTo(x - TW/2, y + TH/2 + bh);
+  ctx.lineTo(x, y + TH + bh);
+  ctx.lineTo(x + TW/2, y + TH/2 + bh);
+  ctx.stroke();
+
+  // Desk + monitor on top face
+  drawDeskDetails(x, y, color, frame);
+
+  // Name tag (raised above avatar)
+  ctx.save();
+  ctx.font = 'bold 8px "Courier New"';
+  ctx.textAlign = 'center';
+  const tagY = y - 55;
+  ctx.fillStyle = color + 'dd';
+  ctx.fillRect(x - 36, tagY - 10, 72, 13);
+  ctx.fillStyle = '#fff';
+  ctx.fillText(agent.title, x, tagY);
+  ctx.restore();
+}
+
+// ═══════════════════════════════════════════════════════════
+// SEATED AVATAR (upper body at desk)
+// ═══════════════════════════════════════════════════════════
+function drawSeatedAvatar(cx, blockApexY, color, role, frame) {
+  const P = 3;
+  const _ = null;
+  const SK = '#F4C5A0';
+  const HA = '#2C1810';
+  const EY = '#111111';
+  const MT = '#8B4513';
+  const C  = color;
+  const Cd = darken(color, 0.5);
+
+  // Seated: head bobs slightly, hands on keyboard
+  const bob   = Math.sin(frame * 0.06 + cx * 0.01) * 1.2;
+  const seatY = blockApexY + TH * 0.42;      // waist height on top face
+  const startY = Math.round(seatY - 7 * P + bob);
+  const startX = Math.round(cx - 4 * P);
+
+  // 8 wide × 7 tall — upper body only (sitting posture)
+  const body = [
+    [_,  _, HA, HA, HA, HA,  _,  _],   // 0  hair top
+    [_, HA, SK, SK, SK, SK, HA,  _],   // 1  head
+    [_, SK, EY, SK, SK, EY, SK,  _],   // 2  eyes
+    [_, SK, SK, SK, SK, SK, SK,  _],   // 3  nose
+    [_, SK, SK, MT, MT, SK, SK,  _],   // 4  mouth
+    [_,  C,  C, SK, SK,  C,  C,  _],   // 5  collar/shoulders
+    [ C,  C,  C,  C,  C,  C,  C,  C],  // 6  arms extended to keyboard
+  ];
+
+  body.forEach((row, ri) => {
+    row.forEach((c, ci) => {
+      if (!c) return;
+      ctx.fillStyle = c;
+      ctx.fillRect(startX + ci * P, startY + ri * P, P, P);
+    });
+  });
+
+  // Hat / accessory (drawn above row 0)
+  const px = (col, row, c) => {
+    ctx.fillStyle = c;
+    ctx.fillRect(startX + col * P, startY + row * P, P, P);
+  };
+  const GD = '#FFD700';
+
+  const hatMap = {
+    'ceo':      'crown',
+    'flo-orch': 'flatcap',
+    'ai-orch':  'visor',
+    'learn':    'mortarboard',
+    'content':  'cap',
+    'network':  'antenna',
+    'know':     'cap',
+    'flo-lead': 'flatcap',
+    'ai-lead':  'visor',
+    'design':   'beret',
+    'env':      'safari',
+    'news':     'press',
+  };
+
+  switch (hatMap[role] || 'cap') {
+    case 'crown':
+      [1,3,5].forEach(c => { px(c,-3,GD); px(c,-2,GD); });
+      for (let c=0;c<=7;c++) px(c,-1,GD);
+      break;
+    case 'flatcap':
+      for (let c=1;c<=6;c++) px(c,-2,C);
+      for (let c=0;c<=7;c++) px(c,-1,C);
+      break;
+    case 'visor':
+      for (let c=1;c<=6;c++) px(c,-1,C);
+      px(0,-1,darken(C,0.7)); px(7,-1,darken(C,0.7));
+      break;
+    case 'mortarboard':
+      for (let c=0;c<=7;c++) px(c,-2,C);
+      for (let c=1;c<=6;c++) px(c,-1,C);
+      px(7,-3,GD); px(7,-2,GD);
+      break;
+    case 'antenna':
+      px(3,-4,C); px(3,-3,C); px(3,-2,C);
+      px(2,-1,C); px(3,-1,C); px(4,-1,C);
+      break;
+    case 'beret':
+      for (let c=2;c<=7;c++) px(c,-2,C);
+      for (let c=1;c<=6;c++) px(c,-1,C);
+      px(6,-3,C);
+      break;
+    case 'safari':
+      for (let c=2;c<=5;c++) px(c,-2,C);
+      for (let c=0;c<=7;c++) px(c,-1,C);
+      break;
+    case 'press':
+      for (let c=1;c<=6;c++) px(c,-2,C);
+      for (let c=0;c<=7;c++) px(c,-1,C);
+      px(1,-2,'#fff'); px(2,-2,'#fff');
+      break;
+    default:
+      for (let c=1;c<=6;c++) px(c,-2,C);
+      for (let c=0;c<=6;c++) px(c,-1,C);
+  }
+}
+
+// ═══════════════════════════════════════════════════════════
+// PARTICLE / DATA FLOW SYSTEM
+// ═══════════════════════════════════════════════════════════
+let particles = [];
+
+const connections = [
+  ['ceo','flo-orch'], ['ceo','ai-orch'],
+  ['flo-orch','learn'], ['flo-orch','content'], ['flo-orch','network'],
+  ['flo-orch','know'],  ['flo-orch','flo-lead'], ['flo-orch','design'],
+  ['flo-orch','env'],   ['flo-orch','news'],
+  ['ai-orch','ai-lead'],
+];
+
+const positions = {};
+AGENTS.forEach(a => { positions[a.id] = getAgentIsoPos(a); });
+
+function agentCenterXY(id) {
+  const pos = positions[id];
+  if (!pos) return null;
+  return {
+    x: isoX(pos.col, pos.row),
+    y: isoY(pos.col, pos.row) + TH * 0.25,
+  };
+}
+
+function spawnParticle(fromId, toId) {
+  const f = agentCenterXY(fromId);
+  const t = agentCenterXY(toId);
+  if (!f || !t) return;
+  const fromAgent = AGENTS.find(a => a.id === fromId);
+
+  particles.push({
+    fromX: f.x, fromY: f.y,
+    toX:   t.x, toY:   t.y,
+    t: 0,
+    speed: 0.0045 + Math.random() * 0.004,
+    color: fromAgent.color,
+    size:  2 + Math.random() * 1.5,
+    trail: [],
+  });
+}
+
+function bezierPos(p, t) {
+  // Quadratic bezier arcing upward between sender and receiver
+  const mx = (p.fromX + p.toX) / 2;
+  const my = (p.fromY + p.toY) / 2 - 38;
+  return {
+    x: (1-t)*(1-t)*p.fromX + 2*(1-t)*t*mx + t*t*p.toX,
+    y: (1-t)*(1-t)*p.fromY + 2*(1-t)*t*my + t*t*p.toY,
+  };
+}
+
+function updateParticles(frame) {
+  // Spawn: forward (task dispatch)
+  if (frame % 42 === 0) {
+    const c = connections[Math.floor(Math.random() * connections.length)];
+    spawnParticle(c[0], c[1]);
+  }
+  // Spawn: backward (result delivery) — less frequent
+  if (frame % 80 === 0) {
+    const c = connections[Math.floor(Math.random() * connections.length)];
+    spawnParticle(c[1], c[0]);
+  }
+  // Extra burst from CEO level
+  if (frame % 120 === 0) {
+    spawnParticle('ceo', 'flo-orch');
+    spawnParticle('ceo', 'ai-orch');
+  }
+
+  // Update positions & trails
+  particles.forEach(p => {
+    const pos = bezierPos(p, p.t);
+    p.trail.push({ x: pos.x, y: pos.y });
+    if (p.trail.length > 9) p.trail.shift();
+    p.t += p.speed;
+  });
+
+  particles = particles.filter(p => p.t < 1.0);
+}
+
+function drawParticles() {
+  particles.forEach(p => {
+    const pos = bezierPos(p, p.t);
+
+    // Trail (fading dots)
+    p.trail.forEach((tp, i) => {
+      const alpha = (i / p.trail.length) * 0.55;
+      const size  = p.size * 0.45 * (i / p.trail.length);
+      ctx.globalAlpha = alpha;
+      ctx.fillStyle = p.color;
+      ctx.beginPath();
+      ctx.arc(tp.x, tp.y, size, 0, Math.PI * 2);
+      ctx.fill();
+    });
+    ctx.globalAlpha = 1;
+
+    // Particle head — white core + color halo
+    ctx.save();
+    ctx.shadowColor = p.color;
+    ctx.shadowBlur  = 14;
+    ctx.fillStyle   = '#ffffff';
+    ctx.beginPath();
+    ctx.arc(pos.x, pos.y, p.size, 0, Math.PI * 2);
+    ctx.fill();
+    ctx.fillStyle = p.color;
+    ctx.beginPath();
+    ctx.arc(pos.x, pos.y, p.size * 0.62, 0, Math.PI * 2);
+    ctx.fill();
+    ctx.restore();
+  });
+}
+
+// ═══════════════════════════════════════════════════════════
+// HIT AREAS & STATE
+// ═══════════════════════════════════════════════════════════
+const hitAreas   = [];
+let hoveredAgent = null;
+let animFrame    = 0;
+
+// ═══════════════════════════════════════════════════════════
+// MAIN DRAW LOOP
+// ═══════════════════════════════════════════════════════════
+function draw() {
+  ctx.clearRect(0, 0, W, H);
+
+  // Background
+  const grad = ctx.createRadialGradient(W/2, H/2, 40, W/2, H/2, Math.max(W,H));
+  grad.addColorStop(0, '#0d1117');
+  grad.addColorStop(1, '#050508');
+  ctx.fillStyle = grad;
+  ctx.fillRect(0, 0, W, H);
+
+  // Stars
+  for (let i = 0; i < 80; i++) {
+    const sx   = (i * 137.5) % W;
+    const sy   = (i * 97.3)  % (H * 0.38);
+    const size = i % 3 === 0 ? 1.5 : 0.8;
+    ctx.globalAlpha = (Math.sin(animFrame * 0.03 + i) * 0.4 + 0.6) * 0.45;
+    ctx.fillStyle = '#fff';
+    ctx.fillRect(sx, sy, size, size);
+  }
+  ctx.globalAlpha = 1;
+
+  drawGround();
+
+  hitAreas.length = 0;
+  updateParticles(animFrame);
+
+  // Draw org connection lines (dashed, behind blocks)
+  connections.forEach(([from, to]) => {
+    const fp = positions[from], tp = positions[to];
+    if (!fp || !tp) return;
+    const fx = isoX(fp.col, fp.row), fy = isoY(fp.col, fp.row) + TH/2;
+    const tx = isoX(tp.col, tp.row), ty = isoY(tp.col, tp.row);
+    const fa = AGENTS.find(a => a.id === from);
+    ctx.beginPath();
+    ctx.moveTo(fx, fy);
+    ctx.lineTo(tx, ty);
+    ctx.strokeStyle = fa.color + '28';
+    ctx.lineWidth   = 1.5;
+    ctx.setLineDash([4, 6]);
+    ctx.stroke();
+    ctx.setLineDash([]);
+  });
+
+  // Sort blocks: back → front (iso painter's algorithm)
+  const drawOrder = [...AGENTS].sort((a, b) => {
+    const pa = getAgentIsoPos(a), pb = getAgentIsoPos(b);
+    return (pa.col + pa.row) - (pb.col + pb.row);
+  });
+
+  drawOrder.forEach(agent => {
+    const pos = getAgentIsoPos(agent);
+    const x   = isoX(pos.col, pos.row);
+    const y   = isoY(pos.col, pos.row);
+    const isHovered = hoveredAgent === agent.id;
+
+    drawWorkstation(x, y, agent, isHovered, animFrame);
+
+    // Seated avatar on top face
+    drawSeatedAvatar(x, y, agent.color, agent.id, animFrame);
+
+    // Pulsing live indicator (top-right of block)
+    const pulse = Math.sin(animFrame * 0.08 + agent.floor * 0.7) * 0.25 + 0.85;
+    ctx.beginPath();
+    ctx.arc(x + TW/2 - 8, y + 6, 4, 0, Math.PI * 2);
+    ctx.fillStyle = agent.color;
+    ctx.globalAlpha = pulse;
+    ctx.fill();
+    ctx.globalAlpha = 1;
+
+    // Hit area
+    hitAreas.push({ id: agent.id, agent, cx: x, cy: y + TH/2, r: TW * 0.58 });
+  });
+
+  // Data particles (above all blocks)
+  drawParticles();
+
+  // HUD overlay
+  ctx.font = 'bold 11px "Courier New"';
+  ctx.textAlign = 'left';
+  ctx.fillStyle = '#FFD70055';
+  ctx.fillText('● WAVE AI NETWORKS — VIRTUAL HQ', 20, 30);
+  ctx.fillStyle = '#ffffff1a';
+  ctx.fillText(`AGENTS ONLINE: ${AGENTS.length}  |  DATA PACKETS: ${particles.length}  |  STATUS: ACTIVE`, 20, 46);
+
+  animFrame++;
+  requestAnimationFrame(draw);
+}
+
+// ═══════════════════════════════════════════════════════════
+// TOOLTIP
+// ═══════════════════════════════════════════════════════════
+const tooltip  = document.getElementById('tooltip');
+const ttBar    = document.getElementById('tt-bar');
+const ttName   = document.getElementById('tt-name');
+const ttTitle  = document.getElementById('tt-title');
+const ttEngine = document.getElementById('tt-engine');
+
+canvas.addEventListener('mousemove', e => {
+  const rect  = canvas.getBoundingClientRect();
+  const scaleX = canvas.width  / rect.width;
+  const scaleY = canvas.height / rect.height;
+  const cx = (e.clientX - rect.left) * scaleX;
+  const cy = (e.clientY - rect.top)  * scaleY;
+
+  let found = null;
+  for (let i = hitAreas.length - 1; i >= 0; i--) {
+    const h  = hitAreas[i];
+    const dx = cx - h.cx, dy = cy - h.cy;
+    if (Math.sqrt(dx*dx + dy*dy) < h.r) { found = h; break; }
+  }
+
+  if (found) {
+    hoveredAgent = found.id;
+    canvas.style.cursor = 'pointer';
+    ttBar.style.background = found.agent.color;
+    ttName.textContent   = found.agent.name;
+    ttTitle.textContent  = found.agent.title;
+    ttEngine.textContent = `🔧 ${found.agent.engine}  |  🏢 ${found.agent.dept}`;
+    tooltip.style.left = (e.clientX + 15) + 'px';
+    tooltip.style.top  = (e.clientY - 10) + 'px';
+    tooltip.classList.add('show');
+  } else {
+    hoveredAgent = null;
+    canvas.style.cursor = 'default';
+    tooltip.classList.remove('show');
+  }
+});
+
+canvas.addEventListener('mouseleave', () => {
+  hoveredAgent = null;
+  tooltip.classList.remove('show');
+});
+
+// ═══════════════════════════════════════════════════════════
+// LEGEND
+// ═══════════════════════════════════════════════════════════
+const legend = document.getElementById('legend');
+AGENTS.forEach(a => {
+  const item = document.createElement('div');
+  item.className = 'legend-item';
+  item.innerHTML = `<div class="legend-dot" style="background:${a.color}"></div><span>${a.name}</span>`;
+  legend.appendChild(item);
+});
+
+// Start
+draw();
+</script>
+</body>
+</html>

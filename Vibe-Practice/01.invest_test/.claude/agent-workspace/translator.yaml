@@ -1,0 +1,15 @@
+# .claude/agent-workspace/translator.yaml
+# Translation SubAgent workspace — Read/Write by @translator only
+# ALL KEYS AND VALUES IN ENGLISH (P5-A)
+agent_id: translator
+updated_at: ""
+current_step: null
+translations:
+  - step: null
+    source: ""
+    target: ""
+    pacs_score: null
+    pacs_grade: ""
+    glossary_terms_added: 0
+    error: ""
+log: []

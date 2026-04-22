@@ -1,0 +1,95 @@
+{
+  "metadata": {
+    "fetched_at": "2026-03-29T00:00:00Z",
+    "source": "FRED API",
+    "series_count": 10
+  },
+  "series": {
+    "DFF": {
+      "series_id": "DFF",
+      "name": "Federal Funds Effective Rate",
+      "value": 5.25,
+      "unit": "Percent",
+      "date": "2026-03-28",
+      "available": true
+    },
+    "FEDFUNDS": {
+      "series_id": "FEDFUNDS",
+      "name": "Federal Funds Rate",
+      "value": 5.25,
+      "unit": "Percent",
+      "date": "2026-03-01",
+      "available": true
+    },
+    "UNRATE": {
+      "series_id": "UNRATE",
+      "name": "Unemployment Rate",
+      "value": 3.9,
+      "unit": "Percent",
+      "date": "2026-03-01",
+      "available": true
+    },
+    "CPIAUCSL": {
+      "series_id": "CPIAUCSL",
+      "name": "Consumer Price Index for All Urban Consumers",
+      "value": 2.8,
+      "unit": "Percent Change from Year Ago",
+      "date": "2026-03-01",
+      "available": true
+    },
+    "T10YIE": {
+      "series_id": "T10YIE",
+      "name": "10-Year Breakeven Inflation Rate",
+      "value": 2.31,
+      "unit": "Percent",
+      "date": "2026-03-28",
+      "available": true
+    },
+    "GS10": {
+      "series_id": "GS10",
+      "name": "Market Yield on U.S. Treasury Securities at 10-Year Maturity",
+      "value": 4.21,
+      "unit": "Percent",
+      "date": "2026-03-01",
+      "available": true
+    },
+    "DTWEXBGS": {
+      "series_id": "DTWEXBGS",
+      "name": "Nominal Broad U.S. Dollar Index",
+      "value": 106.8,
+      "unit": "Index",
+      "date": "2026-03-28",
+      "available": true
+    },
+    "VIXCLS": {
+      "series_id": "VIXCLS",
+      "name": "CBOE Volatility Index",
+      "value": 18.42,
+      "unit": "Index",
+      "date": "2026-03-28",
+      "available": true
+    },
+    "BAMLH0A0HYM2": {
+      "series_id": "BAMLH0A0HYM2",
+      "name": "ICE BofA US High Yield Index Option-Adjusted Spread",
+      "value": 3.21,
+      "unit": "Percent",
+      "date": "2026-03-28",
+      "available": true
+    },
+    "CSUSHPISA": {
+      "series_id": "CSUSHPISA",
+      "name": "S&P/Case-Shiller U.S. National Home Price Index",
+      "value": 315.2,
+      "unit": "Index",
+      "date": "2025-12-01",
+      "available": true
+    }
+  },
+  "macro_summary": {
+    "rate_direction": "hold",
+    "inflation_trend": "cooling",
+    "risk_appetite": "moderate",
+    "usd_strength": "strong"
+  }
+}

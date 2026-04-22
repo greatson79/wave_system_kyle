@@ -1,0 +1,50 @@
+# .claude/state/phase-impl.yaml — Implementation Phase SOT
+# Implementation Lead exclusive write | ALL KEYS AND VALUES IN ENGLISH (P5-A)
+
+phase: implementation
+last_updated: ""
+merge_ready: false
+
+fork_a:
+  status: "idle"              # idle | running | completed | failed
+  modules: [config, normalizers, steeps_classifier]
+  tdd_coverage: {}
+  workspace: ".claude/agent-workspace/builder-a.yaml"
+  completed_at: ""
+
+fork_b:
+  status: "idle"
+  modules: [signal_bridge, dedup, compliance_filter]
+  tdd_coverage: {}
+  workspace: ".claude/agent-workspace/builder-b.yaml"
+  completed_at: ""
+
+fork_c:
+  status: "idle"
+  modules: [synthesize_macro, korea_signal_layer, stock_selector]
+  tdd_coverage: {}
+  workspace: ".claude/agent-workspace/builder-c.yaml"
+  completed_at: ""
+
+fork_d:
+  status: "idle"
+  depends_on: [fork_a, fork_b, fork_c]
+  modules: [synthesize_stock, valuation_comparator]
+  tdd_coverage: {}
+  workspace: ".claude/agent-workspace/builder-d.yaml"
+  completed_at: ""
+
+fork_e:
+  status: "idle"
+  depends_on: [fork_d]
+  modules: [intelligence_engine, report_generator, validate_report_quality, citation_validator]
+  tdd_coverage: {}
+  workspace: ".claude/agent-workspace/builder-e.yaml"
+  completed_at: ""
+
+p1_critical_jobs:
+  # P1 Critical modules — built by p1-critical-builder (Opus)
+  steeps_classifier: {status: "pending", workspace: ".claude/agent-workspace/p1-cb-steeps.yaml"}
+  compliance_filter: {status: "pending", workspace: ".claude/agent-workspace/p1-cb-compliance.yaml"}
+  synthesize_macro: {status: "pending", workspace: ".claude/agent-workspace/p1-cb-macro.yaml"}
+  stock_selector: {status: "pending", workspace: ".claude/agent-workspace/p1-cb-stock.yaml"}

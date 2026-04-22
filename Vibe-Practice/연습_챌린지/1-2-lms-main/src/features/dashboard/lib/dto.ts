@@ -1,0 +1,16 @@
+export {
+  LearnerDashboardResponseSchema,
+  CourseProgressSchema,
+  DueAssignmentSchema,
+  RecentFeedbackSchema,
+  type LearnerDashboardResponse,
+  type CourseProgress,
+  type DueAssignment,
+  type RecentFeedback,
+  MyCourseItemSchema,
+  RecentSubmissionItemSchema,
+  InstructorDashboardResponseSchema,
+  type MyCourseItem,
+  type RecentSubmissionItem,
+  type InstructorDashboardResponse,
+} from '@/features/dashboard/backend/schema';

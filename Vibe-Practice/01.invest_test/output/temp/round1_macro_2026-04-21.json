@@ -1,0 +1,308 @@
+{
+  "analyst": "macro",
+  "date": "2026-04-21",
+  "round": 1,
+  "data_sources": [
+    "agent_context_2026-04-21.json (envscan: 730 signals [T:191, E:123, P:329, S:47], gnews: 23 articles, naver_finance: 12 stocks)",
+    "round1_macro_2026-04-17.json (continuity reference)",
+    "sector_scores: cybersecurity=521, defense=330, shipbuilding=329.5, technology=235, ai_platform=231"
+  ],
+  "key_signals": [
+    {
+      "signal": "호르무즈 해협 불확실성 지속 — '이란 개방 선언' 후에도 긴장 유지",
+      "source": "MIDDLE EAST LIVE 20 April: Uncertainty grows in the Strait of Hormuz",
+      "direction": "bearish",
+      "confidence": 0.80,
+      "impact": "에너지 공급망 불안 지속 → 한국 원유 수입 비용 상승 압박, 방산·조선 수혜 지속"
+    },
+    {
+      "signal": "이란, 호르무즈 해협 '개방' 발표 (4월 17일) — 부분적 긴장 완화 시그널",
+      "source": "MIDDLE EAST LIVE 17 April: Israel-Lebanon ceasefire begins; Iran announces opening of Strait of Hormuz",
+      "direction": "neutral_to_bullish",
+      "confidence": 0.55,
+      "impact": "완전 정상화 아닌 제스처 수준. 이스라엘-레바논 휴전과 함께 중동 리스크 '부분 완화' 가능성. 그러나 4월 20일 이후 다시 불확실성 증가로 반전."
+    },
+    {
+      "signal": "美 대법원 판결 — 트럼프 관세 불법 판정 후 환급 포털 개시",
+      "source": "US opens refund portal to start paying back Trump's illegal tariffs",
+      "direction": "bullish",
+      "confidence": 0.72,
+      "impact": "미국 무역 정책 불확실성 일부 해소. 한국 수출 기업(반도체, 전기차 배터리) 간접 수혜 가능. 달러 약세 압력으로 원/달러 환율 소폭 하락 기여 가능."
+    },
+    {
+      "signal": "중앙은행 독립성 우려 — BOE 총재 앤드루 베일리 발언",
+      "source": "Andrew Bailey: Central bank independence in need of further thinking",
+      "direction": "bearish",
+      "confidence": 0.65,
+      "impact": "선진국 중앙은행 독립성에 대한 정치적 압력 글로벌 확산 신호. Fed 정책 신뢰성 훼손 우려 → 달러 신뢰 불안 → EM 자본 유출 리스크"
+    },
+    {
+      "signal": "AI의 중앙은행 관점 도전 — BIS Denis Beau 연설",
+      "source": "Denis Beau: The challenges posed by AI from the perspective of the central bank",
+      "direction": "neutral",
+      "confidence": 0.60,
+      "impact": "AI 구조적 디플레이션을 글로벌 중앙은행이 공식 정책 변수로 통합 중. BOK의 AI 디플레이션 선제 인정이 선진 대응으로 평가될 수 있음. 하반기 금리인하 경로 지지."
+    },
+    {
+      "signal": "ECB Cipollone — 토큰화와 중앙은행의 역할: 금융 변혁 가속",
+      "source": "Piero Cipollone: Sparking the transformation of finance - tokenisation and the role of central banks",
+      "direction": "neutral_to_bullish",
+      "confidence": 0.55,
+      "impact": "디지털 금융 인프라 수요 증가. 사이버보안·AI 플랫폼 섹터 중장기 수혜. 한국 핀테크·사이버보안 기업 글로벌 디지털 전환 수요 편입 가능."
+    },
+    {
+      "signal": "BIS Radev — '현재 환경은 기준 시나리오가 아닌 결과의 불확실성 범위 확대로 정의됨'",
+      "source": "Dimitar Radev: The current environment is not defined primarily by the baseline scenario. It is defined by the widening range of outcomes around it",
+      "direction": "bearish",
+      "confidence": 0.78,
+      "impact": "글로벌 중앙은행 커뮤니티가 꼬리 위험(tail risk) 확대를 공식 인정. 변동성 프리미엄 확대 → 위험자산 재평가 압박 지속. KOSPI 불확실성 범위 확대 확인."
+    },
+    {
+      "signal": "EU-美 대서양 파트너십 가치 재확인 — Villeroy de Galhau 연설",
+      "source": "François Villeroy de Galhau: One year on - why the transatlantic partnership remains of mutual interest",
+      "direction": "bullish",
+      "confidence": 0.58,
+      "impact": "유럽-미국 협력 유지가 글로벌 공급망 안정에 기여. 한국의 대유럽 방산 수출 환경 안정화 신호."
+    },
+    {
+      "signal": "우크라이나 긴급 안보리 — 러시아 공격 에스컬레이션",
+      "source": "SECURITY COUNCIL LIVE: Emergency briefing on Ukraine amid escalating Russian attacks",
+      "direction": "bearish",
+      "confidence": 0.70,
+      "impact": "유럽 방산 수요 재확인. 한국 방산(한화에어로스페이스, 현대로템, LIG넥스원) 수출 모멘텀 지속. 에너지 가격 불확실성 추가 요인."
+    },
+    {
+      "signal": "청정에너지, 석탄 추월 — '역사상 최초' 세계 최대 전원",
+      "source": "Clean energy pushes fossil-fuel power into reverse for first time ever",
+      "direction": "bullish",
+      "confidence": 0.72,
+      "impact": "재생에너지 전환 구조적 가속 확인. 한국 에너지 전환 섹터(전력 인프라, 배터리) 중장기 수혜. 단기적으로 전통 에너지 섹터 주가 압박 가능."
+    },
+    {
+      "signal": "'슈퍼 엘니뇨' 경고 — 2026년 6-8월 확률 상승",
+      "source": "DeBriefed 17 April 2026: Fossil-fuel power slumps | Super El Nino warning | Afghanistan's climate struggle",
+      "direction": "bearish",
+      "confidence": 0.65,
+      "impact": "농산물 가격 인플레이션 재급등 잠재성. 글로벌 식품 인플레이션 → Fed 금리 동결 고착 강화 → EM 자본 유출 트리거. 한국 소비재·식품 비용 압박."
+    },
+    {
+      "signal": "Applied Materials FTZ(외국무역특구) 확장 신청 — 반도체 장비 미국 내 생산 인프라 강화",
+      "source": "Foreign-Trade Zone 27; Application for Subzone; Applied Materials, Inc.",
+      "direction": "neutral_to_bullish",
+      "confidence": 0.58,
+      "impact": "미국 반도체 장비 제조 리쇼어링 가속. 한국 반도체 장비 기업(세메스, 원익IPS 등)에 압박이 될 수 있으나, 단기적으로 글로벌 장비 공급 확대로 한국 팹 운영 비용 하락 가능."
+    },
+    {
+      "signal": "국민연금 환헤지 비율 10%→15% 유지 (4월 14일 결정 지속)",
+      "source": "중동 불확실성에…국민연금, 해외투자 환헤지 비율 15%로 높여 (gnews)",
+      "direction": "bearish",
+      "confidence": 0.82,
+      "impact": "원화 구조적 약세에 대한 주권 기관 공식 인식 지속. 원/달러 1380-1420원 범위 내 약세 압력 유지."
+    },
+    {
+      "signal": "미셸 박 스틸 주한 미국대사 지명 — 대중 강경파 한반도 파견",
+      "source": "한국계 前하원의원 미셸 박 스틸, 주한美대사에 지명 (gnews)",
+      "direction": "bearish",
+      "confidence": 0.75,
+      "impact": "미국의 대중 기술 공급망 분리 압력이 한국을 통해 강화. 삼성전자·SK하이닉스의 중국 사업 추가 제약 가능성."
+    },
+    {
+      "signal": "이재명 정부 3대 핵심 프로젝트 — 대체 공급망·산업구조·탈플라스틱 (4월 14일 지시 지속)",
+      "source": "李 '중동전 계기로 산업구조 취약점 개선'…3대 프로젝트 지시 (gnews)",
+      "direction": "bullish",
+      "confidence": 0.80,
+      "impact": "방산·에너지전환·사이버보안 섹터 정책 수혜 중장기 확정. 예산 집행 구체화 시 주가 재상승 트리거."
+    }
+  ],
+  "sector_view": {
+    "cybersecurity": {
+      "view": "strong_bullish",
+      "score": 521.0,
+      "score_change": "+188 vs prior week (333)",
+      "rationale": "AI 거버넌스 법제화, 방산 연계 사이버보안, AI 에이전트 회복탄력성 수요가 동시 급증. 스코어 521은 전 섹터 압도적 1위. 단기 기술적 조정(-2~-8%) 이후 재상승 기대."
+    },
+    "defense": {
+      "view": "strong_bullish",
+      "score": 330.0,
+      "score_change": "+91 vs prior week (239)",
+      "rationale": "우크라이나 에스컬레이션, 호르무즈 지정학, 한국 다국적군 참여 검토, 이재명 3대 프로젝트가 방산 수요를 다층적으로 지지. 유럽·중동 수출 모멘텀 구조적 강화."
+    },
+    "shipbuilding": {
+      "view": "strong_bullish",
+      "score": 329.5,
+      "score_change": "+91 vs prior week (238.5)",
+      "rationale": "호르무즈 지정학에 따른 LNG·VLCC·해군함 발주 증가. 친환경 선박 전환 수요. 한국 빅3(HD한국조선해양, 한화오션, 삼성중공업) 수주 모멘텀 지속."
+    },
+    "technology": {
+      "view": "neutral",
+      "score": 235.0,
+      "rationale": "미중 기술 탈동조화 압력 지속이 단기 불확실성. AI 인프라 수요 강세는 구조적 지지요인. 미셸 박 스틸 대사 지명으로 대중 제재 동참 압력 증가 우려."
+    },
+    "ai_platform": {
+      "view": "bullish",
+      "score": 231.0,
+      "rationale": "메타·OpenAI 경쟁 심화로 AI 플랫폼 혁신 가속. 딥엑스 '피지컬 AI 인프라' 선언으로 한국 AI 칩 기업의 글로벌 시장 공략 본격화. BOK AI 디플레이션 정책 반영은 AI 섹터 구조적 지지."
+    },
+    "telecom": {
+      "view": "neutral",
+      "score": 192.0,
+      "rationale": "5G 인프라 수요 안정적이나 단기 성장 모멘텀 제한. AI 연계 네트워크 업그레이드 수요는 중기 긍정적."
+    },
+    "semiconductor": {
+      "view": "neutral",
+      "score": 191.5,
+      "rationale": "HBM 수요 구조적 강세 유지. 미중 갈등 심화(미셸 박 스틸 효과)와 Applied Materials 리쇼어링이 불확실성 요인. 단기 중립, 중기 선택적 강세."
+    },
+    "semiconductor_equipment": {
+      "view": "neutral",
+      "score": 191.0,
+      "rationale": "Applied Materials FTZ 확장으로 미국 내 장비 생산 강화 시 한국 장비사 압박 가능성. 단, 글로벌 팹 투자 확대 수혜는 지속."
+    },
+    "optical_network": {
+      "view": "neutral",
+      "score": 191.0,
+      "rationale": "AI 데이터센터 네트워킹 수요 지속. 단기 변동성 내 중립 유지."
+    },
+    "power_infrastructure": {
+      "view": "neutral_to_bullish",
+      "score": 123.5,
+      "rationale": "재생에너지 확대에 따른 전력망 업그레이드 수요 구조적 성장. 이재명 3대 프로젝트와 연계된 에너지 전환 정책 수혜 가능."
+    },
+    "energy": {
+      "view": "neutral",
+      "score": 123.5,
+      "rationale": "호르무즈 불확실성 지속으로 에너지 가격 변동성. 재생에너지 확대로 전통 에너지 중장기 구조적 압박. 단기 에너지 비용 상승은 에너지 기업 수익에 복합적."
+    },
+    "financials": {
+      "view": "neutral",
+      "score": 123.5,
+      "rationale": "BOK 금리 동결 지속으로 NIM 안정. AI 디플레이션 인정으로 하반기 인하 여력 확보. 원화 약세는 해외 자산 평가이익 요인. 단기 중립."
+    },
+    "consumer": {
+      "view": "bearish",
+      "score": 170.5,
+      "rationale": "원화 약세로 수입 비용 상승. 금리 동결 장기화로 가계 부채 부담 지속. 슈퍼 엘니뇨 경고로 식품 가격 인플레이션 위험. 내수 소비 압박 지속."
+    },
+    "biotech": {
+      "view": "neutral",
+      "score": 47.0,
+      "rationale": "국내 임상 파이프라인 진전은 긍정적이나 거시 환경 불확실성 속 자금 조달 어려움. 개별 종목 접근 필요."
+    },
+    "entertainment": {
+      "view": "neutral",
+      "score": 47.5,
+      "rationale": "K-SF 콘텐츠의 미국 로커스상 최종 후보 동반 진출은 한류 지속성 확인. 단기 거시 환경 불확실성으로 중립."
+    },
+    "battery_ev": {
+      "view": "bearish",
+      "score": 1.0,
+      "rationale": "전기차 수요 둔화 지속. 르노코리아 2028년 전기차 투입 계획은 중기 모멘텀이나 단기 실적 기여 미미. 배터리 재고 정상화까지 추가 시간 필요."
+    },
+    "automotive": {
+      "view": "bearish",
+      "score": 0.5,
+      "rationale": "미국 관세 불확실성(일부 환급 개시했으나 구조적 해소 미완), 중국 경쟁 심화, 전기차 전환 비용으로 복합 압박."
+    },
+    "nuclear": {
+      "view": "neutral",
+      "score": 0.0,
+      "rationale": "에너지 전환 수요와 지정학적 에너지 안보 수요가 장기 긍정이나, 단기 정책·규제 모멘텀 부재."
+    },
+    "steel_materials": {
+      "view": "bearish",
+      "score": 0.0,
+      "rationale": "중국 과잉생산 덤핑 압박 지속. 미국 반덤핑 조사(알루미늄 컨테이너 등)는 보호무역 강화 신호. 단기 방어적."
+    },
+    "chemicals": {
+      "view": "bearish",
+      "score": 0.0,
+      "rationale": "원화 약세로 원자재 수입 비용 상승. 중국 화학 섹터 경쟁 심화. 구조적 디레버리징 필요."
+    }
+  },
+  "macro_environment": {
+    "interest_rates": {
+      "fed": "동결 유지 (4.25-4.50%). 관세발 PCE +0.5% 인플레이션과 AI 구조적 디플레이션 충돌로 인하 경로 막힘. 2026년 Q3까지 동결 기본 시나리오.",
+      "bok": "금리 동결 유지 (2.50%). AI 디플레이션 공식 인정으로 하반기 인하 여력 보유. 호르무즈 에너지 인플레이션이 타이밍 지연 변수. 1-2회 인하 가능성 50%.",
+      "ecb": "완화적 기조 유지. Villeroy de Galhau의 EU-미 파트너십 발언은 무역 불확실성 완충 의지 표명."
+    },
+    "exchange_rates": {
+      "usd_krw": "원/달러 1380-1420원 범위 내 약세 기조. 연준 동결 + 호르무즈 에너지 수입 비용 + 지정학 리스크 프리미엄. 국민연금 환헤지 비율 확대가 구조적 약세 공식 확인.",
+      "usd_index": "달러 강세 지속되나 美 대법원 관세 환급 판결로 일부 달러 약세 압력 내포. 중기 불확실성."
+    },
+    "trade_geopolitics": {
+      "us_china": "미셸 박 스틸(대중 강경파) 주한 대사 지명으로 한국에 대한 미국의 대중 기술 제재 동참 압력 강화 예고. 반도체·AI 공급망 양측 노출 지속.",
+      "hormuz": "이란 4월 17일 개방 선언 이후 4월 20일 다시 불확실성 증가. 미국의 중국 유조선 봉쇄 실패 확인 이후 협상·긴장 공존 상태. 장기화 기본 시나리오.",
+      "ukraine": "러시아 공격 에스컬레이션으로 UN 안보리 긴급 브리핑 개최. 한국 방산 수출 수요 지속 지지.",
+      "us_tariffs": "미국 대법원의 트럼프 관세 불법 판결 후 환급 포털 개시. 무역 정책 불확실성 일부 해소. 구조적 보호무역 기조는 유지."
+    },
+    "energy_climate": {
+      "fossil_transition": "재생에너지가 2025년 석탄 추월, 세계 최대 전원 등극. 에너지 전환 가속 구조적 신호.",
+      "el_nino": "'슈퍼 엘니뇨' 경고 (2026년 6-8월). 농산물 인플레이션 재급등 리스크. 글로벌 인플레이션 재점화 꼬리 위험.",
+      "oil_supply": "호르무즈 불확실성으로 유가 변동성 지속. 한국 에너지 수입 비용 상승 압력."
+    }
+  },
+  "risk_level": "medium",
+  "risk_factors": {
+    "primary_risks": [
+      "호르무즈 봉쇄 재에스컬레이션: 이란 개방 선언(4월 17일) 후 4월 20일 다시 불확실성 증가. 장기화 시 원/달러 1450원+ 돌파 → 외국인 자금 이탈 연쇄",
+      "슈퍼 엘니뇨 실현: 6-8월 식량 원자재 인플레이션 재급등 → Fed 추가 긴축 검토 가능성 재부상 → EM 자본 유출 트리거",
+      "미셸 박 스틸 효과: 미국 대중 기술 제재 동참 압력 강화 → 삼성전자·SK하이닉스 중국 사업 추가 제약 → 반도체 섹터 직격",
+      "Q1 2026 실적 실망: 방산·사이버보안 프리미엄 밸류에이션(PER 75-100x) 구간에서 실적 미달 시 멀티플 수축 가속"
+    ],
+    "tail_risks": [
+      "중앙은행 독립성 훼손(앤드루 베일리 경고): 정치적 압력에 의한 Fed 조기 금리인하 강요 → 인플레이션 재점화 → 신뢰 위기",
+      "우크라이나 전쟁 에스컬레이션: NATO 개입 논의 격화 → 유럽 경기 침체 → 한국 대유럽 방산 수출 지연 역설적 위험",
+      "중국 희토류 수출 제한 현실화: 방산 제조 필수 중희토류 공급망 교란. 방산 섹터 원가 압박 및 납기 지연"
+    ],
+    "upside_risks": [
+      "호르무즈 협상 타결: 글로벌 리스크온 전환 → KOSPI 3000 탈환 시나리오",
+      "BOK 금리인하 조기 단행: AI 디플레이션 데이터 기반 2026년 Q3 인하 → 내수 소비 소폭 회복",
+      "美 대법원 관세 판결 확산: 추가 보호무역 조치 사법 차단 → 글로벌 무역 정상화 기대"
+    ]
+  },
+  "kospi_outlook": {
+    "base": {
+      "prob": 0.50,
+      "range": "2850-3000",
+      "narrative": "호르무즈 '부분 완화'(이란 개방 선언) vs '재에스컬레이션'(4월 20일 불확실성 증가) 사이클 반복. 미국 관세 환급 개시로 무역 정책 불확실성 일부 해소. KOSPI는 사이버보안(521)·방산(330)·조선(329.5) 섹터의 구조적 수요와 이재명 정부 3대 프로젝트 정책 지원에 의해 하방이 지지되며, 연준 동결·원화 약세 압박 속 2850-3000 범위 내 등락 예상."
+    },
+    "bull": {
+      "prob": 0.25,
+      "range": "3050-3200",
+      "narrative": "이란-미국 호르무즈 협상 타결, 미중 기술 분야 제한적 합의, Q1 실적 강세(방산·사이버보안 예상치 상회) 3가지 트리거 동시 발생 시. 원/달러 1350-1370원 강세 전환이 선행 조건. 외국인 순매수 전환과 KOSPI 3100 돌파 가능."
+    },
+    "bear": {
+      "prob": 0.25,
+      "range": "2650-2780",
+      "narrative": "슈퍼 엘니뇨 실현으로 식량 인플레이션 재급등, 호르무즈 재봉쇄 장기화, 미중 반도체 갈등 급격 악화 3가지 중 2개 이상 동시 발생 시. 원/달러 1450원+ 돌파 → 외국인 이탈 → KOSPI 2650-2750 지지선 테스트."
+    }
+  },
+  "continuity_from_prior": {
+    "maintained_themes": [
+      "호르무즈 지정학 리스크 (구조 유지, 부분 완화 후 재에스컬레이션으로 복잡성 증가)",
+      "미중 무역기술 갈등 (미셸 박 스틸 효과로 강도 증가)",
+      "연준 동결 장기화",
+      "BOK AI 디플레이션 인정 → 하반기 금리인하 여력",
+      "국민연금 환헤지 비율 확대 (원화 구조적 약세)",
+      "이재명 3대 핵심 프로젝트 정책 지원",
+      "AI 거버넌스·사이버보안 구조적 수요 증가"
+    ],
+    "new_signals_this_cycle": [
+      "이란 호르무즈 개방 선언(4월 17일) → 4월 20일 재불확실성: 단순 봉쇄→협상 국면 전환 가능성",
+      "美 대법원 관세 환급 포털 개시: 트럼프 관세 불법 판결 실행 → 무역 정책 불확실성 부분 해소",
+      "앤드루 베일리 중앙은행 독립성 발언: 글로벌 통화정책 신뢰성 위기 잠재 리스크 부각",
+      "BIS Radev '결과 불확실성 범위 확대': 글로벌 중앙은행 꼬리 위험 공식 인정",
+      "Applied Materials FTZ 확장: 미국 반도체 장비 리쇼어링 가속",
+      "'슈퍼 엘니뇨' 공식 경고: 2026년 6-8월 인플레이션 재급등 꼬리 위험 추가",
+      "청정에너지 석탄 추월: 에너지 전환 가속 구조적 확인",
+      "사이버보안 섹터 스코어 333→521 급등: AI 거버넌스 수요 구조적 재평가"
+    ],
+    "sector_score_changes": {
+      "cybersecurity": "333 → 521 (+188): AI 거버넌스, AI 에이전트 보안, 방산 사이버보안 수요 동시 급증",
+      "defense": "239 → 330 (+91): 우크라이나 에스컬레이션, 한국 다국적군 참여 검토 추가",
+      "shipbuilding": "238.5 → 329.5 (+91): 호르무즈 지속 및 에너지 전환 친환경 선박 수요"
+    }
+  },
+  "conviction_score": 0.75,
+  "summary": "2026년 4월 21일 글로벌 거시경제 환경은 '부분 완화와 재에스컬레이션'의 복합 상태로 정의된다. 이란의 호르무즈 개방 선언(4월 17일)이 단기 긴장 완화 신호를 제공했으나, 4월 20일 불확실성 재증가로 구조적 안정화는 미완이다. 미국 대법원의 트럼프 관세 불법 판결 후 환급 포털 개시는 무역 정책 불확실성을 부분적으로 해소했다. 글로벌 중앙은행(BOE 앤드루 베일리, BIS Radev)이 꼬리 위험 확대와 중앙은행 독립성 우려를 공식화하면서 통화정책 불확실성 범위가 확대되었다. 청정에너지의 역사적 석탄 추월('처음으로' 세계 최대 전원 등극)과 '슈퍼 엘니뇨' 공식 경고가 에너지·인플레이션 경로의 양방향 불확실성을 제공한다. 섹터 차원에서 사이버보안(스코어 521, +188)과 방산(330, +91), 조선(329.5, +91)은 구조적 수요 재확인 및 강화를 보이며, AI 플랫폼·기술 섹터는 미중 갈등 속 중립을 유지한다. 소비재·배터리EV·자동차·철강은 원화 약세·수입 비용 압박·중국 경쟁 심화로 약세 기조가 지속된다. 4주 KOSPI 기본 시나리오는 2850-3000(확률 50%), 강세 시나리오 3050-3200(25%), 약세 시나리오 2650-2780(25%). 리스크 수준은 '중간(medium)'으로 평가하며, 호르무즈 재봉쇄와 슈퍼 엘니뇨 동시 실현이 가장 주목해야 할 꼬리 위험이다. 사이버보안·방산·조선의 3섹터 집중 강세 기조는 다음 라운드(Round 2)까지 유지를 권고한다."
+}

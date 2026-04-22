@@ -1,0 +1,176 @@
+agent_team_status:
+  active: false
+  impl_swarm: idle
+  research_swarm: idle
+  review_swarm: idle
+  translation_subagent: idle
+discovered_paths:
+  config_file: ''
+  envscan_output_dir: /Users/kylechoi/Desktop/Ai_works/Vibe-Practice/EnvironmentScan-system-main-v4-main/output
+  envscan_wf1_output: /Users/kylechoi/Desktop/Ai_works/Vibe-Practice/EnvironmentScan-system-main-v4-main/output
+  gnews_output_dir: /Users/kylechoi/Desktop/Ai_works/Vibe-Practice/GlobalNews-Crawling-AgenticWorkflow/data/output
+  gnews_signals: ''
+discovered_schema:
+  envscan_wf1:
+    preliminary_category_values:
+    - T
+    - E
+    - P
+    - S
+    - E_Environmental
+    - s
+    psst_field: analysis.priority_score
+    schema_decisions_recorded_at: '2026-03-29T20:00:00'
+    score_scale: 0-5
+    steeps_field: preliminary_category
+    summary_field: content.abstract
+  gnews:
+    confidence_field: ''
+    file_exists: false
+errors: []
+hitl_1:
+  completed: false
+  completed_at: ''
+  custom_watchlist: []
+  dart_api_key_registered: false
+  fred_api_key_registered: false
+  platform: ''
+  sectors_confirmed: []
+  telegram_bot_token_registered: false
+  telegram_chat_id_registered: false
+hitl_2:
+  choice: envscan_only
+  choice_date: '2026-03-29'
+  completed: true
+  m1_cost_acknowledged: true
+hitl_3:
+  approved_at: '2026-03-29T21:27:46.281781'
+  completed: true
+  report_approved: true
+library_availability:
+  dart_fss:
+    last_checked: ''
+    rolling_4w_rate: null
+    success_count: 0
+    total_count: 0
+  fdr:
+    last_checked: ''
+    rolling_4w_rate: null
+    success_count: 0
+    total_count: 0
+  pykrx:
+    last_checked: ''
+    rolling_4w_rate: null
+    success_count: 0
+    total_count: 0
+milestones:
+  m05:
+    dg_01_to_08_passed: true
+    installed_at: '2026-03-29'
+    tests_passing: 704
+    verified_at: '2026-03-29T20:00:00'
+  m1:
+    dg_09_to_16_passed: true
+    full_pipeline_ready: true
+    health_dashboard_ready: true
+    launchd_plist_created: true
+    phase_2_done: true
+    phase_3_done: true
+    phase_4_done: true
+packages:
+  failed_packages: []
+  fixtures_generated: false
+  m05_ready: true
+portfolio:
+  auto_compare: true
+  currency: KRW
+  holdings: {}
+  last_updated: ''
+stock_selection:
+  category_a: []
+  category_b: []
+  manual_override: false
+  selected_at: ''
+system:
+  installed_at: '2026-03-29'
+  version: 1.0.0
+tdd_status:
+  accuracy_tracker: passing
+  citation_validator: passing
+  compliance_filter: passing
+  config: passing
+  dedup: passing
+  intelligence_engine: passing
+  korea_signal_layer: passing
+  narrative_cross_check: passing
+  normalizers: passing
+  pacs_calculator: passing
+  report_generator: passing
+  schema: passing
+  signal_bridge: passing
+  steeps_classifier: passing
+  stock_selector: passing
+  synthesize_macro: passing
+  synthesize_stock: passing
+  validate_report_quality: passing
+  valuation_comparator: passing
+  watchdog: passing
+  weekly_orchestrator: passing
+translations:
+  step_11:
+    pacs_grade: null
+    pacs_score: null
+    source: ''
+    source_template: output/temp/narrative_{date}.json
+    status: pending
+    target: ''
+    target_template: output/temp/narrative_{date}.ko.json
+    translated_at: ''
+  step_12:
+    pacs_grade: null
+    pacs_score: null
+    source: ''
+    source_template: output/reports/weekly-report-{date}.md
+    status: pending
+    target: ''
+    target_template: output/reports/weekly-report-{date}.ko.md
+    telegram_sent: false
+    translated_at: ''
+  step_15:
+    pacs_grade: null
+    pacs_score: null
+    source: ''
+    source_template: output/watchlist-{date}.md
+    status: pending
+    target: ''
+    target_template: output/watchlist-{date}.ko.md
+    translated_at: ''
+  step_2:
+    glossary_terms_added: 21
+    pacs_grade: GREEN
+    pacs_score: 90
+    source: output/schema-mapping.md
+    status: completed
+    target: output/schema-mapping.ko.md
+    translated_at: '2026-03-29'
+  step_4:
+    pacs_grade: GREEN
+    pacs_score: 85
+    source: output/completion-definition.md
+    status: completed
+    target: output/completion-definition.ko.md
+    translated_at: '2026-03-29'
+  step_5:
+    pacs_grade: GREEN
+    pacs_score: 88
+    source: output/blueprint.md
+    status: completed
+    target: output/blueprint.ko.md
+    translated_at: '2026-03-29'
+workflow:
+  current_phase: implementation
+  current_step: 16
+  language_policy: english-first
+  last_successful_report: output/reports/weekly-report-2026-04-14.md
+  last_updated: '2026-04-14T19:36:20.498945'
+  runtime_mode: envscan_only

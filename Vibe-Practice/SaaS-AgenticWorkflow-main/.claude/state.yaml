@@ -1,0 +1,22 @@
+workflow:
+  name: SaaS Auto-Builder PRD Generation
+  current_step: 0
+  status: running
+  total_steps: 12
+  autopilot:
+    enabled: false
+    activated_at: '2026-03-13T22:51:08.295652'
+    auto_approved_steps: []
+  outputs: {}
+  pacs:
+    dimensions:
+      F: 0
+      C: 0
+      L: 0
+    current_step_score: 0
+    weak_dimension: ''
+    history: {}
+    pre_mortem_flag: ''
+  parent_genome:
+    source: AgenticWorkflow
+    version: '2026-03-13'

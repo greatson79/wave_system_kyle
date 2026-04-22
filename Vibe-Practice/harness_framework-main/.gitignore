@@ -1,0 +1,22 @@
+# Phase execution outputs
+phases/**/step*-output.json
+phases/**/phase*-output.json
+
+# OS
+.DS_Store
+
+# Environment
+.env
+.env.*
+
+# Editor
+.vscode/
+.idea/
+
+# Node (if applicable)
+node_modules/
+
+# Python (if applicable)
+__pycache__/
+*.pyc
+.venv/

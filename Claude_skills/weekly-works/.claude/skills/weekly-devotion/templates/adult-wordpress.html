@@ -1,0 +1,37 @@
+<!-- 
+  성인 묵상 — 워드프레스 게시용 HTML article 템플릿
+  사용법: {플레이스홀더}를 실제 콘텐츠로 교체
+  주의: 각 문장은 줄바꿈으로 구분 (WP가 자동 <p> 변환)
+-->
+<article class="qt-card" style="font-family: 'Noto Serif KR','Nanum Myeongjo',serif; background-color: #fdfaf5; color: #2d2d2d; border-radius: 16px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); padding: 24px; max-width: 780px; margin: 2rem auto;"><header>
+<h1 class="qt-title" style="font-size: 1.8rem; font-weight: bold; color: #5e3d1b;">{제목}</h1>
+<p class="qt-date">{월}월 {일}일 {요일}요일</p>
+<!-- 🔁 이미지 추후 교체 가능 -->
+<a href="[이미지_원본_URL]" target="_blank" rel="noopener"><img src="[이미지_URL]" border="0" /></a>
+</header>
+<section class="qt-scripture" style="margin-top: 1.8rem;">
+<h2>본문 말씀</h2>
+<blockquote>{성경_본문_전체}
+({성경_구절_위치}, 개역개정)</blockquote>
+</section>
+<section class="qt-reflection" style="margin-top: 1.8rem;">
+<h2>본문 해석 및 적용</h2>
+{해설_본문_각_문장_줄바꿈}
+<p class="qt-quote">"{인용문}"
+– {인용_출처}</p>
+</section>
+<section class="qt-questions" style="margin-top: 1.8rem;">
+<h2>묵상을 위한 질문</h2>
+<ol>
+ 	<li>{질문1_본문이해}</li>
+ 	<li>{질문2_내면성찰}</li>
+ 	<li>{질문3_실천적용}</li>
+</ol>
+</section>
+<section class="qt-prayer" style="margin-top: 1.8rem;">
+<h2>오늘의 기도</h2>
+<p style="font-style: italic; line-height: 1.8;">{기도문_각_문장_줄바꿈}</p>
+<p class="qt-prayer-end">예수님의 이름으로 기도합니다. 아멘.</p>
+</section>
+<footer class="qt-hashtags" style="margin-top: 1.8rem;">#은혜누림 #서로세움 #디딤교회
+{추가_해시태그}</footer></article>

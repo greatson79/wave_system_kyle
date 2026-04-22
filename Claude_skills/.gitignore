@@ -1,0 +1,8 @@
+*.pdf
+*.zip
+
+# 로컬에만 유지할 폴더들
+Vibe Practice/
+Mail/
+.gemini/
+.qwen/

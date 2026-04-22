@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>카드뉴스 — 일반인을 위한 AI 활용 UP</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&display=swap');
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Noto Sans KR', sans-serif;
+    background: #E5E7EB;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 48px 20px;
+    gap: 28px;
+  }
+
+  .page-header { text-align: center; margin-bottom: 8px; }
+  .page-header h1 { font-size: 18px; font-weight: 700; color: #111827; }
+  .page-header p  { font-size: 13px; color: #9CA3AF; margin-top: 4px; }
+
+  .slide-wrap { display: flex; flex-direction: column; align-items: center; gap: 8px; }
+  .slide-label { font-size: 12px; color: #9CA3AF; }
+
+  /* ── 공통 슬라이드 크기 (4:5 = 480×600) ── */
+  .slide {
+    width: 480px;
+    height: 600px;
+    flex-shrink: 0;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 12px 40px rgba(0,0,0,0.2);
+    position: relative;
+  }
+
+  /* ════════════════════════════════
+     공통 · 다크 슬라이드 로고 배지 (상단 우측 고정)
+  ════════════════════════════════ */
+  .wave-badge {
+    position: absolute;
+    top: 28px; right: 28px;
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    background: rgba(255,255,255,0.07);
+    border: 1px solid rgba(255,255,255,0.13);
+    border-radius: 30px;
+    padding: 7px 16px 7px 10px;
+    z-index: 10;
+  }
+  .wave-badge img {
+    height: 20px;
+    filter: brightness(10) saturate(0);
+    opacity: 0.75;
+  }
+  .wave-badge span {
+    font-size: 12px;
+    font-weight: 500;
+    color: rgba(255,255,255,0.65);
+    white-space: nowrap;
+    letter-spacing: 0.3px;
+  }
+
+  /* ════════════════════════════════
+     공통 · 밝은 슬라이드 로고 (하단 우측 고정)
+  ════════════════════════════════ */
+  .wave-logo-light {
+    position: absolute;
+    bottom: 20px; right: 20px;
+    z-index: 10;
+    opacity: 0.55;
+  }
+  .wave-logo-light img {
+    height: 44px;
+  }
+
+  /* ════════════════════════════════
+     SLIDE 1 · 표지
+  ════════════════════════════════ */
+  .s1 {
+    background: #111827;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 60px 52px 52px;
+    height: 100%;
+  }
+
+  .s1 .for-label {
+    font-size: 16px;
+    font-weight: 400;
+    color: rgba(255,255,255,0.45);
+    margin-bottom: 10px;
+    letter-spacing: 0.5px;
+  }
+  .s1 .main-title {
+    font-size: 72px;
+    font-weight: 900;
+    color: #fff;
+    line-height: 1.0;
+    letter-spacing: -2.5px;
+    margin-bottom: 6px;
+  }
+  .s1 .main-title .accent { color: #F59E0B; }
+  .s1 .title-sub {
+    font-size: 72px;
+    font-weight: 900;
+    color: #fff;
+    line-height: 1.05;
+    letter-spacing: -2.5px;
+    margin-bottom: 32px;
+  }
+  .s1 .title-sub .accent { color: #F59E0B; }
+  .s1 .subtitle {
+    font-size: 15px;
+    font-weight: 400;
+    color: rgba(255,255,255,0.42);
+    line-height: 1.7;
+  }
+  .s1 .nav-hint {
+    position: absolute;
+    bottom: 28px; left: 52px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 12px;
+    color: rgba(255,255,255,0.25);
+  }
+  .s1 .nav-hint::before {
+    content: '↗';
+    font-size: 14px;
+  }
+
+  /* ════════════════════════════════
+     SLIDE 2 · 과정 목표
+  ════════════════════════════════ */
+  .s2 {
+    background: #111827;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 60px 52px;
+    height: 100%;
+  }
+  .s2 .section-tag {
+    font-size: 12px;
+    font-weight: 700;
+    color: #F59E0B;
+    letter-spacing: 3.5px;
+    margin-bottom: 22px;
+  }
+  .s2 .goal-text {
+    font-size: 24px;
+    font-weight: 700;
+    color: rgba(255,255,255,0.92);
+    line-height: 1.65;
+    margin-bottom: 28px;
+  }
+  .s2 .goal-text .hl { color: #F59E0B; }
+  .s2 .goal-sub {
+    font-size: 15px;
+    font-weight: 400;
+    color: rgba(255,255,255,0.48);
+    line-height: 1.75;
+    border-top: 1px solid rgba(255,255,255,0.1);
+    padding-top: 22px;
+  }
+  .s2 .goal-sub strong {
+    color: rgba(255,255,255,0.78);
+    font-weight: 600;
+  }
+
+  /* ════════════════════════════════
+     SLIDE 3·4·5 · 트랙 카드 (공통)
+  ════════════════════════════════ */
+  .s-track {
+    background: #fff;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 44px 48px 56px;
+    height: 100%;
+  }
+  .class-num {
+    font-size: 12px;
+    font-weight: 700;
+    color: #F59E0B;
+    letter-spacing: 3.5px;
+    margin-bottom: 6px;
+  }
+  .track-title {
+    font-size: 40px;
+    font-weight: 900;
+    color: #111827;
+    line-height: 1.15;
+    letter-spacing: -1.5px;
+    margin-bottom: 6px;
+  }
+  .track-sub {
+    font-size: 13px;
+    font-weight: 400;
+    color: #9CA3AF;
+    margin-bottom: 20px;
+  }
+  .track-divider {
+    width: 100%;
+    height: 1px;
+    background: #F3F4F6;
+    margin-bottom: 22px;
+  }
+
+  .week-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+    margin-bottom: 18px;
+  }
+  .week-item:last-child { margin-bottom: 0; }
+
+  .week-badge {
+    flex-shrink: 0;
+    width: 50px;
+    height: 50px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 11px;
+    font-weight: 700;
+    line-height: 1.2;
+    text-align: center;
+  }
+
+  /* 클래스 #1 — 민트/그린 */
+  .badge-green { background: #D1FAE5; color: #065F46; }
+  /* 클래스 #2 — 블루 */
+  .badge-blue { background: #DBEAFE; color: #1E40AF; }
+  /* 클래스 #3 — 퍼플 */
+  .badge-purple { background: #EDE9FE; color: #5B21B6; }
+
+  .week-content { display: flex; flex-direction: column; gap: 4px; padding-top: 2px; }
+  .week-name {
+    font-size: 15px;
+    font-weight: 700;
+    color: #111827;
+    line-height: 1.35;
+  }
+  .week-desc {
+    font-size: 12px;
+    font-weight: 400;
+    color: #6B7280;
+    line-height: 1.5;
+  }
+
+  /* ════════════════════════════════
+     SLIDE 6 · CTA
+  ════════════════════════════════ */
+  .s6 {
+    background: #111827;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 60px 52px;
+    height: 100%;
+  }
+  .s6 .wave-logo-bottom {
+    position: absolute;
+    bottom: 28px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    opacity: 0.4;
+  }
+  .s6 .wave-logo-bottom img {
+    height: 18px;
+    filter: brightness(10) saturate(0);
+  }
+  .s6 .wave-logo-bottom span {
+    font-size: 11px;
+    color: rgba(255,255,255,0.5);
+    letter-spacing: 0.5px;
+  }
+  .s6 .sparkle-icon {
+    font-size: 38px;
+    color: #F59E0B;
+    margin-bottom: 28px;
+    display: block;
+  }
+  .s6 .cta-main {
+    font-size: 32px;
+    font-weight: 900;
+    color: #fff;
+    line-height: 1.35;
+    letter-spacing: -0.8px;
+    margin-bottom: 16px;
+  }
+  .s6 .cta-sub {
+    font-size: 15px;
+    font-weight: 400;
+    color: rgba(255,255,255,0.48);
+    line-height: 1.65;
+    margin-bottom: 44px;
+  }
+  .s6 .cta-btn {
+    display: inline-block;
+    background: #F59E0B;
+    color: #111827;
+    font-size: 17px;
+    font-weight: 700;
+    padding: 16px 52px;
+    border-radius: 60px;
+    letter-spacing: 0.3px;
+  }
+</style>
+</head>
+<body>
+
+<div class="page-header">
+  <h1>일반인을 위한 AI 활용 UP · 강좌 소개</h1>
+  <p>Wave AI Networks · 총 9주 과정 / 3 클래스 · 4:5 카드뉴스 (480×600)</p>
+</div>
+
+<!-- ── 슬라이드 1 : 표지 ── -->
+<div class="slide-wrap">
+  <span class="slide-label">1 / 6 · 표지</span>
+  <div class="slide s1">
+    <!-- 다크 배경 → SNS_Logo 흰색 필터 적용 -->
+    <div class="wave-badge">
+      <img src="../../src/wave_ai/SNS_Logo_Designed by Wave with AI.png" alt="Wave AI">
+      <span>Wave AI Networks</span>
+    </div>
+    <div class="for-label">일반인을 위한</div>
+    <div class="main-title"><span class="accent">AI</span></div>
+    <div class="title-sub">활용 <span class="accent">UP</span></div>
+    <div class="subtitle">
+      AI를 내 것으로 만드는 9주 실전 과정,<br>
+      지금 바로 시작하세요.
+    </div>
+    <div class="nav-hint">앞으로 넘겨서 확인하세요</div>
+  </div>
+</div>
+
+<!-- ── 슬라이드 2 : 과정 목표 ── -->
+<div class="slide-wrap">
+  <span class="slide-label">2 / 6 · 과정 목표</span>
+  <div class="slide s2">
+    <!-- 다크 배경 → SNS_Logo 흰색 필터 적용 -->
+    <div class="wave-badge">
+      <img src="../../src/wave_ai/SNS_Logo_Designed by Wave with AI.png" alt="Wave AI">
+      <span>Wave AI Networks</span>
+    </div>
+    <div class="section-tag">과정 목표</div>
+    <div class="goal-text">
+      AI 도구를 <span class="hl">즉시 활용</span>하고,<br>
+      콘텐츠를 <span class="hl">직접 제작</span>하며,<br>
+      나만의 AI 시스템을 <span class="hl">설계·운영</span>하는<br>
+      <strong style="color:#fff">AI 활용 능력자</strong>로 성장합니다.
+    </div>
+    <div class="goal-sub">
+      기초 → 창작 → 운영 트랙,<br>
+      <strong>3단계 과정</strong>으로 실력을 단계적으로 쌓아갑니다.
+    </div>
+  </div>
+</div>
+
+<!-- ── 슬라이드 3 : 클래스 #1 기초 트랙 ── -->
+<div class="slide-wrap">
+  <span class="slide-label">3 / 6 · 클래스 #1</span>
+  <div class="slide s-track">
+    <!-- 밝은 배경 → Wave logo 컬러 그대로 사용 -->
+    <div class="wave-logo-light">
+      <img src="../../src/wave_ai/Wave logo.png" alt="Wave AI Networks">
+    </div>
+    <div class="class-num">클래스 #1</div>
+    <div class="track-title">Foundation<br>Track</div>
+    <div class="track-sub">AI 기초 역량을 체계적으로 쌓는 3주</div>
+    <div class="track-divider"></div>
+    <div class="week-item">
+      <div class="week-badge badge-green">1주차</div>
+      <div class="week-content">
+        <div class="week-name">생성형 AI 활용 기초</div>
+        <div class="week-desc">내 업무·성향에 맞춘 AI 개인화 설정<br>트리거 모드로 즉시 결과 뽑아내기</div>
+      </div>
+    </div>
+    <div class="week-item">
+      <div class="week-badge badge-green">2주차</div>
+      <div class="week-content">
+        <div class="week-name">NotebookLM &amp; Gemini 활용</div>
+        <div class="week-desc">구글 NotebookLM 마스터 &amp; 지식 베이스 구축<br>방대한 문서를 내 마음대로 분석하는 비법</div>
+      </div>
+    </div>
+    <div class="week-item">
+      <div class="week-badge badge-green">3주차</div>
+      <div class="week-content">
+        <div class="week-name">이미지 &amp; 영상 기초</div>
+        <div class="week-desc">AI 분석 자료를 시각적 콘텐츠로 스타일링<br>Flow · MixBoard · Opal 미디어 생성 실습</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ── 슬라이드 4 : 클래스 #2 창작 트랙 ── -->
+<div class="slide-wrap">
+  <span class="slide-label">4 / 6 · 클래스 #2</span>
+  <div class="slide s-track">
+    <!-- 밝은 배경 → Wave logo 컬러 그대로 사용 -->
+    <div class="wave-logo-light">
+      <img src="../../src/wave_ai/Wave logo.png" alt="Wave AI Networks">
+    </div>
+    <div class="class-num">클래스 #2</div>
+    <div class="track-title">Creator<br>Track</div>
+    <div class="track-sub">AI로 콘텐츠를 창조하는 3주</div>
+    <div class="track-divider"></div>
+    <div class="week-item">
+      <div class="week-badge badge-blue">4주차</div>
+      <div class="week-content">
+        <div class="week-name">AI와 제대로 대화하기</div>
+        <div class="week-desc">AI에게 똑똑하게 질문하고 명령하는 법</div>
+      </div>
+    </div>
+    <div class="week-item">
+      <div class="week-badge badge-blue">5주차</div>
+      <div class="week-content">
+        <div class="week-name">AI, 내 LLM이 달라졌어요</div>
+        <div class="week-desc">에이전틱 오케스트레이션 시스템 구축</div>
+      </div>
+    </div>
+    <div class="week-item">
+      <div class="week-badge badge-blue">6주차</div>
+      <div class="week-content">
+        <div class="week-name">AI 기반 미디어 콘텐츠 제작</div>
+        <div class="week-desc">AI로 눈길을 사로잡는 이미지 &amp; 영상 만들기</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ── 슬라이드 5 : 클래스 #3 운영 트랙 ── -->
+<div class="slide-wrap">
+  <span class="slide-label">5 / 6 · 클래스 #3</span>
+  <div class="slide s-track">
+    <!-- 밝은 배경 → Wave logo 컬러 그대로 사용 -->
+    <div class="wave-logo-light">
+      <img src="../../src/wave_ai/Wave logo.png" alt="Wave AI Networks">
+    </div>
+    <div class="class-num">클래스 #3</div>
+    <div class="track-title">Operator<br>Track</div>
+    <div class="track-sub">AI를 직접 설계하고 운영하는 3주</div>
+    <div class="track-divider"></div>
+    <div class="week-item">
+      <div class="week-badge badge-purple">7주차</div>
+      <div class="week-content">
+        <div class="week-name">안녕! 클로드 코드</div>
+        <div class="week-desc">가입부터 설치까지<br>NotebookLM Skills 연동하기</div>
+      </div>
+    </div>
+    <div class="week-item">
+      <div class="week-badge badge-purple">8주차</div>
+      <div class="week-content">
+        <div class="week-name">클로드 코드 실전 활용</div>
+        <div class="week-desc">나만의 업무 Skills 구축하기</div>
+      </div>
+    </div>
+    <div class="week-item">
+      <div class="week-badge badge-purple">9주차</div>
+      <div class="week-content">
+        <div class="week-name">AI 기반 영상 완성하기</div>
+        <div class="week-desc">기획부터 나만의 앱 구축, 영상 완성</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ── 슬라이드 6 : 마무리 CTA ── -->
+<div class="slide-wrap">
+  <span class="slide-label">6 / 6 · 마무리</span>
+  <div class="slide s6">
+    <!-- 다크 배경 → SNS_Logo 흰색 필터 적용 (하단 중앙) -->
+    <div class="wave-logo-bottom">
+      <img src="../../src/wave_ai/SNS_Logo_Designed by Wave with AI.png" alt="Wave AI">
+      <span>Wave AI Networks</span>
+    </div>
+    <span class="sparkle-icon">✦</span>
+    <div class="cta-main">내 손 안의 AI,<br>지금 활용 UP!</div>
+    <div class="cta-sub">
+      지금 Wave AI Networks와 함께<br>AI 실력을 키워보세요.
+    </div>
+    <div class="cta-btn">수강 신청하기</div>
+  </div>
+</div>
+
+</body>
+</html>

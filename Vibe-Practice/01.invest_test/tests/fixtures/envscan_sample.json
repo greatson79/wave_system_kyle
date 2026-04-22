@@ -1,0 +1,63 @@
+{
+  "metadata": {
+    "generated_at": "2026-03-29T00:00:00Z",
+    "source": "EnvironmentScan WF-1",
+    "version": "1.0"
+  },
+  "entries": [
+    {
+      "steeps_category": "T",
+      "pSST": 72.5,
+      "summary": "AI semiconductor demand surge driven by LLM training infrastructure buildout.",
+      "sector": "technology",
+      "confidence": 0.85,
+      "date": "2026-03-28"
+    },
+    {
+      "steeps_category": "E_env",
+      "pSST": 45.2,
+      "summary": "Carbon regulation tightening — ESG compliance cost rising for manufacturing.",
+      "sector": "industrials",
+      "confidence": 0.72,
+      "date": "2026-03-28"
+    },
+    {
+      "steeps_category": "S",
+      "pSST": 61.8,
+      "summary": "Aging population driving healthcare demand in Korea — bio/pharma sector tailwind.",
+      "sector": "healthcare",
+      "confidence": 0.78,
+      "date": "2026-03-28"
+    },
+    {
+      "steeps_category": "s",
+      "pSST": 58.3,
+      "summary": "반도체 업황 회복 — 메모리 재고 정상화 진행 중.",
+      "sector": "semiconductor",
+      "confidence": 0.81,
+      "date": "2026-03-28"
+    },
+    {
+      "steeps_category": "P",
+      "pSST": 38.9,
+      "summary": "US-China trade tensions escalating — export restriction risk for chip makers.",
+      "sector": "technology",
+      "confidence": 0.68,
+      "date": "2026-03-28"
+    },
+    {
+      "steeps_category": "E",
+      "pSST": 55.1,
+      "summary": "Fed rate cut expectations rising — 2-3 cuts priced in for 2026.",
+      "sector": "financials",
+      "confidence": 0.76,
+      "date": "2026-03-28"
+    }
+  ],
+  "schema": {
+    "steeps_field": "steeps_category",
+    "psst_field": "pSST",
+    "summary_field": "summary",
+    "score_scale": "0-100"
+  }
+}

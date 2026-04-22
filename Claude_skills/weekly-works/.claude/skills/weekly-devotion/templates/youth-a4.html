@@ -1,0 +1,108 @@
+<!--
+  청소년 QT — 카카오톡 A4 HTML 템플릿
+  디자인 테마: Fresh Lime & Navy (성장과 실천)
+  {플레이스홀더}를 실제 콘텐츠로 교체
+-->
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{제목} - 청소년 QT</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fonts-archive/Paperlogy/subsets/Paperlogy-dynamic-subset.css" type="text/css"/>
+    <style>
+        :root {
+            --bg-paper: #f1f8e9;
+            --text-primary: #37474f;
+            --text-secondary: #1b5e20;
+            --accent-color: #64dd17;
+            --point-color: #2e7d32;
+            --border-color: #c5e1a5;
+            --bg-box: #ffffff;
+            --font-main: "Paperlogy", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+        }
+        * { box-sizing: border-box; margin: 0; padding: 0; -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; }
+        body { font-family: var(--font-main); background-color: #555; color: var(--text-primary); display: flex; justify-content: center; align-items: center; min-height: 100vh; padding: 40px; }
+        .page { width: 210mm; height: 297mm; background-color: var(--bg-paper); padding: 15mm 18mm; position: relative; box-shadow: 0 10px 30px rgba(0,0,0,0.3); display: flex; flex-direction: column; justify-content: space-between; border-radius: 5px; }
+        header { display: flex; align-items: center; border-bottom: 3px solid var(--point-color); padding-bottom: 15px; margin-bottom: 20px; gap: 20px; }
+        .header-logo img { height: 65px; width: auto; display: block; }
+        .header-text { flex: 1; }
+        h1.qt-title { font-size: 24pt; font-weight: 800; color: var(--text-secondary); line-height: 1.2; margin-bottom: 5px; letter-spacing: -1px; word-break: keep-all; }
+        p.qt-date { font-size: 11pt; color: #ffffff; font-weight: 600; background-color: var(--point-color); display: inline-block; padding: 4px 12px; border-radius: 20px; }
+        .content-wrapper { display: grid; grid-template-columns: 1fr 1fr; grid-template-rows: auto auto 1fr; gap: 25px; flex-grow: 1; }
+        h2 { font-size: 14pt; font-weight: 700; color: var(--point-color); margin-bottom: 12px; display: flex; align-items: center; }
+        h2::before { content: ''; display: inline-block; width: 10px; height: 10px; background-color: var(--accent-color); border-radius: 2px; margin-right: 10px; transform: rotate(45deg); }
+        p, li { font-size: 11pt; line-height: 1.6; word-break: keep-all; text-align: justify; }
+        .top-section { grid-column: 1 / -1; display: grid; grid-template-columns: 3.5fr 6.5fr; gap: 25px; align-items: start; border-bottom: 2px dashed var(--border-color); padding-bottom: 20px; }
+        .qt-image { width: 100%; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 12px rgba(46, 125, 50, 0.2); border: 3px solid #fff; }
+        .qt-image img { width: 100%; height: auto; display: block; }
+        .scripture-box { background-color: var(--bg-box); padding: 20px; border-radius: 12px; border: 1px solid var(--border-color); box-shadow: 0 2px 8px rgba(0,0,0,0.03); }
+        .scripture-text { font-style: italic; color: #455a64; font-size: 11pt; margin-bottom: 8px; font-weight: 500; }
+        .scripture-ref { display: block; text-align: right; font-weight: 700; color: var(--point-color); font-style: normal; }
+        .reflection-section { grid-column: 1 / -1; }
+        .reflection-text { column-count: 2; column-gap: 40px; column-rule: 1px solid var(--border-color); }
+        .qt-quote { margin-top: 15px; padding: 15px; background-color: #ffffff; border: 2px solid var(--accent-color); text-align: center; font-weight: 700; color: var(--text-secondary); border-radius: 12px; break-inside: avoid; box-shadow: 3px 3px 0px rgba(100, 221, 23, 0.3); }
+        .bottom-left { background-color: var(--bg-box); padding: 20px; border-radius: 16px; border: 2px solid var(--border-color); }
+        .bottom-right { background-color: #e8f5e9; padding: 20px; border-radius: 16px; color: var(--text-primary); }
+        ol { padding-left: 20px; }
+        ol li { margin-bottom: 8px; font-weight: 500; }
+        .prayer-text { font-style: normal; }
+        .prayer-end { text-align: right; font-weight: 800; margin-top: 15px; color: var(--point-color); }
+        footer { margin-top: 10px; padding-top: 10px; border-top: 1px solid var(--border-color); font-size: 9pt; color: #78909c; text-align: center; font-weight: 600; }
+        @media print { body { background: none; padding: 0; margin: 0; display: block; } .page { width: 100%; height: 100%; margin: 0; box-shadow: none; border: none; border-radius: 0; page-break-after: always; padding: 10mm 15mm; } header { border-bottom: 2px solid var(--point-color); } }
+    </style>
+</head>
+<body>
+    <div class="page">
+        <header>
+            <div class="header-logo">
+                <a href='https://ifh.cc/v-70mfsb' target='_blank'><img src='https://i.ifh.cc/70mfsb.jpg' border='0' alt="Logo"></a>
+            </div>
+            <div class="header-text">
+                <h1 class="qt-title">{제목}</h1>
+                <p class="qt-date">{월}월 {일}일 {요일}요일 | {성경_구절_위치}</p>
+            </div>
+        </header>
+        <div class="content-wrapper">
+            <section class="top-section">
+                <div class="qt-image">
+                    <a href="[이미지_원본_URL]" target="_blank"><img src="[이미지_URL]" border="0" alt="Meditation Image"></a>
+                </div>
+                <div class="scripture-box">
+                    <h2>오늘의 말씀</h2>
+                    <blockquote class="scripture-text">
+                        "{성경_본문_전체_쉬운성경}"
+                    </blockquote>
+                    <span class="scripture-ref">({성경_구절_위치}, 쉬운성경)</span>
+                </div>
+            </section>
+            <section class="reflection-section">
+                <h2>말씀 돋보기</h2>
+                <div class="reflection-text">
+                    {묵상_단락들_p태그포함_strong볼드_포함}
+
+                    <div class="qt-quote">
+                        "{핵심_메시지_강조_인용}"
+                    </div>
+                </div>
+            </section>
+            <section class="bottom-left">
+                <h2>Think &amp; Talk</h2>
+                <ol>
+                    <li>{질문1}</li>
+                    <li>{질문2}</li>
+                    <li>{질문3}</li>
+                </ol>
+            </section>
+            <section class="bottom-right">
+                <h2>나의 기도</h2>
+                <p class="prayer-text">{기도문_청소년_말투}</p>
+                <p class="prayer-end">예수님의 이름으로 기도합니다. 아멘.</p>
+            </section>
+        </div>
+        <footer>
+            {해시태그}
+        </footer>
+    </div>
+</body>
+</html>

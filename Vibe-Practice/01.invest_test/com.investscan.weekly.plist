@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN"
+  "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>Label</key>
+    <string>com.investscan.weekly</string>
+
+    <key>ProgramArguments</key>
+    <array>
+        <!-- Apple Silicon: /opt/homebrew/bin/python3 -->
+        <!-- Intel Mac:    /usr/local/bin/python3     -->
+        <!-- pyenv:        /Users/kylechoi/.pyenv/shims/python3 -->
+        <string>/Users/kylechoi/.pyenv/shims/python3</string>
+        <string>/Users/kylechoi/Desktop/Ai_works/Vibe-Practice/01.invest_test/investscan/weekly_orchestrator.py</string>
+        <string>--mode</string>
+        <string>data-only</string>
+    </array>
+
+    <key>WorkingDirectory</key>
+    <string>/Users/kylechoi/Desktop/Ai_works/Vibe-Practice/01.invest_test</string>
+
+    <key>StartCalendarInterval</key>
+    <dict>
+        <key>Weekday</key>
+        <integer>0</integer>
+        <!-- 0 = Sunday (macOS launchd 기준) -->
+        <key>Hour</key>
+        <integer>20</integer>
+        <key>Minute</key>
+        <integer>0</integer>
+    </dict>
+
+    <key>StandardOutPath</key>
+    <string>/Users/kylechoi/Desktop/Ai_works/Vibe-Practice/01.invest_test/logs/orchestrator.log</string>
+
+    <key>StandardErrorPath</key>
+    <string>/Users/kylechoi/Desktop/Ai_works/Vibe-Practice/01.invest_test/logs/orchestrator_err.log</string>
+
+    <key>EnvironmentVariables</key>
+    <dict>
+        <key>PATH</key>
+        <string>/Users/kylechoi/.pyenv/shims:/opt/homebrew/bin:/usr/local/bin:/usr/bin:/bin</string>
+    </dict>
+
+    <key>RunAtLoad</key>
+    <false/>
+    <!-- 시스템 시작 시 즉시 실행 안함 — 일요일 20:00에만 실행 -->
+
+    <key>KeepAlive</key>
+    <false/>
+    <!-- 실패 시 자동 재시작 안함 — 주 1회 스케줄 실행 -->
+</dict>
+</plist>

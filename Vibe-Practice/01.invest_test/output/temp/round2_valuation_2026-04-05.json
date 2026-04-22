@@ -1,0 +1,181 @@
+{
+  "agent": "valuation",
+  "round": 2,
+  "date": "2026-04-05",
+  "debate_context": {
+    "macro_verdict": "bearish (4주)",
+    "tech_verdict": "neutral (AI 사이클 mid)",
+    "korea_verdict": "neutral (코스피 2,600~2,800p 박스권)",
+    "risk_verdict": "high overall risk",
+    "key_environment": "유가 103달러+, USD/KRW 1,400원+, USTR 301조 조사 진행 중, 호르무즈 봉쇄 1개월+ 지속"
+  },
+  "agreements": [
+    {
+      "topic": "AI 반도체·부품 섹터 구조적 성장",
+      "agents": ["tech", "korea", "valuation"],
+      "consensus": "HBM·FC-BGA 기판 중심 AI 인프라 수요는 단기 교란에도 구조적 성장세 유지. SK하이닉스·삼성전기가 직접 수혜. tech와 korea 모두 이 방향성에 동의하며 valuation도 NAVER·삼성전기에 일부 성장 프리미엄 인정."
+    },
+    {
+      "topic": "배터리·화학 섹터 실적 회복 전 관망",
+      "agents": ["korea", "risk", "valuation"],
+      "consensus": "LG에너지솔루션(EPS -4,585원, 적자), LG화학(EPS -23,242원, 적자)은 세 에이전트 모두 실적 회복 확인 전 비중 축소·관망 권고. 301조 관세와 전기차 보조금 불확실성이 추가 리스크로 작용."
+    },
+    {
+      "topic": "고PER 성장주에 대한 금리 리스크",
+      "agents": ["risk", "valuation"],
+      "consensus": "주담대 금리 7%+ 환경에서 카카오(PER 40.7x), SK텔레콤(PER 42.6x), 삼성전기(PER 50.1x) 등 고PER 종목은 할인율 상승에 취약. 두 에이전트 모두 이 리스크를 명시적으로 식별."
+    },
+    {
+      "topic": "KT 저평가 밸류에이션 매력",
+      "agents": ["valuation", "risk"],
+      "consensus": "KT(PER 8.66x, risk 에이전트 'low risk' 유일 판정)는 영업이익 YoY -57.75%에도 불구하고 low risk + 저PER 조합으로 방어적 매력. 단 이익 회복 모멘텀 필요."
+    }
+  ],
+  "disagreements": [
+    {
+      "topic": "한국타이어(161390) 투자 매력도",
+      "valuation_round1": "top pick — PER 5.91x로 섹터 대비 최대 할인, fair_value_mid 87,950원 대비 현재가 52,000원은 40.9% 저평가",
+      "risk_position": "고위험 판정 — 에너지비용 상승(타이어 원재료 합성고무 직결), 301조 관세(타이어 섹터 포함 가능성), 영업이익 YoY -6.68% 감소 추세",
+      "resolution": "risk 에이전트의 판정을 적극 수용하여 top pick 지위 박탈. 유가 103달러는 SBR(스티렌-부타디엔 고무) 제조 원가 연동으로 타이어 원가율을 직접 압박. 관세 리스크(미국향 타이어 수출 비중 고려)와 이익 감소 추세가 결합 시 value trap 위험. PER 5.91x의 표면적 저평가는 이익 추가 훼손 가능성으로 인해 신뢰도 하락. 등급 하향: cheap → watch_and_wait. 유가 85달러 이하 또는 301조 불확실성 해소 시 재진입 검토.",
+      "revised_grade": "watch_and_wait"
+    },
+    {
+      "topic": "삼성전기(009150) 밸류에이션 수준",
+      "valuation_round1": "고평가(expensive) — PER 50.12x, 섹터 기준 18x 대비 178% 프리미엄, 영업이익 YoY -7.98%",
+      "tech_position": "매수 — AI 서버 FC-BGA 기판 수요 급증, 당일 +9.35% 급등은 실질적 모멘텀. HBM·AI 인프라 직접 수혜주로 성장 프리미엄 정당화",
+      "korea_position": "strong_buy — 반도체 수출 슈퍼사이클 직접 수혜, 외국인 지분 38.45% 탄탄",
+      "resolution": "tech·korea의 성장 모멘텀 논거를 부분 수용. 현재 EPS 9,099원은 저점 기준이며, FC-BGA 풀 가동 시나리오에서 2026년 하반기 EPS 14,000~17,000원 회복 추정 가능. 성장주 전자부품 PER 25~28x 적용 시 적정가 350,000~476,000원 범위. 현재가 456,000원은 낙관 시나리오 상단에 근접하여 '적정~소폭 고평가' 구간으로 재산정. 등급 수정: expensive → neutral_growth_premium. 단, macro bearish 환경에서 추가 진입보다는 보유 유지 권고.",
+      "revised_grade": "neutral_growth_premium"
+    },
+    {
+      "topic": "macro bearish 4주 판정 목표가 반영",
+      "macro_position": "4주 bearish — 호르무즈 봉쇄, 유가 103달러, USTR 301조, 원/달러 1,400원+ 복합 역풍",
+      "valuation_round1": "목표가를 현재가 기준 소폭 상회 수준으로 설정 (약 +5~10%)",
+      "resolution": "macro bearish 환경을 반영하여 전 종목 4주 목표가를 5~8% 하향 조정. 특히 수출 비중이 높고 에너지 원가 노출이 큰 종목(한국타이어, LG전자, 현대차)에 추가 8% 할인 적용. AI·내수 방어주(KT, NAVER, SK텔레콤)는 5% 하향에 그침. 단, 호르무즈 해소 시 목표가 즉시 원복 적용.",
+      "revised_grade": "macro_discount_applied"
+    }
+  ],
+  "revised_stocks": [
+    {
+      "code": "161390",
+      "name": "한국타이어앤테크놀로지",
+      "original_grade": "cheap (top pick)",
+      "revised_grade": "watch_and_wait",
+      "original_target": 57200,
+      "revised_target": 49400,
+      "rationale": "유가 103달러+ 환경에서 타이어 주원료인 합성고무(SBR) 가격 상승 직격. 영업이익 YoY -6.68% 감소 추세가 유가 추가 상승 시 -15~20%로 확대 가능. USTR 301조에 타이어 섹터 포함 가능성 있어 대미 수출 의존 구조 취약. PER 5.91x 표면 저평가는 이익 추가 훼손 가능성으로 인한 value trap 신호. macro bearish 8% 할인 추가 적용. 재진입 조건: 유가 85달러 이하 또는 301조 관세 불확실성 해소.",
+      "risk_flag": "value_trap_warning",
+      "dca_zones": ["1차 47,000원 (PER 5.3x)", "2차 43,000원 (PER 4.9x)", "3차 38,000원 (PER 4.3x, 극단 저평가)"]
+    },
+    {
+      "code": "009150",
+      "name": "삼성전기",
+      "original_grade": "expensive",
+      "revised_grade": "neutral_growth_premium",
+      "original_target": 433200,
+      "revised_target": 448000,
+      "rationale": "AI FC-BGA 기판·카메라모듈 수요 폭증으로 2026년 하반기 EPS 14,000~17,000원 회복 시나리오 현실성 있음. 성장주 전자부품 PER 25~28x 적용 적정가 350,000~476,000원. 현재가 456,000원은 낙관 시나리오 상단 근접이므로 '적정~소폭 고평가' 구간. tech·korea의 strong buy 논거 일부 수용하나 macro bearish 환경에서 추격 매수보다 보유 유지 권고. 목표가는 tech·korea 견해 반영해 소폭 상향 조정. 당일 +9.35% 급등 이후 단기 차익실현 구간 주의.",
+      "risk_flag": "high_per_but_growth_justified",
+      "dca_zones": ["1차 420,000원 (EPS 회복 기대치 PER 28x)", "2차 390,000원 (현재 EPS 기준 PER 43x, 지지선)", "3차 360,000원 (EPS 회복 PER 25x, 공격적 진입)"]
+    },
+    {
+      "code": "035420",
+      "name": "NAVER",
+      "original_grade": "fair",
+      "revised_grade": "fair_buy",
+      "original_target": 207375,
+      "revised_target": 196000,
+      "rationale": "PER 15.96x로 IT 플랫폼 섹터 18x 대비 할인 구조 유지. 이재명 정부 AI 대전환 정책 수혜 1순위로 정책 모멘텀 강함. korea 에이전트 buy 신호와 일치. macro bearish 5% 하향 적용. 부동산 플랫폼 사업 리스크(risk 에이전트)는 실제 매출 비중 고려 시 제한적. PBR 1.07x는 장기 안전마진 제공. 목표가 소폭 하향하되 등급은 fair → fair_buy로 매력도 소폭 상향.",
+      "risk_flag": "none",
+      "dca_zones": ["1차 190,000원 (PER 15.3x)", "2차 180,000원 (PER 14.5x)", "3차 170,000원 (PER 13.7x, 장기 저점 매수)"]
+    },
+    {
+      "code": "030200",
+      "name": "KT",
+      "original_grade": "cheap",
+      "revised_grade": "cheap_defensive",
+      "original_target": 65450,
+      "revised_target": 61700,
+      "rationale": "PER 8.66x, risk 에이전트 유일 'low risk' 판정. 영업이익 YoY -57.75% 급감은 일회성 요인 분석 필요하나, ROE 10.22%와 PBR 0.81x는 장기 자산가치 매력 존재. 외국인 지분 100%로 안정적 수급. macro bearish 5% 하향 적용. 내수 방어주 특성으로 환율·유가 충격 제한적. 목표가 소폭 하향하나 방어적 저평가 매력 유지.",
+      "risk_flag": "earnings_recovery_needed",
+      "dca_zones": ["1차 58,000원 (PER 8.4x)", "2차 54,000원 (PER 7.9x)", "3차 50,000원 (PER 7.3x, 역사적 저점 구간)"]
+    },
+    {
+      "code": "012330",
+      "name": "현대모비스",
+      "original_grade": "fair",
+      "revised_grade": "fair_caution",
+      "original_target": 407925,
+      "revised_target": 375000,
+      "rationale": "영업이익 YoY +19.25%로 워치리스트 내 실적 성장주. PER 9.79x, PBR 0.70x는 자산가치 할인 구조. 그러나 risk 에이전트의 'high risk' 판정(301조 부품 관세, 노란봉투법) 수용. 노란봉투법으로 하청 교섭 의무 발생 시 원가 구조 악화 가능. macro bearish + 관세 리스크 8% 할인 적용하여 목표가 대폭 하향. 실적 성장은 긍정적이나 외부 리스크가 상당하여 fair_caution 등급 부여.",
+      "risk_flag": "tariff_and_labor_risk",
+      "dca_zones": ["1차 370,000원 (PER 9.3x)", "2차 350,000원 (PER 8.8x)", "3차 330,000원 (PER 8.3x)"]
+    },
+    {
+      "code": "017670",
+      "name": "SK텔레콤",
+      "original_grade": "expensive",
+      "revised_grade": "expensive_with_catalyst",
+      "original_target": 76855,
+      "revised_target": 72800,
+      "rationale": "PER 42.56x는 통신 섹터 기준 14x 대비 여전히 과도한 프리미엄. 그러나 영업이익 YoY +145.95%라는 폭발적 성장은 이익 정상화 과정에서의 기저효과 또는 AI 전환 수익 가시화 신호. korea 에이전트 'buy' 판정 및 외국인 지분 79.23% 안정적 수급 수용. 내수 방어주 특성으로 환율·유가 충격 제한적. macro bearish 5% 하향 적용. PER 정상화(25~30x) 시 적정가 47,500~57,030원이나, 성장 지속 시 EPS 상향으로 괴리 해소 가능.",
+      "risk_flag": "high_per_monitoring_required",
+      "dca_zones": ["1차 76,000원 (현재가 하방 6%)", "2차 70,000원 (PER 36.8x)", "3차 63,000원 (PER 33.1x, 성장 프리미엄 제거)"]
+    },
+    {
+      "code": "005380",
+      "name": "현대차",
+      "original_grade": "expensive",
+      "revised_grade": "expensive_high_risk",
+      "original_target": 447450,
+      "revised_target": 410000,
+      "rationale": "PER 13.33x는 글로벌 자동차 섹터 대비 여전히 프리미엄. 영업이익 YoY -33.18% 감소 추세. 301조 자동차 관세가 현실화될 경우 대미 수출 직격. 노란봉투법으로 생산 라인 하청 교섭 의무화. macro bearish + 복합 리스크 반영 목표가 8% 하향. 전기차 수혜 모멘텀은 중장기 긍정적이나 단기 4주 환경에서는 불리.",
+      "risk_flag": "tariff_labor_dual_risk",
+      "dca_zones": ["1차 445,000원", "2차 420,000원", "3차 395,000원 (PER 11.2x)"]
+    },
+    {
+      "code": "010130",
+      "name": "고려아연",
+      "original_grade": "expensive",
+      "revised_grade": "expensive_momentum",
+      "original_target": 1409800,
+      "revised_target": 1320000,
+      "rationale": "영업이익 YoY +56.74% 고성장이나 PER 38.53x는 비철금속 섹터 12x 대비 221% 프리미엄. 호르무즈 위기발 원자재 공급망 불안 속 전략소재 프리미엄 정당화 일부 가능. korea 에이전트의 '자금 이동 수혜' 논거 수용. macro bearish 6% 하향 적용. 고성장이 지속될 경우 PER 점진적 정상화 가능하나 현재 밸류에이션은 상당한 성장을 이미 선반영.",
+      "risk_flag": "premium_valuation_high_momentum",
+      "dca_zones": ["1차 1,400,000원", "2차 1,300,000원", "3차 1,150,000원 (PER 29.9x)"]
+    }
+  ],
+  "top3_final": [
+    {
+      "rank": 1,
+      "code": "030200",
+      "name": "KT",
+      "grade": "cheap_defensive",
+      "revised_target": 61700,
+      "rationale": "워치리스트 내 유일 'low risk' 판정(risk 에이전트), PER 8.66x 저평가, PBR 0.81x 자산가치 할인, ROE 10.22%, 외국인 지분 100% 안정적 수급. 내수 방어주로 유가·환율 충격 제한적. macro bearish 환경에서 방어적 포지셔닝에 최적. 이익 회복 모멘텀이 확인되면 즉시 상단 목표가 회복 가능. 4주 bearish 환경에서 가장 안전한 진입 대상."
+    },
+    {
+      "rank": 2,
+      "code": "035420",
+      "name": "NAVER",
+      "grade": "fair_buy",
+      "revised_target": 196000,
+      "rationale": "PER 15.96x로 IT 플랫폼 섹터 18x 대비 할인 + 이재명 정부 AI 대전환 정책 1순위 수혜 + PBR 1.07x 안전마진 + 영업이익 YoY +7.01% 안정 성장. tech·korea 모두 buy 신호. 부동산 플랫폼 리스크는 제한적. 4주 내 정책 모멘텀 가시화 가능."
+    },
+    {
+      "rank": 3,
+      "code": "012330",
+      "name": "현대모비스",
+      "grade": "fair_caution",
+      "revised_target": 375000,
+      "rationale": "영업이익 YoY +19.25% 실질 성장, PBR 0.70x 자산가치 할인, PER 9.79x 적정 밸류에이션. 외국인 지분 42.95%로 수급 안정. 관세·노란봉투법 리스크 존재하나 이미 주가에 일부 반영(타리스크 노출 대비 저평가 유지). 실적 성장 지속 시 재평가 여력 충분."
+    }
+  ],
+  "removed_from_top_pick": {
+    "code": "161390",
+    "name": "한국타이어앤테크놀로지",
+    "reason": "유가 103달러+ 타이어 원가 직결 + USTR 301조 타이어 관세 리스크 + 영업이익 감소 추세의 삼중 압박. PER 5.91x 표면 저평가는 value trap 가능성으로 인해 신뢰도 하락. 유가 안정화 및 301조 불확실성 해소 전까지 관망 권고."
+  },
+  "cross_review": "5개 에이전트 교차 검토 결과, 2026년 4월 5일 한국 투자 환경은 'AI 수요의 구조적 성장(tech·korea 공통 확인)'과 '지정학·관세·에너지 3중 역풍(macro·risk 공통 경고)'이 충돌하는 이분법적 구도로 귀결된다. 밸류에이션 관점의 핵심 수정 사항은 세 가지다. 첫째, 한국타이어의 PER 5.91x 저평가는 유가 103달러 환경에서 원가 압박에 의한 이익 훼손 가능성이 내포된 value trap 신호로 재분류해야 하며, 이는 risk 에이전트의 '고위험' 판정을 수용한 결과다. 둘째, 삼성전기의 PER 50.12x는 기계적으로는 고평가이나 FC-BGA AI 기판 수요 폭증에 따른 EPS 회복 경로가 tech·korea 에이전트에 의해 구체적으로 제시되었으므로, 성장 프리미엄을 반영한 중립 등급으로 재산정한다. 셋째, macro 에이전트의 4주 bearish 판정은 전 종목 목표가에 5~8% 하향 조정을 통해 반영한다. DART 실데이터 YoY 성장률 기준 최선호 종목은 SK텔레콤(+145.95%), 고려아연(+56.74%), 현대모비스(+19.25%) 순이나, 리스크 조정 후 최선호는 KT(안전마진+방어성), NAVER(정책수혜+저평가), 현대모비스(실적성장+자산가치) 순으로 재편된다. SK텔레콤은 성장률 최상위이나 PER 42.56x의 밸류에이션 부담이 제어되지 않으면 금리 충격 시 급락 리스크가 존재한다. 고려아연은 원자재 전략 가치로 매력적이나 PER 38.53x 프리미엄은 현재 성장세가 유지된다는 가정 하에서만 정당화된다.",
+  "final_recommendation": "macro bearish·유가 고점·관세 불확실성 3중 역풍 환경에서 밸류에이션 기준 최우선 전략은 '저PER 방어주 집중 + AI 정책 수혜 성장주 선별 비중'이다. KT(cheap_defensive, 1순위) - NAVER(fair_buy, 2순위) - 현대모비스(fair_caution, 3순위) 중심의 방어-성장 균형 포트폴리오를 권고하며, 한국타이어는 value trap 경보 발령으로 관망 전환, 삼성전기는 보유 유지(추가 매수 자제), LG에너지솔루션·LG화학은 적자 지속으로 실적 회복 확인 전 투자 유보를 유지한다. 전체 포트폴리오 현금 비중 15~20% 확보는 risk 에이전트 권고와 동일하게 수용한다."
+}

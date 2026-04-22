@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>디딤교회 주간작업 모니터</title>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg:      #0D1520;
+      --panel:   #131E2E;
+      --card:    #1A2640;
+      --border:  rgba(255,255,255,0.07);
+      --gold:    #C4A35A;
+      --done:    #4A9B6F;
+      --wip:     #E8A030;
+      --pending: #3A4A6A;
+      --white:   #E8EDF4;
+      --muted:   rgba(232,237,244,0.4);
+      --red:     #0088FF;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background: var(--bg);
+      color: var(--white);
+      font-family: 'Noto Sans KR', sans-serif;
+      min-height: 100vh;
+      padding: 0;
+    }
+
+    /* ── Top bar ── */
+    .topbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 14px 28px;
+      border-bottom: 1px solid var(--border);
+      background: var(--panel);
+    }
+    .topbar-title {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .live-dot {
+      width: 8px; height: 8px;
+      border-radius: 50%;
+      background: var(--done);
+      box-shadow: 0 0 6px var(--done);
+      animation: blink 2s infinite;
+    }
+    @keyframes blink { 0%,100%{opacity:1} 50%{opacity:0.3} }
+    .topbar-title h1 {
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--white);
+      letter-spacing: 0.04em;
+    }
+    .topbar-right {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      font-size: 12px;
+      color: var(--muted);
+    }
+    #clock { color: var(--white); font-weight: 500; font-size: 14px; letter-spacing: 0.08em; }
+    .refresh-info { font-size: 11px; }
+    .refresh-info span { color: var(--gold); }
+
+    /* ── Main layout ── */
+    .main {
+      padding: 20px 28px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    /* ── Section card ── */
+    .section {
+      background: var(--panel);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 16px 20px;
+    }
+    .section-title {
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--gold);
+      letter-spacing: 0.12em;
+      margin-bottom: 14px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .section-title::before {
+      content: '';
+      display: inline-block;
+      width: 3px; height: 12px;
+      background: var(--gold);
+      border-radius: 2px;
+    }
+
+    /* ── Top row: Donut + Info ── */
+    .top-row {
+      display: grid;
+      grid-template-columns: 240px 1fr;
+      gap: 16px;
+    }
+
+    /* Donut chart */
+    .donut-section {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      padding: 20px;
+    }
+    .donut-wrap {
+      position: relative;
+      width: 140px; height: 140px;
+    }
+    .donut-wrap svg { transform: rotate(-90deg); }
+    .donut-bg { fill: none; stroke: var(--card); stroke-width: 14; }
+    .donut-fill {
+      fill: none;
+      stroke-width: 14;
+      stroke-linecap: round;
+      transition: stroke-dashoffset 0.8s ease;
+    }
+    .donut-center {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+    .donut-pct {
+      font-size: 28px;
+      font-weight: 700;
+      line-height: 1;
+    }
+    .donut-label {
+      font-size: 11px;
+      color: var(--muted);
+      margin-top: 2px;
+    }
+    .donut-sub {
+      text-align: center;
+      font-size: 12px;
+      color: var(--muted);
+    }
+    .donut-sub strong {
+      color: var(--white);
+      font-size: 14px;
+    }
+
+    /* Info cards */
+    .info-section {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+      align-content: start;
+    }
+    .info-card {
+      background: var(--card);
+      border-radius: 6px;
+      padding: 12px 14px;
+      border: 1px solid var(--border);
+    }
+    .info-card .label {
+      font-size: 10px;
+      color: var(--muted);
+      letter-spacing: 0.08em;
+      margin-bottom: 5px;
+    }
+    .info-card .value {
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--white);
+    }
+    .info-card .value.gold { color: var(--gold); }
+    .info-card .value.done { color: var(--done); }
+    .info-card .sub {
+      font-size: 11px;
+      color: var(--muted);
+      margin-top: 3px;
+    }
+
+    /* ── Pipeline circles ── */
+    .pipeline-row {
+      display: flex;
+      align-items: center;
+      gap: 0;
+      padding: 8px 0;
+    }
+    .pipe-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+      flex: 1;
+      position: relative;
+    }
+    /* connector line */
+    .pipe-item:not(:last-child)::after {
+      content: '';
+      position: absolute;
+      top: 22px;
+      left: calc(50% + 22px);
+      width: calc(100% - 44px);
+      height: 2px;
+      background: var(--border);
+    }
+    .pipe-item.done:not(:last-child)::after   { background: var(--done); opacity: 0.5; }
+    .pipe-item.wip:not(:last-child)::after    { background: var(--wip); opacity: 0.3; }
+
+    .pipe-circle {
+      width: 44px; height: 44px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 14px;
+      font-weight: 700;
+      border: 2px solid transparent;
+      position: relative;
+      z-index: 1;
+      transition: all 0.3s;
+    }
+    .pipe-item.done .pipe-circle {
+      background: var(--done);
+      border-color: var(--done);
+      color: #fff;
+      box-shadow: 0 0 12px rgba(74,155,111,0.4);
+    }
+    .pipe-item.wip .pipe-circle {
+      background: transparent;
+      border-color: var(--wip);
+      color: var(--wip);
+      box-shadow: 0 0 14px rgba(232,160,48,0.35);
+      animation: pulse-ring 2s infinite;
+    }
+    .pipe-item.pending .pipe-circle {
+      background: transparent;
+      border-color: var(--pending);
+      color: var(--muted);
+    }
+    @keyframes pulse-ring {
+      0%,100% { box-shadow: 0 0 14px rgba(232,160,48,0.35); }
+      50%      { box-shadow: 0 0 22px rgba(232,160,48,0.6); }
+    }
+    .pipe-name {
+      font-size: 12px;
+      font-weight: 500;
+      color: var(--muted);
+      letter-spacing: 0.02em;
+    }
+    .pipe-item.done .pipe-name { color: var(--white); }
+    .pipe-item.wip  .pipe-name { color: var(--wip); }
+    .pipe-time {
+      font-size: 10px;
+      color: var(--muted);
+    }
+    .pipe-item.done .pipe-time { color: rgba(74,155,111,0.8); }
+
+    /* ── Checkmark SVG ── */
+    .check { display: block; }
+
+    /* ── Note row ── */
+    .note-row {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 8px;
+    }
+    .note-card {
+      background: var(--card);
+      border-radius: 6px;
+      padding: 10px 12px;
+      border-left: 3px solid var(--pending);
+      font-size: 11px;
+      color: var(--muted);
+      line-height: 1.5;
+    }
+    .note-card.done   { border-color: var(--done); }
+    .note-card.wip    { border-color: var(--wip); color: var(--white); }
+    .note-card .note-id {
+      font-weight: 700;
+      font-size: 10px;
+      letter-spacing: 0.06em;
+      margin-bottom: 4px;
+    }
+    .note-card.done   .note-id { color: var(--done); }
+    .note-card.wip    .note-id { color: var(--wip); }
+    .note-card.pending .note-id { color: var(--pending); }
+
+    /* ── Footer ── */
+    .footer {
+      text-align: center;
+      padding: 12px;
+      font-size: 10px;
+      color: rgba(255,255,255,0.1);
+      letter-spacing: 0.06em;
+    }
+  </style>
+</head>
+<body>
+
+<!-- Layout first, script at bottom -->
+<div class="topbar">
+  <div class="topbar-title">
+    <div class="live-dot"></div>
+    <h1>디딤교회 · 주간작업 모니터</h1>
+  </div>
+  <div class="topbar-right">
+    <div id="clock"></div>
+    <div class="refresh-info">자동 새로고침 <span id="countdown"></span></div>
+  </div>
+</div>
+
+<div class="main">
+
+  <!-- Top row: Donut + Info -->
+  <div class="top-row">
+    <!-- Donut -->
+    <div class="section donut-section">
+      <div class="donut-wrap">
+        <svg width="140" height="140" viewBox="0 0 140 140">
+          <circle class="donut-bg" cx="70" cy="70" r="56"/>
+          <circle class="donut-fill" id="donut-arc"
+            cx="70" cy="70" r="56"
+            stroke-dasharray="351.86"
+            stroke-dashoffset="351.86"/>
+        </svg>
+        <div class="donut-center">
+          <div class="donut-pct" id="donut-pct">0%</div>
+          <div class="donut-label" id="donut-fraction">0 / 5</div>
+        </div>
+      </div>
+      <div class="donut-sub" id="donut-sub"></div>
+    </div>
+
+    <!-- Info cards -->
+    <div class="section info-section">
+      <div class="info-card">
+        <div class="label">주차</div>
+        <div class="value gold" id="info-week">—</div>
+        <div class="sub" id="info-week-label">—</div>
+      </div>
+      <div class="info-card">
+        <div class="label">설교 본문</div>
+        <div class="value" id="info-scripture" style="font-size:14px">—</div>
+        <div class="sub" id="info-season">—</div>
+      </div>
+      <div class="info-card" style="grid-column: span 1">
+        <div class="label">시작일</div>
+        <div class="value" id="info-start" style="font-size:14px">—</div>
+        <div class="sub" id="info-updated">—</div>
+      </div>
+      <div class="info-card" style="grid-column: span 3">
+        <div class="label">설교 제목</div>
+        <div class="value" id="info-title" style="font-size:15px">—</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Pipeline circles -->
+  <div class="section">
+    <div class="section-title">작업 파이프라인</div>
+    <div class="pipeline-row" id="pipeline-row"></div>
+  </div>
+
+  <!-- Notes -->
+  <div class="section">
+    <div class="section-title">작업 메모</div>
+    <div class="note-row" id="note-row"></div>
+  </div>
+
+</div>
+
+<div class="footer">WAVE AI Networks · 디딤교회 자동화 시스템</div>
+
+<script>
+// ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+// STATUS DATA — Team Leader가 이 블록을 갱신
+// ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+const STATUS = {
+  week:        17,
+  month:       "4월",
+  weekLabel:   "4주차",
+  title:       "부활의 능력으로 섬기라",
+  scripture:   "빌 3:7-14",
+  season:      "",
+  startDate:   "2026-04-20",
+  lastUpdated: "2026-04-21",
+  tasks: [
+    { id:"A", name:"설교 준비",    status:"in-progress", note:"2단계 완료 (CMT/FCF/HP 확정), 3단계 진행 중",  time:"진행 중" },
+    { id:"B", name:"매일묵상",     status:"completed", note:"HTML 15개 + 카카오 5개 + 이미지프롬프트",  time:"2026-04-20" },
+    { id:"C", name:"수요기도회",   status:"completed", note:"HTML + PNG 캡처 완료",  time:"2026-04-20" },
+    { id:"D", name:"소그룹 나눔지",status:"pending", note:"설교 4.5단계 완료 후",  time:"—" },
+    { id:"E", name:"SNS 카드뉴스", status:"pending", note:"설교 4.5단계 완료 후",  time:"—" }
+  ]
+};
+// ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+const STATUS_CLS = {
+  "completed":   "done",
+  "in-progress": "wip",
+  "pending":     "pending"
+};
+const CIRC = 2 * Math.PI * 56; // 351.86
+
+function render() {
+  const done  = STATUS.tasks.filter(t => t.status === "completed").length;
+  const total = STATUS.tasks.length;
+  const pct   = Math.round((done / total) * 100);
+
+  // Donut
+  const arc = document.getElementById("donut-arc");
+  const offset = CIRC * (1 - done / total);
+  arc.style.strokeDashoffset = offset;
+  arc.style.stroke = done === total ? "#4A9B6F" : (done > 0 ? "#E8A030" : "#3A4A6A");
+
+  document.getElementById("donut-pct").textContent = pct + "%";
+  document.getElementById("donut-pct").style.color =
+    done === total ? "#4A9B6F" : (done > 0 ? "#E8A030" : "#556080");
+  document.getElementById("donut-fraction").textContent = `${done} / ${total}`;
+  document.getElementById("donut-sub").innerHTML =
+    done === total
+      ? `<strong style="color:#4A9B6F">전체 완료</strong>`
+      : `<strong>${done}개</strong> 완료 / <strong>${total - done}개</strong> 남음`;
+
+  // Info
+  document.getElementById("info-week").textContent      = STATUS.week + "주차";
+  document.getElementById("info-week-label").textContent = STATUS.month + " " + STATUS.weekLabel;
+  document.getElementById("info-scripture").textContent  = STATUS.scripture;
+  document.getElementById("info-season").textContent     = STATUS.season;
+  document.getElementById("info-start").textContent      = STATUS.startDate;
+  document.getElementById("info-updated").textContent    = "갱신: " + STATUS.lastUpdated;
+  document.getElementById("info-title").textContent      = STATUS.title;
+
+  // Pipeline circles
+  const prow = document.getElementById("pipeline-row");
+  prow.innerHTML = "";
+  STATUS.tasks.forEach(task => {
+    const cls = STATUS_CLS[task.status] || "pending";
+    const item = document.createElement("div");
+    item.className = `pipe-item ${cls}`;
+    const inner = cls === "done"
+      ? `<svg class="check" width="20" height="20" viewBox="0 0 20 20" fill="none">
+           <polyline points="4,10 8,14 16,6" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+         </svg>`
+      : task.id;
+    item.innerHTML = `
+      <div class="pipe-circle">${inner}</div>
+      <div class="pipe-name">${task.name}</div>
+      <div class="pipe-time">${task.time || ""}</div>
+    `;
+    prow.appendChild(item);
+  });
+
+  // Notes
+  const nrow = document.getElementById("note-row");
+  nrow.innerHTML = "";
+  STATUS.tasks.forEach(task => {
+    const cls = STATUS_CLS[task.status] || "pending";
+    const card = document.createElement("div");
+    card.className = `note-card ${cls}`;
+    card.innerHTML = `
+      <div class="note-id">${task.id} · ${task.name}</div>
+      ${task.note || '<span style="opacity:0.4">메모 없음</span>'}
+    `;
+    nrow.appendChild(card);
+  });
+}
+
+// Clock
+function updateClock() {
+  const now = new Date();
+  document.getElementById("clock").textContent =
+    now.toLocaleTimeString("ko-KR", { hour12: false });
+}
+setInterval(updateClock, 1000);
+updateClock();
+
+// Auto-refresh countdown
+let remaining = 30;
+function tick() {
+  document.getElementById("countdown").textContent = remaining + "s";
+  if (--remaining <= 0) location.reload();
+  else setTimeout(tick, 1000);
+}
+
+render();
+tick();
+</script>
+</body>
+</html>

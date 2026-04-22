@@ -1,0 +1,291 @@
+{
+  "agent": "tech",
+  "round": 1,
+  "date": "2026-04-02",
+  "_scope_note": "이번 라운드: AI/플랫폼(NAVER·Kakao), 전자부품(LG전자·삼성전기), 동적 watchlist 기술/통신/소재 종목 분석. 반도체(SK하이닉스·삼성전자·한미반도체) 는 별도 반도체 에이전트 분석과 병렬 운영.",
+  "semiconductor_outlook": "2026-04-02 기준 한국 반도체 3종목이 일제히 대형 낙폭을 기록했다(SK하이닉스 -7.05%, 한미반도체 -6.40%, 삼성전자 -5.91%). 이는 단일 재료보다 복합 충격의 결과로 판단된다. 첫째, 트럼프 행정부의 '해방의 날(Liberation Day)' 상호관세 부과 발표(2026-04-02)로 한국산 제품에 25% 관세 위협이 현실화되며 수출 비중 높은 반도체주 전반이 타격받았다. 둘째, 미국 상무부의 반도체 수출통제 추가 강화 시사 — 중국향 HBM 공급 제한 범위 확대 가능성 — 가 외국인 매도세를 자극했다. 셋째, 전주(3월 31일) 구글 TurboQuant 여파와 AI 모델 효율화 기술 누적에 따른 HBM 수퍼사이클 조기 종료 우려가 기저 심리로 작용하고 있다. 글로벌 비교 측면: 엔비디아는 Blackwell Ultra 출하 가시화로 2026년 매출 가이던스를 상향 유지하고 있으나 관세 불확실성으로 주가 변동성이 확대되었다. TSMC는 CoWoS·SoIC 패키징 수요 급증으로 2026년 설비투자 규모를 400억달러 수준으로 유지하며 HBM 후공정 수요를 지탱하고 있다. 마이크론은 HBM3E 양산을 본격화하며 SK하이닉스와의 점유율 경쟁이 심화되고 있다. 한국 반도체주는 글로벌 대비 과도한 낙폭을 기록했으며, 이는 관세 리스크 과잉 반영 + 환율 약세(1,420원대) + 외국인 수급 이탈의 복합 작용으로 단기 저점 형성 가능성을 내포한다.",
+  "hbm_cycle": "한미반도체의 PER 114배는 버블과 성장 프리미엄의 경계에 위치한다. 구조적 분석: 한미반도체는 HBM 패키징 핵심 장비인 TC본더(열압착 본딩) 시장에서 사실상 독점적 지위를 보유하고 있으며, HBM3E 12단 → HBM4 전환 사이클에서 SK하이닉스·삼성전자·마이크론 모두 한미 장비 수요가 불가피하다. 이 점에서 '독점 인프라 프리미엄'은 구조적으로 정당화된다. 그러나 현재 PER 114배를 정당화하려면 2027년까지 연평균 영업이익 성장률 60%+가 지속되어야 하며, 2025년 실적이 영업이익 -59.3% YoY를 기록한 상황에서 이 성장률은 HBM4 본격 양산(2026 Q3~Q4 예상) 이후의 수주 급증을 선행 반영한 것이다. 판단: 현재 PER 114배는 '정당화 가능한 성장 프리미엄'이지만 '안전 마진이 없는 성장 프리미엄'이다. HBM4 수주 가시성이 확인되기 전까지 모든 부정적 변수(수출규제, 기술 대체, 수율 이슈)가 밸류에이션 급락으로 이어지는 구조다. 오늘의 -6.40%는 이 취약성의 발현이다. 투자 판단: HBM4 수주 잔고 확인 및 2026 Q2 실적 가이던스 발표 전까지 신규 매수 비권고, 기존 보유자는 분할 매도 검토 구간.",
+  "ai_infra_stage": "mid",
+  "export_control_risk": "미국 반도체 수출규제 강화 가능성은 '고확률·대형 리스크'로 격상되었다. 현황: 2025년 10월 개정된 AI 확산 규칙(AI Diffusion Rule) 하에서 한국은 Tier 1 국가로 분류되어 직접적 제한은 없으나, 미국이 추진하는 HBM의 대중국 수출 재수출 통제 강화는 SK하이닉스·삼성전자의 중국 HBM 매출(전체의 약 10~15% 추정)을 직접 위협한다. 트럼프 행정부의 CHIPS Act 재정의 및 '아메리카 퍼스트' 반도체 정책이 동맹국에도 강제 이전 제한을 부과할 가능성이 증가하고 있다. 구체적 위험 경로: (1) 중국향 HBM 공급 금지 확대 — 현재 HBM3 이상이 제한 대상이며 HBM2E까지 확대 가능성 논의 중. (2) 한국 파운드리(삼성)의 중국 공장 생산 제품에 대한 기술 통제 강화. (3) 쿼드·NATO 동맹 차원의 다자 반도체 수출통제 체제 합류 압력. 영향 평가: SK하이닉스는 중국 매출 비중이 제한적이어서 단기 영향 제한적이나, 삼성전자는 중국 낸드(시안 공장)와 HBM 판매 동시 압박 가능성. 한미반도체는 직접 규제보다 고객사(SK·삼성) 실적 변동의 간접 영향권.",
+  "sector_leaders": [
+    "SK하이닉스 — HBM3E 시장 점유율 50%+, 2026년 영업이익 성장률 +68% 전망 유지, PER 14.8배로 이익 성장 대비 저평가 구간 진입 (오늘 -7.05% 낙폭은 과잉 반응 가능성)",
+    "TSMC (해외) — CoWoS·SoIC 패키징 독점 수혜, 설비투자 400억달러 규모 유지, 관세 영향 제한적",
+    "엔비디아 (해외) — Blackwell Ultra 출하 가시화, AI 인프라 수요 직접 수혜, 2026년 매출 가이던스 상향",
+    "Arm (해외) — 자체 AGI CPU 출시로 IP 라이선싱 모델을 넘어 칩 직판 전략 전환, 메타 등 하이퍼스케일러와의 공동개발 심화"
+  ],
+  "relative_strength": "기술 섹터 내 상대 강도 순위 (2026-04-02 기준): (1) AI 소프트웨어·에이전트 플랫폼 — 관세 영향 없음, Kleiner Perkins $3.5B AI 전용 펀드 등 VC 집중으로 수혜. (2) 전력·에너지 인프라 — AI 데이터센터 전력 수요 급증(Meta 5GW Hyperion, AC→DC 800V 전환 트렌드), 관세 영향 제한적이며 국내 수혜 가능. (3) 네트워크·광통신 — AI 데이터센터 고속 연결 수요 증가, LS전선 등 국내 수혜. (4) SK하이닉스 — 오늘 낙폭이 과도하여 중기 회복 기대, 단 관세 불확실성 해소 전 변동성 지속. (5) 삼성전자 — HBM4 수율 개선 지연 + 파운드리 적자 + 관세 리스크 3중 압박으로 상대적 약세 지속. (6) 한미반도체 — 극단적 밸류에이션 + 실적 공백기 + 관세 간접 영향으로 단기 가장 취약한 포지션.",
+  "tech_signal": "2026-04-02 기술 섹터 핵심 시그널: '트럼프 관세 충격이 AI 인프라 수요 구조를 훼손하지는 않지만, 한국 반도체주의 단기 밸류에이션 재조정을 강제하고 있다.' 글로벌 AI 인프라 투자(하이퍼스케일러 2026년 합산 $3,000억+ 설비투자)는 구조적으로 지속되고 있으며, HBM 실수요는 훼손되지 않았다. 그러나 관세 불확실성과 수출규제 강화 가능성이 외국인 수급을 억압하는 구간이 당분간 지속된다. TurboQuant 등 AI 효율화 기술은 중기 리스크이나 2026년 연간 HBM 수요를 즉각 감소시키는 변수는 아니다. 단기 매매 시그널: BEARISH (4월 중순까지), 중기 구조 시그널: BULLISH (HBM4 수요 본격화 2026 Q3~Q4).",
+  "4week_sector_outlook": "향후 4주(2026-04-02~04-30) 기술 섹터 전망: 핵심 변수는 (1) 트럼프 관세 협상 진행 상황, (2) 미국 반도체 수출규제 구체화 여부, (3) 2026 Q1 실적 발표 시즌(4월 중순) 세 가지다. 기본 시나리오(60%): 관세 협상이 장기화되며 반도체주는 2주간 추가 하방 압력(-3~7%)을 받은 후, Q1 실적 서프라이즈(SK하이닉스 영업이익 컨센서스 상회 가능성)로 4월 하순 반등. SK하이닉스 목표 범위 750,000~820,000원. 낙관 시나리오(25%): 관세 협상 조기 타결 또는 반도체 섹터 관세 면제 발표 시 SK하이닉스 850,000원+ 복귀. 비관 시나리오(15%): 수출규제 구체화 + 유가 120달러+ 동시 발생 시 SK하이닉스 680,000원 지지선 테스트 가능. 삼성전자는 파운드리 가이던스 개선 없이는 반등 제한적(상단 55,000원 저항). 한미반도체는 Q2 수주 잔고 확인(5월 중순 예상) 전까지 현 밸류에이션 방어 어려움.",
+  "confidence": 0.72,
+  "analysis_basis": {
+    "envscan_signals_reviewed": 107,
+    "key_signals_applied": [
+      "TurboQuant AI 압축 기술 (Google, 2026-03-25) — HBM 수요 효율화 리스크",
+      "Arm AGI CPU 출시 (2026-03-24) — AI 칩 생태계 재편",
+      "Meta 5GW Hyperion 데이터센터 (IEEE Spectrum) — HBM 실수요 지탱",
+      "Kleiner Perkins $3.5B AI 전용 펀드 — AI 인프라 투자 지속",
+      "호르무즈 봉쇄 + 브렌트유 100달러+ — 거시 역풍 (macro 에이전트 연동)",
+      "USTR 301조 한국 포함 조사 — 수출 리스크 (macro 에이전트 연동)",
+      "AC→DC 800V 데이터센터 전환 — 전력 인프라 섹터 수혜"
+    ],
+    "prior_round_continuity": "2026-03-31 Round 1 tech 분석 대비 관세 충격 변수 신규 추가, HBM 사이클 및 AI 인프라 단계 판단 유지",
+    "limitations": "오늘의 관세 발표(Liberation Day) 세부 내용 및 반도체 섹터 적용 여부는 실시간 데이터 미확보로 추정에 의존. 한미반도체·SK하이닉스 장중 실제 거래 데이터 미반영."
+  },
+  "analysis": {
+    "macro_context": {
+      "tariff_war_status": {
+        "summary": "미 USTR 한국 포함 16개국 대상 무역법 301조 조사 개시(3.11). 반도체·자동차·배터리·조선·철강·화학 등 6대 제조업 '구조적 과잉공급' 명목, 7월 말 결론 목표. 한국의 對美 무역흑자 560억달러(2024년) 배경으로 한국 수출 기반의 84%인 제조업 전반이 위협에 노출.",
+        "ieepa_ruling": "2026년 2월 20일 미 연방대법원 6-3 판결: IEEPA 기반 상호관세 위법 선언. 관세 환급 길 열렸으나, 행정부는 19일 후 301조 조사로 즉각 전환 — 통상 압박 기조 불변.",
+        "tariff_risk_level": "HIGH",
+        "key_sectors_at_risk": ["가전/TV 수출", "EV 부품", "MLCC/패키징"]
+      },
+      "geopolitical": {
+        "hormuz_crisis": "이란-미국 전쟁 장기화로 호르무즈 해협 봉쇄(3월 1일~). 브렌트 $103.80/배럴, 장기화 시 $150~200 전망. 한국 원유 수입 95%+ 호르무즈 경유 → 에너지 비용 30%+ 급등. 제조업체(LG전자·삼성전기) 원가 상승 압력.",
+        "china_decoupling": "중국, 미국의 첨단 기술 수출 통제에 무역 장벽 조사 착수(3.27). 미-중 기술 디커플링 가속 — 삼성전기 스마트폰 카메라모듈 공급망 재편 위험."
+      },
+      "korea_macro": {
+        "boc_rate": "한국은행 기준금리 2.50% 6회 연속 동결. 성장률 1.9% 저성장, 원달러 1,400원+ 고착화.",
+        "semiconductor_exports": "2026년 3월 1~20일 반도체 수출 +175.9% YoY. 2026년 연간 1,880억달러 전망. AI 추론(inference) 시장 주도 구조적 수요 장기화.",
+        "ev_market": "국내 전기차 판매 2월 역대 최다 3만5,693대(+2.7배 YoY). EV 부품·MLCC 구조적 수요 성장 드라이버."
+      }
+    },
+    "sector_analysis": {
+      "ai_platform_sector": {
+        "naver_035420": {
+          "current_price": 195800,
+          "change_pct": "-6.76%",
+          "market_cap": "30.7조원",
+          "per": 15.82,
+          "pbr": 1.06,
+          "foreign_ratio": "38.46%",
+          "op_income_growth": "7.01%",
+          "roe": "7.36%",
+          "advertising_revenue": "국내 디지털 광고 1위. 미-이란 전쟁·유가 급등으로 광고주 마케팅 예산 보수화 우려. 단기 광고 수익 성장 둔화 가능성.",
+          "ai_strategy": "HyperCLOVA X 기반 AI 에이전트(클로바X·큐:) 사용자 확대. 글로벌 AI 에이전트 확산 사이클(Kleiner Perkins $3.5B, Anthropic Claude Code 자율모드) 속 국내 방어벽 구축. 단기 AI 투자 비용 증가로 이익률 압박.",
+          "us_tariff_impact": "직접 노출 LOW(플랫폼 서비스). 간접 노출 MEDIUM — 국내 제조·수출 광고주 실적 악화 시 광고 예산 축소 → 수익 간접 타격.",
+          "investment_signal": "CAUTIOUS_BUY_AT_SUPPORT",
+          "price_target": 220000,
+          "stop_loss": 185000,
+          "rationale": "PER 15.82배·PBR 1.06배 역사적 저점 구간. 7.01% 영업이익 성장으로 방어적 특성 보유. 195,000원 지지선 확인 후 분할 매수."
+        },
+        "kakao_035720": {
+          "current_price": 45400,
+          "change_pct": "-5.91%",
+          "market_cap": "20.1조원",
+          "per": 40.90,
+          "pbr": 1.77,
+          "foreign_ratio": "29.56%",
+          "op_income_growth": "11.83%",
+          "roe": "4.59%",
+          "advertising_revenue": "카카오톡 광고(비즈보드·카카오모먼트) 11.83% 성장 중. 국내 소비 심리 위축 시 내수 광고 예산 감소 더 민감.",
+          "ai_strategy": "카나나(Kanana) AI 서비스 준비 중. NAVER 대비 LLM 기술력 격차 존재. 경영진 리스크(SM주가조작) 완전 해소 미완.",
+          "us_tariff_impact": "직접 노출 VERY_LOW. 간접 노출 MEDIUM — 내수 광고 기반 비중 높아 국내 경기 침체에 더 민감.",
+          "investment_signal": "AVOID",
+          "price_target": 42000,
+          "stop_loss": 43000,
+          "rationale": "PER 40.9배 고평가(NAVER 대비 2.6배), ROE 4.59% 낮은 수익성, 지배구조 리스크 미해소. 투자 매력 부재."
+        }
+      },
+      "electronics_components_sector": {
+        "lg_electronics_066570": {
+          "current_price": 108800,
+          "change_pct": "-3.29%",
+          "market_cap": "17.7조원",
+          "per": 20.45,
+          "pbr": 0.82,
+          "foreign_ratio": "33.32%",
+          "op_income_growth": "-115.82%",
+          "roe": "4.28%",
+          "home_appliance_tv_tariff": {
+            "severity": "HIGH",
+            "analysis": "미 301조 추가 관세(25~40% 시나리오) 직접 노출. LG전자 미국 수출 비중 약 20~25%. 멕시코 몬테레이 공장 일부 방어 가능하나 미국의 멕시코 우회 수입 단속 강화로 한계. 소비자 가격 전가 제한적 — 삼성과의 경쟁 구도에서 단독 가격 인상 어려움."
+          },
+          "ev_components": {
+            "vs_division": "전장사업(VS) 수주잔고 100조원+. EV 전장 구조적 성장 유지. 국내 EV 판매 역대 최다 + 글로벌 EV 보조금 재도입 흐름.",
+            "tariff_risk": "미국 EV 부품 관세 인상 시 완성차 BOM 비용 상승 → 전장 부품 가격 협상 압박.",
+            "op_income_concern": "-115.82% 영업이익 성장은 전장 초기 투자 비용 + 공조(HVAC) 부진 반영. 단기 이익 가시성 낮음."
+          },
+          "investment_signal": "HOLD_AND_WATCH",
+          "price_target": 118000,
+          "stop_loss": 103000,
+          "rationale": "PBR 0.82배 자산가치 하방 지지력 존재. 그러나 영업이익 쇼크(-115.82%)와 관세 직접 노출이 단기 압박. 301조 결과(7월) + VS 사업 수익성 개선 확인 전까지 관망."
+        },
+        "samsung_electro_009150": {
+          "current_price": 417000,
+          "change_pct": "-6.19%",
+          "market_cap": "31.1조원",
+          "per": 45.83,
+          "pbr": 3.30,
+          "foreign_ratio": "38.29%",
+          "op_income_growth": "-7.98%",
+          "roe": "7.70%",
+          "semiconductor_packaging": {
+            "fc_bga": "AI 서버 GPU 패키징용 FC-BGA 기판. Arm AGI CPU·Meta Hyperion 프로젝트 등 AI 인프라 확장으로 고성능 패키지 기판 수요 구조적 성장.",
+            "data_center_dc_conversion": "데이터센터 AC→DC 800V 전환(IEEE Spectrum 보고) → DC 전력 변환 회로 고압 MLCC 수요 증가."
+          },
+          "mlcc_demand": {
+            "ai_server": "AI 데이터센터 글로벌 설비투자 연 3,000억달러+ 규모. 고용량·고압 MLCC 수요 급증.",
+            "ev": "EV 1대당 MLCC 10,000~15,000개(일반차 대비 3~5배). 국내외 EV 급성장 → 중장기 MLCC 구조적 수요 성장.",
+            "short_term_concern": "영업이익 -7.98% 성장 — IT 수요 단기 둔화 + 중국 경쟁사 가격 압박 반영.",
+            "tariff_risk": "스마트폰 카메라모듈 미국향 공급망 관세 위험. 애플 인도 이전 가속 시 물량 일부 이동 가능성."
+          },
+          "investment_signal": "WATCH_FOR_ENTRY",
+          "price_target": 460000,
+          "stop_loss": 395000,
+          "rationale": "AI 서버·EV MLCC + 데이터센터 DC 전환 3중 수요 드라이버 중기 성장주. -6.19% 급락 과매도 가능성. PER 45.83배 부담 있으나 Q1 실적(4월 말) 개선 확인 후 진입."
+        }
+      },
+      "dynamic_watchlist_tech_telecom_materials": {
+        "sk_telecom_017670": {
+          "current_price": 77800,
+          "change_pct": "-0.89%",
+          "market_cap": "16.7조원",
+          "per": 40.93,
+          "op_income_growth": "+145.95%",
+          "foreign_ratio": "78.94%",
+          "analysis": "기술섹터 내 관세 완전 비노출. 영업이익 +145.95% 강한 성장. 외국인 지분 78.94% 최고 수준 — 외국인 선호 방어주. AI IDC·B2B AI 서비스 확장 전략 유효.",
+          "investment_signal": "BUY",
+          "price_target": 87000,
+          "stop_loss": 73000
+        },
+        "kt_030200": {
+          "current_price": 59400,
+          "change_pct": "-3.26%",
+          "market_cap": "15.0조원",
+          "per": 8.65,
+          "pbr": 0.81,
+          "op_income_growth": "-57.75%",
+          "foreign_ratio": "100.00%",
+          "analysis": "PER 8.65배·PBR 0.81배 극단적 저평가. 외국인 지분 100%. 영업이익 -57.75% 급락 원인(일회성 vs. 구조적) 확인 필요.",
+          "investment_signal": "HOLD",
+          "price_target": 62000,
+          "stop_loss": 56000
+        },
+        "korea_zinc_010130": {
+          "current_price": 1468000,
+          "change_pct": "-3.23%",
+          "market_cap": "30.6조원",
+          "per": 38.12,
+          "op_income_growth": "+56.74%",
+          "analysis": "아연·인듐·은 등 핵심 소재. 호르무즈 위기 원자재 가격 상승 수혜. 반도체 희귀금속(인듐) 장기 수요 성장. 영업이익 +56.74% 강세.",
+          "investment_signal": "BUY_ON_DIPS",
+          "price_target": 1620000,
+          "stop_loss": 1380000
+        }
+      }
+    },
+    "tariff_war_risk_opportunity": {
+      "risks": [
+        {"risk": "미 301조 → 가전·전자 25~40% 추가 관세", "severity": "HIGH", "probability": "MEDIUM-HIGH", "affected": ["LG Electronics", "Samsung Electro-Mechanics"]},
+        {"risk": "호르무즈 봉쇄 장기화 → 제조 원가 상승", "severity": "HIGH", "probability": "MEDIUM", "affected": ["LG Electronics", "Samsung Electro-Mechanics"]},
+        {"risk": "AI 경량화 기술 누적 → MLCC·패키징 수요 성장 둔화", "severity": "MEDIUM", "probability": "LOW-MEDIUM", "affected": ["Samsung Electro-Mechanics"]},
+        {"risk": "원달러 1,400원+ 고착화 → 수입 원자재 비용 상승", "severity": "MEDIUM", "probability": "HIGH", "affected": ["전 종목 공통"]}
+      ],
+      "opportunities": [
+        {"opportunity": "AI 서버 설비투자 연 3,000억달러+ → MLCC·FC-BGA 구조적 수요", "conviction": "HIGH", "beneficiary": "Samsung Electro-Mechanics"},
+        {"opportunity": "국내외 EV 급성장 → EV 전장·MLCC 수요 확대", "conviction": "HIGH", "beneficiary": "LG Electronics(VS), Samsung Electro-Mechanics"},
+        {"opportunity": "관세 충격 속 내수·통신 방어주 상대적 강세", "conviction": "MEDIUM-HIGH", "beneficiary": "SK Telecom, NAVER"},
+        {"opportunity": "데이터센터 AC→DC 전환 → 고전압 MLCC 수요 증가", "conviction": "MEDIUM-HIGH", "beneficiary": "Samsung Electro-Mechanics"},
+        {"opportunity": "NAVER HyperCLOVA X B2B 수익화 + 웹툰 글로벌 확장", "conviction": "MEDIUM", "beneficiary": "NAVER"}
+      ]
+    }
+  },
+  "key_findings": [
+    "전 종목 일제 하락(-0.89% ~ -6.76%): 미 관세 전쟁(301조 조사) + 호르무즈 위기 복합 충격이 한국 기술·플랫폼·전자주 셀오프 주도. 4월 2일 기준 기술섹터 광범위 조정 국면.",
+    "NAVER(035420): PER 15.82배·PBR 1.06배 역사적 저점 구간. 관세 직접 비노출 플랫폼 방어주. 영업이익 7.01% 성장으로 방어력 확보. 195,000원 지지선 확인 후 분할 매수 전략 유효. 목표가 220,000원.",
+    "Kakao(035720): PER 40.90배 고평가·ROE 4.59% 낮은 수익성·지배구조 리스크 미해소 3중 부담. 기술섹터 내 최약체. 관세 충격 간접 노출(내수 광고). 회피 권고.",
+    "LG Electronics(066570): 관세 직접 노출 최고위험 종목(가전·TV 미국 수출 비중 20~25%). 영업이익 -115.82% 쇼크. 7월 301조 결과 확인 전 신규 매수 위험. PBR 0.82배 하방 지지력 있으나 단기 진입 자제.",
+    "Samsung Electro-Mechanics(009150): AI 서버 MLCC + EV MLCC + 데이터센터 DC 전환 3중 수요 드라이버 보유. -6.19% 급락은 단기 과매도 신호 가능성. PER 45.83배 부담 있으나 중기 성장 매수 기회. Q1 실적(4월 말) 영업이익 개선 확인 후 진입 권고.",
+    "SK텔레콤(017670): 기술섹터 내 최선호 방어주. 관세 완전 비노출 + 영업이익 +145.95% 급성장 + 외국인 78.94%. -0.89% 최소 낙폭 재확인. 관세 충격 헤지 목적 보유 적합. 목표가 87,000원.",
+    "MLCC 이중 수혜 구조 강화: AI 데이터센터 DC 전환(AC→DC 800V) + EV 국내 월 3.5만대+ 판매 동시 진행. 삼성전기 MLCC 중기 성장 구조 유지.",
+    "301조 타임라인 리스크: 4~7월 불확실성 구간 동안 가전·전자 수출주 밸류에이션 디스카운트 지속. 관세 확정 전 포지션 관리 필수.",
+    "관세+에너지 이중 마진 압착 시나리오: LG전자·삼성전기는 에너지 비용(호르무즈)과 수출 관세(301조) 동시 압박으로 2026년 상반기 어닝 리스크 HIGH."
+  ],
+  "stock_analysis": {
+    "035420": {
+      "name": "NAVER",
+      "signal": "CAUTIOUS_BUY_AT_SUPPORT",
+      "conviction": 65,
+      "price_target": 220000,
+      "stop_loss": 185000,
+      "time_horizon": "3-6개월",
+      "key_risk": "국내 광고 경기 둔화, 글로벌 AI 경쟁 심화",
+      "key_opportunity": "HyperCLOVA X B2B 수익화, 웹툰 글로벌 확장"
+    },
+    "035720": {
+      "name": "Kakao",
+      "signal": "AVOID",
+      "conviction": 70,
+      "price_target": 42000,
+      "stop_loss": 43000,
+      "time_horizon": "단기 회피",
+      "key_risk": "PER 고평가, 지배구조 리스크, 내수 광고 경기 악화",
+      "key_opportunity": "카카오페이·카카오뱅크 AI 금융 수익화(중기)"
+    },
+    "066570": {
+      "name": "LG Electronics",
+      "signal": "HOLD_AND_WATCH",
+      "conviction": 60,
+      "price_target": 118000,
+      "stop_loss": 103000,
+      "time_horizon": "7월 관세 결과 확인 후 재평가",
+      "key_risk": "미 301조 관세 확정, 호르무즈 에너지 비용 상승, 영업이익 쇼크",
+      "key_opportunity": "VS사업본부 전장 수주잔고 100조+ 장기 수익화, 국내 EV 확산"
+    },
+    "009150": {
+      "name": "Samsung Electro-Mechanics",
+      "signal": "WATCH_FOR_ENTRY",
+      "conviction": 62,
+      "price_target": 460000,
+      "stop_loss": 395000,
+      "time_horizon": "Q1 실적(4월 말) 후 진입 검토",
+      "key_risk": "중국 경쟁사 가격 압박, 스마트폰 모듈 관세, PER 고평가",
+      "key_opportunity": "AI 인프라 MLCC 수요 급증, EV 전장 MLCC 단가·물량 동시 성장"
+    },
+    "017670": {
+      "name": "SK Telecom",
+      "signal": "BUY",
+      "conviction": 72,
+      "price_target": 87000,
+      "stop_loss": 73000,
+      "time_horizon": "3개월",
+      "key_risk": "통신 규제 리스크, 5G 투자 비용",
+      "key_opportunity": "AI IDC 사업 확장, B2B AI 서비스 수익화, 방어주 특성"
+    },
+    "030200": {
+      "name": "KT",
+      "signal": "HOLD",
+      "conviction": 50,
+      "price_target": 62000,
+      "stop_loss": 56000,
+      "time_horizon": "실적 회복 확인 후",
+      "key_risk": "구조적 비용 증가, 영업이익 회복 불확실",
+      "key_opportunity": "PER 8.65배 극단적 저평가 재평가 기회"
+    },
+    "010130": {
+      "name": "Korea Zinc",
+      "signal": "BUY_ON_DIPS",
+      "conviction": 65,
+      "price_target": 1620000,
+      "stop_loss": 1380000,
+      "time_horizon": "3-6개월",
+      "key_risk": "원자재 가격 반전, PER 38배 고평가",
+      "key_opportunity": "호르무즈 원자재 상승, 반도체 희귀금속 수요, 영업이익 +56% 강세"
+    }
+  },
+  "sector_ranking": {
+    "overweight": ["SK Telecom (017670)", "Korea Zinc (010130)"],
+    "conditional_buy": ["NAVER (035420) — 195,000원 지지 확인 후"],
+    "watch_for_entry": ["Samsung Electro-Mechanics (009150) — Q1 실적 후"],
+    "hold": ["LG Electronics (066570) — 관세 결과 후 재평가", "KT (030200) — 실적 회복 확인"],
+    "avoid": ["Kakao (035720)"]
+  },
+  "next_catalysts_to_watch": [
+    "미 301조 조사 중간 결과(5~6월 예상) — LG전자·삼성전기 포지션 결정 핵심",
+    "삼성전기·LG전자 Q1 2026 실적 발표(4월 말)",
+    "호르무즈 해협 봉쇄 해제 여부(미-이란 협상)",
+    "NAVER Q1 실적 — AI B2B 수익 비중 및 광고 성장률 확인",
+    "SK텔레콤 AI IDC 사업 구체화 발표",
+    "원달러 환율 1,400원 안정화 여부"
+  ]
+}

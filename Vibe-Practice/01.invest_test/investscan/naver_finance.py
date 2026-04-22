@@ -43,14 +43,38 @@ _HEADERS = {
 
 DATA_DIR = Path("output/stock_data")
 
-# Default watchlist
-DEFAULT_TICKERS: dict[str, str] = {
-    "005930": "삼성전자",
-    "000660": "SK하이닉스",
-    "042700": "한미반도체",
-    "035420": "NAVER",
-    "034020": "두산에너빌리티",
+_SECTOR_MAP_PATH = Path(__file__).parent.parent / "config" / "sector_stock_map.yaml"
+
+# Emergency fallback only — used when sector_stock_map.yaml is missing/unreadable.
+# DO NOT expand this list. Add new stocks to config/sector_stock_map.yaml instead.
+_EMERGENCY_TICKERS: dict[str, str] = {
+    "005930": "Samsung Electronics",
+    "000660": "SK Hynix",
 }
+
+
+def _load_yaml_tickers() -> dict[str, str]:
+    """Load all sample_stocks from sector_stock_map.yaml as the default watchlist.
+
+    Returns {code: name} for ALL stocks across ALL 20 sectors.
+    Falls back to _EMERGENCY_TICKERS only if yaml is missing or unparseable.
+    This ensures the fallback is always driven by config, not hardcoded values.
+    """
+    try:
+        import yaml  # pyyaml
+        data = yaml.safe_load(_SECTOR_MAP_PATH.read_text(encoding="utf-8"))
+        tickers: dict[str, str] = {}
+        for sector_data in data.get("sectors", {}).values():
+            for stock in sector_data.get("sample_stocks", []):
+                code = str(stock.get("code", "")).strip()
+                name = str(stock.get("name", "")).strip()
+                if code and code not in tickers:
+                    tickers[code] = name
+        if tickers:
+            return tickers
+    except Exception as e:
+        print(f"  WARN: sector_stock_map.yaml 로드 실패 — emergency fallback 사용: {e}")
+    return _EMERGENCY_TICKERS
 
 
 # ── type definitions ───────────────────────────────────────────────────────────
@@ -85,33 +109,42 @@ class KospiIndex(TypedDict):
     direction: str    # "up" | "down" | "flat"
 
 
-def fetch_kospi_index() -> KospiIndex | None:
-    """Fetch current KOSPI index price and change from Naver Finance.
+def fetch_kospi_index(code: str = "KOSPI") -> KospiIndex | None:
+    """Fetch current KOSPI or KOSDAQ index price and change from Naver Finance.
 
+    Args:
+        code: "KOSPI" or "KOSDAQ"
     Returns KospiIndex dict or None on network/parse failure.
     """
-    soup = _fetch(_KOSPI_URL, {"code": "KOSPI"})
+    soup = _fetch(_KOSPI_URL, {"code": code})
     if soup is None:
         return None
     try:
-        spans = soup.select(".num_e")
-        current = _clean(spans[0].get_text()) if len(spans) > 0 else "N/A"
-        change  = _clean(spans[1].get_text()) if len(spans) > 1 else "N/A"
-        pct     = _clean(spans[2].get_text()) if len(spans) > 2 else "N/A"
+        # div.quotient contains current value (em) and change/pct (spans)
+        quotient = soup.select_one("div.quotient")
+        if quotient is None:
+            return None
 
-        em = soup.select_one(".point_flag em")
-        direction = "flat"
-        if em:
-            cls = em.get("class", [])
-            if "no_up" in cls:
-                direction = "up"
-            elif "no_down" in cls:
-                direction = "down"
+        em = quotient.find("em")
+        current = _clean(em.get_text()) if em else "N/A"
+
+        spans = quotient.find_all("span")
+        change = _clean(spans[1].get_text()) if len(spans) > 1 else "N/A"
+
+        # Extract pct from first span text (e.g. "169.38+2.72%▲")
+        import re as _re
+        first_span_text = _clean(spans[0].get_text()) if spans else ""
+        pct_match = _re.search(r'[+\-]?\d[\d,.]+%', first_span_text)
+        pct = pct_match.group(0) if pct_match else "N/A"
+
+        # Direction from quotient div class
+        classes = quotient.get("class", [])
+        direction = "up" if "up" in classes else "down" if "down" in classes else "flat"
 
         return KospiIndex(current=current, change=change,
                           change_pct=pct, direction=direction)
     except Exception as e:
-        print(f"  ⚠  KOSPI 지수 파싱 실패: {e}")
+        print(f"  ⚠  {code} 지수 파싱 실패: {e}")
         return None
 
 
@@ -263,7 +296,7 @@ def _parse_stock_name(soup: BeautifulSoup, ticker: str) -> str:
     a = soup.select_one("div.wrap_company h2 a")
     if a:
         return _clean(a.get_text())
-    return DEFAULT_TICKERS.get(ticker, ticker)
+    return _load_yaml_tickers().get(ticker, ticker)
 
 
 # ── public API ─────────────────────────────────────────────────────────────────
@@ -315,7 +348,7 @@ def fetch_stocks(
     delay: float = 0.8,
 ) -> dict[str, StockInfo]:
     """Fetch data for multiple tickers. Returns {ticker: StockInfo}."""
-    watchlist = tickers or DEFAULT_TICKERS
+    watchlist = tickers if tickers else _load_yaml_tickers()
     results: dict[str, StockInfo] = {}
     for ticker, name in watchlist.items():
         print(f"  [{ticker}] {name} 조회 중...", end=" ", flush=True)
@@ -437,14 +470,16 @@ def main() -> int:
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━""")
 
     if args.dry_run:
-        tickers_param = None if not args.ticker else {t: DEFAULT_TICKERS.get(t, t) for t in args.ticker}
+        _yaml_map = _load_yaml_tickers()
+        tickers_param = None if not args.ticker else {t: _yaml_map.get(t, t) for t in args.ticker}
         data = _mock_data()
         if tickers_param:
             data = {k: v for k, v in data.items() if k in tickers_param}
     else:
         tickers_param = None
         if args.ticker:
-            tickers_param = {t: DEFAULT_TICKERS.get(t, t) for t in args.ticker}
+            _yaml_map = _load_yaml_tickers()
+            tickers_param = {t: _yaml_map.get(t, t) for t in args.ticker}
         data = fetch_stocks(tickers_param)
 
     print()

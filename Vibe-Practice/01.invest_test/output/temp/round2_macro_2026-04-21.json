@@ -1,0 +1,215 @@
+{
+  "analyst": "macro",
+  "date": "2026-04-21",
+  "round": 2,
+  "agreements": [
+    {
+      "topic": "사이버보안 섹터 압도적 1위 (521점) — 구조적 강세",
+      "agreeing_analysts": ["tech", "korea", "valuation", "risk"],
+      "rationale": "tech(+56.5% 급등, AI 네이티브 위협 3중 동인), korea(북한 $290M 사이버 공격 + 정부 예산 확대), valuation(섹터 내 상대적 저평가 — 조선·방산 대비 PER 부담 낮음), risk(MEDIUM_HIGH — 섹터 테마 유효하나 소형주 개별 리스크 분리). 4개 에이전트 모두 사이버보안 섹터 우위를 지지. 거시 분석과 완전 일치."
+    },
+    {
+      "topic": "방산 섹터 구조적 수혜 지속 — 단 밸류에이션 과열 경고",
+      "agreeing_analysts": ["korea", "valuation", "risk"],
+      "rationale": "korea는 외국인 지분 30%+ 방산 4종목의 구조적 매수를 확인. valuation은 방산 섹터 중앙 PER 78.85배로 '과열(overheated)' 판단, 현대로템만 예외적으로 합리적(PER 31.54배, ROE 30%). risk는 한화시스템(PER 102배, 영업이익 -74%) CRITICAL 경고. 거시 분석의 '방산 strong_bullish' 방향성은 유지하되, 밸류에이션 과열 경고를 추가 반영해 선택적 접근으로 수정."
+    },
+    {
+      "topic": "조선 섹터 강세 — HD한국조선해양 중심 선택적 매수",
+      "agreeing_analysts": ["korea", "valuation", "risk"],
+      "rationale": "korea는 삼성중공업 +5.60%, HD조선 +3.15% 당일 강세와 외국인 30%+ 지분 확인. valuation은 HD한국조선해양 PER 13.90배 — 섹터 중앙값 대비 57% 저평가, ROE 17.78% 최고 수익성 확인. risk는 조선을 LOW_MEDIUM 리스크로 분류, 헷지 섹터로 기능 평가. 거시의 '조선 strong_bullish' 방향 유지, HD한국조선해양 집중 선택 반영."
+    },
+    {
+      "topic": "호르무즈 불확실성 — 장기화 기본 시나리오",
+      "agreeing_analysts": ["korea", "risk"],
+      "rationale": "korea는 파병 가능성 시사를 방산 촉매로 평가. risk는 GR-01로 확률 0.45, WTI $120+ 시나리오 명시. 거시의 '부분 완화와 재에스컬레이션 반복' 판단과 일치."
+    },
+    {
+      "topic": "미중 기술 갈등 — 반도체·방산 공급망 리스크",
+      "agreeing_analysts": ["korea", "tech", "risk"],
+      "rationale": "korea는 미셸 박 스틸 효과로 대중 강경 기조 확인. tech는 미중 무역 긴장을 반도체 간접 리스크로 평가. risk는 GR-02로 희토류 수출 제한 확률 0.40, 방산·반도체 공급망 직격 경고. 거시의 미중 갈등 분석과 완전 일치."
+    },
+    {
+      "topic": "안랩(053800) 최우선 매수 — 전 에이전트 공통 BUY",
+      "agreeing_analysts": ["tech", "korea", "valuation", "risk"],
+      "rationale": "tech(BUY, 목표 80,000원, 확신 0.82), korea(B등급, MEDIUM 확신), valuation(buy, PER 13.67배 섹터 중앙값 대비 37% 저평가), risk(상대적 안전판, PER 13.67+영업이익 165%). 4개 에이전트 모두 안랩 매수 지지. 사이버보안 섹터 내 최우선 종목 확정."
+    },
+    {
+      "topic": "FOMC 2026-05-07 — 고PER 종목 최대 리스크 이벤트",
+      "agreeing_analysts": ["risk"],
+      "rationale": "risk 에이전트가 리스크 캘린더에서 FOMC 매파 전환 시 PER 50배+ 종목 멀티플 압축 20%+ 시나리오 경고. 거시의 'Fed 동결 기본 시나리오'와 방향 일치하나, 미실현 꼬리 리스크로 방산 고PER 포지션 관리 필요성 강화."
+    }
+  ],
+  "disagreements": [
+    {
+      "topic": "전반적 리스크 레벨 — macro(medium) vs risk(HIGH)",
+      "macro_view": "medium — 호르무즈 '부분 완화+재에스컬레이션' 복합, 미국 관세 환급 개시 무역 불확실성 부분 해소, BOK AI 디플레이션 인정으로 하반기 금리인하 여력 보유로 하방 지지 요인 복합 작용",
+      "disagreeing_analyst": "risk",
+      "their_view": "HIGH — 방산 고PER 구조적 조정 지속(한화에어로·KAI 각 -2.3%), 사이버보안 소형주 연속 하락, FOMC 05-07 매파 전환 가능성, 1분기 실적 발표(04-30) 충격 가능성",
+      "resolution": "거시(macro) 시각에서 '전반적 거시환경 리스크'는 medium이 맞지만, '포트폴리오 운용 관점 실질 리스크'는 risk 에이전트의 HIGH 판단이 타당. 따라서 섹터/테마 방향성은 medium으로 유지하되, 운용 위험 관리는 HIGH 수준으로 강화. 최종 종합 리스크: MEDIUM-HIGH로 상향 조정."
+    },
+    {
+      "topic": "방산 섹터 투자 접근 — macro(strong_bullish) vs valuation+risk(선택적)",
+      "macro_view": "방산 섹터 전반 strong_bullish(스코어 330). 우크라이나 에스컬레이션, 호르무즈 지정학, 이재명 3대 프로젝트로 구조적 수요 지지",
+      "disagreeing_analyst": "valuation, risk",
+      "their_view": "valuation: 방산 섹터 '과열(overheated)' — 영업이익 역성장(-5.7%~-74.4%) 종목들이 PER 48~102배 유지. 한화시스템·LIG디펜스앤에어로스페이스 SELL 의견. risk: 한화시스템 CRITICAL 경고, KAI HIGH 경고",
+      "resolution": "거시 분석은 섹터 방향성(수요 테마)을 평가한 것이고, valuation·risk는 현재 가격 수준의 적정성을 평가한 것. 두 관점 모두 맞음. 수정: '방산 섹터 구조적 수요는 유효하나, 현대로템(PER 31.54배, ROE 30.05%)과 HD한국조선해양(PER 13.90배) 중심의 선택적 집중 전략으로 재조정. 한화시스템·LIG디펜스앤에어로스페이스는 비중 축소 권고.'"
+    },
+    {
+      "topic": "원/달러 환율 방향 — korea 에이전트의 1,500원 위협 vs macro의 1,380-1,420원 범위",
+      "macro_view": "원/달러 1,380-1,420원 약세 범위. 국민연금 환헤지 비율 확대가 구조적 약세 공식 확인",
+      "disagreeing_analyst": "korea",
+      "their_view": "원/달러 1,500원 위협 수준으로 FX 리스크 HIGH 평가",
+      "resolution": "korea 에이전트의 1,500원 위협은 꼬리 리스크(tail risk) 시나리오로, 호르무즈 재봉쇄 + 외국인 자금 이탈 동시 발생 시의 극단 시나리오. 거시의 기본 시나리오 1,380-1,420원과 충돌하지 않음. 기본 시나리오 유지, 꼬리 리스크 1,500원+ 시나리오를 부연 추가."
+    },
+    {
+      "topic": "이글루(067920) 처분 — risk(전량 매도) vs tech(HOLD_REVIEW) vs macro(중립)",
+      "macro_view": "이글루 섹터 내 존재 인식하나 종목 레벨 판단 유보",
+      "disagreeing_analyst": "risk",
+      "their_view": "이글루 전량 매도 검토 — 적자(EPS -4원), ROE -0.05%, 연속 하락(-3.69%), 밸류에이션 근거 소멸",
+      "resolution": "risk 에이전트의 판단이 더 타당. PBR 0.97배 하방 지지는 청산가치 수준이나, 실적 미회복 + 수급 악화 + 시총 0.1조 유동성 리스크 삼중 부담. 거시 에이전트는 이글루에 대한 중립 기조를 '관망 후 수급 확인 필요'에서 '실질적 매도 검토'로 수정."
+    }
+  ],
+  "revised_outlook": "2026년 4월 21일 Round 2 거시경제 통합 전망: Round 1의 핵심 방향성은 유지되나, 4개 에이전트 교차 검증을 통해 3가지 핵심 수정이 이루어진다. 첫째, 리스크 수준을 medium에서 MEDIUM-HIGH로 상향한다. Risk 에이전트의 HIGH 판단(방산 고PER 조정 지속, FOMC 05-07, 1분기 실적 04-30)이 거시 환경의 구조적 지지와 충돌하지 않고 보완하는 관계임을 확인했다. 거시 방향성은 중간이지만 포트폴리오 운용 리스크는 높다. 둘째, 방산 섹터 투자 접근을 '섹터 전반 strong_bullish'에서 '섹터 테마 유효, 종목 선택적 집중'으로 세밀화한다. Valuation 에이전트가 확인한 한화시스템(PER 102배, 영업이익 -74%) SELL, LIG디펜스앤에어로스페이스 SELL 신호를 거시 관점에 편입한다. 현대로템(PER 31.54배, ROE 30.05%)이 방산 내 유일한 밸류에이션-수익성 최적 종목으로 부상한다. 셋째, 사이버보안 섹터 내 안랩(053800) 단일 집중 전략이 4개 에이전트 만장일치 확인으로 강화된다. PER 13.67배는 글로벌 사이버보안 평균(35-45배) 대비 현저한 저평가이며, 영업이익 +165%의 실적 모멘텀이 지속 확인된다. 반면 이글루(적자 구조), 인포바인(무거래 일), 파수(연속 하락)의 소형주 리스크는 risk·tech 에이전트가 동시 경고하여 비중 축소가 합리적이다. 조선 섹터에서는 HD한국조선해양(PER 13.90배, ROE 17.78%)이 4개 에이전트 공통으로 최우선 종목으로 확인되었다. 호르무즈 불확실성 장기화 기본 시나리오, 미중 기술 갈등 지속, 원/달러 1,380-1,420원 기본 범위 유지 전망은 모든 에이전트 검증을 통과했다.",
+  "final_sector_weights": {
+    "cybersecurity": {
+      "weight": "overweight",
+      "score": 521.0,
+      "view": "strong_bullish",
+      "conviction": 0.90,
+      "key_change_from_round1": "방향 유지. tech·korea·valuation·risk 4개 에이전트 모두 지지. 안랩 단일 집중으로 소형주 리스크 최소화 전략 구체화.",
+      "top_stock": "053800 안랩 (BUY, 목표 80,000원, PER 13.67배)"
+    },
+    "defense": {
+      "weight": "market_weight",
+      "score": 330.0,
+      "view": "bullish_selective",
+      "conviction": 0.70,
+      "key_change_from_round1": "Round 1 'strong_bullish'에서 'bullish_selective'로 하향. Valuation(과열) + Risk(한화시스템 CRITICAL, KAI HIGH) 에이전트 경고 반영. 현대로템 집중, 한화시스템·LIG디펜스앤에어로스페이스 비중 축소.",
+      "top_stock": "064350 현대로템 (BUY, PER 31.54배, ROE 30.05%)"
+    },
+    "shipbuilding": {
+      "weight": "overweight",
+      "score": 329.5,
+      "view": "strong_bullish",
+      "conviction": 0.82,
+      "key_change_from_round1": "방향 유지 강화. Korea(당일 조선 강세 확인) + Valuation(HD한국조선해양 57% 저평가) + Risk(LOW_MEDIUM, 헷지 역할 확인) 3개 에이전트 지지. 삼성중공업 단기 과열(+5.60%) 주의, HD한국조선해양 중심 집중.",
+      "top_stock": "009540 HD한국조선해양 (BUY, PER 13.90배, ROE 17.78%)"
+    },
+    "ai_platform": {
+      "weight": "market_weight",
+      "score": 231.0,
+      "view": "bullish",
+      "conviction": 0.65,
+      "key_change_from_round1": "Tech 에이전트가 ai_platform 점수 +72.4% 급상승(134→231) 확인. 그러나 watchlist 직접 노출 종목 부재로 간접 수혜에 한정. 방향 유지."
+    },
+    "technology": {
+      "weight": "market_weight",
+      "score": 235.0,
+      "view": "neutral",
+      "conviction": 0.60,
+      "key_change_from_round1": "Tech 에이전트 +70.3% 상승 확인이나 미중 기술 갈등(미셸 박 스틸 효과) 리스크가 중립 기조 유지를 지지."
+    },
+    "semiconductor": {
+      "weight": "underweight",
+      "score": 191.5,
+      "view": "neutral",
+      "conviction": 0.55,
+      "key_change_from_round1": "Tech·Korea·Risk 모두 미중 갈등 리스크 경고. 방향 유지(중립)."
+    },
+    "battery_ev": {
+      "weight": "underweight",
+      "score": 1.0,
+      "view": "bearish",
+      "conviction": 0.90,
+      "key_change_from_round1": "Korea(AVOID), Risk(HIGH 리스크) 에이전트 모두 회피 권고. 거시 판단 강화."
+    },
+    "consumer": {
+      "weight": "underweight",
+      "score": 170.5,
+      "view": "bearish",
+      "conviction": 0.80,
+      "key_change_from_round1": "변화 없음. 원화 약세·금리 동결·슈퍼 엘니뇨 삼중 압박 유지."
+    },
+    "automotive": {
+      "weight": "underweight",
+      "score": 0.5,
+      "view": "bearish",
+      "conviction": 0.80,
+      "key_change_from_round1": "변화 없음."
+    },
+    "steel_materials": {
+      "weight": "underweight",
+      "score": 0.0,
+      "view": "bearish",
+      "conviction": 0.75,
+      "key_change_from_round1": "변화 없음."
+    },
+    "financials": {
+      "weight": "market_weight",
+      "score": 123.5,
+      "view": "neutral",
+      "conviction": 0.55,
+      "key_change_from_round1": "변화 없음."
+    },
+    "power_infrastructure": {
+      "weight": "market_weight",
+      "score": 123.5,
+      "view": "neutral_to_bullish",
+      "conviction": 0.55,
+      "key_change_from_round1": "변화 없음."
+    }
+  },
+  "risk_level": "medium_high",
+  "risk_level_rationale": "Round 1 'medium'에서 'medium_high'로 상향. Risk 에이전트의 HIGH 판단(방산 고PER 조정, FOMC 05-07, 1분기 실적 충격 가능성)과 거시의 구조적 지지(사이버보안·조선 저평가, 호르무즈 부분 완화, 관세 환급)를 동시 반영. 거시 방향성(테마 유효)은 medium, 포트폴리오 운용 리스크는 HIGH — 통합 MEDIUM-HIGH.",
+  "critical_risk_calendar": [
+    {
+      "date": "2026-04-23",
+      "event": "한국 1분기 GDP 성장률",
+      "macro_sensitivity": "MEDIUM",
+      "source": "risk 에이전트 리스크 캘린더"
+    },
+    {
+      "date": "2026-04-30",
+      "event": "한화에어로스페이스·한화오션·현대로템 1분기 실적",
+      "macro_sensitivity": "HIGH",
+      "source": "risk 에이전트 — 방산 영업이익 역성장 확인 시 고PER 구조 정당화 불가"
+    },
+    {
+      "date": "2026-05-01",
+      "event": "미국 4월 고용보고서",
+      "macro_sensitivity": "HIGH",
+      "source": "risk 에이전트 — Fed 매파 전환 확률 상승 트리거"
+    },
+    {
+      "date": "2026-05-07",
+      "event": "FOMC 금리 결정",
+      "macro_sensitivity": "HIGH",
+      "source": "risk 에이전트 — 매파 기조 강화 시 PER 50배+ 종목 20%+ 조정"
+    },
+    {
+      "date": "2026-05-12",
+      "event": "미국 4월 CPI 발표",
+      "macro_sensitivity": "HIGH",
+      "source": "risk 에이전트 — CPI 3.5% 초과 시 인플레이션 재가속"
+    }
+  ],
+  "portfolio_guidance": {
+    "core_positions": [
+      "053800 안랩 — 사이버보안 핵심 (4개 에이전트 만장일치 BUY, PER 13.67배)",
+      "009540 HD한국조선해양 — 조선 핵심 (3개 에이전트 BUY, PER 13.90배)",
+      "064350 현대로템 — 방산 핵심 (ROE 30.05%, 방산 내 유일 합리적 밸류에이션)"
+    ],
+    "reduce_or_exit": [
+      "272210 한화시스템 — CRITICAL (PER 102배, 영업이익 -74%)",
+      "079550 LIG디펜스앤에어로스페이스 — HIGH (PER 78배, 영업이익 -56%)",
+      "067920 이글루 — HIGH (적자 구조, 연속 하락, 수급 악화)"
+    ],
+    "watch_with_caution": [
+      "150900 파수 — 4,500원 지지선 확인 후 결정",
+      "012450 한화에어로스페이스 — 1분기 실적(04-30) 후 재평가",
+      "010140 삼성중공업 — 단기 과열(+5.60%) 주의, 조정 후 추가 매수 검토"
+    ],
+    "cash_recommendation": "현금 비중 30-35% 유지 — FOMC(05-07) + 1분기 실적(04-30~05-15) 이벤트 통과 후 재배분"
+  },
+  "summary": "2026년 4월 21일 Round 2 거시경제 통합 분석. 5개 에이전트(macro·tech·korea·valuation·risk) 교차 검증 완료. 핵심 수정 3가지: (1) 리스크 수준 medium → MEDIUM-HIGH 상향 — Risk 에이전트의 방산 고PER 조정 지속, FOMC 05-07, 1분기 실적(04-30) 충격 가능성 반영. (2) 방산 섹터 'strong_bullish' → 'bullish_selective' — Valuation·Risk 에이전트가 한화시스템(CRITICAL)·LIG디펜스앤에어로스페이스(SELL) 과열 경고. 현대로템(PER 31.54배, ROE 30.05%)만이 방산 내 밸류에이션 합리적. (3) 사이버보안·조선 핵심 포지션 강화 확인 — 안랩(PER 13.67배, 영업이익 +165%)과 HD한국조선해양(PER 13.90배, ROE 17.78%)이 4개 에이전트 교차 검증에서 최우선 BUY 종목으로 만장일치 확인. 거시 기본 시나리오(KOSPI 2850-3000, 원/달러 1,380-1,420원, Fed 동결, BOK 하반기 1-2회 인하 가능성 50%)는 검증 통과. 상방 위험(호르무즈 협상 타결 → KOSPI 3100+)과 하방 위험(FOMC 매파 전환 + 방산 실적 쇼크 → 고PER 20-40% 조정)의 비대칭 리스크 구조 유지. 포트폴리오 운용 권고: 안랩·HD한국조선해양·현대로템 3종목 핵심 집중, 한화시스템·LIG·이글루 비중 축소, 현금 30-35% 유지로 FOMC·실적 이벤트 대비."
+}

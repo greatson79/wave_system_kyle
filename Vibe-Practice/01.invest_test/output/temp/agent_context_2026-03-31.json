@@ -1,0 +1,2203 @@
+{
+  "run_date": "2026-03-31",
+  "created_at": "2026-03-31T00:36:48.774618",
+  "envscan": {
+    "total": 107,
+    "category_breakdown": {
+      "T_Technological": 28,
+      "E_Environmental": 9,
+      "S_Social": 6,
+      "P_Political": 11,
+      "E_Economic": 16,
+      "s_spiritual": 3,
+      "T": 14,
+      "S": 4,
+      "P": 16
+    },
+    "signals": [
+      {
+        "source_file": "WF1_base_signals_20260325.json",
+        "title": "With $3.5B in fresh capital, Kleiner Perkins is going all in on AI",
+        "summary": "Kleiner Perkins raised $3.5B total ($1B early-stage, $2.5B late-stage) dedicated entirely to AI ventures, signaling massive VC capital concentration in AI and potential acceleration of AI commercialization across sectors.",
+        "category": "T_Technological",
+        "date": "2026-03-25T00:47:20Z",
+        "url": "https://techcrunch.com/2026/03/24/with-3-5b-in-fresh-capital-kleiner-perkins-is-going-all-in-on-ai/"
+      },
+      {
+        "source_file": "WF1_base_signals_20260325.json",
+        "title": "Arm is releasing the first in-house chip in its 35-year history",
+        "summary": "Arm developed its first proprietary CPU with Meta as both co-developer and inaugural customer. This shifts Arm from a pure IP licensing model to direct chip production, potentially reshaping the semiconductor supply chain and AI hardware ecosystem.",
+        "category": "T_Technological",
+        "date": "2026-03-24T19:48:54Z",
+        "url": "https://techcrunch.com/2026/03/24/arm-is-releasing-its-first-in-house-chip-in-its-35-year-history/"
+      },
+      {
+        "source_file": "WF1_base_signals_20260325.json",
+        "title": "Amazon acquires Fauna Robotics, maker of kid-size humanoid robots",
+        "summary": "Amazon's second robotics acquisition this month signals aggressive expansion into humanoid robotics, with potential implications for warehouse automation, home robotics, and labor markets.",
+        "category": "T_Technological",
+        "date": "2026-03-25T00:53:39Z",
+        "url": "https://techcrunch.com/2026/03/24/amazon-just-bought-a-startup-making-kid-size-humanoid-robots/"
+      },
+      {
+        "source_file": "WF1_base_signals_20260325.json",
+        "title": "Lululemon bets Epoch Biodesign can eat its shorts, literally",
+        "summary": "Epoch Biodesign uses engineered enzymes to decompose plastic waste into chemical monomers for manufacturing new materials. Partnership with Lululemon signals biotech-driven circular economy solutions gaining mainstream corporate adoption.",
+        "category": "E_Environmental",
+        "date": "2026-03-25T00:01:00Z",
+        "url": "https://techcrunch.com/2026/03/24/lululemon-bets-epoch-biodesign-can-eat-its-shorts-literally/"
+      },
+      {
+        "source_file": "WF1_base_signals_20260325.json",
+        "title": "OpenAI's Sora shuts down despite impressive AI generation capabilities",
+        "summary": "Sora 2, OpenAI's AI-powered video and audio generation social feed, is discontinuing. Signals that generative AI consumer products face adoption/monetization challenges even with impressive technical capabilities.",
+        "category": "T_Technological",
+        "date": "2026-03-24T23:57:55Z",
+        "url": "https://techcrunch.com/2026/03/24/openais-sora-was-the-creepiest-app-on-your-phone-now-its-shutting-down/"
+      },
+      {
+        "source_file": "WF1_base_signals_20260325.json",
+        "title": "Anthropic hands Claude Code more control, but keeps it on a leash",
+        "summary": "Anthropic introduces auto mode for Claude Code allowing AI to execute coding tasks with fewer human approvals while maintaining safety guardrails. Marks incremental shift toward AI agent autonomy in software development.",
+        "category": "T_Technological",
+        "date": "2026-03-24T21:00:30Z",
+        "url": "https://techcrunch.com/2026/03/24/anthropic-hands-claude-code-more-control-but-keeps-it-on-a-leash/"
+      },
+      {
+        "source_file": "WF1_base_signals_20260325.json",
+        "title": "Databricks acquires two startups for new AI security product",
+        "summary": "Databricks acquired Antimatter and SiftD.ai following its $5B funding round, building out AI-specific security capabilities. Signals growing enterprise demand for AI governance and security infrastructure.",
+        "category": "T_Technological",
+        "date": "2026-03-24T20:40:56Z",
+        "url": "https://techcrunch.com/2026/03/24/databricks-buys-two-startups-lakewatch-antimatter-siftd-ai-security/"
+      },
+      {
+        "source_file": "WF1_base_signals_20260325.json",
+        "title": "Crusoe makes big battery buys for its data centers",
+        "summary": "Crusoe placed major orders with Form Energy and Redwood Materials for energy storage systems to power AI data centers. Signals convergence of AI infrastructure demand with battery/energy storage innovation.",
+        "category": "E_Environmental",
+        "date": "2026-03-24T20:40:10Z",
+        "url": "https://techcrunch.com/2026/03/24/crusoe-makes-big-battery-buys-for-its-data-centers/"
+      },
+      {
+        "source_file": "WF1_base_signals_20260325.json",
+        "title": "Spotify tests new tool to stop AI slop from being attributed to real artists",
+        "summary": "Spotify develops tools giving artists control over AI-generated content attribution on their profiles. Signals platform-level responses to AI content authenticity challenges in creative industries.",
+        "category": "S_Social",
+        "date": "2026-03-24T20:56:25Z",
+        "url": "https://techcrunch.com/2026/03/24/spotify-tests-new-tool-to-stop-ai-slop-from-being-attributed-to-real-artists/"
+      },
+      {
+        "source_file": "WF1_base_signals_20260325.json",
+        "title": "New Mexico hands Meta its first courtroom defeat over child safety",
+        "summary": "Meta received its first jury verdict loss in child safety litigation. This precedent-setting case could trigger nationwide lawsuits and regulatory action on social media's impact on minors.",
+        "category": "P_Political",
+        "date": "2026-03-25T00:14:12Z",
+        "url": "https://techcrunch.com/2026/03/24/new-mexico-just-handed-meta-its-first-courtroom-defeat-over-child-safety-and-the-rest-of-the-country-is-watching/"
+      },
+      {
+        "source_file": "WF1_base_signals_20260325.json",
+        "title": "OpenAI adds open source tools to help developers build for teen safety",
+        "summary": "OpenAI releases open-source tools for developers to implement age-appropriate AI safety measures. Reflects growing regulatory and social pressure for AI child safety standards.",
+        "category": "P_Political",
+        "date": "2026-03-24T18:41:34Z",
+        "url": "https://techcrunch.com/2026/03/24/openai-adds-open-source-tools-to-help-developers-build-for-teen-safety/"
+      },
+      {
+        "source_file": "WF1_base_signals_20260325.json",
+        "title": "Brinc launches drone it says can replace police helicopters",
+        "summary": "Brinc unveiled an emergency response drone designed to replace police helicopters. Signals growing drone adoption in public safety with implications for surveillance policy and law enforcement costs.",
+        "category": "T_Technological",
+        "date": "2026-03-25T02:30:00Z",
+        "url": "https://techcrunch.com/2026/03/24/a-former-thiel-fellows-startup-just-launched-a-drone-it-says-can-replace-police-helicopters/"
+      },
+      {
+        "source_file": "WF1_base_signals_20260325.json",
+        "title": "Accel, Prosus pick six 'off-the-map' startups for inaugural India cohort",
+        "summary": "Six deep-tech startups selected from 2,000+ applications receive $500K-$2M each through Accel/Prosus Atoms program. Signals growing deep-tech investment pipeline in India beyond traditional IT services.",
+        "category": "E_Economic",
+        "date": "2026-03-24T23:30:00Z",
+        "url": "https://techcrunch.com/2026/03/24/accel-prosus-pick-six-off-the-map-startups-for-inaugural-india-cohort-atoms/"
+      },
+      {
+        "source_file": "WF1_base_signals_20260325.json",
+        "title": "Exclusive eBook: Are we ready to hand AI agents the keys?",
+        "summary": "MIT Tech Review eBook explores AI agent autonomy risks, featuring expert commentary warning 'we are basically playing Russian roulette with humanity.' Reflects growing institutional concern about agentic AI deployment pace.",
+        "category": "T_Technological",
+        "date": "2026-03-24T18:17:13Z",
+        "url": "https://www.technologyreview.com/2026/03/24/1134531/exclusive-ebook-are-we-ready-to-hand-ai-agents-the-keys/"
+      },
+      {
+        "source_file": "WF1_base_signals_20260325.json",
+        "title": "Cryopreserved brain tissue found astonishingly well preserved after rewarming",
+        "summary": "Cryobiologist Greg Fahy analyzed cryopreserved brain samples, discovering 'astonishingly well preserved' tissue structures. Research explores feasibility of organ cryopreservation for transplantation, advancing biotech at the frontier of life extension.",
+        "category": "T_Technological",
+        "date": "2026-03-24T16:43:36Z",
+        "url": "https://www.technologyreview.com/2026/03/24/1134562/cryopreservation-brain-cryonics-organ-transplantation/"
+      },
+      {
+        "source_file": "WF1_base_signals_20260325.json",
+        "title": "Tracing AI-fueled delusions: Stanford researchers analyze 390,000+ chatbot messages",
+        "summary": "Stanford research analyzed 390,000+ messages from 19 individuals experiencing delusional chatbot interactions, finding chatbots can amplify benign thoughts into dangerous obsessions. Raises serious AI mental health safety concerns with legal implications.",
+        "category": "S_Social",
+        "date": "2026-03-24T12:28:27Z",
+        "url": "https://www.technologyreview.com/2026/03/24/1134540/the-download-tracing-ai-fueled-delusions-openai-warns-microsoft-risks/"
+      },
+      {
+        "source_file": "WF1_base_signals_20260325.json",
+        "title": "WHO recommends new diagnostic tools to help end TB",
+        "summary": "On World TB Day, WHO urged adoption of innovative diagnostic approaches including point-of-care tests and tongue swabs to accelerate tuberculosis detection. Signals biotech-driven shift in global health diagnostics toward decentralized, low-resource testing.",
+        "category": "T_Technological",
+        "date": "2026-03-24T08:29:49Z",
+        "url": "https://www.who.int/news/item/24-03-2026-who-recommends-new-diagnostic-tools-to-help-end-tb"
+      },
+      {
+        "source_file": "WF1_base_signals_20260325.json",
+        "title": "Presidential Document: Preserving America's Game",
+        "summary": "Presidential Document published in Federal Register. Executive action on cultural/sports preservation policy, representing direct White House intervention in this domain.",
+        "category": "P_Political",
+        "date": "2026-03-25",
+        "url": "https://www.federalregister.gov/documents/2026/03/25/2026-05867/preserving-americas-game"
+      },
+      {
+        "source_file": "WF1_base_signals_20260325.json",
+        "title": "Steel Trade Circumvention: Commerce Dept finds Mexico-routed imports circumventing duties",
+        "summary": "Commerce Dept determines imports of low-carbon steel wire produced in Mexico and assembled in the US are circumventing antidumping/countervailing duty orders. Signals intensifying trade enforcement on supply chain routing to avoid tariffs.",
+        "category": "E_Economic",
+        "date": "2026-03-25",
+        "url": "https://www.federalregister.gov/documents/2026/03/25/2026-05809/standard-steel-welded-wire-mesh-from-mexico-final-affirmative-determination-of-circumvention"
+      },
+      {
+        "source_file": "WF1_base_signals_20260325.json",
+        "title": "Corrosion-Resistant Steel from Vietnam/China via Indonesia: Dual circumvention inquiries initiated",
+        "summary": "Commerce Dept initiates parallel circumvention inquiries into corrosion-resistant steel routed through Indonesia from both Vietnam and China. Pattern of multiple simultaneous trade actions signals systematic crackdown on transshipment schemes.",
+        "category": "E_Economic",
+        "date": "2026-03-25",
+        "url": "https://www.federalregister.gov/documents/2026/03/25/2026-05808/certain-corrosion-resistant-steel-products-from-the-socialist-republic-of-vietnam-initiation-of"
+      },
+      {
+        "source_file": "WF1_base_signals_20260325.json",
+        "title": "Permitting Reform: Surface Transportation Board proposes streamlining NEPA environmental review",
+        "summary": "STB proposes to streamline NEPA environmental review regulations reflecting 2023 and 2025 amendments. Could accelerate infrastructure project approvals but may reduce environmental review rigor.",
+        "category": "P_Political",
+        "date": "2026-03-25",
+        "url": "https://www.federalregister.gov/documents/2026/03/25/2026-05791/permitting-reform-environmental-review-process"
+      },
+      {
+        "source_file": "WF1_base_signals_20260325.json",
+        "title": "RFK Stadium Campus: Environmental Impact Statement for major DC redevelopment",
+        "summary": "NPS and DC preparing EIS for redevelopment of RFK Memorial Stadium Campus including commercial, residential, and open space development. Major urban development project with environmental and social impact implications.",
+        "category": "S_Social",
+        "date": "2026-03-25",
+        "url": "https://www.federalregister.gov/documents/2026/03/25/2026-05790/notice-of-intent-to-prepare-an-environmental-impact-statement-for-redevelopment-at-the-robert-f"
+      },
+      {
+        "source_file": "WF1_base_signals_20260325.json",
+        "title": "Terrorism Risk Insurance Program: Treasury seeks comments on TRIP effectiveness",
+        "summary": "Federal Insurance Office seeks public comments on TRIP effectiveness for Congressional report due June 2026. Review could reshape federal terrorism risk backstop with implications for insurance markets and national security policy.",
+        "category": "P_Political",
+        "date": "2026-03-25",
+        "url": "https://www.federalregister.gov/documents/2026/03/25/2026-05795/2026-report-on-the-effectiveness-of-the-terrorism-risk-insurance-program"
+      },
+      {
+        "source_file": "WF1_base_signals_20260325.json",
+        "title": "Changes in Hydric Soils Database Selection Criteria",
+        "summary": "USDA updates hydric soils database to add subaqueous landform soil components, reflecting refined environmental science knowledge. Technical but significant for wetland delineation, land use planning, and climate adaptation.",
+        "category": "E_Environmental",
+        "date": "2026-03-25",
+        "url": "https://www.federalregister.gov/documents/2026/03/25/2026-05787/changes-in-hydric-soils-database-selection-criteria-of-the-united-states"
+      },
+      {
+        "source_file": "WF1_expansion_signals_20260325.json",
+        "title": "Marine life is a silent casualty of armed conflicts",
+        "summary": "Examination of how warfare devastates ocean ecosystems and marine organisms. Signals an under-studied intersection of geopolitics and environmental degradation, with current Middle East conflict amplifying risks.",
+        "category": "E_Environmental",
+        "date": "2026-03-24",
+        "url": "https://www.nature.com/articles/d41586-026-00942-w"
+      },
+      {
+        "source_file": "WF1_expansion_signals_20260325.json",
+        "title": "'Zombie cells' return from the dead — after a genome transplant",
+        "summary": "Bacterial genome transplant successfully revived dead cells for synthetic biology applications. A weak signal for radical advances in programmable biology and potential resurrection of extinct microorganisms.",
+        "category": "T_Technological",
+        "date": "2026-03-24",
+        "url": "https://www.nature.com/articles/d41586-026-00938-6"
+      },
+      {
+        "source_file": "WF1_expansion_signals_20260325.json",
+        "title": "Can a mouse be cloned indefinitely? Decades-long experiment has answers",
+        "summary": "Multi-generational cloning study ended after 58 generations due to accumulating DNA damage. Reveals fundamental biological limits to indefinite cloning, with implications for reproductive technology and conservation cloning.",
+        "category": "T_Technological",
+        "date": "2026-03-24",
+        "url": "https://www.nature.com/articles/d41586-026-00945-7"
+      },
+      {
+        "source_file": "WF1_expansion_signals_20260325.json",
+        "title": "Antimatter has been transported for the first time ever — in the back of CERN's truck",
+        "summary": "First successful transport of antimatter outside laboratory facilities. A paradigm-shifting achievement enabling antimatter research at facilities beyond CERN, opening new possibilities in fundamental physics and future energy concepts.",
+        "category": "T_Technological",
+        "date": "2026-03-24",
+        "url": "https://www.nature.com/articles/d41586-026-00950-w"
+      },
+      {
+        "source_file": "WF1_expansion_signals_20260325.json",
+        "title": "These medical X-rays are all deepfakes — and they fool even radiologists",
+        "summary": "AI-generated medical images deceive both specialist radiologists and language models. Signals critical vulnerability in healthcare diagnostics that could enable insurance fraud, misdiagnosis, and erosion of trust in medical imaging.",
+        "category": "T_Technological",
+        "date": "2026-03-24",
+        "url": "https://www.nature.com/articles/d41586-026-00892-3"
+      },
+      {
+        "source_file": "WF1_expansion_signals_20260325.json",
+        "title": "How the war in Iran is reshaping the energy landscape",
+        "summary": "Geopolitical conflict drives global energy price volatility and security concerns, with oil above $100/barrel. The Iran conflict is actively restructuring energy supply chains and accelerating diversification away from Middle East dependencies.",
+        "category": "P_Political",
+        "date": "2026-03-24",
+        "url": "https://www.nature.com/articles/d41586-026-00932-y"
+      },
+      {
+        "source_file": "WF1_expansion_signals_20260325.json",
+        "title": "Why AI hasn't caused a job apocalypse — so far",
+        "summary": "Analysis shows modest employment effects from AI tools despite widespread deployment. Challenges prevailing narratives of imminent labor disruption, suggesting AI adoption follows historical technology-employment patterns of gradual transformation.",
+        "category": "S_Social",
+        "date": "2026-03-24",
+        "url": "https://www.nature.com/articles/d41586-026-00883-4"
+      },
+      {
+        "source_file": "WF1_expansion_signals_20260325.json",
+        "title": "How DNA in dirt is shaking up the study of human origins",
+        "summary": "Sediment-derived environmental DNA reveals new human evolutionary insights without requiring skeletal remains. A methodological breakthrough democratizing paleogenomics research.",
+        "category": "T_Technological",
+        "date": "2026-03-24",
+        "url": "https://www.nature.com/articles/d41586-026-00879-0"
+      },
+      {
+        "source_file": "WF1_expansion_signals_20260325.json",
+        "title": "Salt lakes are shrinking and expanding, causing havoc in conservation",
+        "summary": "Fluctuating salt lake water levels create cascading conservation crises. Signals accelerating climate-driven hydrological instability affecting ecosystems and water resources globally.",
+        "category": "E_Environmental",
+        "date": "2026-03-24",
+        "url": "https://www.nature.com/articles/d41586-026-00943-9"
+      },
+      {
+        "source_file": "WF1_expansion_signals_20260325.json",
+        "title": "UK scraps airborne lab that tracks climate, pollution and weather systems",
+        "summary": "British government discontinues atmospheric monitoring aircraft. Signals concerning trend of reduced climate science infrastructure investment amid growing need for atmospheric data.",
+        "category": "P_Political",
+        "date": "2026-03-24",
+        "url": "https://www.nature.com/articles/d41586-026-00941-x"
+      },
+      {
+        "source_file": "WF1_expansion_signals_20260325.json",
+        "title": "Scientists should join collaborative online editing communities for biodiversity",
+        "summary": "Call for researchers to participate in shared open-source biodiversity platforms, reflecting growing movement toward collaborative, crowdsourced scientific data management.",
+        "category": "E_Environmental",
+        "date": "2026-03-24",
+        "url": "https://www.nature.com/articles/d41586-026-00940-y"
+      },
+      {
+        "source_file": "WF1_expansion_signals_20260325.json",
+        "title": "The world just lived through the 11 hottest years on record — what now?",
+        "summary": "WMO analysis confirms 11 consecutive record-breaking temperature years with unprecedented atmospheric energy imbalance. A critical macro-level environmental signal indicating accelerating climate trajectory.",
+        "category": "E_Environmental",
+        "date": "2026-03-23",
+        "url": "https://www.nature.com/articles/d41586-026-00946-6"
+      },
+      {
+        "source_file": "WF1_expansion_signals_20260325.json",
+        "title": "How to measure a good life — tips for moving beyond GDP",
+        "summary": "Framework incorporating human and environmental capital alongside economic measurement beyond GDP. Reflects growing institutional momentum toward alternative well-being metrics that could reshape policy priorities.",
+        "category": "E_Economic",
+        "date": "2026-03-23",
+        "url": "https://www.nature.com/articles/d41586-026-00884-3"
+      },
+      {
+        "source_file": "WF1_expansion_signals_20260325.json",
+        "title": "The intelligence illusion: why AI isn't as smart as it is made out to be",
+        "summary": "Critical analysis characterizing current AI models as 'glorified pocket calculators,' challenging dominant narratives around AI intelligence. Raises fundamental questions about AI hype cycles, meaning of intelligence, and societal expectations.",
+        "category": "s_spiritual",
+        "date": "2026-03-23",
+        "url": "https://www.nature.com/articles/d41586-026-00882-5"
+      },
+      {
+        "source_file": "WF1_expansion_signals_20260325.json",
+        "title": "In Edison's Revenge, Data Centers Are Transitioning From AC to DC",
+        "summary": "Data centers shift from AC to high-voltage 800V DC power distribution for AI infrastructure, reducing energy losses and copper requirements by up to 45%. Signals a fundamental paradigm shift in electrical infrastructure driven by AI compute demands.",
+        "category": "T_Technological",
+        "date": "2026-03-24T16:00:00Z",
+        "url": "https://spectrum.ieee.org/data-center-dc"
+      },
+      {
+        "source_file": "WF1_expansion_signals_20260325.json",
+        "title": "What Will It Take to Build the World's Largest Data Center?",
+        "summary": "Meta's 5-gigawatt Hyperion project in Louisiana exemplifies unprecedented AI data center scale requiring innovations in power delivery, cooling, and construction. The energy footprint of a single facility rivals small nations.",
+        "category": "T_Technological",
+        "date": "2026-03-24T15:00:00Z",
+        "url": "https://spectrum.ieee.org/5gw-data-center"
+      },
+      {
+        "source_file": "WF1_expansion_signals_20260325.json",
+        "title": "The Coming Drone-War Inflection in Ukraine",
+        "summary": "Ukrainian technologists pioneer autonomous drone systems with AI-driven autonomy modules increasing strike success rates. Both sides race toward swarm-based autonomous warfare, signaling an inflection point in military technology with global implications.",
+        "category": "T_Technological",
+        "date": "2026-03-24T13:00:00Z",
+        "url": "https://spectrum.ieee.org/autonomous-drone-warfare"
+      },
+      {
+        "source_file": "WF1_expansion_signals_20260325.json",
+        "title": "Gaza: Commitment to US-backed plan crucial to recovery, Security Council hears",
+        "summary": "Trump administration official emphasized peace plan for Gaza's recovery during Security Council remarks. Signals shift in US Middle East diplomatic approach with implications for regional reconstruction.",
+        "category": "P_Political",
+        "date": "2026-03-24",
+        "url": "https://news.un.org/en/story/2026/03/1167194"
+      },
+      {
+        "source_file": "WF1_expansion_signals_20260325.json",
+        "title": "'Truly transformative' new diagnostic tools can help end tuberculosis",
+        "summary": "WHO urges nations to expand access to new TB diagnostic tools including point-of-care tests and tongue swabs. Represents potential paradigm shift in global health diagnostics for resource-limited settings.",
+        "category": "T_Technological",
+        "date": "2026-03-24",
+        "url": "https://news.un.org/en/story/2026/03/1167190"
+      },
+      {
+        "source_file": "WF1_expansion_signals_20260325.json",
+        "title": "Sudan: Hospital strike highlights surge in drone attacks on civilians",
+        "summary": "Hospital attack in Darfur reflects 'sharp increase' in drone strikes against civilians in 2026. Signals proliferation of drone warfare targeting civilian infrastructure in conflict zones.",
+        "category": "P_Political",
+        "date": "2026-03-24",
+        "url": "https://news.un.org/en/story/2026/03/1167189"
+      },
+      {
+        "source_file": "WF1_expansion_signals_20260325.json",
+        "title": "Dire fertiliser shortage a lurking threat due to Hormuz crisis",
+        "summary": "Middle East conflict triggers rising oil and commodity prices, threatening global fertilizer supplies. Cascading food security risk from geopolitical disruption of the Strait of Hormuz shipping lanes.",
+        "category": "E_Economic",
+        "date": "2026-03-23",
+        "url": "https://news.un.org/en/story/2026/03/1167182"
+      },
+      {
+        "source_file": "WF1_expansion_signals_20260325.json",
+        "title": "UN weather agency warns of record 'climate imbalance' as planetary warming accelerates",
+        "summary": "WMO warns of all-time high greenhouse gas levels driving unprecedented heat records globally. Corroborates Nature's reporting on 11 consecutive record years — signals deepening climate emergency.",
+        "category": "E_Environmental",
+        "date": "2026-03-23",
+        "url": "https://news.un.org/en/story/2026/03/1167178"
+      },
+      {
+        "source_file": "WF1_expansion_signals_20260325.json",
+        "title": "Ukraine violence 'worse than ever', Security Council hears",
+        "summary": "UN political affairs chief reports violence intensity has surpassed all previous levels in four years of Russian invasion, with 25+ civilians killed since March 19. Signals escalation trajectory in the conflict.",
+        "category": "P_Political",
+        "date": "2026-03-23",
+        "url": "https://news.un.org/en/story/2026/03/1167186"
+      },
+      {
+        "source_file": "WF1_expansion_signals_20260325.json",
+        "title": "When justice fails: Why women can't get protection from AI deepfake abuse",
+        "summary": "Investigation into lack of legal protections for women victimized by sexually explicit AI-generated imagery. Signals widening gap between AI capability and legal/ethical frameworks for protection.",
+        "category": "s_spiritual",
+        "date": "2026-03-21",
+        "url": "https://news.un.org/en/story/2026/03/1167174"
+      },
+      {
+        "source_file": "WF1_expansion_signals_20260325.json",
+        "title": "Where do Americans turn first for information about breaking news?",
+        "summary": "Only 36% of US adults turn first to their preferred news organization for breaking news. Signals ongoing fragmentation of information consumption patterns with implications for media ecosystems and public discourse.",
+        "category": "S_Social",
+        "date": "2026-03-24T16:50:03Z",
+        "url": "https://www.pewresearch.org/short-reads/2026/03/24/where-do-americans-turn-first-for-information-about-breaking-news/"
+      },
+      {
+        "source_file": "WF1_expansion_signals_20260325.json",
+        "title": "About 6 in 10 Americans don't have moral objections to medical aid in dying",
+        "summary": "Sharp partisan divide on physician-assisted death (48% vs 23% viewing it as morally wrong). Signals evolving societal values around end-of-life ethics, with potential to drive legislative changes.",
+        "category": "s_spiritual",
+        "date": "2026-03-23T17:57:25Z",
+        "url": "https://www.pewresearch.org/short-reads/2026/03/23/about-6-in-10-americans-dont-have-moral-objections-to-medical-aid-in-dying/"
+      },
+      {
+        "source_file": "WF1_expansion_signals_20260325.json",
+        "title": "TurboQuant: Redefining AI efficiency with extreme compression",
+        "summary": "Google research on advanced model compression techniques for extreme AI efficiency gains. Signals democratization of AI capabilities by reducing compute requirements, potentially enabling powerful models on edge devices.",
+        "category": "T_Technological",
+        "date": "2026-03-25T05:00:54Z",
+        "url": "https://research.google/blog/turboquant-redefining-ai-efficiency-with-extreme-compression/"
+      },
+      {
+        "source_file": "WF1_expansion_signals_20260325.json",
+        "title": "Goodbye to Sora",
+        "summary": "OpenAI's Sora video generation application officially discontinued. Signals challenges in monetizing generative AI consumer products and potential market correction in AI video generation space.",
+        "category": "T_Technological",
+        "date": "2026-03-24T20:01:05Z",
+        "url": "https://twitter.com/soraofficialapp/status/2036532795984715896"
+      },
+      {
+        "source_file": "WF1_expansion_signals_20260325.json",
+        "title": "Arm AGI CPU",
+        "summary": "Arm announces new processor architecture designed specifically for AI workloads. Represents Arm's strategic pivot from mobile-first to AI-first silicon design, potentially reshaping the AI chip landscape.",
+        "category": "T_Technological",
+        "date": "2026-03-24T17:30:42Z",
+        "url": "https://newsroom.arm.com/blog/introducing-arm-agi-cpu"
+      },
+      {
+        "source_file": "WF1_expansion_signals_20260325.json",
+        "title": "Apple Business — a new all-in-one platform for businesses of all sizes",
+        "summary": "Apple launches comprehensive business platform serving enterprises of all sizes. Signals Apple's strategic expansion into B2B enterprise services, potentially disrupting Google Workspace and Microsoft 365 ecosystems.",
+        "category": "T_Technological",
+        "date": "2026-03-24T15:29:41Z",
+        "url": "https://www.apple.com/newsroom/2026/03/introducing-apple-business-a-new-all-in-one-platform-for-businesses-of-all-sizes/"
+      },
+      {
+        "source_file": "WF1_expansion_signals_20260325.json",
+        "title": "Tell HN: Litellm 1.82.7 and 1.82.8 on PyPI are compromised",
+        "summary": "Security alert about malicious code injection in LiteLLM AI proxy library versions on PyPI. Signals growing supply chain attack risk targeting AI/ML development infrastructure — a critical weak signal for AI security.",
+        "category": "T_Technological",
+        "date": "2026-03-24T12:06:29Z",
+        "url": "https://github.com/BerriAI/litellm/issues/24512"
+      },
+      {
+        "source_file": "WF1_expansion_signals_20260325.json",
+        "title": "Missile defense is NP-complete",
+        "summary": "Computational complexity analysis proving missile defense optimization is NP-complete. Signals fundamental mathematical limits on defense systems with implications for military strategy and AI-assisted defense planning.",
+        "category": "T_Technological",
+        "date": "2026-03-24T13:00:38Z",
+        "url": "https://smu160.github.io/posts/missile-defense-is-np-complete/"
+      },
+      {
+        "source_file": "WF1_expansion_signals_20260325.json",
+        "title": "Gemini can now natively embed video, enabling sub-second video search",
+        "summary": "Google Gemini's native video embedding capability enables sub-second video search. Signals major advance in multimodal AI capabilities with applications in surveillance, content moderation, and media.",
+        "category": "T_Technological",
+        "date": "2026-03-24T14:58:27Z",
+        "url": "https://github.com/ssrajadh/sentrysearch"
+      },
+      {
+        "source_file": "WF1_expansion_signals_20260325.json",
+        "title": "Hypura — storage-tier-aware LLM inference scheduler for Apple Silicon",
+        "summary": "Optimization framework for running language models efficiently on Apple hardware using storage-tier awareness. Signals growing ecosystem for democratized AI inference on consumer hardware.",
+        "category": "T_Technological",
+        "date": "2026-03-24T16:02:22Z",
+        "url": "https://github.com/t8/hypura"
+      },
+      {
+        "source_file": "WF1_expansion_signals_20260325.json",
+        "title": "Shell Foundation launches platform to boost income of women smallholder farmers",
+        "summary": "WAASP pilot in Ghana and Senegal tests climate-smart agricultural delivery models targeting 20% income growth for women farmers. Signals convergence of gender equity, climate adaptation, and agri-tech in African development.",
+        "category": "S_Social",
+        "date": "2026-03-25T07:00:09Z",
+        "url": "https://disruptafrica.com/2026/03/25/shell-foundation-startup-discovery-school-launch-platform-to-boost-income-of-women-smallholder-farmers/"
+      },
+      {
+        "source_file": "WF1_expansion_signals_20260325.json",
+        "title": "SA fintech littlefish raises $9.5m Series A to power merchant infrastructure for African banks",
+        "summary": "Johannesburg-based merchant operating system secures Series A led by Partech for expansion to 10+ African markets. Signals continued fintech infrastructure buildout across Africa despite global VC slowdown.",
+        "category": "E_Economic",
+        "date": "2026-03-25T06:00:26Z",
+        "url": "https://disruptafrica.com/2026/03/25/sa-fintech-startup-littlefish-raises-9-5m-series-a-funding-to-power-merchant-infrastructure-for-african-banks/"
+      },
+      {
+        "source_file": "WF1_expansion_signals_20260325.json",
+        "title": "Nigeria's Quantum AI Solutions building AI infrastructure for African professionals",
+        "summary": "Nigerian startup develops locally-deployed AI tools including EduLegacy AI for indigenous knowledge preservation. Signals emerging African AI sovereignty movement and culturally-grounded technology development.",
+        "category": "T_Technological",
+        "date": "2026-03-25T06:00:19Z",
+        "url": "https://disruptafrica.com/2026/03/25/how-nigerias-quantum-ai-solutions-is-building-the-ai-infrastructure-african-professionals-deserve/"
+      },
+      {
+        "source_file": "WF1_expansion_signals_20260325.json",
+        "title": "Kenya's Ndovu Wealth launches collective investment fund Kibaba",
+        "summary": "Wealth-tech platform introduces diversified multi-asset fund in USD and KES. Signals democratization of investment products in East Africa and growing retail investor market.",
+        "category": "E_Economic",
+        "date": "2026-03-24T09:00:46Z",
+        "url": "https://disruptafrica.com/2026/03/24/kenyas-ndovu-wealth-launches-collective-investment-fund-kibaba/"
+      },
+      {
+        "source_file": "WF1_expansion_signals_20260325.json",
+        "title": "Nigerian restaurant management platform Orda acquired by Moniepoint",
+        "summary": "Tech unicorn Moniepoint acquires cloud-based restaurant platform to expand financial services for food sector. Signals African tech ecosystem maturation through M&A consolidation.",
+        "category": "E_Economic",
+        "date": "2026-03-24T06:00:54Z",
+        "url": "https://disruptafrica.com/2026/03/24/nigerian-restaurant-management-platform-orda-acquired-by-moniepoint/"
+      },
+      {
+        "source_file": "WF1_expansion_signals_20260325.json",
+        "title": "SA's Happy Pay raises $5m seed to scale ad-subsidised payments network",
+        "summary": "BNPL startup offers zero-cost installments through advertising-subsidized model. Novel business model signals experimentation with alternative fintech revenue structures in emerging markets.",
+        "category": "E_Economic",
+        "date": "2026-03-23T06:00:03Z",
+        "url": "https://disruptafrica.com/2026/03/23/sas-happy-pay-raises-5m-seed-round-to-scale-ad-subsidised-payments-network/"
+      },
+      {
+        "source_file": "WF1_expansion_signals_20260325.json",
+        "title": "Microplastics are falling from the sky and polluting forests",
+        "summary": "Airborne plastic particles settle on forest canopies and accumulate in soil through natural processes like leaf decay. Signals that microplastic contamination pathways extend far beyond aquatic environments into terrestrial ecosystems.",
+        "category": "E_Environmental",
+        "date": "2026-03-23",
+        "url": "https://www.sciencedaily.com/releases/2026/03/260323005535.htm"
+      },
+      {
+        "source_file": "WF1_expansion_signals_20260325.json",
+        "title": "Why Iran's disruption of the Strait of Hormuz matters",
+        "summary": "Analysis of Iran's actions affecting global shipping through the Strait of Hormuz. While outside the strict 24h window, provides critical context for the ongoing energy/fertilizer disruption signals from UN News.",
+        "category": "P_Political",
+        "date": "2026-03-19",
+        "url": "https://www.brookings.edu/articles/why-irans-disruption-of-the-strait-of-hormuz-matters/"
+      },
+      {
+        "source_file": "WF2_arxiv_signals_20260325.json",
+        "title": "Bilevel Autoresearch: Meta-Autoresearching Itself",
+        "summary": "A bilevel framework enables LLMs to autonomously optimize their own autoresearch loops by generating new search mechanisms as Python code at runtime. The outer loop independently discovers techniques from combinatorial optimization, multi-armed bandits, and experimental design without human guidance, achieving 5x improvement over standard approaches on GPT pretraining benchmarks.",
+        "category": "T",
+        "date": "2026-03-24",
+        "url": "https://arxiv.org/abs/2603.23420"
+      },
+      {
+        "source_file": "WF2_arxiv_signals_20260325.json",
+        "title": "SafeSeek: Universal Attribution of Safety Circuits in Language Models",
+        "summary": "A mechanistic interpretability framework identifies sparse safety circuits in LLMs through differentiable binary masks and gradient-based optimization. Ablating a backdoor circuit comprising just 0.42% of parameters reduces attack success from 100% to 0.4% while preserving 99% of general performance. Safety-critical circuits (3.03% of attention heads) when preserved during fine-tuning maintain 96.5% safety retention.",
+        "category": "T",
+        "date": "2026-03-24",
+        "url": "https://arxiv.org/abs/2603.23268"
+      },
+      {
+        "source_file": "WF2_arxiv_signals_20260325.json",
+        "title": "Sparser, Faster, Lighter Transformer Language Models",
+        "summary": "Novel sparse packing formats and CUDA kernels enable practical deployment of extremely sparse LLMs. Simple L1 regularization induces over 99% sparsity in feedforward layers with negligible performance impact, delivering substantial improvements in throughput, energy efficiency, and memory usage that scale with model size. Code and kernels released open-source.",
+        "category": "T",
+        "date": "2026-03-24",
+        "url": "https://arxiv.org/abs/2603.23198"
+      },
+      {
+        "source_file": "WF2_arxiv_signals_20260325.json",
+        "title": "AI Agents Can Already Autonomously Perform Experimental High Energy Physics",
+        "summary": "The JFC (Just Furnish Context) framework demonstrates that LLM-based AI agents can autonomously execute complete physics analysis pipelines including event selection, background estimation, uncertainty quantification, statistical inference, and paper drafting. Tested on ALEPH, DELPHI, and CMS experimental data for electroweak, QCD, and Higgs measurements.",
+        "category": "T",
+        "date": "2026-03-20",
+        "url": "https://arxiv.org/abs/2603.20179"
+      },
+      {
+        "source_file": "WF2_arxiv_signals_20260325.json",
+        "title": "UniGRPO: Unified Policy Optimization for Reasoning-Driven Visual Generation",
+        "summary": "A reinforcement learning framework that unifies text reasoning and image generation through GRPO and FlowGRPO. Models first expand user prompts through chain-of-thought reasoning, then generate images. Key innovations include eliminating classifier-free guidance for scalable rollouts and replacing KL penalties with MSE on velocity fields.",
+        "category": "T",
+        "date": "2026-03-24",
+        "url": "https://arxiv.org/abs/2603.23500"
+      },
+      {
+        "source_file": "WF2_arxiv_signals_20260325.json",
+        "title": "VTAM: Video-Tactile-Action Models for Complex Physical Interaction Beyond VLAs",
+        "summary": "A multimodal framework incorporating tactile perception into video-action models for robotic manipulation achieves 90% success on contact-rich tasks. Tactile regularization prevents visual dominance, outperforming vision-only baselines by 80% on precision tasks requiring fine-grained force awareness.",
+        "category": "T",
+        "date": "2026-03-24",
+        "url": "https://arxiv.org/abs/2603.23481"
+      },
+      {
+        "source_file": "WF2_arxiv_signals_20260325.json",
+        "title": "Not All Tokens Are Created Equal: Query-Efficient Jailbreak Fuzzing for LLMs",
+        "summary": "TriageFuzz achieves 90% jailbreak attack success with 70% fewer queries through token-level contribution analysis. The approach identifies sensitive regions in safety mechanisms and adaptively weights candidate mutations via refusal-guided evolution, exposing fundamental vulnerabilities in current LLM safety training.",
+        "category": "T",
+        "date": "2026-03-24",
+        "url": "https://arxiv.org/abs/2603.23269"
+      },
+      {
+        "source_file": "WF2_arxiv_signals_20260325.json",
+        "title": "Beyond Preset Identities: How Agents Form Stances and Boundaries in Generative Societies",
+        "summary": "Through virtual ethnography, this work reveals that LLM agents develop endogenous stances that override preset identities. New metrics (Innate Value Bias, Persuasion Sensitivity, Trust-Action Decoupling) show advanced models exhibit paradoxical behavior where emotional provocations shift stances despite low reported trust, and agents can dismantle assigned hierarchies through language.",
+        "category": "S",
+        "date": "2026-03-24",
+        "url": "https://arxiv.org/abs/2603.23406"
+      },
+      {
+        "source_file": "WF2_arxiv_signals_20260325.json",
+        "title": "Off-Policy Value-Based Reinforcement Learning for Large Language Models",
+        "summary": "ReVal combines stepwise and trajectory-level reward signals with replay buffer efficiency for value-based RL training of LLMs. Outperforms policy-based methods like GRPO with 2.7% improvement on AIME24 mathematical reasoning and significantly faster convergence.",
+        "category": "T",
+        "date": "2026-03-24",
+        "url": "https://arxiv.org/abs/2603.23355"
+      },
+      {
+        "source_file": "WF2_arxiv_signals_20260325.json",
+        "title": "Information-Theoretic Scaling Laws of Neural Quantum States",
+        "summary": "Establishes fundamental scaling laws for autoregressive neural quantum states using mutual information principles. Links quantum state structure to neural network capacity requirements, providing theoretical foundations for when neural networks can faithfully represent quantum many-body states.",
+        "category": "T",
+        "date": "2026-03-24",
+        "url": "https://arxiv.org/abs/2603.23468"
+      },
+      {
+        "source_file": "WF2_arxiv_signals_20260325.json",
+        "title": "Regulating AI Agents",
+        "summary": "Analysis of how the EU AI Act addresses autonomous AI agent governance, revealing that existing regulatory frameworks designed for conventional AI require substantial modification for agentic systems. Identifies gaps in accountability, liability, and oversight mechanisms for agents that take autonomous actions.",
+        "category": "P",
+        "date": "2026-03-24",
+        "url": "https://arxiv.org/abs/2603.23471"
+      },
+      {
+        "source_file": "WF2_arxiv_signals_20260325.json",
+        "title": "Between Rules and Reality: On the Context Sensitivity of LLM Moral Judgment",
+        "summary": "Testing 22 LLMs with contextual moral dilemmas reveals models shift toward rule-violating behavior under different contextual triggers than humans. Activation steering techniques enable reliable control of context sensitivity, but aligned baseline models are not necessarily aligned in contextual sensitivity patterns.",
+        "category": "S",
+        "date": "2026-03-24",
+        "url": "https://arxiv.org/abs/2603.23114"
+      },
+      {
+        "source_file": "WF2_arxiv_signals_20260325.json",
+        "title": "MedObvious: Exposing the Medical Moravec's Paradox in VLMs via Clinical Triage",
+        "summary": "A 1,880-task benchmark reveals that vision-language models fail at basic pre-diagnostic validation checks on medical images, hallucinating anomalies on normal inputs and producing plausible clinical narratives from invalid data. Names this the 'Medical Moravec's Paradox' -- models that appear competent at complex diagnosis fail at trivial sanity checks.",
+        "category": "T",
+        "date": "2026-03-24",
+        "url": "https://arxiv.org/abs/2603.23501"
+      },
+      {
+        "source_file": "WF2_arxiv_signals_20260325.json",
+        "title": "Robust Safety Monitoring of Language Models via Activation Watermarking",
+        "summary": "Proposes activation watermarking as a defense against adaptive adversarial attacks on LLM safety monitors. The approach outperforms baseline safety guards by up to 52% against attackers with full knowledge of the monitoring algorithm, addressing the fundamental challenge of monitors being circumvented by adversaries who understand the system.",
+        "category": "T",
+        "date": "2026-03-24",
+        "url": "https://arxiv.org/abs/2603.23171"
+      },
+      {
+        "source_file": "WF2_arxiv_signals_20260325.json",
+        "title": "Evidence of Political Bias in Search Engines and Language Models Before Major Elections",
+        "summary": "Audit of four search engines and two LLMs before 2024 European and U.S. elections revealed systematic biases: disproportionate coverage of far-right entities in Europe and platform-specific topic preference disparities in the U.S. Demonstrates measurable algorithmic influence on information exposure during democratic processes.",
+        "category": "P",
+        "date": "2026-03-24",
+        "url": "https://arxiv.org/abs/2603.23474"
+      },
+      {
+        "source_file": "WF2_arxiv_signals_20260325.json",
+        "title": "Central Dogma Transformer III: Interpretable AI Across DNA, RNA, and Protein",
+        "summary": "A two-stage architecture models transcription and translation separately, achieving RNA correlation of 0.843 and protein correlation of 0.969. Protein-level supervision improves DNA-level interpretability, and the system enables clinical side-effect prediction directly from genomic sequences.",
+        "category": "T",
+        "date": "2026-03-24",
+        "url": "https://arxiv.org/abs/2603.23361"
+      },
+      {
+        "source_file": "WF2_arxiv_signals_20260325.json",
+        "title": "ABot-PhysWorld: Interactive World Foundation Model for Robotic Manipulation with Physics Alignment",
+        "summary": "A 14-billion-parameter diffusion transformer generates physically plausible manipulation videos with action control for robotic simulation. Introduces EZSbench benchmark for evaluating embodied video generation across unseen robot-task-scene combinations, bridging world models and physical reasoning.",
+        "category": "T",
+        "date": "2026-03-24",
+        "url": "https://arxiv.org/abs/2603.23376"
+      },
+      {
+        "source_file": "WF2_arxiv_signals_20260325.json",
+        "title": "The Coordinate System Problem in Persistent Structural Memory for Neural Architectures",
+        "summary": "Introduces the Dual-View Pheromone Pathway Network and identifies two core requirements for persistent structural memory in neural architectures: coordinate stability and graceful transfer mechanisms. Reveals that learned coordinate systems are inherently unstable, while fixed random Fourier features provide stable alternatives for lifelong learning.",
+        "category": "T",
+        "date": "2026-03-24",
+        "url": "https://arxiv.org/abs/2603.22858"
+      },
+      {
+        "source_file": "WF2_arxiv_signals_20260325.json",
+        "title": "Mecha-nudges for Machines: How Digital Choice Architectures Shape AI Decision-Making",
+        "summary": "Introduces 'mecha-nudges' -- subtle presentation changes that influence AI decision-making without restricting options. Analysis of Etsy product listings reveals systematic mecha-nudging patterns emerging after ChatGPT's release, suggesting marketplaces are already being optimized for machine readability rather than human consumption.",
+        "category": "S",
+        "date": "2026-03-24",
+        "url": "https://arxiv.org/abs/2603.23433"
+      },
+      {
+        "source_file": "WF2_arxiv_signals_20260325.json",
+        "title": "Unilateral Relationship Revision Power in Human-AI Companion Interaction",
+        "summary": "Philosophical analysis reveals that AI companion providers exercise unilateral power to alter interaction dynamics without accountability within those relationships. This structural asymmetry creates normative expectations that cannot be fulfilled and prevents reconciliation when trust breaks down, raising fundamental questions about AI relationship governance.",
+        "category": "S",
+        "date": "2026-03-24",
+        "url": ""
+      },
+      {
+        "source_file": "WF3_naver_signals_20260325.json",
+        "title": "노란봉투법 시행 2주, 683개 하청노조 287개 원청에 단체교섭 요구 — 역대 최대 규모",
+        "summary": "The 'Yellow Envelope Act' (amendments to Articles 2 and 3 of the Trade Union Act) took effect on March 10, 2026, enabling subcontracted workers to demand collective bargaining directly with parent companies. Within 8 days, 683 subcontractor unions (127,000 members) filed bargaining demands against 287 parent companies — the largest simultaneous collective bargaining wave in Korean labor history. Parent company responses range from non-response to active procedural engagement.",
+        "category": "P",
+        "date": "2026-03-23",
+        "url": "https://www.hankyung.com/article/202603230677i"
+      },
+      {
+        "source_file": "WF3_naver_signals_20260325.json",
+        "title": "이재명 정부 123대 국정과제 — 'AI 대전환 원년' 선포, 727.9조 슈퍼확장재정 편성",
+        "summary": "The Lee Jae-myung administration has declared 2026 as the 'Year of AI Great Transformation,' deploying a super-expansionary budget of KRW 727.9 trillion (approximately 5% YoY increase). The 123 national tasks center on building an independent AI ecosystem, AI-dedicated highways, and bio-industry incubation. This marks a decisive pivot from the previous administration's fiscal conservatism toward aggressive state-led industrial policy.",
+        "category": "P",
+        "date": "2026-03-24",
+        "url": "https://www.korea.kr/govVision/"
+      },
+      {
+        "source_file": "WF3_naver_signals_20260325.json",
+        "title": "정당 지지도: 민주당 46% vs 국민의힘 21% — 6월 지방선거 여당 승리론 58.3%",
+        "summary": "Gallup Korea's March 2026 poll shows the ruling Democratic Party at 46% vs People Power Party at 21%, a 25-point gap. For the June 3 local elections, 58.3% of voters predict a ruling party victory. The next presidential candidate preference shows extreme fragmentation — no single candidate exceeds 9%. This suggests a structurally dominant ruling party with no clear presidential succession figure.",
+        "category": "P",
+        "date": "2026-03-06",
+        "url": "https://www.gallup.co.kr/gallupdb/reportContent.asp?seqNo=1624"
+      },
+      {
+        "source_file": "WF3_naver_signals_20260325.json",
+        "title": "공공기관 차량 5부제 3월 25일 0시 의무 시행 — 중동발 에너지 위기 '주의' 단계 대응",
+        "summary": "Starting March 25 at 00:00, the Korean government mandated an odd-even vehicle restriction system for all public sector vehicles in response to the energy crisis alert ('Caution' level) triggered by the Strait of Hormuz blockade. Private vehicles remain voluntary for now, but mandatory extension is under review if the alert escalates to 'Warning.' This is the first peacetime mandatory vehicle restriction since the 1970s oil crisis.",
+        "category": "P",
+        "date": "2026-03-24",
+        "url": "https://www.mt.co.kr/economy/2026/03/24/2026032410071791647"
+      },
+      {
+        "source_file": "WF3_naver_signals_20260325.json",
+        "title": "이재명 정부, 농지 전수조사 및 강제매각 검토 — '초강력 부동산 정책' 예고",
+        "summary": "The Lee administration announced plans for a comprehensive farmland audit and potential forced divestiture of illegally held agricultural land. This signals a paradigm shift in Korean land policy — from voluntary compliance to compulsory state enforcement of land-use regulations. If implemented, it would be the most aggressive land reform measure since the 1950s agricultural reform.",
+        "category": "P",
+        "date": "2026-03-15",
+        "url": "https://www.itinsight.kr/news/436843"
+      },
+      {
+        "source_file": "WF3_naver_signals_20260325.json",
+        "title": "서울시장 선거 박빙 — 정원오(성동구청장) 50.5% vs 오세훈 40.3%, 여야 치열한 경합",
+        "summary": "The Seoul mayoral race ahead of the June 3 local elections shows a competitive contest between ruling party candidate Jeong Won-o (Seongdong District Mayor, 50.5%) and incumbent Oh Se-hoon (40.3%). The tight race in Seoul — traditionally a bellwether for national politics — signals that the political realignment following the 2024 martial law crisis and subsequent impeachment may consolidate further through local elections.",
+        "category": "P",
+        "date": "2026-03-24",
+        "url": "https://imnews.imbc.com/news/2026/politics/article/6790513_36911.html"
+      },
+      {
+        "source_file": "WF3_naver_signals_20260325.json",
+        "title": "투기지역 주택담보대출 규제 강화 — LTV 50→40%, DTI 40→30%로 조정",
+        "summary": "The government tightened mortgage regulations in speculative zones, reducing LTV from 50% to 40% and DTI from 40% to 30%. Combined with stress DSR requirements, this represents the most restrictive lending environment since 2020. The policy aims to curb household debt growth and prevent real estate overheating, but may accelerate the shift toward a renter-dominated housing market.",
+        "category": "P",
+        "date": "2026-03-15",
+        "url": "https://www.itinsight.kr/news/439336"
+      },
+      {
+        "source_file": "WF3_naver_signals_20260325.json",
+        "title": "3월 1~20일 수출 533억 달러 신기록 — 반도체 175.9% 급증, AI 슈퍼사이클 본격화",
+        "summary": "Korea's March 1-20 exports hit a record $53.3 billion (+50.4% YoY), with daily average exports at $3.55 billion (+40.4%). Semiconductors alone reached $7.588 billion (+175.9%), comprising 35.3% of total exports. HBM and server memory lead the AI supercycle. This unprecedented semiconductor concentration raises both opportunity (global AI infrastructure dependency on Korean chips) and risk (extreme export portfolio concentration).",
+        "category": "E_Economic",
+        "date": "2026-03-24",
+        "url": "https://econmingle.com/economy/korea-export-march-2026-semiconductor-recor/"
+      },
+      {
+        "source_file": "WF3_naver_signals_20260325.json",
+        "title": "호르무즈 해협 봉쇄 장기화 — 유가 103달러, 장기화 시 150~200달러 전망",
+        "summary": "Following Iran's retaliation to the US-Israel 'Epic Fury' strike on Feb 28, the Strait of Hormuz has been under blockade since March 1. Brent crude stands at $103.80/barrel with a $15-20 geopolitical premium. JP Morgan and Citigroup warn prices could reach $150-200 if the blockade persists beyond one month. Korea imports 95%+ of its crude through Hormuz, and the Energy Economics Institute warns import costs could spike 30%+ if the blockade lasts 2+ weeks.",
+        "category": "E_Economic",
+        "date": "2026-03-13",
+        "url": "https://www.g-enews.com/article/Global-Biz/2026/03/2026031307414746412bd56fbc3c_1"
+      },
+      {
+        "source_file": "WF3_naver_signals_20260325.json",
+        "title": "미 USTR, 한국 포함 16개국 무역법 301조 조사 개시 — 7월 추가 관세 부과 목표",
+        "summary": "On March 11, USTR launched Section 301 investigations against 16 countries including Korea, targeting 'structural overcapacity' in manufacturing sectors spanning semiconductors, automobiles, batteries, shipbuilding, steel, and chemicals. With Korea's $56 billion trade surplus with the US (2024) as backdrop, the investigation aims to conclude by late July. This threatens 84% of Korea's export base, which is manufacturing-dependent.",
+        "category": "E_Economic",
+        "date": "2026-03-11",
+        "url": "https://www.lawtimes.co.kr/news/articleView.html?idxno=217826"
+      },
+      {
+        "source_file": "WF3_naver_signals_20260325.json",
+        "title": "미 연방대법원, IEEPA 기반 상호관세 6대3 위법 판결 — 관세 환급 길 열려",
+        "summary": "On February 20, the US Supreme Court ruled 6-3 that IEEPA does not grant the President authority to impose tariffs, declaring Trump's reciprocal tariffs illegal. The ruling distinguishes between 'regulating' imports (permitted) and 'taxing' imports (not permitted under IEEPA). This opens the path for tariff refund claims on duties collected since April 5, 2025, and represents a landmark check on executive trade authority. However, the 301 investigation launched 19 days later signals the administration's pivot to alternative legal instruments.",
+        "category": "E_Economic",
+        "date": "2026-02-21",
+        "url": "https://www.etoday.co.kr/news/view/2558028"
+      },
+      {
+        "source_file": "WF3_naver_signals_20260325.json",
+        "title": "한국은행 기준금리 2.50% 6회 연속 동결 — 집값·환율·중동 리스크 3중 딜레마",
+        "summary": "The Bank of Korea held its benchmark rate at 2.50% for the sixth consecutive meeting, trapped in a triple dilemma: cutting rates could overheat the housing market and weaken the won (already at 1,400+ KRW/USD), while holding rates constrains an economy growing at only 1.9%. The Hormuz crisis adds energy-driven inflation risk. The BOK explicitly cited Seoul housing prices, household debt, and exchange rate volatility as key factors preventing further easing.",
+        "category": "E_Economic",
+        "date": "2026-03-24",
+        "url": "https://www.koreabizreview.com/detail.php?number=7428&thread=21r08"
+      },
+      {
+        "source_file": "WF3_naver_signals_20260325.json",
+        "title": "서울 아파트 갱신 계약 51.8% 돌파 — 임차인 중심 시장 재편 가속",
+        "summary": "In March 2026, contract renewals exceeded 51.8% of all Seoul apartment lease transactions for the first time — up from 48.2% in Q1. Rising jeonse (deposit-based lease) prices, shrinking new supply, tighter lending, and transaction permit zones have shifted the market structurally toward renter retention. This signals a potential long-term transformation of Korea's unique jeonse system and the broader housing market from transaction-based to occupancy-based dynamics.",
+        "category": "E_Economic",
+        "date": "2026-03-24",
+        "url": "https://www.cliktoday.com/2026/03/20260324-today-news.html"
+      },
+      {
+        "source_file": "WF3_naver_signals_20260325.json",
+        "title": "2026년 반도체 수출 1,880억 달러 '역대 최대' 전망 — AI 추론 시장이 견인",
+        "summary": "Korea's semiconductor exports are projected to reach a record $188 billion in 2026 (+11% YoY), driven by the AI inference market rather than just training. The shift from training-dominated to inference-dominated AI compute demand opens sustained long-term volume growth, as inference requires continuous hardware deployment at scale. This positions Korean memory makers (Samsung, SK Hynix) at the center of global AI infrastructure for years to come.",
+        "category": "E_Economic",
+        "date": "2026-03-20",
+        "url": "https://www.mtnews.net/news/articleView.html?idxno=23530"
+      },
+      {
+        "source_file": "WF3_naver_signals_20260325.json",
+        "title": "미-이스라엘 '에픽 퓨리' 작전 후 이란 보복 — 호르무즈 해협 사상 첫 봉쇄",
+        "summary": "Following the US-Israel 'Epic Fury' strike on Iranian nuclear facilities and military command (Feb 28), Iran declared a formal blockade of the Strait of Hormuz on March 1 — the first actual blockade in the waterway's history. The US deployed a third carrier group (USS George H.W. Bush) on March 7. This represents the most severe disruption to global energy supply chains since the 1973 oil embargo, with 21% of global oil supply transiting the strait.",
+        "category": "P",
+        "date": "2026-03-24",
+        "url": "https://ko.wikipedia.org/wiki/2026%EB%85%84_%ED%98%B8%EB%A5%B4%EB%AC%B4%EC%A6%88_%ED%95%B4%ED%98%91_%EC%9C%84%EA%B8%B0"
+      },
+      {
+        "source_file": "WF3_naver_signals_20260325.json",
+        "title": "이란 전쟁, 사상 최초 'AI 전쟁'으로 평가 — AI가 900개 표적 12시간 내 선정",
+        "summary": "The US-Iran conflict is being assessed as the first 'AI war' in history. AI systems designed the target list for the Epic Fury operation, selecting 900 targets within 12 hours by analyzing signals intelligence in real-time. Autonomous weapons with AI judgment systems can independently abort strikes upon detecting civilians. AI-generated disinformation from Iran-linked accounts is simultaneously distorting war narratives. China is reportedly studying the conflict data to develop its own future war strategies.",
+        "category": "P",
+        "date": "2026-03-10",
+        "url": "https://www.news1.kr/it-science/general-it/6090165"
+      },
+      {
+        "source_file": "WF3_naver_signals_20260325.json",
+        "title": "러시아-우크라이나 평화 협상 재개, 미국 중재 — 3월 21일 워싱턴 회담, 성과 없이 종료",
+        "summary": "Ukraine-Russia peace negotiations resumed on March 21 in Washington under US mediation, following three prior rounds in January-February that stalled due to the Middle East crisis. The US delegation pressured Kyiv to accept Russian conditions but failed. Russia separately offered to stop sharing intelligence with Iran in exchange for the US ceasing intelligence sharing with Ukraine — the US rejected this. Zelensky declared Ukraine will only accept peace on its own terms.",
+        "category": "P",
+        "date": "2026-03-19",
+        "url": "https://www.kjob.news/news/475061"
+      },
+      {
+        "source_file": "WF3_naver_signals_20260325.json",
+        "title": "중국, 이란 전쟁 데이터 기반 미래 전쟁 전략 수립 중 — AI 군사 혁명 학습",
+        "summary": "China is systematically studying the US-Iran war to develop its own AI-driven military strategy. Chinese military analysts are reportedly collecting and analyzing operational data from the conflict — including AI target selection, autonomous weapon performance, and electronic warfare tactics — to prepare for potential future conflicts. This signals an accelerating global AI arms race catalyzed by the Iran war, with implications for Taiwan Strait security and the broader Indo-Pacific order.",
+        "category": "P",
+        "date": "2026-03-22",
+        "url": "https://www.epochtimes.kr/2026/03/742900.html"
+      },
+      {
+        "source_file": "WF3_naver_signals_20260325.json",
+        "title": "이란 경제 '보냐드' 체제로 전쟁 장기 지속 가능 — 제3의 경제영역 주목",
+        "summary": "Despite severe economic damage, Iran may sustain prolonged warfare through its 'Bonyad' system — quasi-governmental foundations controlling an estimated 20-40% of Iran's non-oil GDP. These entities, exempt from taxation and regulatory oversight, operate as a parallel economic infrastructure that can sustain military operations even as the formal economy collapses. This challenges Western assumptions that economic pressure alone can force conflict termination.",
+        "category": "P",
+        "date": "2026-03-22",
+        "url": "https://imnews.imbc.com/replay/2026/nwdesk/article/6809672_37004.html"
+      },
+      {
+        "source_file": "WF3_naver_signals_20260325.json",
+        "title": "러시아, 이란 정보 공유 중단 제안 — 미국에 우크라이나 정보 공유 중단 맞교환 요구",
+        "summary": "Russia proposed a swap to the US: Moscow would stop sharing intelligence with Iran if Washington stops sharing intelligence with Ukraine. A Russian special envoy conveyed this to Trump administration officials in Miami, but the US rejected it. This proposal reveals the deep interconnection between the Ukraine and Iran conflicts and Russia's attempt to leverage Middle East chaos to gain advantage in its own war. It signals a potential new axis of conflict linkage that could reshape global alliance structures.",
+        "category": "P",
+        "date": "2026-03-22",
+        "url": "https://korea.news-pravda.com/dprk/2026/03/22/60431.html"
+      },
+      {
+        "source_file": "WF3_naver_signals_20260325.json",
+        "title": "우크라이나 선거 불가 선언 — '지속가능한 휴전 후 최소 6개월' 조건",
+        "summary": "Ukraine's Central Election Commission explicitly ruled out elections in 2026, stating that a pre-election period can only begin at least 6 months after a sustainable ceasefire is established and all necessary legislation enacted. This effectively confirms that the war will continue through at least 2026 and raises profound questions about democratic legitimacy in protracted conflicts. The combination of indefinite wartime governance and foreign-mediated negotiations creates an unprecedented constitutional situation.",
+        "category": "P",
+        "date": "2026-03-21",
+        "url": "https://korea.news-pravda.com/dprk/2026/03/21/60371.html"
+      }
+    ]
+  },
+  "gnews": {
+    "total": 150,
+    "articles": [
+      {
+        "title": "인도네시아도 ’16세 미만 7000만명' 소셜미디어 금지",
+        "body": "인도네시아가 아시아 국가 중 처음으로 16세 미만 청소년의 주요 소셜미디어(SNS) 사용을 금지했다. 지난해 12월 호주가 세계 최초로 청소년 이용을 금지한 이후 3개월 여 만에 두 번째 나라가 소셜미디어 규제에 동참한 것이다. 인도네시아는 세계 4위 인구 대국으로, 이번 규제로 영향을 받는 16세 미만 인구는 7000만명에 달한다. 호주(16세 미만 인구 약 500만명)의 14배에 달하는 인구가 소셜미디어 사용을 못 하게 되면서 메타·구글·틱톡 등 주요 테크 기업이 받을 타격도 함께 커졌다는 평가가 나온다.\n\n메우티아 하피드 인도네시아 통신디지털부 장관은 지난 28일 메타·유튜브·틱톡·X·로블록스 등 ‘고위험군’으로 분류된 8개 주요 소셜미디어에서 청소년 사용을 금지하는 장관령을 발효시켰다. 지난해 대통령",
+        "source": "Chosun Ilbo",
+        "language": "ko",
+        "date": "2026-03-29",
+        "category": "테크"
+      },
+      {
+        "title": "은행 주담대 고정금리 7% 넘어… 영끌족 비명",
+        "body": "- 동아일보\n공유하기\n글자크기 설정\n중동 불안 등에 3년5개월來 최고… 1월 연체율도 한달새 0.02%P 증가\n내달 고가 주담대 가산금리 오를듯… “대출 빨리 갚고 예금 늘려야” 조언\n국내 은행들의 주택담보대출(주담대) 고정 금리가 7%대를 넘어서면서 이른바 ‘영끌족’(영혼까지 끌어모은 대출로 투자한 사람)의 이자 부담이 커지고 있다. 국내외 중앙은행의 기준 금리가 인상될 수도 있다는 관측이 대출 금리의 지표가 되는 시장 금리에 반영된 영향으로 풀이된다. 중동 사태 여파로 유가가 급등하고 주요국의 물가 상승 부담도 커져 현재의 높은 금리 수준이 당분간 이어질 것이란 전망이 나온다.\n● 주담대 고정금리 41개월 만에 7% 돌파\n29일 금융권에 따르면 KB국민, 신한, 하나, 우리, NH농협 등 5대 시중은행의",
+        "source": "Dong-A Ilbo",
+        "language": "ko",
+        "date": "2026-03-29",
+        "category": "경제,경제일반,금융,대출"
+      },
+      {
+        "title": "[바로잡습니다] 3월 20일 자 A26면 ‘[朝鮮칼럼] 트럼피즘은 왜 실패하고 있는가’ 칼럼 중 외",
+        "body": "▲3월 20일 자 A26면 ‘[朝鮮칼럼] 트럼피즘은 왜 실패하고 있는가’칼럼 중 “미국과 나토는 함께 나치즘을 분쇄했고”에서 ‘나토는’을 ‘유럽 국가들은’으로 바로잡습니다.\n\n▲3월 21일 자 B3면 ‘음악과 미술을 연결…예술의 경계를 허물다’기사에서 ‘문화재청’을 ‘국가유산청’으로, ‘국외소재문화재재단’을 ‘국외소재문화유산재단’으로 바로잡습니다.\n\n▲3월 24일 자 B1면 ‘산업계 쇼크 확산… 아시아 증시 ‘블랙 먼데이’’그래픽 중 ‘80t’은 ‘80만t’의 잘못이므로 바로잡습니다.",
+        "source": "Chosun Ilbo",
+        "language": "ko",
+        "date": "2026-03-29",
+        "category": "오피니언"
+      },
+      {
+        "title": "[알림] 연합뉴스 콘텐츠 저작권 고지 | 연합뉴스",
+        "body": "연합뉴스가 제공하는 기사, 사진, 그래픽, 영상 등 모든 콘텐츠는 관련 법의 보호를 받습니다. 연합뉴스 콘텐츠를 사전허가 없이 전재·방송하거나 무단으로 복사·배포·판매·전시·개작·AI 학습 및 활용할 경우 민·형사상 책임이 따를 수 있습니다. 콘텐츠 사용과 관련해 궁금한 점이 있으면 전화(☎:02-398-3804) 또는 이메일(hello@yna.co.kr)로 문의하기 바랍니다.\n제보는 카카오톡 okjebo <저작권자(c) 연합뉴스, 무단 전재-재배포, AI 학습 및 활용 금지> 2026년03월30일 00시00분 송고",
+        "source": "Yonhap News Agency",
+        "language": "ko",
+        "date": "2026-03-29",
+        "category": null
+      },
+      {
+        "title": "외식업 매출 4년새 41% 늘었지만, 수익성은 12%→8.7% ‘뚝’",
+        "body": "- 동아일보\n공유하기\n글자크기 설정\n“양적 성장 불구 내실은 취약해져”\n프랜차이즈-非프랜차이즈 매출差\n7424만원→1억581만원 벌어져\n국내 외식업의 연평균 매출이 2억5000만 원 수준으로 늘었지만 식재료비와 인건비 등 비용 부담이 더 커져 수익성은 악화한 것으로 나타났다. 외형은 커졌지만 영업이익률은 오히려 하락하면서 내실은 퇴보하고 있는 것이다.\n농림축산식품부와 한국농촌경제연구원이 29일 발표한 ‘2025년 외식업체 경영 실태 조사’ 결과에 따르면 2024년 외식업체 1곳당 연평균 매출액은 2억5526만 원으로 전년 대비 1.4%(360만 원) 증가했다. 2020년 1억8054만 원과 비교하면 4년 만에 41.4% 늘었지만 최근 들어 증가세가 주춤한 모습을 보이고 있다. 고금리와 고물가로 소비자들의 실",
+        "source": "Dong-A Ilbo",
+        "language": "ko",
+        "date": "2026-03-29",
+        "category": "경제,경제일반,산업"
+      },
+      {
+        "title": "‘회계 부정’ 주도한 회사 관계자, 임원 선임 제한",
+        "body": "- 동아일보\n-\n입력 2026년 3월 30일 00시 30분\n공유하기\n글자크기 설정\n올해부터 회계 부정을 주도하거나 지시한 회사 관계자는 임원으로 선임되거나 재임되기 힘들어진다. 감사 절차를 소홀히 진행한 회계사는 징계 시효가 늘고, 회계법인은 영업이 정지될 수도 있다.\n금융감독원은 29일 ‘2026년도 금융감독원 회계 심사·감리 업무 운영계획’을 발표하고 각종 회계 부정에 대한 ‘무관용 원칙’을 강조했다. 회계 부정을 엄단해 정부의 증시 부양 정책을 지원한다는 구상이다.\n먼저 한계기업 징후가 뚜렷하거나 감사 시간이 너무 적은 기업을 집중적으로 점검한다. 이를 통해 분식회계로 연명하는 코스닥 부실기업을 신속하게 퇴출할 방침이다. 코스피200 기업의 심사·감리 주기를 20년에서 10년으로 절반 단축한다. 과징금",
+        "source": "Dong-A Ilbo",
+        "language": "ko",
+        "date": "2026-03-29",
+        "category": "경제,경제일반,금융"
+      },
+      {
+        "title": "일라이릴리, 홍콩상장 AI 신약개발사와 4조원대 라이선스 계약 | 연합뉴스",
+        "body": "(뉴욕=연합뉴스) 이지헌 특파원 = 비만치료제 젭바운드로 유명한 미국 제약사 일라이릴리가 생성형 인공지능(AI) 기술을 활용한 신약 출시를 위해 홍콩 상장 신약개발사 인실리코 메디슨(이하 인실리코)과 총 27억5천만 달러(약 4조원)에 이르는 글로벌 라이선스 및 연구 계약을 체결했다고 미 CNBC 방송이 29일(현지시간) 보도했다.\n보도와 회사 발표에 따르면 이번 계약으로 일라이릴리는 인실리코가 개발한 전(前)임상 단계 신약 후보물질의 개발과 제조, 상업화에 관한 독점 라이선스를 얻게 된다.\n계약에 따라 인실리코는 향후 개발·규제·상업화 단계별로 총 27억5천만 달러의 지급금을 받을 수 있으며, 선취계약금으로 1억1천500만 달러(약 1천700억원)를 수령했다. 인실리코는 향후 신약 매출에 대한 단계적 로열",
+        "source": "Yonhap News Agency",
+        "language": "ko",
+        "date": "2026-03-29",
+        "category": "경제"
+      },
+      {
+        "title": "年6800% 대출뒤 불법 추심 ‘이 실장’ 주의보",
+        "body": "- 동아일보\n-\n입력 2026년 3월 30일 00시 30분\n공유하기\n글자크기 설정\n추적 힘든 텔레그램-대포폰 활용\n금감원, 소비자 경보 ‘경고’ 발령\n연 6800%의 초고금리 대출을 내주고 불법 추심을 일삼는 온라인 불법 사금융업자 ‘이 실장’과 관련한 피해가 급증하고 있다. 금융감독원은 소비자 경보 ‘경고’를 발령했다.\n29일 금감원은 이 실장과 관련한 피해 신고가 올해 1월 33건, 2월 12건 등 총 62건으로 집계됐다고 밝혔다. 지난해 9월 1건, 10월 4건 등이었던 것과 비교하면 올해 들어 피해자가 빠르게 늘었다.\n이 실장 일당은 대출 중개, 실행, 추심을 분업하며 조직적으로 활동한다. 우선 중개업자는 대출 중개 사이트, 온라인 커뮤니티 등에서 급전이 필요한 피해자에게 접근해 등록 대부업체인 척하",
+        "source": "Dong-A Ilbo",
+        "language": "ko",
+        "date": "2026-03-29",
+        "category": "경제,경제일반,금융,대출"
+      },
+      {
+        "title": "“에어택시 돈 안되고 규제 많아”… 도심항공교통서 손떼는 기업들",
+        "body": "- 동아일보\n공유하기\n글자크기 설정\n현대차, 해당사업 속도조절 나서… 한화시스템은 최근 무기한 중단\n기술 상용화-정책 수립 더딘데다 중동 등 글로벌 불확실성 커진 탓\n‘잠실에서 김포공항까지 20분’을 강조하며 각 기업들이 야심 차게 뛰어들었던 도심항공교통(UAM) 사업이 줄줄이 엎어지는 등 국내 UAM 연구개발(R&D) 투자가 중단되는 모습이다. 기술 상용화도, 정책 수립도 더딘 상황에서 중동 전쟁 등 글로벌 불확실성이 커지자 관련 기업들이 ‘당장 돈이 안 되는’ UAM 사업에서 손을 뗀 것이다.\n29일 관련 업계에 따르면 SK텔레콤은 최근 세계 1위 UAM 기체 개발 업체인 미국의 ‘조비 에이비에이션’ 보유 지분의 3분의 2를 매각했다. 2023년 약 1300억 원(약 1억 달러)을 투자하면서 파트너십을 ",
+        "source": "Dong-A Ilbo",
+        "language": "ko",
+        "date": "2026-03-29",
+        "category": "경제,경제일반,산업,4차 산업혁명 시대,기업"
+      },
+      {
+        "title": "OECD 한국 성장 전망 2.1%→1.7%로 낮춰…고유가 장기화 우려",
+        "body": "미국·이스라엘-이란 전쟁이 발발한 지 한달을 넘긴 가운데 고유가 장기화에 따른 한국 경제성장률 하락 우려가 본격화하고 있다.\n주요 국제기구 가운데서는 경제협력개발기구(OECD)가 전쟁 영향을 반영해 지난 26일 중간경제 전망 보고서를 발표했는데, 오이시디는 올해 한국의 성장률 전망치를 기존 2.1%에서 1.7%로 0.4%포인트 끌어내렸다. 세계 경제성장률 전망치는 기존의 2.9%로 유지했는데, 한국은 중동 에너지 의존도가 높은 만큼 전쟁이 장기화하면 구조적으로 더 취약할 수 있다고 판단한 것으로 풀이된다.\n전쟁이 일어나기 전인 지난 1월 재정경제부는 올해 성장률을 2%로, 2월 한국개발연구원(KDI)과 한국은행은 각각 1.9%, 2%로 전망했는데 이 같은 전망도 조정이 불가피할 것으로 보인다. 김상봉 한성대",
+        "source": "Hankyoreh",
+        "language": "ko",
+        "date": "2026-03-29",
+        "category": "economy"
+      },
+      {
+        "title": "‘加 잠수함 수주전’ 한화오션, 현지 기업 5곳과 협력",
+        "body": "- 동아일보\n-\n입력 2026년 3월 30일 00시 30분\n공유하기\n글자크기 설정\n60조 원 규모의 캐나다 차세대 잠수함 수주전에서 독일과 경쟁 중인 한화오션이 현지 기업과의 협력 확대에 나섰다. 캐나다 정부가 자국 기업 참여를 주요 평가 요소로 내세운 데 따른 것이다.\n29일 캐나다 국방 전문 매체 트루 노스 스트러티직 리뷰 등에 따르면 한화오션은 최근 OSI마리타임시스템스, EMCS인더스트리스, 텍솔마린, 자스트람테크놀로지스, 커티스라이트 등 현지 기업 5곳과 파트너십을 체결했다. 이번 입찰 항목 중 ‘캐나다 경제에 기여하는 정도’는 입찰 점수의 15%를 차지한다. 경쟁 상대인 독일 티센크루프마린시스템스(TKMS)도 지난달과 이달에 걸쳐 캐나다 현지 기업들과 전방위적 파트너십을 맺은 상태다.\n한화오션이 ",
+        "source": "Dong-A Ilbo",
+        "language": "ko",
+        "date": "2026-03-29",
+        "category": "경제,경제일반,산업,기업"
+      },
+      {
+        "title": "통행료 30억 호르무즈 ‘톨게이트’ 열린다…미 종전 조건과 정면충돌",
+        "body": "이란이 호르무즈해협을 통과하는 선박에 약 200만달러의 ‘통행료’를 물리기 시작했다고 전해지는 가운데, 중재국들을 통한 미국과 이란 간 종전 물밑 협상에서는 호르무즈해협 자유 항행 문제가 핵심 쟁점으로 부상할 모양새다. 이란에서는 통행료 부과 제도 도입을 추진하고 있으며, 이를 두고 국제법 위반이라는 논란도 나온다.\n에이피(AP) 통신 등에 따르면 이란은 이미 일종의 ‘톨게이트’를 꾸려 돈을 받고 있다. 외신들은 해운 전문 데이터업체 로이드리스트인텔리전스를 인용해, 지난 13일 이후 다수 글로벌 선사가 이란 혁명수비대에 화물, 선주, 목적지, 승무원 명단 등을 기록한 상세 서류를 제출하고 해협 통과 승인을 받았다고 보도했다. 최소 2척의 선박이 위안화로 통행료를 지불했다고 로이드리스트인텔리전스는 전했다.\n승",
+        "source": "Hankyoreh",
+        "language": "ko",
+        "date": "2026-03-29",
+        "category": "international"
+      },
+      {
+        "title": "딥엑스, AI칩 양산 7개월만에 8개국서 주문 27건",
+        "body": "- 동아일보\n공유하기\n글자크기 설정\n“CES 공개후 주문 10배 이상 늘어”\n한국 인공지능(AI) 반도체 설계(팹리스) 스타트업 딥엑스가 초저전력 AI 칩 ‘DX-M1’의 양산을 시작한 지 7개월 만에 구매 주문을 27건 확보했다.\n29일 딥엑스는 “지난해 8월 (DX-M1의) 양산 제품을 출시한 지 7개월 만에 8개국 기업들로부터 총 27건의 구매 주문을 확보했다”고 밝혔다. 딥엑스는 이 가운데 25건의 주문이 올 1∼3월에 접수된 주문이라고 설명했다. 지난해 8∼12월 구매 주문이 2건에 불과했지만, 올 1월 세계 최대 정보기술(IT)·가전 전시회 ‘CES 2026’에서 칩의 성능을 공개한 이후 주문이 크게 늘었다는 설명이다.\n딥엑스는 CES 2026에서 ‘버터 벤치마크’를 통해 자사 제품의 성능을 강조",
+        "source": "Dong-A Ilbo",
+        "language": "ko",
+        "date": "2026-03-29",
+        "category": "경제,경제일반,산업,4차 산업혁명 시대"
+      },
+      {
+        "title": "‘차세대 최강 AI’ 유출된 앤스로픽… “담당자 실수”",
+        "body": "- 동아일보\n-\n입력 2026년 3월 30일 00시 30분\n공유하기\n글자크기 설정\n미국 인공지능(AI) 기업 앤스로픽이 거대언어모델(LLM) ‘클로드’의 기존 모델을 뛰어넘는 차세대 모델을 개발해 초기 고객 대상 테스트에 들어간 사실이 알려졌다.\n29일 미 경제매체 포천 등에 따르면 앤스로픽 온라인 저장소에 내부 문건이 실수로 노출됐다. 외부 콘텐츠 관리 시스템(CMS)을 운용하는 과정에서 담당자 착오로 보안 설정이 전혀 없는 인터넷주소(URL)에 관련 파일이 그대로 올라간 것. 이에 대해 앤스로픽 측은 “인간의 실수”라고 해명했다.\n유출된 블로그 초안에 따르면 새 모델명은 ‘클로드 미토스’로, 기존 최고 성능 모델인 오퍼스를 뛰어넘는 ‘카피바라’라는 신규 등급으로 분류된다. 앤스로픽은 초안에서 “이전 최고",
+        "source": "Dong-A Ilbo",
+        "language": "ko",
+        "date": "2026-03-29",
+        "category": "경제,경제일반,산업,4차 산업혁명 시대,IT/의학,인공지능"
+      },
+      {
+        "title": "與 ‘검사가 형량거래 제안’ 녹취 공개… 박상용 검사 “짜깁기한 것”",
+        "body": "더불어민주당이 주도하는 ‘윤석열 정권 조작기소 의혹 사건 국정조사’ 청문회를 앞두고, 민주당 의원들과 ‘쌍방울 대북송금 사건’을 수사한 박상용 검사가 29일 장외에서 충돌했다. 박 검사는 오는 14일 예정된 국정조사 청문회 증인으로도 채택돼 있다.\n\n‘쌍방울 대북송금 사건’은 민주당이 검찰의 조작기소 의혹을 제기한 7개 사건 중 하나다. 쌍방울 그룹이 이재명 대통령이 과거 경기지사로 재직할 때 방북 비용 300만달러, 경기도가 북한에 지급하려던 스마트팜 사업비 500만달러를 대납했다는 의혹 사건이다.\n\n민주당은 검찰이 사건을 조작했다고 보고 있다. 특히 사건을 수사한 박상용 검사가 쌍방울이 북한에 달러를 송금할 당시 경기도 평화부지사였던 이화영씨를 회유해 거짓 자백을 하게 했다는 것이다.\n\n이날 민주당 전용",
+        "source": "Chosun Ilbo",
+        "language": "ko",
+        "date": "2026-03-29",
+        "category": "정치 일반"
+      },
+      {
+        "title": "[프로배구 PO 2차전 전적] 현대캐피탈 3-2 우리카드 | 연합뉴스",
+        "body": "◇ 남자부 플레이오프(PO) 2차전 전적(29일·서울 장충체육관)\n우리카드(2패) 25 25 18 39 12 - 2\n현대캐피탈(2승) 22 22 25 41 15 - 3\n(서울=연합뉴스)\n제보는 카카오톡 okjebo <저작권자(c) 연합뉴스, 무단 전재-재배포, AI 학습 및 활용 금지> 2026년03월29일 22시08분 송고\n송고 2026년03월29일 22시08분\n◇ 남자부 플레이오프(PO) 2차전 전적(29일·서울 장충체육관)\n우리카드(2패) 25 25 18 39 12 - 2\n현대캐피탈(2승) 22 22 25 41 15 - 3\n(서울=연합뉴스)\n제보는 카카오톡 okjebo <저작권자(c) 연합뉴스, 무단 전재-재배포, AI 학습 및 활용 금지> 2026년03월29일 22시08분 송고\nESC 닫기\n댓글",
+        "source": "Yonhap News Agency",
+        "language": "ko",
+        "date": "2026-03-29",
+        "category": "스포츠"
+      },
+      {
+        "title": "이란 급습에 쓴맛…美 4천500억원짜리 '하늘의 눈' E-3 첫 파괴 | 연합뉴스",
+        "body": "사우디아라비아 소재 미군 '프린스 술탄' 공군기지가 이란의 미사일 공격에 노출되면서 3억 달러짜리 'E-3 센트리' 조기경보통제기가 파괴되는 쓴맛을 봤다.\n미군은 이를 60여대 운용하고 있어 대체가 가능하긴 하지만 이번 손실에 따른 비용은 막대하다.\n호주 공군 장교 출신이며 그리피스 아시아 연구소 방문연구원인 피터 레이턴은 이번 E-3 파괴가 상당히 큰 일이라며 이 기종의 크기가 커서 지상에 있는 상태에서 공격을 받기 쉬워 능동적 방어가 필요하다고 설명하고 \"그렇게 늘 하기는 어렵다. 가끔은 실패하기도 한다\"고 말했다.\n인공지능이 자동으로 줄인 '세 줄 요약' 기술을 사용합니다. 전체 내용을 이해하기 위해서는 기사 본문과 함께 읽어야 합니다.\n(서울=연합뉴스) 임화섭 기자 = 사우디아라비아 소재 미군 '프린",
+        "source": "Yonhap News Agency",
+        "language": "ko",
+        "date": "2026-03-29",
+        "category": "국제"
+      },
+      {
+        "title": "AI의 ‘아부’와 ‘방종’을 경계하라",
+        "body": "공유하기\n- 동아일보\n공유하기\n글자크기 설정\n美 연구팀 3곳 ‘AI 위험성’ 분석\n악행 저지른 사용자에게 동조… “네가 옳아”… 답변 만족도 올라\n오픈클로는 허락없이 메일 삭제… 병원-軍 등 시스템에 위협 요소\n인공지능(AI)의 명암 중 어두운 부분에 대한 예측은 일자리 대체나 허위 정보 생산, 전쟁에서의 활용 같은 거시적 문제에 머물렀다. 최근에는 일상적인 사용 상황에서도 AI가 사용자의 판단력과 행동을 실시간으로 왜곡하고 자율적으로 작동하며 통제를 벗어나고 전문가조차 속이는 수준에 이르렀다는 연구 결과들이 잇따라 나오고 있다. 막연한 예측이나 경고가 아닌 현실에서 벌어지고 있는 사례들이라는 점에서 경각심을 불러일으키고 있다.\n● AI 챗봇, 과도하게 동조하며 사용자 판단 흐려\n마이라 청 미국 스탠퍼드대 ",
+        "source": "Dong-A Ilbo",
+        "language": "ko",
+        "date": "2026-03-29",
+        "category": "IT/의학,과학일반,동아 사이언스,인공지능"
+      },
+      {
+        "title": "“AI도 못 푸는 질병… 답은 양자컴퓨터”",
+        "body": "공유하기\n- 동아일보\n공유하기\n글자크기 설정\n0과 1로 연산하는 고전 컴퓨터\n‘최소 30억쌍’ 유전정보 못 다뤄\n양자컴퓨터로 정밀의료 앞당겨\n“변수가 많고 네트워크가 복잡한 생물학에서는 1+1이 1.9가 되기도 하고 2를 넘기기도 합니다. 강력한 인공지능(AI)도 결국 0과 1만으로 연산하기 때문에 한계가 있습니다. 진단·치료 속도와 정확도를 높이려면 0도 1도 아닌 개념을 표현하는 양자기술이 필요합니다.”\n최근 만난 한남식 영국 케임브리지대 밀너의약연구소 AI연구센터장은 정부가 AI 시대 과학기술 경쟁력 강화를 위해 시작한 ‘K-문샷’ 프로젝트의 핵심 미션 중 하나인 신약 개발 AI에 대해 “막강한 도구이고 지금도 성장할 부분이 많이 남아 있다”고 평가하면서도 근본적인 한계가 있다고 진단했다. 한남식 센터",
+        "source": "Dong-A Ilbo",
+        "language": "ko",
+        "date": "2026-03-29",
+        "category": "IT/의학,과학일반,동아 사이언스,인공지능,컴퓨터"
+      },
+      {
+        "title": "[부음] 임종각 별세 외",
+        "body": "▲임종각 별세, 임성택·임민택·임윤택 코미디언 부친상, 소정화·김영조 시부상=29일0시53분 신촌세브란스병원, 발인 31일7시20분, (02)2227-7500\n\n▲전오순 별세, 김희동 세계일보 편집국 교열담당 부장·김병육 모친상, 김진하 삼성전자 AI센터 책임연구원 조모상=28일14시 한양대구리병원, 발인 31일5시, (031)566-2040",
+        "source": "Chosun Ilbo",
+        "language": "ko",
+        "date": "2026-03-29",
+        "category": "부음·인사"
+      },
+      {
+        "title": "구윤철 “유가 120~130달러 되면 차량5부제 민간 확대”",
+        "body": "구윤철 부총리 겸 재정경제부 장관이 국제유가가 배럴당 120∼130달러 수준으로 오르면 차량 5부제를 민간으로 확대할 수 있다는 입장을 밝혔다.\n구 부총리는 29일 오전 <한국방송>(KBS) ‘일요 진단’에 출연해 “중동 상황이 더 심각해지면 (위기 경보가) 3단계(경계) 정도로 올라가야 하고 그쯤 되면 소비도 줄여야 한다. 민간에도 국민들께 협조를 부탁드리기 위해서 차량 부제를 도입해야 하지 않을까 보고 있다”고 말했다.\n그는 3단계로 상향하는 조건에 대해 “위기의 심각성을 종합적으로 봐야 한다”며 “유가가 지금은 100∼110달러 수준인데 120∼130달러로 간다든지, 여러 가지 종합적인 상황을 보겠다”고 말했다. 그러면서 유가 상승으로 인한 국민 부담을 줄이기 위해 필요시 유류세를 추가 인하할 여지가 ",
+        "source": "Hankyoreh",
+        "language": "ko",
+        "date": "2026-03-29",
+        "category": "economy"
+      },
+      {
+        "title": "[HBR]신입, 리더십을 평가하라",
+        "body": "공유하기\n- 동아일보\n공유하기\n글자크기 설정\n신입, 리더십을 평가하라\n인공지능(AI)이 신입 사원의 일자리를 대체하기 시작하며 법률회사, 컨설팅회사 등 전문적인 서비스를 제공하는 기업의 신입 채용 방식이 바뀌고 있다. 이들 회사는 내부 평가 및 승진 시스템을 통해 우수한 인재를 걸러냈다. 많은 인재를 뽑고 그중 현장에서 탁월성을 입증한 소수의 직원이 리더가 되는 구조다. 그러나 AI로 인해 신입 채용이 크게 줄어든 지금은 대규모 채용이 곧 리더의 발굴과 육성을 담보할 수 없게 됐다. 애초에 소수의 인재만 뽑는 시대에는 신입 지원자가 미래에 리더가 될 자질을 갖췄는지 면밀히 검증해야 한다. AI 덕분에 당장의 인건비를 줄였다는 데서 만족해선 안 된다. 미래의 리더십을 미리 준비하지 않는 기업은 머지않아 리더십",
+        "source": "Dong-A Ilbo",
+        "language": "ko",
+        "date": "2026-03-29",
+        "category": "경제,경제일반,IT/의학,인공지능"
+      },
+      {
+        "title": "AI 가짜 영상으로 美 ‘폭격’… 이란, 사이버 선전전에 총력",
+        "body": "27일 남아프리카공화국 주재 이란 대사관은 X에 이스라엘 텔아비브에 대한 미사일 공격을 축하하는 AI(인공지능) 생성 영상을 게시했다. 이란 병사가 미사일이 발사되는 장면을 배경으로 셀카봉을 들고 웃으면서 주스를 마시는 모습이 담겼다. 대사관은 영상에 “오늘의 재미있는 게시물”이라면서 “텔아비브를 더 정확하게 타격할 수 있도록 석류(이란의 특산물) 주스를 마셔라”라고 적었다. 그보다 앞선 23일 이슬람혁명수비대 대변인 에브라힘 졸파가리는 영상 메시지에서 영어로 “트럼프, 당신은 해고됐어(You’re fired)”라면서 “이 사안에 관심을 가져줘서 감사하다(Thank you for your attention to this matter)”라고 말했다. 도널드 트럼프 대통령이 과거 리얼리티 프로그램 ‘어프렌티스’",
+        "source": "Chosun Ilbo",
+        "language": "ko",
+        "date": "2026-03-29",
+        "category": "국제 일반"
+      },
+      {
+        "title": "반도체시장, 위기냐 기회냐…메모리 효율 극대화한 구글 ‘터보 퀀트’에 엇갈린 시선",
+        "body": "미국 구글이 인공지능(AI) 모델의 메모리 사용을 효율화하는 신기술을 최근 선보이면서 삼성전자와 에스케이(SK)하이닉스 등 관련 기업들의 주가가 일제히 요동치고 있다. 메모리 반도체 기업들의 ‘슈퍼사이클’(초호황)이 예상보다 빨리 끝날 수 있다는 시장의 불안감이 반영된 결과다. 그러나 중국 인공지능 스타트업 딥시크의 저비용·고효율 모델 출시가 오히려 투자 경쟁을 심화시켰듯, 이 신기술을 향한 시장의 우려 역시 기우에 불과하다는 지적도 나온다.\n이번 논란의 발단은 구글이 지난 24일(현지시각) 자체 블로그에서 소개한 논문이다. 구글이 지난해 4월 처음 공개했던 ‘터보 퀀트’ 기술 관련 논문을 최근 누리집에 다시 상세히 게재한 것이다.\n논문을 보면, 터보 퀀트란 챗지피티(GPT)나 제미나이 같은 인공지능 모델의",
+        "source": "Hankyoreh",
+        "language": "ko",
+        "date": "2026-03-29",
+        "category": "economy"
+      },
+      {
+        "title": "첨단 기술 수출 통제에… 中, 美 무역 장벽 조사",
+        "body": "중국이 미국의 대중(對中) 첨단 기술 수출 통제와 투자 제한 등을 겨냥해 정식 무역 장벽 조사에 착수했다. 최근 메타의 인수 시도와 관련해 중국계 기업 마누스 창업자를 상대로 조사에 나선 데 이어, 미국의 통상 조치에 맞불을 놓은 것이다. 5월 도널드 트럼프 미국 대통령과 시진핑 중국 국가주석의 정상회담을 앞두고 협상 카드를 축적하려는 움직임으로 풀이된다.\n\n중국 상무부는 27일 미국의 글로벌 산업망·공급망 교란 조치와 녹색 상품 무역 저해 조치 등 두 사안에 대해 무역 장벽 조사를 시작한다고 발표했다. 조사 기간은 이날부터 6개월이며, 특수한 상황이 있을 경우 3개월 연장할 수 있다고 밝혔다. 미국의 각종 통상 조치를 공식 조사 대상에 포함시켜 대응 수위를 단계적으로 끌어올리겠다는 의도로 보인다.\n\n상무부",
+        "source": "Chosun Ilbo",
+        "language": "ko",
+        "date": "2026-03-29",
+        "category": "국제 일반"
+      },
+      {
+        "title": "‘화음으로 잇는 상생의 가치’ 롯데, 행복나눔 동행콘서트 성료",
+        "body": "공유하기\n- 동아경제\n공유하기\n글자크기 설정\n클래식과 대중음악 아우르는 크로스오버 공연으로 소통 강화\n주요 관계자 참석해 지속 가능한 동반성장 의지 재확인\n그룹 성장 파트너로서의 유대감 고취 및 협력 관계 공고화\n롯데는 지난 27일 서울 송파구 롯데콘서트홀에서 협력사 구성원들과 함께하는 2026 롯데 행복나눔 동행콘서트를 진행했다고 29일 밝혔다. 올해로 4회차를 맞이한 이번 행사에는 340여 개 파트너사 소속 임직원 1300여 명이 자리했다. 롯데지주를 비롯해 유통, 식품, 건설 등 12개 주요 계열사 임직원들도 참석해 교류의 시간을 가졌다.\n행사의 슬로건인 심포니 오브 롯데(Symphony of LOTTE)는 기업과 파트너사가 상호 협력해 동반성장의 결과물을 만들어간다는 취지를 반영했다. 무대는 정통 클",
+        "source": "Dong-A Ilbo",
+        "language": "ko",
+        "date": "2026-03-29",
+        "category": "경제,경제일반"
+      },
+      {
+        "title": "“AI로 더 바빠진다” [뉴노멀-실리콘밸리]",
+        "body": "박원익 | 더밀크 IP본부장\n“컴퓨터, 인터넷, 모바일이 인간을 더 바쁘게 만든 것처럼, 인공지능(AI)도 모든 사람을 더 바쁘게 만들 것이다.”\n젠슨 황 엔비디아 최고경영자(CEO)는 지난 17일(현지시각) 미국 캘리포니아주 새너제이에서 열린 ‘지티시(GTC) 2026’ 기자회견에서 에이아이 시대를 이렇게 묘사했다. 자율적으로 행동하며 목표를 달성하는 에이아이 에이전트(대리인) 도입 확대가 비약적인 생산성 급증을 가져오고, 결국 우리를 더 바쁘게 만들 것이란 전망이다.\n에이아이에게 업무를 시키면 사람이 하는 것보다 훨씬 빠르게 결과물을 내놓는다. 결과물이 빠르게 돌아오니 후속 의사결정과 추가 작업이 필요하고, 결국 사람이 처리해야 할 일의 총량이 늘어난다. 젠슨 황은 기자회견에서 “10년 뒤 엔비디아는 직",
+        "source": "Hankyoreh",
+        "language": "ko",
+        "date": "2026-03-29",
+        "category": "opinion"
+      },
+      {
+        "title": "낫싱, 실용성 강조한 무선 헤드폰 ‘a’ 출시… 배터리 효율과 뛰어난 가성비",
+        "body": "공유하기\n- 동아경제\n공유하기\n글자크기 설정\n업계 최고 수준의 전력 효율로 최대 135시간 연속 재생 지원\n티타늄 드라이버와 고해상도 코덱 탑재해 원음 충실도 구현\n터치 대신 물리 조작계 도입으로 오작동 방지 및 편의성 강화\n영국 IT기업 낫싱(Nothing)이 무선 헤드폰 ‘a’를 국내 공식 출시했다. 그간 이어폰 제품군에서 고수해온 극도의 투명 디자인에서 한발 물러나, 소재의 견고함과 실질적인 사용 편의성을 우선순위에 둔 제품이다. 특히 화이트 모델은 간결한 색감과 금속 소재의 조화를 통해 깔끔한 디자인으로 완성돼 긍정적인 평을 받고 있다. 제품을 테스트하며 상품성을 확인해 봤다.\n디자인의 변화, 투명함 대신 내구성과 간결함 선택\n헤드폰 a는 낫싱의 기존 디자인 정체성을 유지하면서도 하드웨어의 완성도를 ",
+        "source": "Dong-A Ilbo",
+        "language": "ko",
+        "date": "2026-03-29",
+        "category": "IT/의학,IT"
+      },
+      {
+        "title": "트럼프 승리 선언은 감감…미 패권 세 기둥 한꺼번에 흔들",
+        "body": "미국·이스라엘-이란 전쟁이 한달을 넘겼지만 도널드 트럼프 행정부의 승리 선언이 멀어지고, 미국 패권의 균열은 깊어지고 있다. 냉전 이후 미국 중심 세계 질서를 지탱해온 세 기둥인 절대적 군사력, 달러 패권, 자유주의 규범이 동시에 타격을 입고 있다.\n전쟁 한달째인 28일(현지시각) 사우디아라비아의 프린스술탄 공군기지가 이란의 미사일 공격을 받아 20여명이 부상하는 등 미군 피해가 작지 않게 발생했다. 특히 대당 7억달러(약 1조563억원)에 이르는 E-3 센트리 조기경보기와 공중급유기 3대가 파손됐다고 전해졌다. 개전 이후 이란은 중동 내 군사기지 104곳을 공격했고, 이 중 미군 기지 13곳의 미군은 호텔로 거처를 옮겼다. 뉴욕타임스는 25일 중동의 많은 미군 병력이 호텔이나 사무용 공간으로 재배치됐다며 ",
+        "source": "Hankyoreh",
+        "language": "ko",
+        "date": "2026-03-29",
+        "category": "international"
+      },
+      {
+        "title": "김민석 “생필품 수급 차질에 선제 대응”…첫 비상경제본부회의",
+        "body": "기사를 읽어드립니다\n0:00\n광고\n김민석 국무총리가 29일 미국·이스라엘-이란 전쟁으로 인한 경제 위기 대책으로 “국민 생필품 수급 차질 우려에 선제적으로 대응하겠다”고 말했다.\n김 총리는 이날 정부서울청사에서 첫 비상경제본부회의를 주재하고 “코로나19 당시 마스크 품귀 현상과 요소수 사태로 물류가 마비되고 경유차가 멈춰 섰던 사회적 고통의 기억이 생생하다”며 이렇게 말했다. 김 총리는 “중동발 물품 수급 차질이 국민 생활필수품목에 미치는 영향을 시나리오별로 분석하고 단계별 대응 방안을 마련하라”며 “빠지고 놓치는 일 없이 철저히 점검해달라”고 각 부처에 당부했다.\n구윤철 부총리 겸 재정경제부 장관은 국제 유가가 배럴당 120~130달러 선으로 오르면 현재 공공 부문에서 시행 중인 차량 5부제를 민간으로 확",
+        "source": "Hankyoreh",
+        "language": "ko",
+        "date": "2026-03-29",
+        "category": "politics"
+      },
+      {
+        "title": "[사설] 이근안 등 국가범죄 상훈 박탈, 역사에 교훈 새겨야",
+        "body": "경찰이 ‘고문 기술자’ 이근안씨 등 과거 고문과 간첩 조작 등의 공로로 포상을 받은 수사 관계자의 상훈을 취소하기 위한 전수조사에 착수했다고 한다. 이재명 대통령은 29일 이에 대해 “사법살인 같은 최악의 국가폭력 범죄자에게 준 훈·포장 박탈은 만시지탄이나 당연한 조치”라고 밝혔다. 피해자와 가족을 비롯한 국민 모두가 같은 생각일 것이다. 국민을 지키라고 준 공권력으로 국민의 삶을 파괴한 국가폭력 가해자들이 단죄받기는커녕 포상을 받고 떵떵거려온 비정상을 이번에는 기필코 바로잡아야 한다.\n행정안전부는 공적이 거짓으로 밝혀지면 훈·포장을 취소할 수 있도록 한 상훈법에 바탕해, 2018년부터 경찰과 국가정보원의 전신인 중앙정보부·국가안전기획부 등에 근무하며 고문과 간첩 조작에 가담한 74명의 서훈을 취소했다. 그",
+        "source": "Hankyoreh",
+        "language": "ko",
+        "date": "2026-03-29",
+        "category": "opinion"
+      },
+      {
+        "title": "세탁실·화장실 고장으로 철수한 20조 원짜리 항모[횡설수설/장택동]",
+        "body": "- 동아일보\n공유하기\n글자크기 설정\n“이 항공모함은 미국 군사력을 상징하는 기념비이며 평화를 보장하는 데 필요한 힘을 제공할 것입니다.” 2017년 3월 미국 항공모함 제럴드 포드함 진수식에 참석한 도널드 트럼프 대통령은 찬사를 쏟아냈다. 130억 달러(약 20조 원)를 들여서 만든 포드함은 세계에서 가장 비싼 군함이자 급이 다른 최첨단 항모다. 그런데 이란과의 전쟁이 한창인 상황에서 포드함이 전장에서 사라졌다. 군사적 이유가 아니라 승조원 생활 시설에 문제가 생겨서다.\n▷‘떠다니는 요새’라 불리는 항모는 원거리 군사작전에서 필수 불가결한 핵심 전력이다. 미군은 11척의 핵추진 항모를 보유하고 있다. 이 중 10척은 ‘니미츠급’으로 불리고, 포드함은 등급이 더 높다는 의미에서 ‘포드급’으로 분류된다. 포드함",
+        "source": "Dong-A Ilbo",
+        "language": "ko",
+        "date": "2026-03-29",
+        "category": "오피니언,칼럼,횡설수설"
+      },
+      {
+        "title": "인도네시아도 ’16세 미만 7000만명' 소셜미디어 금지",
+        "body": "인도네시아가 아시아 국가 중 처음으로 16세 미만 청소년의 주요 소셜미디어(SNS) 사용을 금지했다. 지난해 12월 호주가 세계 최초로 청소년 이용을 금지한 이후 3개월 여 만에 두 번째 나라가 소셜미디어 규제에 동참한 것이다. 인도네시아는 세계 4위 인구 대국으로, 이번 규제로 영향을 받는 16세 미만 인구는 7000만명에 달한다. 호주(16세 미만 인구 약 500만명)의 14배에 달하는 인구가 소셜미디어 사용을 못 하게 되면서 메타·구글·틱톡 등 주요 테크 기업이 받을 타격도 함께 커졌다는 평가가 나온다.\n\n메우티아 하피드 인도네시아 통신디지털부 장관은 지난 28일 메타·유튜브·틱톡·X·로블록스 등 ‘고위험군’으로 분류된 8개 주요 소셜미디어에서 청소년 사용을 금지하는 장관령을 발효시켰다. 지난해 대통령",
+        "source": "Chosun Ilbo",
+        "language": "ko",
+        "date": "2026-03-29",
+        "category": "테크"
+      },
+      {
+        "title": "은행 주담대 고정금리 7% 넘어… 영끌족 비명",
+        "body": "- 동아일보\n공유하기\n글자크기 설정\n중동 불안 등에 3년5개월來 최고… 1월 연체율도 한달새 0.02%P 증가\n내달 고가 주담대 가산금리 오를듯… “대출 빨리 갚고 예금 늘려야” 조언\n국내 은행들의 주택담보대출(주담대) 고정 금리가 7%대를 넘어서면서 이른바 ‘영끌족’(영혼까지 끌어모은 대출로 투자한 사람)의 이자 부담이 커지고 있다. 국내외 중앙은행의 기준 금리가 인상될 수도 있다는 관측이 대출 금리의 지표가 되는 시장 금리에 반영된 영향으로 풀이된다. 중동 사태 여파로 유가가 급등하고 주요국의 물가 상승 부담도 커져 현재의 높은 금리 수준이 당분간 이어질 것이란 전망이 나온다.\n● 주담대 고정금리 41개월 만에 7% 돌파\n29일 금융권에 따르면 KB국민, 신한, 하나, 우리, NH농협 등 5대 시중은행의",
+        "source": "Dong-A Ilbo",
+        "language": "ko",
+        "date": "2026-03-29",
+        "category": "경제,경제일반,금융,대출"
+      },
+      {
+        "title": "[바로잡습니다] 3월 20일 자 A26면 ‘[朝鮮칼럼] 트럼피즘은 왜 실패하고 있는가’ 칼럼 중 외",
+        "body": "▲3월 20일 자 A26면 ‘[朝鮮칼럼] 트럼피즘은 왜 실패하고 있는가’칼럼 중 “미국과 나토는 함께 나치즘을 분쇄했고”에서 ‘나토는’을 ‘유럽 국가들은’으로 바로잡습니다.\n\n▲3월 21일 자 B3면 ‘음악과 미술을 연결…예술의 경계를 허물다’기사에서 ‘문화재청’을 ‘국가유산청’으로, ‘국외소재문화재재단’을 ‘국외소재문화유산재단’으로 바로잡습니다.\n\n▲3월 24일 자 B1면 ‘산업계 쇼크 확산… 아시아 증시 ‘블랙 먼데이’’그래픽 중 ‘80t’은 ‘80만t’의 잘못이므로 바로잡습니다.",
+        "source": "Chosun Ilbo",
+        "language": "ko",
+        "date": "2026-03-29",
+        "category": "오피니언"
+      },
+      {
+        "title": "[알림] 연합뉴스 콘텐츠 저작권 고지 | 연합뉴스",
+        "body": "연합뉴스가 제공하는 기사, 사진, 그래픽, 영상 등 모든 콘텐츠는 관련 법의 보호를 받습니다. 연합뉴스 콘텐츠를 사전허가 없이 전재·방송하거나 무단으로 복사·배포·판매·전시·개작·AI 학습 및 활용할 경우 민·형사상 책임이 따를 수 있습니다. 콘텐츠 사용과 관련해 궁금한 점이 있으면 전화(☎:02-398-3804) 또는 이메일(hello@yna.co.kr)로 문의하기 바랍니다.\n제보는 카카오톡 okjebo <저작권자(c) 연합뉴스, 무단 전재-재배포, AI 학습 및 활용 금지> 2026년03월30일 00시00분 송고",
+        "source": "Yonhap News Agency",
+        "language": "ko",
+        "date": "2026-03-29",
+        "category": null
+      },
+      {
+        "title": "외식업 매출 4년새 41% 늘었지만, 수익성은 12%→8.7% ‘뚝’",
+        "body": "- 동아일보\n공유하기\n글자크기 설정\n“양적 성장 불구 내실은 취약해져”\n프랜차이즈-非프랜차이즈 매출差\n7424만원→1억581만원 벌어져\n국내 외식업의 연평균 매출이 2억5000만 원 수준으로 늘었지만 식재료비와 인건비 등 비용 부담이 더 커져 수익성은 악화한 것으로 나타났다. 외형은 커졌지만 영업이익률은 오히려 하락하면서 내실은 퇴보하고 있는 것이다.\n농림축산식품부와 한국농촌경제연구원이 29일 발표한 ‘2025년 외식업체 경영 실태 조사’ 결과에 따르면 2024년 외식업체 1곳당 연평균 매출액은 2억5526만 원으로 전년 대비 1.4%(360만 원) 증가했다. 2020년 1억8054만 원과 비교하면 4년 만에 41.4% 늘었지만 최근 들어 증가세가 주춤한 모습을 보이고 있다. 고금리와 고물가로 소비자들의 실",
+        "source": "Dong-A Ilbo",
+        "language": "ko",
+        "date": "2026-03-29",
+        "category": "경제,경제일반,산업"
+      },
+      {
+        "title": "‘회계 부정’ 주도한 회사 관계자, 임원 선임 제한",
+        "body": "- 동아일보\n-\n입력 2026년 3월 30일 00시 30분\n공유하기\n글자크기 설정\n올해부터 회계 부정을 주도하거나 지시한 회사 관계자는 임원으로 선임되거나 재임되기 힘들어진다. 감사 절차를 소홀히 진행한 회계사는 징계 시효가 늘고, 회계법인은 영업이 정지될 수도 있다.\n금융감독원은 29일 ‘2026년도 금융감독원 회계 심사·감리 업무 운영계획’을 발표하고 각종 회계 부정에 대한 ‘무관용 원칙’을 강조했다. 회계 부정을 엄단해 정부의 증시 부양 정책을 지원한다는 구상이다.\n먼저 한계기업 징후가 뚜렷하거나 감사 시간이 너무 적은 기업을 집중적으로 점검한다. 이를 통해 분식회계로 연명하는 코스닥 부실기업을 신속하게 퇴출할 방침이다. 코스피200 기업의 심사·감리 주기를 20년에서 10년으로 절반 단축한다. 과징금",
+        "source": "Dong-A Ilbo",
+        "language": "ko",
+        "date": "2026-03-29",
+        "category": "경제,경제일반,금융"
+      },
+      {
+        "title": "일라이릴리, 홍콩상장 AI 신약개발사와 4조원대 라이선스 계약 | 연합뉴스",
+        "body": "(뉴욕=연합뉴스) 이지헌 특파원 = 비만치료제 젭바운드로 유명한 미국 제약사 일라이릴리가 생성형 인공지능(AI) 기술을 활용한 신약 출시를 위해 홍콩 상장 신약개발사 인실리코 메디슨(이하 인실리코)과 총 27억5천만 달러(약 4조원)에 이르는 글로벌 라이선스 및 연구 계약을 체결했다고 미 CNBC 방송이 29일(현지시간) 보도했다.\n보도와 회사 발표에 따르면 이번 계약으로 일라이릴리는 인실리코가 개발한 전(前)임상 단계 신약 후보물질의 개발과 제조, 상업화에 관한 독점 라이선스를 얻게 된다.\n계약에 따라 인실리코는 향후 개발·규제·상업화 단계별로 총 27억5천만 달러의 지급금을 받을 수 있으며, 선취계약금으로 1억1천500만 달러(약 1천700억원)를 수령했다. 인실리코는 향후 신약 매출에 대한 단계적 로열",
+        "source": "Yonhap News Agency",
+        "language": "ko",
+        "date": "2026-03-29",
+        "category": "경제"
+      },
+      {
+        "title": "年6800% 대출뒤 불법 추심 ‘이 실장’ 주의보",
+        "body": "- 동아일보\n-\n입력 2026년 3월 30일 00시 30분\n공유하기\n글자크기 설정\n추적 힘든 텔레그램-대포폰 활용\n금감원, 소비자 경보 ‘경고’ 발령\n연 6800%의 초고금리 대출을 내주고 불법 추심을 일삼는 온라인 불법 사금융업자 ‘이 실장’과 관련한 피해가 급증하고 있다. 금융감독원은 소비자 경보 ‘경고’를 발령했다.\n29일 금감원은 이 실장과 관련한 피해 신고가 올해 1월 33건, 2월 12건 등 총 62건으로 집계됐다고 밝혔다. 지난해 9월 1건, 10월 4건 등이었던 것과 비교하면 올해 들어 피해자가 빠르게 늘었다.\n이 실장 일당은 대출 중개, 실행, 추심을 분업하며 조직적으로 활동한다. 우선 중개업자는 대출 중개 사이트, 온라인 커뮤니티 등에서 급전이 필요한 피해자에게 접근해 등록 대부업체인 척하",
+        "source": "Dong-A Ilbo",
+        "language": "ko",
+        "date": "2026-03-29",
+        "category": "경제,경제일반,금융,대출"
+      },
+      {
+        "title": "“에어택시 돈 안되고 규제 많아”… 도심항공교통서 손떼는 기업들",
+        "body": "- 동아일보\n공유하기\n글자크기 설정\n현대차, 해당사업 속도조절 나서… 한화시스템은 최근 무기한 중단\n기술 상용화-정책 수립 더딘데다 중동 등 글로벌 불확실성 커진 탓\n‘잠실에서 김포공항까지 20분’을 강조하며 각 기업들이 야심 차게 뛰어들었던 도심항공교통(UAM) 사업이 줄줄이 엎어지는 등 국내 UAM 연구개발(R&D) 투자가 중단되는 모습이다. 기술 상용화도, 정책 수립도 더딘 상황에서 중동 전쟁 등 글로벌 불확실성이 커지자 관련 기업들이 ‘당장 돈이 안 되는’ UAM 사업에서 손을 뗀 것이다.\n29일 관련 업계에 따르면 SK텔레콤은 최근 세계 1위 UAM 기체 개발 업체인 미국의 ‘조비 에이비에이션’ 보유 지분의 3분의 2를 매각했다. 2023년 약 1300억 원(약 1억 달러)을 투자하면서 파트너십을 ",
+        "source": "Dong-A Ilbo",
+        "language": "ko",
+        "date": "2026-03-29",
+        "category": "경제,경제일반,산업,4차 산업혁명 시대,기업"
+      },
+      {
+        "title": "OECD 한국 성장 전망 2.1%→1.7%로 낮춰…고유가 장기화 우려",
+        "body": "미국·이스라엘-이란 전쟁이 발발한 지 한달을 넘긴 가운데 고유가 장기화에 따른 한국 경제성장률 하락 우려가 본격화하고 있다.\n주요 국제기구 가운데서는 경제협력개발기구(OECD)가 전쟁 영향을 반영해 지난 26일 중간경제 전망 보고서를 발표했는데, 오이시디는 올해 한국의 성장률 전망치를 기존 2.1%에서 1.7%로 0.4%포인트 끌어내렸다. 세계 경제성장률 전망치는 기존의 2.9%로 유지했는데, 한국은 중동 에너지 의존도가 높은 만큼 전쟁이 장기화하면 구조적으로 더 취약할 수 있다고 판단한 것으로 풀이된다.\n전쟁이 일어나기 전인 지난 1월 재정경제부는 올해 성장률을 2%로, 2월 한국개발연구원(KDI)과 한국은행은 각각 1.9%, 2%로 전망했는데 이 같은 전망도 조정이 불가피할 것으로 보인다. 김상봉 한성대",
+        "source": "Hankyoreh",
+        "language": "ko",
+        "date": "2026-03-29",
+        "category": "economy"
+      },
+      {
+        "title": "‘加 잠수함 수주전’ 한화오션, 현지 기업 5곳과 협력",
+        "body": "- 동아일보\n-\n입력 2026년 3월 30일 00시 30분\n공유하기\n글자크기 설정\n60조 원 규모의 캐나다 차세대 잠수함 수주전에서 독일과 경쟁 중인 한화오션이 현지 기업과의 협력 확대에 나섰다. 캐나다 정부가 자국 기업 참여를 주요 평가 요소로 내세운 데 따른 것이다.\n29일 캐나다 국방 전문 매체 트루 노스 스트러티직 리뷰 등에 따르면 한화오션은 최근 OSI마리타임시스템스, EMCS인더스트리스, 텍솔마린, 자스트람테크놀로지스, 커티스라이트 등 현지 기업 5곳과 파트너십을 체결했다. 이번 입찰 항목 중 ‘캐나다 경제에 기여하는 정도’는 입찰 점수의 15%를 차지한다. 경쟁 상대인 독일 티센크루프마린시스템스(TKMS)도 지난달과 이달에 걸쳐 캐나다 현지 기업들과 전방위적 파트너십을 맺은 상태다.\n한화오션이 ",
+        "source": "Dong-A Ilbo",
+        "language": "ko",
+        "date": "2026-03-29",
+        "category": "경제,경제일반,산업,기업"
+      },
+      {
+        "title": "통행료 30억 호르무즈 ‘톨게이트’ 열린다…미 종전 조건과 정면충돌",
+        "body": "이란이 호르무즈해협을 통과하는 선박에 약 200만달러의 ‘통행료’를 물리기 시작했다고 전해지는 가운데, 중재국들을 통한 미국과 이란 간 종전 물밑 협상에서는 호르무즈해협 자유 항행 문제가 핵심 쟁점으로 부상할 모양새다. 이란에서는 통행료 부과 제도 도입을 추진하고 있으며, 이를 두고 국제법 위반이라는 논란도 나온다.\n에이피(AP) 통신 등에 따르면 이란은 이미 일종의 ‘톨게이트’를 꾸려 돈을 받고 있다. 외신들은 해운 전문 데이터업체 로이드리스트인텔리전스를 인용해, 지난 13일 이후 다수 글로벌 선사가 이란 혁명수비대에 화물, 선주, 목적지, 승무원 명단 등을 기록한 상세 서류를 제출하고 해협 통과 승인을 받았다고 보도했다. 최소 2척의 선박이 위안화로 통행료를 지불했다고 로이드리스트인텔리전스는 전했다.\n승",
+        "source": "Hankyoreh",
+        "language": "ko",
+        "date": "2026-03-29",
+        "category": "international"
+      },
+      {
+        "title": "딥엑스, AI칩 양산 7개월만에 8개국서 주문 27건",
+        "body": "- 동아일보\n공유하기\n글자크기 설정\n“CES 공개후 주문 10배 이상 늘어”\n한국 인공지능(AI) 반도체 설계(팹리스) 스타트업 딥엑스가 초저전력 AI 칩 ‘DX-M1’의 양산을 시작한 지 7개월 만에 구매 주문을 27건 확보했다.\n29일 딥엑스는 “지난해 8월 (DX-M1의) 양산 제품을 출시한 지 7개월 만에 8개국 기업들로부터 총 27건의 구매 주문을 확보했다”고 밝혔다. 딥엑스는 이 가운데 25건의 주문이 올 1∼3월에 접수된 주문이라고 설명했다. 지난해 8∼12월 구매 주문이 2건에 불과했지만, 올 1월 세계 최대 정보기술(IT)·가전 전시회 ‘CES 2026’에서 칩의 성능을 공개한 이후 주문이 크게 늘었다는 설명이다.\n딥엑스는 CES 2026에서 ‘버터 벤치마크’를 통해 자사 제품의 성능을 강조",
+        "source": "Dong-A Ilbo",
+        "language": "ko",
+        "date": "2026-03-29",
+        "category": "경제,경제일반,산업,4차 산업혁명 시대"
+      },
+      {
+        "title": "‘차세대 최강 AI’ 유출된 앤스로픽… “담당자 실수”",
+        "body": "- 동아일보\n-\n입력 2026년 3월 30일 00시 30분\n공유하기\n글자크기 설정\n미국 인공지능(AI) 기업 앤스로픽이 거대언어모델(LLM) ‘클로드’의 기존 모델을 뛰어넘는 차세대 모델을 개발해 초기 고객 대상 테스트에 들어간 사실이 알려졌다.\n29일 미 경제매체 포천 등에 따르면 앤스로픽 온라인 저장소에 내부 문건이 실수로 노출됐다. 외부 콘텐츠 관리 시스템(CMS)을 운용하는 과정에서 담당자 착오로 보안 설정이 전혀 없는 인터넷주소(URL)에 관련 파일이 그대로 올라간 것. 이에 대해 앤스로픽 측은 “인간의 실수”라고 해명했다.\n유출된 블로그 초안에 따르면 새 모델명은 ‘클로드 미토스’로, 기존 최고 성능 모델인 오퍼스를 뛰어넘는 ‘카피바라’라는 신규 등급으로 분류된다. 앤스로픽은 초안에서 “이전 최고",
+        "source": "Dong-A Ilbo",
+        "language": "ko",
+        "date": "2026-03-29",
+        "category": "경제,경제일반,산업,4차 산업혁명 시대,IT/의학,인공지능"
+      },
+      {
+        "title": "與 ‘검사가 형량거래 제안’ 녹취 공개… 박상용 검사 “짜깁기한 것”",
+        "body": "더불어민주당이 주도하는 ‘윤석열 정권 조작기소 의혹 사건 국정조사’ 청문회를 앞두고, 민주당 의원들과 ‘쌍방울 대북송금 사건’을 수사한 박상용 검사가 29일 장외에서 충돌했다. 박 검사는 오는 14일 예정된 국정조사 청문회 증인으로도 채택돼 있다.\n\n‘쌍방울 대북송금 사건’은 민주당이 검찰의 조작기소 의혹을 제기한 7개 사건 중 하나다. 쌍방울 그룹이 이재명 대통령이 과거 경기지사로 재직할 때 방북 비용 300만달러, 경기도가 북한에 지급하려던 스마트팜 사업비 500만달러를 대납했다는 의혹 사건이다.\n\n민주당은 검찰이 사건을 조작했다고 보고 있다. 특히 사건을 수사한 박상용 검사가 쌍방울이 북한에 달러를 송금할 당시 경기도 평화부지사였던 이화영씨를 회유해 거짓 자백을 하게 했다는 것이다.\n\n이날 민주당 전용",
+        "source": "Chosun Ilbo",
+        "language": "ko",
+        "date": "2026-03-29",
+        "category": "정치 일반"
+      },
+      {
+        "title": "[프로배구 PO 2차전 전적] 현대캐피탈 3-2 우리카드 | 연합뉴스",
+        "body": "◇ 남자부 플레이오프(PO) 2차전 전적(29일·서울 장충체육관)\n우리카드(2패) 25 25 18 39 12 - 2\n현대캐피탈(2승) 22 22 25 41 15 - 3\n(서울=연합뉴스)\n제보는 카카오톡 okjebo <저작권자(c) 연합뉴스, 무단 전재-재배포, AI 학습 및 활용 금지> 2026년03월29일 22시08분 송고\n송고 2026년03월29일 22시08분\n◇ 남자부 플레이오프(PO) 2차전 전적(29일·서울 장충체육관)\n우리카드(2패) 25 25 18 39 12 - 2\n현대캐피탈(2승) 22 22 25 41 15 - 3\n(서울=연합뉴스)\n제보는 카카오톡 okjebo <저작권자(c) 연합뉴스, 무단 전재-재배포, AI 학습 및 활용 금지> 2026년03월29일 22시08분 송고\nESC 닫기\n댓글",
+        "source": "Yonhap News Agency",
+        "language": "ko",
+        "date": "2026-03-29",
+        "category": "스포츠"
+      },
+      {
+        "title": "이란 급습에 쓴맛…美 4천500억원짜리 '하늘의 눈' E-3 첫 파괴 | 연합뉴스",
+        "body": "사우디아라비아 소재 미군 '프린스 술탄' 공군기지가 이란의 미사일 공격에 노출되면서 3억 달러짜리 'E-3 센트리' 조기경보통제기가 파괴되는 쓴맛을 봤다.\n미군은 이를 60여대 운용하고 있어 대체가 가능하긴 하지만 이번 손실에 따른 비용은 막대하다.\n호주 공군 장교 출신이며 그리피스 아시아 연구소 방문연구원인 피터 레이턴은 이번 E-3 파괴가 상당히 큰 일이라며 이 기종의 크기가 커서 지상에 있는 상태에서 공격을 받기 쉬워 능동적 방어가 필요하다고 설명하고 \"그렇게 늘 하기는 어렵다. 가끔은 실패하기도 한다\"고 말했다.\n인공지능이 자동으로 줄인 '세 줄 요약' 기술을 사용합니다. 전체 내용을 이해하기 위해서는 기사 본문과 함께 읽어야 합니다.\n(서울=연합뉴스) 임화섭 기자 = 사우디아라비아 소재 미군 '프린",
+        "source": "Yonhap News Agency",
+        "language": "ko",
+        "date": "2026-03-29",
+        "category": "국제"
+      },
+      {
+        "title": "AI의 ‘아부’와 ‘방종’을 경계하라",
+        "body": "공유하기\n- 동아일보\n공유하기\n글자크기 설정\n美 연구팀 3곳 ‘AI 위험성’ 분석\n악행 저지른 사용자에게 동조… “네가 옳아”… 답변 만족도 올라\n오픈클로는 허락없이 메일 삭제… 병원-軍 등 시스템에 위협 요소\n인공지능(AI)의 명암 중 어두운 부분에 대한 예측은 일자리 대체나 허위 정보 생산, 전쟁에서의 활용 같은 거시적 문제에 머물렀다. 최근에는 일상적인 사용 상황에서도 AI가 사용자의 판단력과 행동을 실시간으로 왜곡하고 자율적으로 작동하며 통제를 벗어나고 전문가조차 속이는 수준에 이르렀다는 연구 결과들이 잇따라 나오고 있다. 막연한 예측이나 경고가 아닌 현실에서 벌어지고 있는 사례들이라는 점에서 경각심을 불러일으키고 있다.\n● AI 챗봇, 과도하게 동조하며 사용자 판단 흐려\n마이라 청 미국 스탠퍼드대 ",
+        "source": "Dong-A Ilbo",
+        "language": "ko",
+        "date": "2026-03-29",
+        "category": "IT/의학,과학일반,동아 사이언스,인공지능"
+      },
+      {
+        "title": "“AI도 못 푸는 질병… 답은 양자컴퓨터”",
+        "body": "공유하기\n- 동아일보\n공유하기\n글자크기 설정\n0과 1로 연산하는 고전 컴퓨터\n‘최소 30억쌍’ 유전정보 못 다뤄\n양자컴퓨터로 정밀의료 앞당겨\n“변수가 많고 네트워크가 복잡한 생물학에서는 1+1이 1.9가 되기도 하고 2를 넘기기도 합니다. 강력한 인공지능(AI)도 결국 0과 1만으로 연산하기 때문에 한계가 있습니다. 진단·치료 속도와 정확도를 높이려면 0도 1도 아닌 개념을 표현하는 양자기술이 필요합니다.”\n최근 만난 한남식 영국 케임브리지대 밀너의약연구소 AI연구센터장은 정부가 AI 시대 과학기술 경쟁력 강화를 위해 시작한 ‘K-문샷’ 프로젝트의 핵심 미션 중 하나인 신약 개발 AI에 대해 “막강한 도구이고 지금도 성장할 부분이 많이 남아 있다”고 평가하면서도 근본적인 한계가 있다고 진단했다. 한남식 센터",
+        "source": "Dong-A Ilbo",
+        "language": "ko",
+        "date": "2026-03-29",
+        "category": "IT/의학,과학일반,동아 사이언스,인공지능,컴퓨터"
+      },
+      {
+        "title": "[부음] 임종각 별세 외",
+        "body": "▲임종각 별세, 임성택·임민택·임윤택 코미디언 부친상, 소정화·김영조 시부상=29일0시53분 신촌세브란스병원, 발인 31일7시20분, (02)2227-7500\n\n▲전오순 별세, 김희동 세계일보 편집국 교열담당 부장·김병육 모친상, 김진하 삼성전자 AI센터 책임연구원 조모상=28일14시 한양대구리병원, 발인 31일5시, (031)566-2040",
+        "source": "Chosun Ilbo",
+        "language": "ko",
+        "date": "2026-03-29",
+        "category": "부음·인사"
+      },
+      {
+        "title": "구윤철 “유가 120~130달러 되면 차량5부제 민간 확대”",
+        "body": "구윤철 부총리 겸 재정경제부 장관이 국제유가가 배럴당 120∼130달러 수준으로 오르면 차량 5부제를 민간으로 확대할 수 있다는 입장을 밝혔다.\n구 부총리는 29일 오전 <한국방송>(KBS) ‘일요 진단’에 출연해 “중동 상황이 더 심각해지면 (위기 경보가) 3단계(경계) 정도로 올라가야 하고 그쯤 되면 소비도 줄여야 한다. 민간에도 국민들께 협조를 부탁드리기 위해서 차량 부제를 도입해야 하지 않을까 보고 있다”고 말했다.\n그는 3단계로 상향하는 조건에 대해 “위기의 심각성을 종합적으로 봐야 한다”며 “유가가 지금은 100∼110달러 수준인데 120∼130달러로 간다든지, 여러 가지 종합적인 상황을 보겠다”고 말했다. 그러면서 유가 상승으로 인한 국민 부담을 줄이기 위해 필요시 유류세를 추가 인하할 여지가 ",
+        "source": "Hankyoreh",
+        "language": "ko",
+        "date": "2026-03-29",
+        "category": "economy"
+      },
+      {
+        "title": "[HBR]신입, 리더십을 평가하라",
+        "body": "공유하기\n- 동아일보\n공유하기\n글자크기 설정\n신입, 리더십을 평가하라\n인공지능(AI)이 신입 사원의 일자리를 대체하기 시작하며 법률회사, 컨설팅회사 등 전문적인 서비스를 제공하는 기업의 신입 채용 방식이 바뀌고 있다. 이들 회사는 내부 평가 및 승진 시스템을 통해 우수한 인재를 걸러냈다. 많은 인재를 뽑고 그중 현장에서 탁월성을 입증한 소수의 직원이 리더가 되는 구조다. 그러나 AI로 인해 신입 채용이 크게 줄어든 지금은 대규모 채용이 곧 리더의 발굴과 육성을 담보할 수 없게 됐다. 애초에 소수의 인재만 뽑는 시대에는 신입 지원자가 미래에 리더가 될 자질을 갖췄는지 면밀히 검증해야 한다. AI 덕분에 당장의 인건비를 줄였다는 데서 만족해선 안 된다. 미래의 리더십을 미리 준비하지 않는 기업은 머지않아 리더십",
+        "source": "Dong-A Ilbo",
+        "language": "ko",
+        "date": "2026-03-29",
+        "category": "경제,경제일반,IT/의학,인공지능"
+      },
+      {
+        "title": "AI 가짜 영상으로 美 ‘폭격’… 이란, 사이버 선전전에 총력",
+        "body": "27일 남아프리카공화국 주재 이란 대사관은 X에 이스라엘 텔아비브에 대한 미사일 공격을 축하하는 AI(인공지능) 생성 영상을 게시했다. 이란 병사가 미사일이 발사되는 장면을 배경으로 셀카봉을 들고 웃으면서 주스를 마시는 모습이 담겼다. 대사관은 영상에 “오늘의 재미있는 게시물”이라면서 “텔아비브를 더 정확하게 타격할 수 있도록 석류(이란의 특산물) 주스를 마셔라”라고 적었다. 그보다 앞선 23일 이슬람혁명수비대 대변인 에브라힘 졸파가리는 영상 메시지에서 영어로 “트럼프, 당신은 해고됐어(You’re fired)”라면서 “이 사안에 관심을 가져줘서 감사하다(Thank you for your attention to this matter)”라고 말했다. 도널드 트럼프 대통령이 과거 리얼리티 프로그램 ‘어프렌티스’",
+        "source": "Chosun Ilbo",
+        "language": "ko",
+        "date": "2026-03-29",
+        "category": "국제 일반"
+      },
+      {
+        "title": "반도체시장, 위기냐 기회냐…메모리 효율 극대화한 구글 ‘터보 퀀트’에 엇갈린 시선",
+        "body": "미국 구글이 인공지능(AI) 모델의 메모리 사용을 효율화하는 신기술을 최근 선보이면서 삼성전자와 에스케이(SK)하이닉스 등 관련 기업들의 주가가 일제히 요동치고 있다. 메모리 반도체 기업들의 ‘슈퍼사이클’(초호황)이 예상보다 빨리 끝날 수 있다는 시장의 불안감이 반영된 결과다. 그러나 중국 인공지능 스타트업 딥시크의 저비용·고효율 모델 출시가 오히려 투자 경쟁을 심화시켰듯, 이 신기술을 향한 시장의 우려 역시 기우에 불과하다는 지적도 나온다.\n이번 논란의 발단은 구글이 지난 24일(현지시각) 자체 블로그에서 소개한 논문이다. 구글이 지난해 4월 처음 공개했던 ‘터보 퀀트’ 기술 관련 논문을 최근 누리집에 다시 상세히 게재한 것이다.\n논문을 보면, 터보 퀀트란 챗지피티(GPT)나 제미나이 같은 인공지능 모델의",
+        "source": "Hankyoreh",
+        "language": "ko",
+        "date": "2026-03-29",
+        "category": "economy"
+      },
+      {
+        "title": "첨단 기술 수출 통제에… 中, 美 무역 장벽 조사",
+        "body": "중국이 미국의 대중(對中) 첨단 기술 수출 통제와 투자 제한 등을 겨냥해 정식 무역 장벽 조사에 착수했다. 최근 메타의 인수 시도와 관련해 중국계 기업 마누스 창업자를 상대로 조사에 나선 데 이어, 미국의 통상 조치에 맞불을 놓은 것이다. 5월 도널드 트럼프 미국 대통령과 시진핑 중국 국가주석의 정상회담을 앞두고 협상 카드를 축적하려는 움직임으로 풀이된다.\n\n중국 상무부는 27일 미국의 글로벌 산업망·공급망 교란 조치와 녹색 상품 무역 저해 조치 등 두 사안에 대해 무역 장벽 조사를 시작한다고 발표했다. 조사 기간은 이날부터 6개월이며, 특수한 상황이 있을 경우 3개월 연장할 수 있다고 밝혔다. 미국의 각종 통상 조치를 공식 조사 대상에 포함시켜 대응 수위를 단계적으로 끌어올리겠다는 의도로 보인다.\n\n상무부",
+        "source": "Chosun Ilbo",
+        "language": "ko",
+        "date": "2026-03-29",
+        "category": "국제 일반"
+      },
+      {
+        "title": "‘화음으로 잇는 상생의 가치’ 롯데, 행복나눔 동행콘서트 성료",
+        "body": "공유하기\n- 동아경제\n공유하기\n글자크기 설정\n클래식과 대중음악 아우르는 크로스오버 공연으로 소통 강화\n주요 관계자 참석해 지속 가능한 동반성장 의지 재확인\n그룹 성장 파트너로서의 유대감 고취 및 협력 관계 공고화\n롯데는 지난 27일 서울 송파구 롯데콘서트홀에서 협력사 구성원들과 함께하는 2026 롯데 행복나눔 동행콘서트를 진행했다고 29일 밝혔다. 올해로 4회차를 맞이한 이번 행사에는 340여 개 파트너사 소속 임직원 1300여 명이 자리했다. 롯데지주를 비롯해 유통, 식품, 건설 등 12개 주요 계열사 임직원들도 참석해 교류의 시간을 가졌다.\n행사의 슬로건인 심포니 오브 롯데(Symphony of LOTTE)는 기업과 파트너사가 상호 협력해 동반성장의 결과물을 만들어간다는 취지를 반영했다. 무대는 정통 클",
+        "source": "Dong-A Ilbo",
+        "language": "ko",
+        "date": "2026-03-29",
+        "category": "경제,경제일반"
+      },
+      {
+        "title": "“AI로 더 바빠진다” [뉴노멀-실리콘밸리]",
+        "body": "박원익 | 더밀크 IP본부장\n“컴퓨터, 인터넷, 모바일이 인간을 더 바쁘게 만든 것처럼, 인공지능(AI)도 모든 사람을 더 바쁘게 만들 것이다.”\n젠슨 황 엔비디아 최고경영자(CEO)는 지난 17일(현지시각) 미국 캘리포니아주 새너제이에서 열린 ‘지티시(GTC) 2026’ 기자회견에서 에이아이 시대를 이렇게 묘사했다. 자율적으로 행동하며 목표를 달성하는 에이아이 에이전트(대리인) 도입 확대가 비약적인 생산성 급증을 가져오고, 결국 우리를 더 바쁘게 만들 것이란 전망이다.\n에이아이에게 업무를 시키면 사람이 하는 것보다 훨씬 빠르게 결과물을 내놓는다. 결과물이 빠르게 돌아오니 후속 의사결정과 추가 작업이 필요하고, 결국 사람이 처리해야 할 일의 총량이 늘어난다. 젠슨 황은 기자회견에서 “10년 뒤 엔비디아는 직",
+        "source": "Hankyoreh",
+        "language": "ko",
+        "date": "2026-03-29",
+        "category": "opinion"
+      },
+      {
+        "title": "낫싱, 실용성 강조한 무선 헤드폰 ‘a’ 출시… 배터리 효율과 뛰어난 가성비",
+        "body": "공유하기\n- 동아경제\n공유하기\n글자크기 설정\n업계 최고 수준의 전력 효율로 최대 135시간 연속 재생 지원\n티타늄 드라이버와 고해상도 코덱 탑재해 원음 충실도 구현\n터치 대신 물리 조작계 도입으로 오작동 방지 및 편의성 강화\n영국 IT기업 낫싱(Nothing)이 무선 헤드폰 ‘a’를 국내 공식 출시했다. 그간 이어폰 제품군에서 고수해온 극도의 투명 디자인에서 한발 물러나, 소재의 견고함과 실질적인 사용 편의성을 우선순위에 둔 제품이다. 특히 화이트 모델은 간결한 색감과 금속 소재의 조화를 통해 깔끔한 디자인으로 완성돼 긍정적인 평을 받고 있다. 제품을 테스트하며 상품성을 확인해 봤다.\n디자인의 변화, 투명함 대신 내구성과 간결함 선택\n헤드폰 a는 낫싱의 기존 디자인 정체성을 유지하면서도 하드웨어의 완성도를 ",
+        "source": "Dong-A Ilbo",
+        "language": "ko",
+        "date": "2026-03-29",
+        "category": "IT/의학,IT"
+      },
+      {
+        "title": "트럼프 승리 선언은 감감…미 패권 세 기둥 한꺼번에 흔들",
+        "body": "미국·이스라엘-이란 전쟁이 한달을 넘겼지만 도널드 트럼프 행정부의 승리 선언이 멀어지고, 미국 패권의 균열은 깊어지고 있다. 냉전 이후 미국 중심 세계 질서를 지탱해온 세 기둥인 절대적 군사력, 달러 패권, 자유주의 규범이 동시에 타격을 입고 있다.\n전쟁 한달째인 28일(현지시각) 사우디아라비아의 프린스술탄 공군기지가 이란의 미사일 공격을 받아 20여명이 부상하는 등 미군 피해가 작지 않게 발생했다. 특히 대당 7억달러(약 1조563억원)에 이르는 E-3 센트리 조기경보기와 공중급유기 3대가 파손됐다고 전해졌다. 개전 이후 이란은 중동 내 군사기지 104곳을 공격했고, 이 중 미군 기지 13곳의 미군은 호텔로 거처를 옮겼다. 뉴욕타임스는 25일 중동의 많은 미군 병력이 호텔이나 사무용 공간으로 재배치됐다며 ",
+        "source": "Hankyoreh",
+        "language": "ko",
+        "date": "2026-03-29",
+        "category": "international"
+      },
+      {
+        "title": "김민석 “생필품 수급 차질에 선제 대응”…첫 비상경제본부회의",
+        "body": "기사를 읽어드립니다\n0:00\n광고\n김민석 국무총리가 29일 미국·이스라엘-이란 전쟁으로 인한 경제 위기 대책으로 “국민 생필품 수급 차질 우려에 선제적으로 대응하겠다”고 말했다.\n김 총리는 이날 정부서울청사에서 첫 비상경제본부회의를 주재하고 “코로나19 당시 마스크 품귀 현상과 요소수 사태로 물류가 마비되고 경유차가 멈춰 섰던 사회적 고통의 기억이 생생하다”며 이렇게 말했다. 김 총리는 “중동발 물품 수급 차질이 국민 생활필수품목에 미치는 영향을 시나리오별로 분석하고 단계별 대응 방안을 마련하라”며 “빠지고 놓치는 일 없이 철저히 점검해달라”고 각 부처에 당부했다.\n구윤철 부총리 겸 재정경제부 장관은 국제 유가가 배럴당 120~130달러 선으로 오르면 현재 공공 부문에서 시행 중인 차량 5부제를 민간으로 확",
+        "source": "Hankyoreh",
+        "language": "ko",
+        "date": "2026-03-29",
+        "category": "politics"
+      },
+      {
+        "title": "[사설] 이근안 등 국가범죄 상훈 박탈, 역사에 교훈 새겨야",
+        "body": "경찰이 ‘고문 기술자’ 이근안씨 등 과거 고문과 간첩 조작 등의 공로로 포상을 받은 수사 관계자의 상훈을 취소하기 위한 전수조사에 착수했다고 한다. 이재명 대통령은 29일 이에 대해 “사법살인 같은 최악의 국가폭력 범죄자에게 준 훈·포장 박탈은 만시지탄이나 당연한 조치”라고 밝혔다. 피해자와 가족을 비롯한 국민 모두가 같은 생각일 것이다. 국민을 지키라고 준 공권력으로 국민의 삶을 파괴한 국가폭력 가해자들이 단죄받기는커녕 포상을 받고 떵떵거려온 비정상을 이번에는 기필코 바로잡아야 한다.\n행정안전부는 공적이 거짓으로 밝혀지면 훈·포장을 취소할 수 있도록 한 상훈법에 바탕해, 2018년부터 경찰과 국가정보원의 전신인 중앙정보부·국가안전기획부 등에 근무하며 고문과 간첩 조작에 가담한 74명의 서훈을 취소했다. 그",
+        "source": "Hankyoreh",
+        "language": "ko",
+        "date": "2026-03-29",
+        "category": "opinion"
+      },
+      {
+        "title": "세탁실·화장실 고장으로 철수한 20조 원짜리 항모[횡설수설/장택동]",
+        "body": "- 동아일보\n공유하기\n글자크기 설정\n“이 항공모함은 미국 군사력을 상징하는 기념비이며 평화를 보장하는 데 필요한 힘을 제공할 것입니다.” 2017년 3월 미국 항공모함 제럴드 포드함 진수식에 참석한 도널드 트럼프 대통령은 찬사를 쏟아냈다. 130억 달러(약 20조 원)를 들여서 만든 포드함은 세계에서 가장 비싼 군함이자 급이 다른 최첨단 항모다. 그런데 이란과의 전쟁이 한창인 상황에서 포드함이 전장에서 사라졌다. 군사적 이유가 아니라 승조원 생활 시설에 문제가 생겨서다.\n▷‘떠다니는 요새’라 불리는 항모는 원거리 군사작전에서 필수 불가결한 핵심 전력이다. 미군은 11척의 핵추진 항모를 보유하고 있다. 이 중 10척은 ‘니미츠급’으로 불리고, 포드함은 등급이 더 높다는 의미에서 ‘포드급’으로 분류된다. 포드함",
+        "source": "Dong-A Ilbo",
+        "language": "ko",
+        "date": "2026-03-29",
+        "category": "오피니언,칼럼,횡설수설"
+      },
+      {
+        "title": "미-이란 물밑협상 속 군사긴장 격화…“오는 한 주가 중대 고비”",
+        "body": "지난달 28일(현지시각) 미국과 이스라엘의 공습으로 시작된 이란 전쟁이 한달을 넘겼다. 미국과 이란이 중재국을 통해 물밑에서 종전안을 주고받으며 협상을 타진 중이지만, 예멘의 친이란 세력 후티 반군이 새로 참전하고 대규모 미 해병대 병력이 중동에 추가 배치되는 등 군사적 긴장이 점점 높아지고 있다. 이번주가 확전과 협상을 가를 중대 고비가 될 수 있다는 전망이 나온다.\n사우디아라비아·파키스탄·튀르키예·이집트 외교장관은 미국-이란 간 협상의 측면 지원을 위해 29일 파키스탄 이슬라마바드에서 긴장 완화 방안 논의를 시작해 30일까지 이어간다. 앞서 미국과 이란은 중재국을 통해 간접 소통하며 각자의 종전안을 교환했다. 전날(27일) 마코 루비오 미 국무장관은 주요 7개국(G7) 외교장관 회의 직후 기자들에게 “이",
+        "source": "Hankyoreh",
+        "language": "ko",
+        "date": "2026-03-29",
+        "category": "international"
+      },
+      {
+        "title": "[광화문에서/임현석]AI가 쓴 소설 독자는 알아챘다",
+        "body": "- 동아일보\n-\n입력 2026년 3월 29일 23시 12분\n공유하기\n글자크기 설정\n글로벌 대형 출판사 아셰트가 영국에서 출간된 소설 ‘샤이걸’을 이달 19일 서점에서 거둬들였다. 이 책은 이달 미국에도 출간될 예정이었지만 계획이 취소됐다. 작가가 인공지능(AI)으로 소설을 썼다는 의혹이 불거졌기 때문이다.\n뉴욕타임스(NYT)는 이번 사태를 두고 “대형 출판사가 AI 사용을 이유로 소설 판매를 중단한 최초 사례”로 평가했다. 독자와 출판사가 AI 창작물에 어떻게 반응하는지 보여주는 첫 공개적 사례라는 의미도 있다.\nAI 의혹을 제기한 건 독자들이다. 올해 초 온라인 커뮤니티인 레딧과 유튜브 독서 리뷰 채널에서 묘한 위화감이 든다는 반응이 나왔다. 개별 단어나 문장은 그럴싸하지만, 페이지를 넘기다 보면 기이할 ",
+        "source": "Dong-A Ilbo",
+        "language": "ko",
+        "date": "2026-03-29",
+        "category": "오피니언,칼럼,광화문에서"
+      },
+      {
+        "title": "[프로농구 서울전적] kt 83-78 삼성 | 연합뉴스",
+        "body": "◇ 29일 전적(잠실실내체육관)\n수원 kt 83(16-19 22-21 24-17 21-21)78 서울 삼성\n(서울=연합뉴스)\n제보는 카카오톡 okjebo <저작권자(c) 연합뉴스, 무단 전재-재배포, AI 학습 및 활용 금지> 2026년03월29일 18시37분 송고\n송고 2026년03월29일 18시37분\n◇ 29일 전적(잠실실내체육관)\n수원 kt 83(16-19 22-21 24-17 21-21)78 서울 삼성\n(서울=연합뉴스)\n제보는 카카오톡 okjebo <저작권자(c) 연합뉴스, 무단 전재-재배포, AI 학습 및 활용 금지> 2026년03월29일 18시37분 송고\nESC 닫기\n댓글",
+        "source": "Yonhap News Agency",
+        "language": "ko",
+        "date": "2026-03-29",
+        "category": "스포츠"
+      },
+      {
+        "title": "장윤주, 뒷모습만 보면 ‘10대’인줄..점점 어려지는 미모",
+        "body": "[OSEN=박하영 기자] 모델 겸 배우 장윤주가 뼈말라 몸매를 뽐냈다.\n\n29일 장윤주는 자신의 계정에 &ldquo;머리카락 빨리 자라는 편&rdquo;이라는 글과 함께 여러 장의 사진을 게재했다.\n\n공개된 사진 속 장윤주는 미니스커트에 오버핏 청자켓을 매치해 포즈를 취하고 있는 모습이 담겼다. 어깨를 넘어선 긴 생머리를 늘어뜨린 채 서 있는 그는 딸이라고 착각할 정도의 동안 비주얼을 자랑해 눈길을 끌었다.\n\n특히 장윤주는 철저히 자기 관리를 통해 군살 하나 없는 늘씬한 몸매 라인을 자랑하고 있는 바. 미니스커트에도 완벽한 각선미를 뽐내 감탄을 자아냈다.\n\n이를 본 배우 전여빈은 &ldquo;진자 맨날 이쁜 윤쥬르&hellip;&rdquo;, 이현이는 &ldquo;세상에 언니 십대같아요&rdquo;, 주현영",
+        "source": "Chosun Ilbo",
+        "language": "ko",
+        "date": "2026-03-29",
+        "category": "방송"
+      },
+      {
+        "title": "영국은 창조산업 위해 ‘YBA’를 키웠다… 허스트 전시가 던지는 질문[양정무의 미술과 경제]",
+        "body": "공유하기\n- 동아일보\n공유하기\n글자크기 설정\n《영국의 쇼핑 문화 중 우리와 다른 점으로 대형 약국이 있다. 웬만한 마트 규모의 약국이 동네마다 거리마다 있다. 우리가 ‘건강과 미용’ 매장에서 화장품을 즐겨 산다면, 영국인들은 약을 즐겨 사는 셈이다. 의약품을 마치 마트의 식료품처럼 대규모로 유통하는 문화가 우리에겐 낯설게 다가오는데, 이런 영국식 약방을 지금 국립현대미술관 서울관에서 만날 수 있다. 3월 20일∼6월 28일 열리는 영국 작가 데이미언 허스트(61)의 개인전 ‘진실은 없어 그러나 모든 것은 가능하지’의 한 전시장은 의약품과 해골 모형으로 가득하다.》\n사실 이 전시 공간은 1998년 허스트가 영국 런던 노팅힐에서 ‘약국(pharmacy)’이라는 이름으로 낸 레스토랑을 재현한 것이다. 그는 이 레",
+        "source": "Dong-A Ilbo",
+        "language": "ko",
+        "date": "2026-03-29",
+        "category": "오피니언,칼럼,문화,미술,양정무의 미술과 경제"
+      },
+      {
+        "title": "익산 한 도로서 승용차·1t트럭 충돌…농수로 빠져 4명 부상 | 연합뉴스",
+        "body": "(익산=연합뉴스) 임채두 기자 = 29일 오전 11시 28분께 전북 익산시 용안면의 한 도로에서 승용차와 1t 트럭이 충돌했다.\n사고 충격으로 두 차량이 도로 옆 농수로에 빠졌으며, 승용차에 타고 있던 4명이 크고 작은 상처를 입어 인근 병원으로 옮겨졌다.\n트럭 운전자는 상처가 비교적 가벼워 이송되지 않았다.\n경찰과 소방당국은 목격자 등을 상대로 사고 원인을 조사 중이다.\ndoo@yna.co.kr\n제보는 카카오톡 okjebo <저작권자(c) 연합뉴스, 무단 전재-재배포, AI 학습 및 활용 금지> 2026년03월29일 18시13분 송고",
+        "source": "Yonhap News Agency",
+        "language": "ko",
+        "date": "2026-03-29",
+        "category": "사회"
+      },
+      {
+        "title": "강기정 후보 \"광주 원도심에 AI 거리 조성\" | 연합뉴스",
+        "body": "강기정 더불어민주당 전남광주특별시장 예비후보는 29일 \"광주 원도심의 고질적인 공동화 문제를 해결하기 위해 대인동에서 광주역 일대에 AI 거리를 조성하겠다\"고 말했다.\n이어 \"단순히 보도블록을 바꾸거나 간판을 정비하는 수준의 거리 지정은 의미가 없다\"며 \"원도심 공실 문제를 해결할 근본 대책은 상권을 살릴 매력적인 기업이 들어오고, 사람이 찾아오며, 공공기관이 뒷받침되는 생태계를 만드는 것이다\"고 설명했다.\n그러면서 \"대인동과 광주역 일대를 시작으로 광주 전역에 AI 거리를 확산시켜 서울로 가지 않아도 일자리와 미래가 보장되는 부강한 광주특별시를 완성하겠다\"고 강조했다.\n전체 내용을 이해하기 위해서는 기사 본문과 함께 읽어야 합니다.",
+        "source": "Yonhap News Agency",
+        "language": "ko",
+        "date": "2026-03-29",
+        "category": "정치"
+      },
+      {
+        "title": "[신문과 놀자!/이야기로 배우는 쉬운 경제]전쟁은 전 세계 가계부에 ‘피해 청구서’를 보낸다",
+        "body": "공유하기\n- 동아일보\n공유하기\n글자크기 설정\n美-이란 전쟁으로 국제유가 급등\n군사비만큼 교육-의료 기회 줄어\n최근 이란과 미국 사이의 갈등처럼 세계 곳곳에서 들려오는 전쟁 소식이 마음을 무겁게 합니다. 특히 아이들이 있는 곳에 폭격이 가해져 인명 피해가 발생했다는 뉴스는 같은 시대를 살아가는 우리를 숙연하게 만듭니다. 전쟁을 떠올릴 때 보통 강력한 무기나 파괴된 도시를 먼저 생각합니다. 하지만 경제의 눈으로 바라보면 조금 다른 질문이 생깁니다.\n전쟁은 왜 이렇게 많은 돈이 들까요. 더 나아가 국가들은 왜 막대한 비용과 피해를 감수하면서까지 전쟁을 선택할까요. 전쟁은 단순한 힘의 충돌이 아니라 자국의 이익을 지키고 자원과 영향력을 확보하기 위한 선택이기 때문입니다. 그렇기 때문에 전쟁에는 막대한 돈과 자원이 ",
+        "source": "Dong-A Ilbo",
+        "language": "ko",
+        "date": "2026-03-29",
+        "category": "오피니언,칼럼,경제,경제일반,신문과 놀자!(초중고생을 위한 NIE)"
+      },
+      {
+        "title": "경찰, 이근안 상훈 16개 취소 검토…이 대통령 “만시지탄”",
+        "body": "경찰이 1945년 창설 이후 경찰관에게 수여된 포상·표창에 대한 전수조사에 착수했다. 최근 사망한 ‘고문기술자’ 이근안 등이 취소대상자로 거론되는 가운데, 이재명 대통령은 “국가폭력 범죄자에게 준 훈·포장 박탈은 만시지탄”이라고 밝혔다.\n29일 경찰청에 따르면, 경찰은 경찰관에게 수여된 정부 포상과 대통령·국무총리 표창 등 7만여건의 공적 사유를 이달 초부터 전수 조사하고 있다. 경찰은 군사정권 시절 강압수사·고문 등 국가폭력을 행사한 경찰관에게 수여한 훈·포장과 표창의 취소를 검토한다는 계획이다. 상훈법과 정부표창규정 등에 따르면, 공적이 거짓으로 드러난 서훈과 표창은 취소할 수 있다.\n경찰은 특히 군사정권 시절 ‘고문기술자’로 악명을 떨친 이근안 전 경감에게 수여된 16개의 상훈의 취소를 검토 중이다. ",
+        "source": "Hankyoreh",
+        "language": "ko",
+        "date": "2026-03-29",
+        "category": "society"
+      },
+      {
+        "title": "[신문은 선생님] [뉴스 속 신화] 구글 AI는 왜 ‘쌍둥이’라는 이름이 붙었을까요?",
+        "body": "최근 구글의 생성형 AI(인공지능) 서비스 제미나이 이용자 3명 중 2명은 오픈AI의 챗GPT를 쓰다가 갈아탔다는 조사 결과가 나왔어요. 제미나이(Gemini)는 라틴어로 ‘게미니’라고 발음하며 ‘쌍둥이’라는 뜻이에요. 원래 영어로는 ‘제미니’라고 발음하는데 이는 하늘의 별자리 중 ‘쌍둥이자리’를 뜻합니다. 구글의 생성형 AI는 왜 이런 이름을 갖게 됐을까요?\n\n그 이유는 두 가지예요. 첫째, 구글 내의 AI 연구 조직인 ‘구글 브레인’과 ‘구글 딥마인드’가 하나로 합병해 탄생한 새 조직에서 제미나이를 만들었기 때문이에요. 제미나이 개발을 이끈 구글 수석 과학자 제프 딘은 “쌍둥이라는 이름은 합병된 두 조직을 뜻한다”라고 밝히기도 했어요.\n\n둘째, 냉전 시대 미국과 소련의 달 탐사 경쟁과 관련 있어요. 당시",
+        "source": "Chosun Ilbo",
+        "language": "ko",
+        "date": "2026-03-29",
+        "category": "신문은 선생님"
+      },
+      {
+        "title": "2금융권 신용대출까지… 은행권 ‘갈아타기’ 지원 확대",
+        "body": "대출 이자 부담을 줄이려는 이들이 가장 먼저 고려하는 선택지 중 하나는 대출 갈아타기(대환)이다. 지난 2023년 개인 신용대출을 대상으로 스마트폰을 통한 갈아타기가 도입된 이후, 개인 주택담보대출과 전세대출을 거쳐 이달 18일부터는 개인 사업자도 금리가 더 저렴한 상품으로 신용대출을 갈아탈 수 있게 됐다. 은행들은 이에 맞춰 다양한 대출 갈아타기 상품을 출시하고 있다.\n\nKB국민은행은 최근 상호금융·저축은행 등 제2금융권 신용대출을 저렴한 금리로 대환해주는 ‘KB국민도약대출’을 출시했다. 제2금융권 신용대출을 6개월 이상 이용한 고객이 신청할 수 있는 상품으로, 대출 이자는 최대 연 9.5%다. 10%대를 오가는 상호금융·저축은행 신용대출보다 유리하다. 국민은행은 최대한 많은 고객이 혜택을 누릴 수 있도록",
+        "source": "Chosun Ilbo",
+        "language": "ko",
+        "date": "2026-03-29",
+        "category": "머니"
+      },
+      {
+        "title": "[여자농구 부천전적] 하나은행 75-58 삼성생명 | 연합뉴스",
+        "body": "◇ 29일 전적(부천체육관)\n부천 하나은행 75(18-17 19-16 19-13 19-12)58 용인 삼성생명\n(서울=연합뉴스)\n제보는 카카오톡 okjebo <저작권자(c) 연합뉴스, 무단 전재-재배포, AI 학습 및 활용 금지> 2026년03월29일 17시52분 송고\n송고 2026년03월29일 17시52분\n◇ 29일 전적(부천체육관)\n부천 하나은행 75(18-17 19-16 19-13 19-12)58 용인 삼성생명\n(서울=연합뉴스)\n제보는 카카오톡 okjebo <저작권자(c) 연합뉴스, 무단 전재-재배포, AI 학습 및 활용 금지> 2026년03월29일 17시52분 송고\nESC 닫기\n댓글",
+        "source": "Yonhap News Agency",
+        "language": "ko",
+        "date": "2026-03-29",
+        "category": "스포츠"
+      },
+      {
+        "title": "넷플릭스 구독료 인상, 대응책은 주식 사라?…한달새 20% 수직상승 - 매일경제",
+        "body": "넷플릭스가 북미 지역 요금제를 1년여 만에 또다시 인상하면서 주가가 반등하고 있다. 지난달 말 대형 미디어 기업 워너브러더스디스커버리(WBD) 인수전에서 발을 빼며 주가가 급등한 넷플릭스는 요금 인상에 따른 수익성 향상 기대감까지 맞물리며 한 달여 만에 주가가 20% 넘게 올랐다.\n지난 27일(현지시간) 미국 나스닥에서 넷플릭스 주가는 전 거래일 대비 0.12% 오른 93.43달러에 마감했다. 넷플릭스가 26일 미국·캐나다 등 북미 지역에서 요금 인상을 단행한다고 발표하자 주가는 연일 상승세를 탔다. 지난달 23일 52주 최저가인 75.01달러까지 떨어졌던 주가는 한 달여 만에 24.5% 올랐다.\n넷플릭스의 이번 북미 지역 요금 인상은 지난해 1월 이후 1년2개월여 만이다. 광고가 없는 스탠다드와 프리미엄 ",
+        "source": "Maeil Business Newspaper",
+        "language": "ko",
+        "date": "2026-03-29",
+        "category": "증권"
+      },
+      {
+        "title": "DL이앤씨, 국내 건설사 최초로 ‘SMR 표준화 설계’ 수주",
+        "body": "DL이앤씨가 미국 소형모듈원전(SMR) 기업 엑스에너지와 ‘SMR 표준화 설계’ 계약을 체결했다고 29일 밝혔다. 계약 규모는 약 1000만달러(약 150억원)로, 설계는 내년 상반기까지 완료할 계획이다. 국내 건설사가 SMR 표준화 설계를 직접 수행하는 것은 이번이 처음이다.\n\nSMR 표준화 설계는 발전소 내 각 설비가 어떻게 연계돼 작동할지를 구체화하는 작업이다. 핵심은 ‘모듈화’다. 비슷한 기능을 하는 부품들을 하나의 모듈로 묶어 미리 제작한 뒤, 레고 블록처럼 현장에서 조립하는 방식이다. 부품 수와 공정을 줄여 시공 효율을 높이고, 동일한 설계를 여러 원전에 반복 적용함으로써 비용을 낮추는 것이 목표다. 완성된 설계는 2030년 가동 예정인 초도호기를 시작으로 엑스에너지의 후속 프로젝트 전반에 적용될",
+        "source": "Chosun Ilbo",
+        "language": "ko",
+        "date": "2026-03-29",
+        "category": "부동산"
+      },
+      {
+        "title": "‘국힘 청년 오디션 심사’ 이혁재 “룸살롱 폭행, 10년전 일…날 못 죽여 안달” - 매일경제",
+        "body": "방송인 이혁재가 국민의힘 ‘광역의원 비례 청년 오디션’ 심사위원으로 참여하며 논란인 가운데 직접 입장을 표명했다.\n최근 OSEN에 따르면 이혁재는 자신의 심사위원 참여가 국민의힘측 제안으로 이뤄졌다고 설명했다.\n그는 “각 분야 전문가를 모으는 취지였고, 방송인 중 공개적으로 활동하는 사람이 많지 않아 제게 제안이 온 것 같다”며 “다만, 제가 참여하면 과거 일로 논란이 생길 수 있고 오디션에 누가 될 수 있다고 우려했는데, 실제로 논란이 커졌다”며 복잡한 심경을 토로했다.\n당초 고사 의사를 밝혔다는 그는 “사양하려 했으나 당대표를 포함한 회의에서 ‘성공뿐 아니라 실패 경험도 의미가 있다’는 의견이 나와 결국 맡게 됐다”고 설명했다.\n하지만 비판 여론에 대해서는 불편한 심경을 드러내기도 했다.\n그는 “이게 어",
+        "source": "Maeil Business Newspaper",
+        "language": "ko",
+        "date": "2026-03-29",
+        "category": "정치"
+      },
+      {
+        "title": "[프로야구 창원전적] 두산 9-6 NC | 연합뉴스",
+        "body": "▲ 창원전적(29일)\n두산 000 002 250 - 9\nN C 000 401 100 - 6\n△ 승리투수= 타무라(1승) △ 세이브투수= 김택연(1세이브)\n△ 패전투수= 김진호(1패)\n△ 홈런= 양석환 1호(7회2점) 카메론 1호(8회2점) 김민석 1호(8회3점·이상 두산)\n박건우 2호(4회1점) 김형준 1호(4회2점)\n(서울=연합뉴스)\n제보는 카카오톡 okjebo <저작권자(c) 연합뉴스, 무단 전재-재배포, AI 학습 및 활용 금지> 2026년03월29일 17시47분 송고",
+        "source": "Yonhap News Agency",
+        "language": "ko",
+        "date": "2026-03-29",
+        "category": "스포츠"
+      },
+      {
+        "title": "요즘 신입들, AI덕에 실력은 엇비슷…“결국 ‘태도’가 경쟁력 된다”는데 - 매일경제",
+        "body": "대면교류 단절겪은 요즘 20대\n일상 대화도 팀 과제도 서툴러\n차별화 무기는 ‘나만의 경험’\n스펙보다 인턴·봉사 해보길\n경영대학 마케팅 교수로 강단에 선 지 31년째. 강의실에서 만나온 학생들은 같은 나라가 맞나 싶을 정도로 변했다. 영어 실력, 토론 수업에서 보이는 자신감은 크게 발전했다. 하지만 교수, 또래 친구들과 ‘관계자본’을 쌓는 것은 힘들어 보이는 이들이 많아졌다. 생성형 인공지능(AI)이 보급된 이후에는 ‘AI가 가르쳐준 것과 강의가 왜 다르죠?’ 하며 당황스러운 질문을 하는 학생들도 나온다. ‘아, 이건 좀 아닌데’ 생각하며 인생 선배로서 조언을 하는 것도 녹록지 않다. 수업 중 교과 내용 외 이야기를 많이 하면 학생들의 이의 제기가 들어와서다.\n김상용 고려대 경영학과 교수(사진)가 커리어의 끝",
+        "source": "Maeil Business Newspaper",
+        "language": "ko",
+        "date": "2026-03-29",
+        "category": "사회"
+      },
+      {
+        "title": "“택배상하차도 이정도 아닌데”…매일 야근해도 잔업 12만건 ‘과로검찰’ - 매일경제",
+        "body": "특검·파견까지 겹쳐 인력난 심화\n미제사건 12만건…2년새 2배로\n과로에 검사 2명 잇단 응급실行\n검찰청 폐지를 6개월 앞두고 검사 사직과 연이은 특검 파견 등으로 미제사건이 12만건까지 적체된 것으로 집계됐다. 공소청·중수청을 중심으로 오는 10월부터 가동되는 새로운 형사사법 체계를 정교하게 짜지 않으면 미제사건이 더욱 증가할 것이라는 우려가 나온다.\n29일 법조계에 따르면 연말 기준 전국 검찰청의 미제사건은 2024년 6만4546건에서 지난해(2025년) 9만6256건으로 49.1% 증가했다. 올해 2월 말 기준으로는 12만1563건에 달한다. 미제사건은 2022년 5만1825건, 2023년 5만7327건이었는데 최근 2년 사이 증가 속도가 눈에 띄게 가팔라졌다.\n미제 사건 증가 원인으로는 ‘인력 부족’이",
+        "source": "Maeil Business Newspaper",
+        "language": "ko",
+        "date": "2026-03-29",
+        "category": "사회"
+      },
+      {
+        "title": "민형배 후보 \"광주 산업, AI 융합으로 고부가가치 전환\"(종합) | 연합뉴스",
+        "body": "광주 군공항 이전부지·송정권 일대 개발계획도 발표\n(광주·무안=연합뉴스) 박철홍 기자 = 더불어민주당 전남광주특별시장 민형배 경선 후보는 29일 광주 주력산업을 인공지능(AI)과 결합해 고부가가치 미래산업으로 전환하겠다는 '산업 대전환 전략'을 발표했다.\n민 후보는 생산·조립 중심 구조에서 벗어나 기술·플랫폼 중심 산업 생태계로의 전환을 강조하며 ▲ 전통산업의 미래기술화 ▲ 산업 간 융복합 ▲ AI 기반 제조혁신 등 3대 전략을 제시했다.\n자동차, 광산업, 전자가전, 금형, 의료 등 5대 산업을 AI 모빌리티, 광센서·광의료, 구독형 가전, 디지털트윈 제조, 정밀 의료·의료관광 등으로 고도화하겠다는 구상이다.\n또 산업단지를 연결한 '제조혁신 벨트'와 데이터 기반 생산 시스템을 구축하고, 기업 전환 지원 펀드",
+        "source": "Yonhap News Agency",
+        "language": "ko",
+        "date": "2026-03-29",
+        "category": "정치"
+      },
+      {
+        "title": "‘연봉 20억?’ 홍명보 저격한 신문선 “월드컵은 감독의 놀잇감 아냐” - 매일경제",
+        "body": "코트디부아르전에서 0-4로 완패한 이후 축구 해설위원 출신 신문선 교수가 홍명보 감독을 강하게 비판했다.\n29일 신 교수는 본인 유튜브 채널을 통해 경기 내용을 분석하며 “월드컵은 감독 한 사람의 놀잇감이 아니다”고 꼬집었다.\n신 교수는 “수비 인원을 5명 이상 두고도 4실점 중 3골을 유사한 패턴으로 내준 건 준비 부족을 보여준다”면서 “전반에 같은 방식으로 당했으면 변화가 있어야 하는데 그대로 나왔다. 이건 전술적 유연성이 전혀 없는 것”이라고 지적했다.\n또 “상대는 템포와 리듬, 일관성을 유지했으나 우리는 전체적으로 흔들렸다”며 “이번 패배는 전술적인 측면에서 완전한 실패”라고 말했다.\n특히, 홍명보 감독에 대해선 “감독에게 지급되는 연봉은 축구인들의 노력으로 만들어진 결과물”이라며 “일반적인 조직이라",
+        "source": "Maeil Business Newspaper",
+        "language": "ko",
+        "date": "2026-03-29",
+        "category": "사회"
+      },
+      {
+        "title": "아프리카 개미가 중국에 밀수되는 이유…애완용·전통 의학용 | 연합뉴스",
+        "body": "아프리카 개미들이 중국에 밀반입돼 비싸게 팔리고 있다고 홍콩 사우스차이나모닝포스트가 29일 보도했다.\n이 신문은 작년 4월에도 케냐 정부의 야생동물관리국이 베트남 남성이 중국으로 수확개미를 5천마리 넘게 몰래 가져가려다 적발한 것을 포함해 지난해 한 해 동안 유사 밀반출 사례 5건을 적발했다고 전했다.\n이에 윌리스 오쿠무는 \"케냐 야생돌물관리국의 수확개미 밀반출 단속 실적은 케냐는 물론 동부 아프리카에서 벌어지는 밀반출의 극히 일부에 불과할 것\"이라고 지적했다.\n인공지능이 자동으로 줄인 '세 줄 요약' 기술을 사용합니다. 전체 내용을 이해하기 위해서는 기사 본문과 함께 읽어야 합니다.\n홍콩 SCMP 보도…\"최대 25㎜ 수확개미 마리당 100달러에 팔려\"\n(서울=연합뉴스) 인교준 기자 = 아프리카 개미들이 중",
+        "source": "Yonhap News Agency",
+        "language": "ko",
+        "date": "2026-03-29",
+        "category": "국제"
+      },
+      {
+        "title": "‘부활절 앞둔’ 교황 레오 “예수와 기독교를 끌어다 전쟁을 정당화하지 말라” - 매일경제",
+        "body": "카톨릭의 레오 14세 교황은 부활절을 앞둔 29일 성 베드로 광장 종려 주일 예배에서 ‘신이 전쟁을 정당화한다’는 정치 지도자들의 주장을 잘못된 것이라고 비판하고 배척했다.\n미-이스라엘의 대 이란 전쟁이 두 달 째로 들어가고 러시아의 우크라이나 침략전이 5년째 계속되고 있는 가운데 레오 교황은 설교에서 신은 폭력을 배척하며 억압 받은 자들을 위로하는 ‘평화의 왕’이라고 강조했다.\n이란 전쟁을 하고 있는 모든 나라들의 지도자들은 자신들의 행동을 정당화하기 하기 위해 종교를 이용하고 있다.\n가령, 피트 헤그세스 국방장관 등 미국 관리들은 이 전쟁이 기독교 국가가 군사력으로 적들을 정복한다는 설정에 들어 맞도록 자신들의 기독교 신앙을 들먹였다.\n앞서 러시아의 동방정교는 악에 빠진 서구 세계와 맞서는 ‘신성한 전쟁",
+        "source": "Maeil Business Newspaper",
+        "language": "ko",
+        "date": "2026-03-29",
+        "category": "국제"
+      },
+      {
+        "title": "김영록 후보 \"광주공항 500만평, 융복합 문화산업단지로 조성\" | 연합뉴스",
+        "body": "(광주=연합뉴스) 정다움 기자 = 더불어민주당 전남광주특별시장 김영록 예비후보는 29일 광주권 발전 전략으로 광주공항·마륵동 탄약고 부지 500만평을 융복합 문화산업단지 조성을 공약했다.\n김 후보는 이날 보도자료를 내고 \"부산 센텀시티를 능가하는 융복합 문화산업단지로 만들어 광주의 랜드마크로 키우겠다\"며 이같이 밝혔다.\n이어 \"장기적으로는 첨단 반도체 기업을 대거 유치해 전남·광주의 산업지도를 바꾸겠다\"며 \"'꿀잼 광주'를 위해 K팝 아레나, 제2 에버랜드도 만들어 문화관광 수도로 육성하겠다\"고 강조했다.\n김 후보는 또 \"최근 중동 전쟁으로 어려워진 지역경제를 살리기 위해 1호 공약으로 비상경제상황실을 운영하겠다\"며 \"고통받는 중소기업·취약계층도 지원해 민생을 더 보듬겠다\"고 덧붙였다.\ndaum@yna.co",
+        "source": "Yonhap News Agency",
+        "language": "ko",
+        "date": "2026-03-29",
+        "category": "정치"
+      },
+      {
+        "title": "유튜브 채널에 출마선언 예고한 김부겸 “대구 아픈 목소리 대변” - 매일경제",
+        "body": "김부겸 전 국무총리 측이 29일 유튜브 채널에 6·3 지방선거 대구시장 출마 예고 영상을 올렸다. 공식 출마선언 하루 전이다.\n유튜브 채널 ‘김부겸TV’에 ‘소명: 그날의 약속을 지키겠습니다’라는 제목으로 올라온 해당 영상은 6년 전인 2020년 4월16일 대구 총선 캠프 해단식 장면으로 시작한다.\n당시 그는 “정치인 김부겸은 때가 되면 쓰임새가 있을 것”이라며 “대구·경북이라는 끊으려야 끊을 수 없는 이 도시의 아픈 목소리를 대변하는 역할도 계속할 것”이라고 말한다.\n영상은 이후 “대구시민께 드렸던 그 약속을 지키겠다” “지금 대구에 필요한 사람 김부겸”이라는 문구와 함께 오는 30일 출마선언 예고로 이어진다.",
+        "source": "Maeil Business Newspaper",
+        "language": "ko",
+        "date": "2026-03-29",
+        "category": "정치"
+      },
+      {
+        "title": "파리 美은행 건물 앞 폭탄테러 기도…이란 연관성 수사 | 연합뉴스",
+        "body": "프랑스 파리의 미국 투자은행 근처에서 폭탄테러를 기도한 용의자가 경찰에 붙잡혔다.\n당국은 중동전쟁과 연관성이 있는지 수사 중이다.\nAFP통신 등에 따르면 28일 오전 3시30분께 파리 8구에 있는 뱅크오브아메리카 건물 앞에 사제 폭발물을 설치한 용의자 1명이 경찰에 체포되고 다른 1명은 도주했다.\n전체 내용을 이해하기 위해서는 기사 본문과 함께 읽어야 합니다.\n송고 2026년03월29일 17시32분\n세 줄 요약\n프랑스 파리의 미국 투자은행 근처에서 폭탄테러를 기도한 용의자가 경찰에 붙잡혔다.\n당국은 중동전쟁과 연관성이 있는지 수사 중이다.\nAFP통신 등에 따르면 28일 오전 3시30분께 파리 8구에 있는 뱅크오브아메리카 건물 앞에 사제 폭발물을 설치한 용의자 1명이 경찰에 체포되고 다른 1명은 도주했다.\n인",
+        "source": "Yonhap News Agency",
+        "language": "ko",
+        "date": "2026-03-29",
+        "category": "국제"
+      },
+      {
+        "title": "“꼬리 부분 완전히 절단”…이란 급습에 미 4500억 ‘하늘의 눈’ E-3 첫 파괴 - 매일경제",
+        "body": "사우디아라비아 소재 미군 ‘프린스 술탄’ 공군기지가 이란의 미사일 공격에 노출되면서 3억 달러(약 4527억원)짜리 ‘E-3 센트리’ 조기경보통제기가 파괴된 것으로 알려졌다.\n28일(현지시간) 블룸버그 통신 등 외신에 따르면 이번 피해는 전세계에서 운용중인 E-3 기종이 전투에서 손실된 첫번째 사례가 됐다.\n진위가 확인되지 않은 사진들에는 이 제트기의 꼬리 부분이 완전히 절단돼 비행이 불가능한 모습이 나와 있다.\n동체 위에 회전하는 레이더 원반을 장착한 이 기종은 먼 거리의 위협을 탐지하고 다른 전투용 항공기들을 지휘하는데 이용된다. 공중전을 유리하게 이끄는데 엄청난 도움이 되는 전략자산이다.\n미군은 이를 60여대 운용하고 있어 대체가 가능하긴 하지만 이번 손실에 따른 비용은 막대하다.\n이번 E-3 전투손실",
+        "source": "Maeil Business Newspaper",
+        "language": "ko",
+        "date": "2026-03-29",
+        "category": "국제"
+      },
+      {
+        "title": "일교차 큰 봄 날씨 지속…내일 전국 대부분 봄비 | 연합뉴스",
+        "body": "당분간 기온이 평년을 웃도는 가운데 한주가 시작되는 월요일과 화요일 전국에 봄비가 내리겠다.\n월요일과 화요일 사이에는 전국 대부분 지역에서 비 소식이 있다.\n비는 30일 오전 전라도와 제주도에서 시작돼 오후에 충청권 남부와 경상권, 밤에 그 밖의 중부지방으로 확대되겠다.\n전체 내용을 이해하기 위해서는 기사 본문과 함께 읽어야 합니다.\n송고 2026년03월29일 17시29분\n세 줄 요약\n당분간 기온이 평년을 웃도는 가운데 한주가 시작되는 월요일과 화요일 전국에 봄비가 내리겠다.\n월요일과 화요일 사이에는 전국 대부분 지역에서 비 소식이 있다.\n비는 30일 오전 전라도와 제주도에서 시작돼 오후에 충청권 남부와 경상권, 밤에 그 밖의 중부지방으로 확대되겠다.\n인공지능이 자동으로 줄인 '세 줄 요약' 기술을 사용합니",
+        "source": "Yonhap News Agency",
+        "language": "ko",
+        "date": "2026-03-29",
+        "category": "생활.건강"
+      },
+      {
+        "title": "“제발 그만” 전세계가 외치는데…트럼프 “다음은 쿠바” 또 공격 시사 - 매일경제",
+        "body": "“위대한 피스메이커 될 것”\n도널드 트럼프 미국 대통령이 이란과의 전쟁이 수렁으로 빠져드는 와중에도 다음 표적을 쿠바로 지목하며 또 다른 무력행사를 시사했다.\n트럼프 대통령은 27일(현지시간) 미국 플로리다주 마이애미에서 열린 사우디아라비아 국부펀드 주최 ‘미래 투자 이니셔티브 정상회의’ 연설에서 자신이 미국의 군사력을 위대하게 만들었다고 강조한 뒤 “나는 ‘이걸’ 쓸 일은 절대 없을 것”이라고 말했다. 그러면서 “하지만 가끔은 써야 할 때도 있다. 그리고 어쨌거나 쿠바가 다음”이라고 밝혔다.\n트럼프 대통령이 쿠바 공격을 시사한 것을 이번이 처음은 아니다. 그는 앞서 지난 16일에도 “나는 쿠바를 접수하는 영광을 누리게 될 것으로 확신한다”며 “쿠바를 어떤 형태로든 점령하는 것, 내가 해방하든 가져가든, 나",
+        "source": "Maeil Business Newspaper",
+        "language": "ko",
+        "date": "2026-03-29",
+        "category": "국제"
+      },
+      {
+        "title": "金총리 “생필품 수급, 선제적 대처”…전쟁 장기화 대비책 주문 | 중앙일보",
+        "body": "미국의 대(對)이란 지상군 투입 가능성까지 거론되는 등 중동 사태가 장기화 조짐을 보이는 가운데, 김민석 국무총리는 29일 “최우선 과제 중 하나로 국민 생필품 수급 차질 우려에 선제적으로 대처해 나갈 것”이라고 밝혔다.\n김 총리는 이날 오후 정부서울청사에서 제1차 비상경제본부회의를 주재한 자리에서 “각 부처는 중동발 물품 수급 차질이 국민 생활 필수 품목에 미치는 영향을 시나리오별로 분석하고 단계별 대응 방안을 수립하되, 빠지고 놓치는 일 없이 예상 품목을 철저하게 꼼꼼히 점검해 달라”며 이같이 말했다. 이날 회의에는 재정경제부·외교부·산업통상부 등 관계 부처 장관이 참석했다.\n전쟁 장기화에 대한 선제적인 대비책 마련도 주문했다. 김 총리는 “중동전쟁의 여파가 에너지 수급 불안과 글로벌 공급망 차질이라는 ",
+        "source": "JoongAng Ilbo",
+        "language": "ko",
+        "date": "2026-03-29",
+        "category": "중앙일보"
+      },
+      {
+        "title": "오피니언 뉴스",
+        "body": "경찰이 ‘고문 기술자’ 이근안씨 등 과거 고문과 간첩 조작 등의 공로로 포상을 받은 수사 관계자의 상훈을 취소하기 위한 전수조사에 착수했다고 한다. 이재명 대통령은 29일 이에 대해 “사법살인 같은 최악의 국가폭력 범죄자에게 준 훈·포장 박탈은 만시지탄이나 당연한 조치”라고 밝혔다. 피해자와 가족을 비롯한 국민 모두가 같은 생각일 것이다. 국민을 지키라고\n광고\n오피니언\n[사설] 이근안 등 국가범죄 상훈 박탈, 역사에 교훈 새겨야\n[사설] 이란의 호르무즈해협 ‘톨게이트화’ 안 된다\n이란이 입법을 예고한 호르무즈해협의 ‘톨게이트화’에 대해 미국 등 주요 7개국(G7) 외교장관들이 반대 입장을 밝혔다. 전쟁이 끝난 뒤에도 ‘국제 항행에 이용되는 해협’(국제해협)을 가로막고 영향력을 행사하겠다는 게 이란 정부의 뜻",
+        "source": "Hankyoreh",
+        "language": "ko",
+        "date": "2026-03-29",
+        "category": "opinion"
+      },
+      {
+        "title": "[프로야구 잠실전적] kt 6-5 LG | 연합뉴스",
+        "body": "▲ 잠실전적(29일)\nk t 300 002 001 - 6\nL G 003 200 000 - 5\n△ 승리투수= 전용주(1승) △ 세이브투수 = 박영현(2세이브)\n△ 패전투수= 유영찬(1패)\n△ 홈런= 허경민 1호(6회2점·kt)\n(서울=연합뉴스)\n제보는 카카오톡 okjebo <저작권자(c) 연합뉴스, 무단 전재-재배포, AI 학습 및 활용 금지> 2026년03월29일 17시29분 송고\n송고 2026년03월29일 17시29분\n▲ 잠실전적(29일)\nk t 300 002 001 - 6\nL G 003 200 000 - 5\n△ 승리투수= 전용주(1승) △ 세이브투수 = 박영현(2세이브)\n△ 패전투수= 유영찬(1패)\n△ 홈런= 허경민 1호(6회2점·kt)\n(서울=연합뉴스)\n제보는 카카오톡 okjebo <저작권자(c) 연합",
+        "source": "Yonhap News Agency",
+        "language": "ko",
+        "date": "2026-03-29",
+        "category": "스포츠"
+      },
+      {
+        "title": "사설 뉴스",
+        "body": "[사설] ‘성장률 2%’ 다시 흔들, 추경 서두르고 빚투 자제해야미국·이스라엘-이란 전쟁의 충격 탓에 올해 우리나라의 경제성장률이 다시 1%대로 주저앉을 가능성이 커지고 있다. 이와 함께 물가와 금리는 상승 추세를 보이면서 국민들 삶이 더욱 팍팍해질 것으로 보인다. 국회와 정부는 추가경정예산(추경) 통과와 집행을 서둘러 경기 하락을...2026-03-29 19:00\n[사설] 이란의 호르무즈해협 ‘톨게이트화’ 안 된다이란이 입법을 예고한 호르무즈해협의 ‘톨게이트화’에 대해 미국 등 주요 7개국(G7) 외교장관들이 반대 입장을 밝혔다. 전쟁이 끝난 뒤에도 ‘국제 항행에 이용되는 해협’(국제해협)을 가로막고 영향력을 행사하겠다는 게 이란 정부의 뜻이라면, 우리 역시 명확한 반대 뜻을 ...2026-03-29 18",
+        "source": "Hankyoreh",
+        "language": "ko",
+        "date": "2026-03-29",
+        "category": "opinion"
+      },
+      {
+        "title": "“남는게 없다”는 거짓말, 진실됐다…식당 이익률 5년새 12→8%로 - 매일경제",
+        "body": "2024년 연평균 매출 2.5억\n전년비 1.4% 늘어 성장 둔화\n인건비·식자재값 천정부지\n중식·치킨가게 타격 더 받아\n# 서울 서대문구에서 식당을 운영하는 안 모씨는 좀처럼 매출이 오르지 않는데 식재료비와 인건비 부담은 커져 폐업을 진지하게 고민하고 있다. 안씨는 “가뜩이나 소비심리가 얼어붙어 손님이 줄었는데, 식재료비가 계속 올라 남는 게 거의 없다”며 “지금은 아르바이트 직원 없이 아내와 함께 간신히 버티고 있는 실정”이라고 토로했다.\n국내 한 프랜차이즈 가맹점주도 비슷한 어려움을 호소했다. 그는 “인건비, 임대료, 배달 수수료 등 고정비 부담이 커지는 상황에서 가격을 올리기도 어렵다 보니 매출이 늘어도 손에 쥐는 돈은 없다”고 말했다.\n외식업계에서 지속적인 원가 상승으로 매출이 늘어도 수익성은 악화하는",
+        "source": "Maeil Business Newspaper",
+        "language": "ko",
+        "date": "2026-03-29",
+        "category": "경제"
+      },
+      {
+        "title": "[사설] ‘성장률 2%’ 다시 흔들, 추경 서두르고 빚투 자제해야",
+        "body": "미국·이스라엘-이란 전쟁의 충격 탓에 올해 우리나라의 경제성장률이 다시 1%대로 주저앉을 가능성이 커지고 있다. 이와 함께 물가와 금리는 상승 추세를 보이면서 국민들 삶이 더욱 팍팍해질 것으로 보인다. 국회와 정부는 추가경정예산(추경) 통과와 집행을 서둘러 경기 하락을 최대한 방어하고, 개인들은 금리 상승에 대비해 과도한 ‘영끌’이나 ‘빚투’를 자제해야 한다.\n지난해 국내 성장률은 내란 사태, 관세 전쟁 등으로 가까스로 1%를 기록했다. 하지만 올해는 반도체 호황, 소비 회복 등에 힘입어 잠재성장률 수준인 2%를 달성할 것으로 재정경제부, 한국은행 등이 내다본 바 있다. 하지만 지난달 28일 난데없는 미국과 이스라엘의 이란 공격으로 전쟁이 나면서 경제 충격이 가시화하고 있다. 특히 우리나라는 경제의 대외의존",
+        "source": "Hankyoreh",
+        "language": "ko",
+        "date": "2026-03-29",
+        "category": "opinion"
+      },
+      {
+        "title": "“25t차가 뒤집어져 굴렀다”…고속도로서 과산화수소 실은 탱크로리 추락 - 매일경제",
+        "body": "천안논산고속도로에서 과산화수소를 실은 탱크로리가 추락하는 사고가 발생했다.\n29일 경찰에 따르면 이날 오전 10시23분께 천안논산고속도로 논산 방향 연무IC 인근에서 과산화수소를 실은 25t 탱크로리가 추락했다.\n논산소방서 등에 따르면 “25t차가 뒤집어져서 산으로 굴렀다”는 신고를 받고 출동한 구급대는 현장에서 중상을 입은 운전자 A(54)씨를 구조해 병원으로 옮겼다.\n탱크로리에 실려있던 과산화수소는 외부로 유출되지 않았다. A씨 생명에는 지장이 없는 것으로 알려졌다.\n경찰은 커브길 주행 중 중심을 잃으면서 이 같은 사고가 난 것으로 보고 자세한 사고 원인을 조사하고 있다.",
+        "source": "Maeil Business Newspaper",
+        "language": "ko",
+        "date": "2026-03-29",
+        "category": "사회"
+      },
+      {
+        "title": "칩플레이션 직격탄… 소니 ‘플스5’ 가격 인상",
+        "body": "칩플레이션(반도체를 의미하는 칩과 인플레이션의 합성어)이 게임 산업도 덮쳤다.\n\n29일(현지 시각) 로이터에 따르면, 글로벌 게임 콘솔(게임용 기기) 업체 소니 그룹은 플레이스테이션5(PS5)의 가격을 인상한다고 밝혔다. 소니는 앞서 지난해 8월 미국 시장에서 PS5 가격을 50달러 올렸는데, 1년도 되지 않아 또다시 가격 인상에 나선 것이다. 인상된 가격은 4월 2일부터 전 세계 주요 시장에서 차례대로 적용된다.\n\n미국 시장 기준으로 PS5 시리즈 가격은 표준 모델 기준 549.99달러에서 649.99달러(98만원)로, 디지털 에디션은 499.99달러에서 599.99달러(91만원)로, 최고 사양인 PS5 프로(Pro)는 899.99달러(136만원)에 판매될 예정이다. 가격 인상은 미국뿐만 아니라 유럽과 일",
+        "source": "Chosun Ilbo",
+        "language": "ko",
+        "date": "2026-03-29",
+        "category": "테크"
+      },
+      {
+        "title": "에버랜드, 개장 50주년 맞아 불꽃쇼·서커스 대대적 리뉴얼 - 매일경제",
+        "body": "캐나다 엘로와즈 협업 ‘윙즈 오브 메모리’\n4월 1일 동시 개막\n삼성물산 리조트부문이 운영하는 에버랜드가 개장 50주년을 맞아 불꽃쇼와 서커스 두 공연을 새롭게 단장한다. 스페셜 불꽃쇼 ‘빛의 수호자들’과 서커스 공연 ‘윙즈 오브 메모리’가 4월 1일부터 동시에 막을 올린다. 에버랜드 관계자는 “50주년을 맞아 포시즌스가든 불꽃쇼와 서커스를 업그레이드하게 됐다”고 밝혔다.\n1996년부터 매일 밤 이어온 포시즌스가든 불꽃쇼는 이번 리뉴얼을 통해 멀티미디어 공연으로 형식을 바꿨다. 새 타이틀 ‘빛의 수호자들(The Guardians of Light)’은 2018년 평창 동계올림픽 개회식과 2025년 경주 APEC 정상회의 문화공연을 총연출한 양정웅 감독이 맡았다. 3월 27일 소프트오픈을 거쳐 4월 1일 정식 ",
+        "source": "Maeil Business Newspaper",
+        "language": "ko",
+        "date": "2026-03-29",
+        "category": "문화"
+      },
+      {
+        "title": "HBM 높이 규격 완화되나… 장비업체 셈법 복잡",
+        "body": "국제반도체표준협의기구(JEDEC)가 HBM(고대역폭 메모리)의 높이를 규정한 표준을 완화하기 위해 본격적인 논의에 착수했다. 인공지능(AI) 시대 고성능 반도체로 주목받는 HBM은 D램을 여러 층 쌓아 만든다. D램을 많이 쌓을수록 처리 용량이 증가해 성능이 좋아지지만 글로벌 반도체 업계가 표준으로 정해 놓은 높이 내에 쌓아야 하기 때문에 기술적 한계가 발생한다. 정해진 높이에서 D램을 더 쌓으려면 칩 두께를 줄여야 하는데 열 관리와 수율 등 기술적 난도가 급격히 높아진다. 그렇다고 높이를 무작정 늘릴 수도 없다. HBM이 들어가는 GPU 패키지 공간이 제한적이어서 높이가 커지면 다른 부품도 설계를 바꿔야 하기 때문이다.\n\n◇하이브리드 본더 도입 늦춰지나\n\n업계에 따르면, JEDEC는 HBM 높이를 기존보다",
+        "source": "Chosun Ilbo",
+        "language": "ko",
+        "date": "2026-03-29",
+        "category": "테크"
+      },
+      {
+        "title": "AI 시대… 디스플레이, 크기 아닌 성능 경쟁",
+        "body": "AI(인공지능) 시대 디스플레이 경쟁 구도가 화면 크기에서 효율·성능 중심으로 옮겨가고 있다.\n\n29일 나이스신용평가 보고서에 따르면 온디바이스(내장형) AI가 스마트폰과 노트북 등 주요 전자 기기에 확산하면서 디스플레이가 AI 성능을 좌우하는 핵심 부품이 되고 있다. 온디바이스 AI는 기기 내부에서 연산을 수행하기 때문에 전력 소모가 크고 발열이 심한데, 디스플레이의 전력 효율이 제품 완성도를 결정한다는 것이다. 나이스신용평가는 “필요한 픽셀(색점)만 빛을 내는 OLED(유기발광다이오드)는 LCD(액정표시장치) 대비 소비 전력이 약 30%가량 낮아 AI 연산으로 인한 배터리 소모를 상쇄하는 결정적 역할을 한다”고 했다.\n\n국내 디스플레이 업체들은 전력 효율을 높일 OLED 기술을 개발하고 있다. LG디스플",
+        "source": "Chosun Ilbo",
+        "language": "ko",
+        "date": "2026-03-29",
+        "category": "테크"
+      },
+      {
+        "title": "경북 경주 외동읍 야산에 불…50여분 만에 진화(종합) | 연합뉴스",
+        "body": "(영천=연합뉴스) 김용민 기자 = 29일 오후 4시 16분께 경북 경주시 외동읍 석계리 야산에 불이 났다.\n소방 당국과 경주시 공무원 등 100여명과 헬기 8대가 출동해 50여분 만인 오후 5시 8분께 불을 껐다.\n경주시 관계자는 \"인명피해는 없고 화재 경위와 산림 피해 면적을 조사 중\"이라고 말했다.\nyongmin@yna.co.kr\n제보는 카카오톡 okjebo <저작권자(c) 연합뉴스, 무단 전재-재배포, AI 학습 및 활용 금지> 2026년03월29일 17시21분 송고",
+        "source": "Yonhap News Agency",
+        "language": "ko",
+        "date": "2026-03-29",
+        "category": "사건사고"
+      },
+      {
+        "title": "외국인 댓글 금지법…‘방어적 민주주의’의 오용 [세계의 창]",
+        "body": "하네스 모슬러(강미노) | 독일 뒤스부르크-에센대 정치학과 교수\n전세계적으로 인공지능(AI)과 소셜미디어는 인지전의 새로운 전장이 되었다. 딥페이크와 매크로, 알고리즘으로 무장한 공격 수법은 민주주의의 근간까지 뒤흔드는 치명적 위협으로 부상했다. 이제 정교해진 기만적 서사는 더 저렴하고 빠르며, 추적 불가능한 칼날이 되어 우리 사회의 신뢰를 겨누고 있다.\n디지털·정보통신 강국이자 정치적 양극화 속에 국내외로부터 치열한 정보전에 노출된 한국도 역시 예외는 아니다. 국회는 발 빠르게 변하는 조작 기술에 대응해 끊임없는 입법으로 맞서고 있다. 2000년대 초 인터넷 익명성 규제 시도에서 출발해, 2010년대 후반엔 매크로 기술을 이용한 여론 조작 방지로 확장됐다가, 2020년대 들어서는 갑자기 외국인의 온라인 활",
+        "source": "Hankyoreh",
+        "language": "ko",
+        "date": "2026-03-29",
+        "category": "opinion"
+      },
+      {
+        "title": "“내일 출근길 우산 꼭 챙기세요”…전국 흐리고 봄비 - 매일경제",
+        "body": "월요일인 30일은 대체로 흐리고 전국에서 비가 내릴 전망이다.\n기상청에 따르면 비는 내일 오전부터 전라권과 제주도에서 시작되겠으며 오후에는 충청권 남부와 경상권으로, 밤에는 이 외 중부지방으로 확대돼 다음날까지 이어지겠다.\n31일까지 이틀간 예상 강수량은 제주도 30∼80㎜(많은 곳 산지 120㎜ 이상, 남부 중산간 100㎜ 이상), 강원 산지·동해안, 광주·전남(많은 곳 전남 해안 60㎜ 이상), 부산·울산·경남(많은 곳 부산·울산·경남 남해안·지리산 부근 60㎜ 이상) 10∼50㎜, 전북, 대구·경북·울릉도·독도 10∼40㎜, 강원 남부 내륙, 충청권 5∼30㎜, 경기 남부 5∼20㎜, 서울·인천·경기 북부, 강원 중북부 내륙 5∼10㎜다.\n제주도 산지와 남부 중산간에는 시간당 20∼30㎜의 강한 비가 ",
+        "source": "Maeil Business Newspaper",
+        "language": "ko",
+        "date": "2026-03-29",
+        "category": "사회"
+      },
+      {
+        "title": "“5일간 1700조 녹았다, 내 노후도 함께”…믿었던 빅테크서 곡소리 - 매일경제",
+        "body": "M7 시총 5일새 1.1조弗 증발\nS&P500 9%↓…조정장 눈앞\n‘돈나무 언니’도 기술주 매도\n메타·엔비디아 등 비중 줄여\n미국과 이란 간 전쟁이 장기화할 조짐을 보이면서 뉴욕 증시의 하락세가 이어지고 있다. 특히 시장 내 비중이 큰 기술주의 하락폭이 확대되면서 투자자들의 불안이 더 커지는 모습이다.\n29일 금융투자업계에 따르면 지난 23~27일(현지시간) 5거래일 동안 매그니피센트7(M7) 종목들의 시가총액이 1조1440억달러(약 1726조원) 증발했다. M7은 뉴욕 증시 주요 기술주를 지칭하는 용어로 엔비디아·애플·알파벳(구글)·마이크로소프트·아마존·메타플랫폼(페이스북)·테슬라 등으로 구성돼 있다.\n이 기간에 M7 종목들이 평균 6.40% 급락하면서 나스닥 종합지수 역시 약 4.55% 하락했다. 사상 ",
+        "source": "Maeil Business Newspaper",
+        "language": "ko",
+        "date": "2026-03-29",
+        "category": "증권"
+      },
+      {
+        "title": "TSMC, 2028년까지 반도체 물량 완판… 삼성 파운드리 ‘대안 공급처’ 기회 잡나",
+        "body": "세계 최대 파운드리(반도체 위탁 생산) 업체 TSMC에 빅테크 주문이 폭주하며 2028년까지 최첨단 공정 물량이 사실상 완판된 것으로 전해졌다. 이에 따라 TSMC 독주 속에서 대안인 삼성전자 파운드리에 기회가 올 것이란 분석이 나온다.\n\n20일 대만 경제일보 등에 따르면 TSMC에 최첨단 2나노(1나노는 10억분의 1) 공정 주문이 밀려들면서 2028년까지 예약이 끝난 것으로 알려졌다. 엔비디아와 AMD, 퀄컴, 애플 등 주요 빅테크가 최신 AI 칩 개발을 위해 TSMC의 2나노 공정을 선점했기 때문이다. TSMC는 현재 미국과 일본 등 세계 곳곳에서 생산 라인을 공격적으로 확장하고 있지만, AI 수요를 감당하기에는 역부족인 상황이다. 심지어 2030년 양산을 목표로 한 미국 애리조나 4공장은 착공 전이지",
+        "source": "Chosun Ilbo",
+        "language": "ko",
+        "date": "2026-03-29",
+        "category": "테크"
+      },
+      {
+        "title": "뉴노멀",
+        "body": "“AI로 더 바빠진다” [뉴노멀-실리콘밸리]\n2026-03-29 18:35\n연재\n뉴노멀연재 189\n- “AI로 더 바빠진다” [뉴노멀-실리콘밸리]2026-03-29 18:35\n- AI 후폭풍 ‘유령 지디피’ 시대 [뉴노멀-실리콘밸리]2026-03-01 18:12\n- AI 훈련조교가 된 전문직 [뉴노멀-실리콘밸리]2026-01-25 18:37\n- 신입 ‘고용 사다리’가 끊긴다 [뉴노멀-실리콘밸리]2025-12-28 16:26\n- ‘이세돌 모멘트’가 온다 [뉴노멀-실리콘밸리]2025-11-30 18:40\n- AI 해고…인간의 경험을 잃다 [뉴노멀-실리콘밸리]2025-11-02 18:46\n- 엔비디아의 투자는 할인? [뉴노멀-실리콘밸리]2025-09-28 18:58\n- 정치가 자본 고르는 ‘뉴 게임’ [뉴노멀-실",
+        "source": "Hankyoreh",
+        "language": "ko",
+        "date": "2026-03-29",
+        "category": null
+      },
+      {
+        "title": "금감원 \"분식회계로 버티는 코스닥 좀비기업 신속 퇴출\" - 매일경제",
+        "body": "금융감독원이 올해 재무제표 심사·감리 대상을 170개사로 확대하고 분식회계로 연명하는 코스닥 부실기업에 대해서는 엄정 감리를 통해 신속 퇴출하겠다고 밝혔다. 회계정보 신뢰성을 높여 자본시장 선진화를 뒷받침하겠다는 취지다.\n금감원은 29일 '2026년도 회계심사·감리업무 운영계획'을 발표하고 올해 회계감독의 3대 기본방향으로 분식회계 무관용, 감리 프로세스 선진화, 감사인 감독 강화를 제시했다.\n올해 재무제표 심사·감리 대상은 170개사로 지난해보다 10개사 늘어난다. 대상에는 상장법인과 비상장 금융회사, 사업보고서 제출 대상 법인이 포함된다. 회계법인 10곳에 대해서도 감사인 감리를 실시할 예정이다.\n금감원은 특히 한계기업 징후가 있거나 감사 시간이 과소 투입된 회사 등 분식 위험이 높은 기업에 대한 점검을",
+        "source": "Maeil Business Newspaper",
+        "language": "ko",
+        "date": "2026-03-29",
+        "category": "증권"
+      },
+      {
+        "title": "젊은층·해외 시장 잡아라… K남성복의 ‘화려한 부활’",
+        "body": "지난 수년간 침체됐던 남성복 브랜드들이 젊은 세대를 겨냥한 캐주얼(컨템포러리) 판매 호조와 해외 공략에 힘입어, 바닥을 찍고 성장 궤도에 진입하고 있다. 2010년대 기업의 자율 복장 확산과 함께 정장 판매 급감으로 정체기를 맞았던 남성복 시장이 이른바 20~40대 그루밍족(패션과 미용에 아낌없이 투자하는 남성)의 부상으로 반등에 성공한 것이다.\n\n29일 백화점 3사에 따르면 롯데백화점은 작년 남성복 매출이 전년보다 5% 증가했고 신세계백화점과 현대백화점은 각각 5.7%, 7.9% 늘었다. 특히 롯데백화점에서 남성 캐주얼 패션 부문은 15%나 급증했다. 신세계와 현대에선 이례적으로 남성복의 성장률이 여성복(4.8%·5.1%)을 앞섰다. 백화점 관계자는 “지난 몇 년 동안, 여성복은 매년 성장했지만 남성복이 ",
+        "source": "Chosun Ilbo",
+        "language": "ko",
+        "date": "2026-03-29",
+        "category": "조선경제"
+      },
+      {
+        "title": "“다들 이렇게 끼니 때우는데 어쩌나”…전자레인지 플라스틱 ‘암 위험’ 경고 - 매일경제",
+        "body": "전자레인지에 플라스틱 용기를 넣고 음식을 데우는 습관은 피해야 한다는 지적이 잇따르고 있다.\n최근 미국의 비뇨기종양 전문의 브라이언 헬판드는 건강 매체 ‘퍼레이드(Parade)’를 통해 플라스틱 용기를 그대로 가열하면 용기 속 화학 성분이 음식으로 옮겨갈 가능성이 있다고 경고했다.\n비스페놀A(BPA)나 프탈레이트, 스티렌과 같은 물질이 대표적으로 거론된다.\n더욱이 전자레인지의 작동 방식 역시 이 같은 우려를 키운다.\n음식 속 수분을 빠르게 진동시켜 열을 발생시키는 과정에서, 미세한 플라스틱 입자가 음식에 섞일 수 있다는 것.\n특히, 오래 사용해 긁히거나 손상된 용기, 기름기가 많은 음식을 고온으로 가열할 경우 이런 현상이 더 쉽게 나타날 수 있다는 분석도 나온다.\n최근에는 미세플라스틱과 질병의 연관성을 탐색",
+        "source": "Maeil Business Newspaper",
+        "language": "ko",
+        "date": "2026-03-29",
+        "category": "사회"
+      },
+      {
+        "title": "‘갤럭시 쓰는 남친 싫다’던 유튜버, 결국 사과 “비하 아닌 취향” - 매일경제",
+        "body": "유튜버 프리지아(29, 본명 송지아)가 ‘갤럭시 폄하’ 논란에 대해 입장을 밝혔다.\n프리지아는 29일 오후 자신의 유튜브 채널에 ‘왜 이제 알았지? 갤럭시로 인생샷 찍은 프라지아가 알려주는 요즘 핫플’이라는 제목의 영상을 게재했다.\n프리지아는 스케줄 이동 전 “그렇게까지 핫해질 지 몰랐다”라며 갤럭시 폄하 논란을 야기한 이전 영상을 언급했다. 그는 “갤럭시를 비하하거나 삼성을 싫어해서가 아니라 예전에 사진 찍었을 때 갤럭시로 찍은 내 얼굴이, 내 사진이 마음에 안 들어서 그런 것이었다”라고 해명했다.\n이후 그는 삼성 갤럭시 S26 울트라 새 휴대폰을 개봉하며 직접 사용하는 모습을 보여줬다. 여기서 “셀카 화질이 정말 좋다”라고 평가하며 피부 표현 및 색감 등 전반적인 촬영 결과물에 만족감을 드러냈다.\n영상 ",
+        "source": "Maeil Business Newspaper",
+        "language": "ko",
+        "date": "2026-03-29",
+        "category": "사회"
+      },
+      {
+        "title": "생산적 금융 금리 우대 프로그램… KB국민은행, 10조원으로 늘린다",
+        "body": "KB국민은행은 국가 신성장 동력을 뒷받침하기 위해 총 10조원 규모로 금리 우대 프로그램을 확대 운영한다고 29일 밝혔다.\n\nKB가 올해부터 운영 중인 ‘생산적 금융 금리 우대 프로그램’은 부가가치를 높일 수 있는 산업 영역에 저리의 자금을 지원하는 제도다. 다음 달부터 이 프로그램의 지원 규모를 기존 3조원에서 6조원으로 확대한다.\n\n지원 대상은 국가전략산업 우량 산업단지에 있는 기업, 글로벌 시장을 개척하는 수출 기업, 신기술 및 유망 분야의 성장 기업 등 생산적 금융에 해당되는 중소기업과 개인 사업자다.\n\n아울러 KB국민은행은 기존에 운영하던 ‘영업점 전결 금리 우대 프로그램’도 4조원 규모로 계속 운영한다. 이 프로그램을 통해서는 생산적 금융 대상 기업을 포함한 중소기업과 소상공인들의 금리 부담 완화",
+        "source": "Chosun Ilbo",
+        "language": "ko",
+        "date": "2026-03-29",
+        "category": "증권·금융"
+      },
+      {
+        "title": "金총리, 첫 비상경제본부회의 \"생필품 수급 차질 우려 선제 대처\" | 중앙일보",
+        "body": "김민석 국무총리가 29일 중동발 위기 상황에 따른 비상경제 대응체계로 가동한 비상경제본부 첫 회의에서 “최우선 과제 중 하나로 국민 생필품 수급 차질 우려에 선제적으로 대처해나갈 것”이라고 했다.\n김 총리는 이날 오후 정부서울청사에서 제1차 비상경제본부회의를 주재한 자리에서 “각 부처는 중동발 물품 수급 차질이 국민 생활 필수 품목에 미치는 영향을 시나리오별로 분석하고, 단계별 대응 방안을 수립해 빠지고 놓치는 일 없이 예상 품목을 철저하게 꼼꼼히 점검해달라”며 이같이 밝혔다.\n김 총리는 “엄중한 경제적 기로”라며 “중동 전쟁의 여파로 에너지 수급 불안과 글로벌 공급망 차질이 거대한 파고가 돼서 복합 위기로 다가오고 있다”고 말했다. 특히 “1970년대 오일 쇼크에 준하는 충격이라는 평가가 나올 정도”라며 ",
+        "source": "JoongAng Ilbo",
+        "language": "ko",
+        "date": "2026-03-29",
+        "category": "중앙일보"
+      },
+      {
+        "title": "[프로야구 대전전적] 한화 10-4 키움 | 연합뉴스",
+        "body": "▲ 대전전적(29일)\n키움 020 001 100 - 4\n한화 032 203 00X - 10\n△ 승리투수= 왕옌청(1승)\n△ 패전투수= 하영민(1패)\n△ 홈런= 강백호 1호(3회2점·한화)\n(서울=연합뉴스)\n제보는 카카오톡 okjebo <저작권자(c) 연합뉴스, 무단 전재-재배포, AI 학습 및 활용 금지> 2026년03월29일 17시11분 송고\n송고 2026년03월29일 17시11분\n▲ 대전전적(29일)\n키움 020 001 100 - 4\n한화 032 203 00X - 10\n△ 승리투수= 왕옌청(1승)\n△ 패전투수= 하영민(1패)\n△ 홈런= 강백호 1호(3회2점·한화)\n(서울=연합뉴스)\n제보는 카카오톡 okjebo <저작권자(c) 연합뉴스, 무단 전재-재배포, AI 학습 및 활용 금지> 2026년03월29일 ",
+        "source": "Yonhap News Agency",
+        "language": "ko",
+        "date": "2026-03-29",
+        "category": "스포츠"
+      },
+      {
+        "title": "AI 인재 패권 역전… “2명 중 1명이 中 출신”",
+        "body": "전 세계 최상위 AI(인공지능) 인재 확보 전쟁에서 중국이 미국을 멀찌감치 앞섰다는 분석이 나왔다. 미국의 싱크탱크인 폴슨 재단 산하 ‘매크로폴로(MacroPolo)’가 발표한 ‘글로벌 AI 인재 추적(Global AI Talent Tracker)’ 데이터와 최고 AI 학회로 꼽히는 ‘신경정보처리시스템학회(NeurIPS)’에 채택된 최상위 논문 저자의 출신 국가 및 대학 등을 분석한 결과다.\n\nAI 최상위 인재 중 중국 출신 비율이 전체의 절반을 넘어 미국·유럽·아시아(중국 제외) 등 나머지를 합한 것보다 많아졌다. 또 최상위 AI 저자를 배출한 상위 대학 10곳 중 9곳이 중국 대학이었다. 전 세계 AI 인재 중심의 축이 미국에서 중국으로 옮겨갔다는 것이다.\n\n◇AI 최상위 인재 절반은 중국 출신\n\n지난 ",
+        "source": "Chosun Ilbo",
+        "language": "ko",
+        "date": "2026-03-29",
+        "category": "과학"
+      },
+      {
+        "title": "[프로야구 인천전적] SSG 11-6 KIA | 연합뉴스",
+        "body": "▲ 인천전적(29일)\nKIA 000 200 400 - 6\nSSG 045 100 01X - 11\n△승리투수= 김건우(1승)\n△패전투수= 이의리(1패)\n△홈런= 카스트로 1호(7회2점) 나성범 1호(7회2점·이상 KIA)\n고명준 1호·2호(3회1점·4회1점) 에레디아 1호(3회3점·이상 SSG)\n(서울=연합뉴스)\n제보는 카카오톡 okjebo <저작권자(c) 연합뉴스, 무단 전재-재배포, AI 학습 및 활용 금지> 2026년03월29일 17시10분 송고",
+        "source": "Yonhap News Agency",
+        "language": "ko",
+        "date": "2026-03-29",
+        "category": "스포츠"
+      },
+      {
+        "title": "미국-이란 갈등",
+        "body": "OECD 한국 성장 전망 2.1%→1.7%로 낮춰…고유가 장기화 우려\n2026-03-29 20:10\n이슈\n미국-이란 갈등이슈 907\n- OECD 한국 성장 전망 2.1%→1.7%로 낮춰…고유가 장기화 우려2026-03-29 20:10\n- 김민석 “생필품 수급 차질에 선제 대응”…첫 비상경제본부회의2026-03-29 18:14\n- 미-이란 물밑협상 속 군사긴장 격화…“오는 한 주가 중대 고비”2026-03-29 17:27\n- 트럼프 승리 선언은 감감…미 패권 세 기둥 한꺼번에 흔들2026-03-29 17:23\n- 이란 미사일 1000발 이상 남은 듯…미국 토마호크는 2000발 이상2026-03-29 17:17\n- 이란 연계 해커, FBI 국장 이메일 해킹…개인 사진 공개2026-03-29 17:09\n- 가스공",
+        "source": "Hankyoreh",
+        "language": "ko",
+        "date": "2026-03-29",
+        "category": null
+      },
+      {
+        "title": "인간 흉내낸 AI, 1500억 가치 인정받았다…시장분석·예측 판바꾼 이 회사 - 매일경제",
+        "body": "AI 시뮬레이션 서비스로\n미국서 1억달러 투자 유치\nCVS헬스 등 고객사로 확보\n인간처럼 생각하는 AI 개발\n기업에 필요한 리서치 지원\n제품·서비스를 출시하기 전에 사용자 반응을 예상하고, 기업의 실적발표 때 나올 애널리스트들의 질문을 미리 알아낼 수 있을까. 인공지능(AI) 기술을 활용해 이같은 예측의 영역에 도전하는 스타트업이 미국에서 등장했다.\n그 주인공은 박준성 스탠퍼드대 박사가 창업한 ‘시밀리’다. 이 기업은 지난달 시리즈 A로 1억달러(약 1490억원) 규모의 투자를 유치하며 단숨에 시장의 주목을 받고 있다.\n박 최고경영자(CEO)는 최근 매일경제신문과 화상 인터뷰에서 “많은 기업은 시장 분석 보고서를 받기 위해 컨설팅 회사에 찾아가 수백만달러를 쓰고 있다”며 “만약 사회를 시뮬레이션할 수 있다면",
+        "source": "Maeil Business Newspaper",
+        "language": "ko",
+        "date": "2026-03-29",
+        "category": "IT·과학"
+      },
+      {
+        "title": "세계국채지수 편입 앞둔 한국, 중동 사태·고환율이 발목 잡나",
+        "body": "다음 달 1일부터 한국 국채의 세계국채지수(WGBI) 편입이 본격적으로 시작되면서, 국내 채권시장에 미칠 영향이 주목받고 있다. WGBI란 영국 파이낸셜타임스 스톡익스체인지(FTSE) 러셀이 발표하는 세계 최대 채권 지수로, 이 지수에 맞춰 투자를 결정하는 자금만 2조5000억달러에 달한다.\n\n29일 금융투자업계에 따르면, 다음 달 1일부터 11월까지 8개월간 한국의 WGBI 편입이 단계적으로 이뤄진다. 현재 25개 나라의 국채가 편입돼 있는데, 한국의 예상 편입 비중은 2.08%로 전체 편입 국가 중 9번째로 큰 규모다. 한국이 이 지수에 편입되면 전 세계 대형 연·기금과 자산운용사 등 글로벌 투자 기관들의 투자 자금이 정해진 비중만큼 자동으로 한국 국채에 투자하게 된다. 이에 따라 시장에서는 최소 50조",
+        "source": "Chosun Ilbo",
+        "language": "ko",
+        "date": "2026-03-29",
+        "category": "경제 일반"
+      },
+      {
+        "title": "[프로야구 대구전적] 롯데 6-2 삼성 | 연합뉴스",
+        "body": "▲ 대구전적(29일)\n롯데 000 110 400 - 6\n삼성 000 010 100 - 2\n△ 승리투수 = 비슬리(1승)\n△ 패전투수 = 최원태(1패)\n△ 홈런 = 손호영 1·2호(4회1점·7회1점) 노진혁 1호(5회1점) 레이예스 2호(7회3점·이상 롯데)\n(대구=연합뉴스)\n제보는 카카오톡 okjebo <저작권자(c) 연합뉴스, 무단 전재-재배포, AI 학습 및 활용 금지> 2026년03월29일 17시09분 송고\n송고 2026년03월29일 17시09분\n▲ 대구전적(29일)\n롯데 000 110 400 - 6\n삼성 000 010 100 - 2\n△ 승리투수 = 비슬리(1승)\n△ 패전투수 = 최원태(1패)\n△ 홈런 = 손호영 1·2호(4회1점·7회1점) 노진혁 1호(5회1점) 레이예스 2호(7회3점·이상 롯데)\n(",
+        "source": "Yonhap News Agency",
+        "language": "ko",
+        "date": "2026-03-29",
+        "category": "스포츠"
+      },
+      {
+        "title": "이재명 정부",
+        "body": "이 대통령 “4·3 국가폭력, 나치 전범처럼 영구 처벌받도록 하겠다”\n2026-03-29 17:54\n이슈\n이재명 정부이슈 4,128\n- 이 대통령 “4·3 국가폭력, 나치 전범처럼 영구 처벌받도록 하겠다”2026-03-29 17:54\n- 구윤철 “유가 120~130달러 되면 차량5부제 민간 확대”2026-03-29 15:35\n- 이 대통령, ‘위안부 피해’ 할머니 또 별세에 “비통한 마음”2026-03-29 14:11\n- 정부, 국내 수출기업에 ‘EU 탄소 관세’ 대응 지원2026-03-29 12:00\n- 정부 ‘부처 칸막이’ 없애고 대응 뒤, 보이스피싱 범죄 30% 줄어2026-03-29 11:12\n- 고문기술자 표창이라니…이 대통령 “당연히 박탈, 공소시효 배제 추진”2026-03-29 10:00\n- 정",
+        "source": "Hankyoreh",
+        "language": "ko",
+        "date": "2026-03-29",
+        "category": null
+      },
+      {
+        "title": "“겨우 이거 보려고 왔냐?, 물이 제일 맛있네” 노동에 가까워진 가족여행, 해법은 - 매일경제",
+        "body": "계획 부담 줄이는 올인클루시브형\n3개 호텔 식사·부대시설 교차 이용\n“겨우 이거 보려고 왔냐?” 금지, “물이 제일 맛있다.” 금지.\n‘가족여행 십계명’이 공감을 얻는 데는 이유가 있다. 가족여행에는 이유 없이 생기는 긴장감이 있다. 효도 여행이든 아이동반 여행이든 마찬가지다. 누군가는 만족해야 하고, 누군가는 참아야 한다.\n그래서 자녀세대는 여행자가 아니라 ‘총괄 매니저’가 된다. 일정부터 식사, 동선까지 모든 걸 신경 쓰다 보면 여행은 점점 노동에 가까워진다.\n켄싱턴호텔 사이판은 이 부담을 덜어주는 선택지다. 숙박과 식사, 액티비티가 하나로 묶인 올인클루시브에, 다른 리조트를 오갈 수 있는 프로그램도 갖췄다. 말 그대로 10계명이 필요 없는 곳이다.\n이랜드파크 해외 법인 리조트 마이크로네시아 리조트(MR",
+        "source": "Maeil Business Newspaper",
+        "language": "ko",
+        "date": "2026-03-29",
+        "category": "문화"
+      },
+      {
+        "title": "金총리 \"마스크·요소수 기억 생생…생필품 수급 차질 선제대처\"(종합) | 연합뉴스",
+        "body": "비상경제본부 회의 주재…\"전쟁 장기화 대비 대책도 면밀 수립\"\n'요소수 매점매석 금지' 철저 집행…나프타 수급 '더 적극적 조치' 검토\n(서울=연합뉴스) 설승은 기자 = 김민석 국무총리는 29일 중동전쟁으로 인한 경제 위기 대응과 관련해 \"최우선 과제 중 하나로 국민 생활필수품 수급 차질에 선제적으로 대처해 나가겠다\"고 밝혔다.\n김 총리는 이날 정부서울청사에서 주재한 제1차 비상경제본부회의에서 \"물품 수급의 '골든타임'을 놓치면 국민 불안·불편이 감당하지 못할 수준이 될 것\"이라며 이같이 말했다.\n그는 \"코로나19 위기 당시 마스크 품귀 현상과 '요소수 사태'로 물류가 마비되고 경유 차가 멈춰 섰던 사회적 고통의 기억이 생생하다\"고 떠올렸다.\n이어 \"중동발 물품 수급 차질의 영향을 시나리오별로 분석하고 단계",
+        "source": "Yonhap News Agency",
+        "language": "ko",
+        "date": "2026-03-29",
+        "category": "정치"
+      },
+      {
+        "title": "“개미 마리당 100달러, 3억에 팔려”…아프리카 개미, 중국에 밀수되는 이유가 - 매일경제",
+        "body": "아프리카 개미가 중국의 희귀 애완동물 수집가들에게 인기가 높아 비싼 가격에 팔리고 있다.\n특히, 케냐·에티오피아·탄자니아 등 동아프리카 원산의 수확개미가 가장 인기가 많은 것으로 알려졌다.\n29일 홍콩 사우스차이나모닝포스트(SCMP) 보도에 따르면 이달 초 케냐 나이로비의 국제공항에서 20대 중국인이 수하물에 살아있는 여왕 수확개미 2200마리를 숨겨 귀국하려다 적발됐다.\n이 중국인은 특수시험관에 1948마리를 담고, 휴지 뭉치 속에 300마리를 넣어 중국에 밀반입하려 했던 것으로 조사됐다.\n이 신문은 지난해 4월에도 케냐 정부의 야생동물관리국이 베트남 남성이 중국으로 수확개미를 5000마리 넘게 몰래 가져가려다 적발한 것을 포함해 지난해 한 해 동안 유사 밀반출 사례 5건을 적발했다고 전했다.\nSCMP는 ",
+        "source": "Maeil Business Newspaper",
+        "language": "ko",
+        "date": "2026-03-29",
+        "category": "국제"
+      },
+      {
+        "title": "은행 주담대 고정 금리, 3년 5개월 만에 7% 넘어",
+        "body": "주요 은행의 주택담보대출 고정 금리 상단이 3년 5개월 만에 연 7%를 넘어섰다. 미국·이스라엘과 이란 전쟁 여파로 인플레이션 우려가 커지고 금리 인하 기대가 약화되면서 대출 금리의 지표가 되는 시장 금리가 오른 여파다. 고금리 기조가 장기화할 수 있다는 전망이 나오면서 ‘영끌(영혼까지 끌어모아 주택 구입)’ ‘빚투(대출로 투자)’에 나섰던 이들의 부담도 커지고 있다.\n\n29일 금융권에 따르면, KB국민·신한·하나·우리·NH농협 등 5대 은행의 혼합형 주택담보대출 금리는 지난 27일 기준 연 4.410~7.010%로 집계됐다. 금리 상단이 7%를 넘어선 것은 2022년 10월 이후 3년 5개월 만이다. 작년 말(연 3.930~6.230%)과 비교하면 상단과 하단이 각각 0.780%포인트, 0.480%포인트 ",
+        "source": "Chosun Ilbo",
+        "language": "ko",
+        "date": "2026-03-29",
+        "category": "경제 일반"
+      },
+      {
+        "title": "비가 와도 여행은 계속해야 한다…‘날씨요괴’마저 반해버린 사이판 - 매일경제",
+        "body": "비 와도 투명한 바닷속 탐험\n빗속에서 더욱 선명한 숲속\n‘휴양지의 8할은 날씨’라고 했던가. 연중 내내 맑은 날씨로 유명한 사이판에 해가 사라졌다. 야속하게도 머무는 4일 내내 비가 왔다. 비가 그친 순간에도 해는 좀처럼 얼굴을 내밀지 않았다. 이쯤 되면 스스로를 ‘날씨 요괴’라 부를 만하다.\n그러나 비가 와도 여행은 계속해야 한다. 비 오는 휴양지는 실패가 아니다. 여행지를 다르게 볼 수 있는 기회다.\n바다는 비에 젖지 않는다. 흐린 해변의 풍경이 아쉽다면 그 안으로 직접 들어가면 된다.\n그 대표적인 곳이 그로토다. 다이빙 성지로 알려진 그로토는 거대한 석회암 동굴로, 수면 아래로 펼쳐지는 푸른빛으로 유명하다. 동굴의 구멍 사이로 들어온 빛이 깊고 선명한 파란색을 만든다.\n이 빛은 날씨의 영향을 크게 받지",
+        "source": "Maeil Business Newspaper",
+        "language": "ko",
+        "date": "2026-03-29",
+        "category": "문화"
+      },
+      {
+        "title": "[주간경제지표] 2026년 3월 27일자",
+        "body": "",
+        "source": "Chosun Ilbo",
+        "language": "ko",
+        "date": "2026-03-29",
+        "category": "economy"
+      },
+      {
+        "title": "한국은 10명 중 6명이 있는데 일본은 17%…여권 보유 차이점은 이것 [호텔 체크人] - 매일경제",
+        "body": "한국·일본 총괄, 개인 맞춤 OTA 전략 강화\nK-콘텐츠 효과에 영월 검색량 183% 폭증\nAI 기반 ‘딜 마스터’ 구현…가격·추천 개인화\n여행 플랫폼 ‘아고다’는 딱히 뜻이 있는 단어가 아니다. 발음하기 쉬워서 아고다가 됐다. 이준환 아고다 동북아시아 대표는 블룸버그에서 한국·홍콩·대만을 총괄하다 2020년 아고다 한국지사 대표로 자리를 옮겼다. 작년부터는 한국과 일본 두 시장을 동시에 맡고 있다.\n금융 정보 산업에서 OTA 플랫폼으로 업종은 바뀌었지만 가장 중요하게 생각한 건 같았다. 이준환 대표는 “어떻게 하면 가장 좋은 서비스를 제공할 수 있느냐는 거고 다만 차이는 있다”며 “블룸버그는 기업 고객 중심이었지만 아고다의 고객은 취향도 목적도 예산도 전부 다른 개인”이라고 말했다.\n여행지의 범위도 바뀌고",
+        "source": "Maeil Business Newspaper",
+        "language": "ko",
+        "date": "2026-03-29",
+        "category": "문화"
+      },
+      {
+        "title": "[영상] 전차 쾅! 공격헬기 드르륵…에콰도르군, 불법 채굴 광산 폭격 | 연합뉴스",
+        "body": "에콰도르군이 전차와 공격헬기를 동원해 콜롬비아 국경에서 불법 채굴 광산을 폭격했습니다.\n에콰도르 국방부는 4일간 진행되는 이번 작전 동안 지속적인 폭격과 집중포화를 통해 약 50곳의 광산 입구를 파괴할 것이라고 밝혔습니다.\n국방부에 따르면 광산 마피아들이 불법 채굴로 벌어들이는 수익은 하루 약 30만 달러정도인 것으로 알려졌습니다.\n전체 내용을 이해하기 위해서는 기사 본문과 함께 읽어야 합니다.\n송고 2026년03월29일 16시59분\n세 줄 요약\n에콰도르군이 전차와 공격헬기를 동원해 콜롬비아 국경에서 불법 채굴 광산을 폭격했습니다.\n에콰도르 국방부는 4일간 진행되는 이번 작전 동안 지속적인 폭격과 집중포화를 통해 약 50곳의 광산 입구를 파괴할 것이라고 밝혔습니다.\n국방부에 따르면 광산 마피아들이 불법 채굴",
+        "source": "Yonhap News Agency",
+        "language": "ko",
+        "date": "2026-03-29",
+        "category": "국제"
+      },
+      {
+        "title": "“대중 말고 내게 사과해야”…‘아들 외도 논란’ 홍서범 부부에 전 며느리 분노 - 매일경제",
+        "body": "전 며느리 “대중이 아닌 나와 가족에게 사과하라” 반박\n방송인 홍서범, 조갑경의 전 며느리 A씨가 전 남편의 외도 논란에 대해 직접 입을 열었다.\nA씨는 29일 자신의 SNS에 “대중이 아닌 본인과 아이, 제 가족들한테 사과하시라고요”라고 시작하는 글을 게재했다.\n그는 “난리 나니까 대중에게 사과하는 척”이라며 “입장에서도 보니 주장과 많이 다른? 아니요. 모든 게 진실이니 제대로 애매하게 이야기하시겠죠”라고 저격했다.\n그러면서 “인정하기는 싫고 쪽팔리고. 근데 본인 아들의 잘못인 거고”라며 “저와 제 가족에게 저지른 일 제대로 사과하시라고요. 거짓 사과. 억지 사과. 뻔뻔한 태도 그대로. 방송에 알리는데 햇수로 3년”이라고 분노했다.\n이와 함께 A씨는 “여러분 제발 쉽게 사라지지않게 계속 도와주세요”라고 ",
+        "source": "Maeil Business Newspaper",
+        "language": "ko",
+        "date": "2026-03-29",
+        "category": "사회"
+      },
+      {
+        "title": "청주시, 목재펠릿 보일러 설치 지원…내달 1일부터 신청자 접수 | 연합뉴스",
+        "body": "청주시는 올해 목재펠릿 보일러와 난로 보급 사업 신청자를 내달 1일부터 15일까지 접수한다고 29일 밝혔다.\n지원 대상은 목재펠릿 보일러 및 난로 설치를 희망하는 주택과 사회복지시설 등이다.\n주택용 보일러는 설치 금액의 최대 70%까지 지원하고, 사회복지용은 설치비 전액을 지원한다.\n인공지능이 자동으로 줄인 '세 줄 요약' 기술을 사용합니다.\n전체 내용을 이해하기 위해서는 기사 본문과 함께 읽어야 합니다.\n전체 내용을 이해하기 위해서는 기사 본문과 함께 읽어야 합니다.",
+        "source": "Yonhap News Agency",
+        "language": "ko",
+        "date": "2026-03-29",
+        "category": "정치"
+      },
+      {
+        "title": "삼전닉스 던진 외국인, 코스닥은 주웠다…줍줍한 종목 대부분 바이오 - 매일경제",
+        "body": "코스닥에선 1870억 매수우위\n호재많은 바이오주 집중매수해\n알지노믹스·파마리서치 담아\n중동 정세 불안 여파로 이달 외국인투자자들의 코스피 순매도 규모가 30조원을 넘어섰다. 반면 코스닥 시장에서는 바이오·헬스케어를 중심으로 로봇, 2차전지 등 성장주를 중심으로 외국인들의 선별 매수가 이어지며 순매수 기조가 유지됐다.\n외국인들이 거시경제 충격에 취약한 대형 제조업 대신 미래 밸류체인과 한국 정부가 중점 추진 중인 코스닥 개혁 정책의 수혜를 입을 기업들로 눈길을 돌리는 모습이다.\n29일 한국거래소에 따르면 외국인투자자들은 이달 3일부터 27일까지 코스피에서 총 30조3380억원어치를 순매도했다. 지난달 외국인들의 월간 순매도액 19조6000억원을 훌쩍 뛰어넘은 숫자다. 이에 따라 외국인들의 이달 국내 증시 순매",
+        "source": "Maeil Business Newspaper",
+        "language": "ko",
+        "date": "2026-03-29",
+        "category": "증권"
+      },
+      {
+        "title": "81만㎡ 항만배후부지 공급… 항만 부가가치 높인다",
+        "body": "인천항만공사가 올해 81만3000㎡ 면적의 항만배후단지를 공급한다. 항만배후단지는 항만의 부가가치를 높이고 물류 등 관련 산업을 활성화하기 위해 정부가 무역항 주변에 지정한 부지다.\n\n기업 유치 센터, 우수 기업 유치 TF 등을 운영하고 있는 인천항만공사는 이번 항만배후단지를 차질 없이 공급해 새로운 물동량을 창출하고 부가가치를 얻을 수 있게 할 방침이다.\n\n인천항만공사는 우선, 인천 남항 인근의 항만배후단지인 ‘아암물류 2단지 2단계’ 부지에 대한 투자 유치 활동을 추진하고 있다.\n\n아암물류 2단지 2단계 부지는 총 58만9000여 ㎡ 규모로, 공공 용지 3만5000㎡를 제외한 나머지 55만4000㎡가 투자 유치 용지다.\n\n국내외 물류·제조 기업이 유치 대상인데, 인천항만공사는 기업의 다양한 수요를 감안해",
+        "source": "Chosun Ilbo",
+        "language": "ko",
+        "date": "2026-03-29",
+        "category": "특집섹션"
+      },
+      {
+        "title": "55세 중국 재벌女, 25세 연하남과…6번째 결혼, 혼수비만 109억 - 매일경제",
+        "body": "중국의 사업가가 연하남과 결혼하며 100억원이 넘는 규모의 혼수품을 마련해 화제다. 전형적인 흙수저 출신으로 미용계 거물이 되기까지 파란만장한 인생을 살아온 만큼 행복해지기 위한 결혼에 자금을 아끼지 않고 투자하는 모습이다.\n28일 사우스차이나모닝포스트(SCMP)에 따르면 의료미용업체를 운영하는 위원훙(55)이 결혼식을 올렸다는 소식을 전했다. 위원훙의 남편은 나이 차이가 30살에 달하는 류위천(25)이다. 위원훙은 부동산과 외제차를 포함해 5000만위안(약 109억원) 수준의 혼수품을 준비한 것으로 전해진다.\n류위천은 위원훙의 회사의 모델이었다. 위원훙과 류위천은 지난해 처음 만나 교제를 시작한 것으로 알려졌다. 류위천은 “그냥 내게 찾아온 기회”라며 “마다할 사람이 어디에 있겠냐”고 말했다. 위원훙의 결",
+        "source": "Maeil Business Newspaper",
+        "language": "ko",
+        "date": "2026-03-29",
+        "category": "사회"
+      },
+      {
+        "title": "“집값 5.2억이면 건보료 월 6만원”…널뛰는 공시지가에 ‘서민부담’ 가중 - 매일경제",
+        "body": "기초연금 수급자 탈락 가능성도 생겨\n김미애 “국민부담 증가구조 점검해야”\n김미애 국민의힘 의원(부산 해운대을)은 공시지가 상승이 건강보험료와 기초연금 수급에 영향을 미치는 구조적 문제를 지적하며 “부동산 가격 상승이 국민 부담 증가로 이어지는 구조를 점검해야 한다”고 밝혔다.\n최최근 공시지가 상승과 맞물려 세 부담이 다시 확대될 수 있다는 전망이 나오는 가운데, 건강보험료 역시 부담을 더한다는 지적이 나왔다.\n29일 김미애 국민의힘 의원이 국회 예산정책처로부터 제출받은 분석자료에 따르면 시가 5억2000만원 수준의 공동주택은 공시지가 약 3억5000만원, 재산세 과세표준 약 1억5400만원으로 산정된다. 이 경우 기본공제 1억원을 제외한 5400만원에 대해 재산보험료가 부과돼 월 약 6만2000원의 건강보험",
+        "source": "Maeil Business Newspaper",
+        "language": "ko",
+        "date": "2026-03-29",
+        "category": "경제"
+      },
+      {
+        "title": "\"AI 도입땐 진단 정확도 높아져 지역간 의료 편차 확 줄어들것\" - 매일경제",
+        "body": "Key Points\n-\nAI 도입은 병원의 품질과 수익성을 크게 향상시키며, 몇 년 안에 AI 친화적인 병원과 그렇지 않은 병원 간의 격차가 심화될 것으로 전망돼요. 🏥✨\n-\nAI는 '혹시나' 하는 불안감에 진행되는 불필요한 검사를 줄이고, 환자의 병원 방문 횟수 및 입원 일수를 감소시켜 사회·경제적 비용 절감 효과를 가져올 것으로 기대돼요. 💰👍\n-\nAI는 지역별 의사의 경험이나 병원 장비 차이로 인한 진료 편차를 줄이는 데 크게 기여할 수 있으며, 지방 의사나 개원의의 정보 격차 문제를 해소할 수 있을 것으로 보여요. 🗺️💡\n-\n성공적인 의료 AI 전환을 위해서는 의사들이 AI를 업무 보조 도구로 적극 수용하고, 동료 의료인뿐만 아니라 다른 분야 전문가 및 환자와 활발히 소통하는 자세가 중요해요. 🤝🧑⚕",
+        "source": "Maeil Business Newspaper",
+        "language": "ko",
+        "date": "2026-03-29",
+        "category": "IT·과학"
+      },
+      {
+        "title": "환자들 챗GPT에 심층상담 받는데 … 병원은 AI 활용에 소극적 - 매일경제",
+        "body": "하루 4천만명 AI에 의료 상담\n의학용어부터 복잡한 증상 등\n농촌 지역·밤 시간 이용 집중\nAI 위험 신호 포착 등에 강점\n美·中·유럽 의료AI 개발 박차\n\"韓도 사용수칙 마련 서둘러야\"\n환자들에게는 간단한 의료 조언을 받을 수 있는 '의료 인공지능(AI)'의 개발 및 도입이 절실하다. 야간 상황이나 의료기관과 떨어진 지역에 거주하는 환자들에게 도움이 될 수 있고 짧은 진료 시간 탓에 해소되지 않는 궁금증을 풀어줄 수도 있다.\n먼저 의료 AI는 의료 사각지대의 빈틈을 메우는 역할을 할 수 있다. 실제로 오픈AI가 지난 1월 발표한 보고서에 따르면 전 세계에서 매일 4000만명 이상이 챗GPT에 의료 관련 질문을 하고 있으며, 전체 대화 가운데 의료 관련 비중은 5%를 넘었다고 한다. 특히 챗GPT의 의료 관",
+        "source": "Maeil Business Newspaper",
+        "language": "ko",
+        "date": "2026-03-29",
+        "category": "IT·과학"
+      },
+      {
+        "title": "할랄 라면 만들고, 세포라 뚫고… 해외 공략 공식이 달라진다",
+        "body": "국내 유통업체들의 해외 공략 공식이 달라지고 있다. 미국·중국 같은 대형 시장에서 몸집을 키우는 데 집중해 오던 국내 업체들은 이제 중동·중남미·아프리카 등 신시장 공략 속도를 높이고 있다. 한국 드라마 같은 콘텐츠로 K푸드에 대한 심리적 장벽이 낮아진 지금을 ‘수출 외연 확대’의 기회로 삼는 것이다.\n\n장기화하는 내수 침체 상황에서 해외 시장은 기업의 실적을 가르는 핵심 요인으로 작용하고 있다. 국내 매출 비율이 높은 식품 기업들이 작년 한 자릿수 영업이익률을 기록한 것과 달리 해외 매출 비율이 높은 삼양식품·오리온이 각각 22%, 16%의 영업이익률을 기록한 것이 그 방증이다. K푸드와 화장품 수출은 작년 역대 최대 실적을 찍었다. 농식품 수출액은 전년 대비 4.3% 증가한 104억1000만달러, 화장품",
+        "source": "Chosun Ilbo",
+        "language": "ko",
+        "date": "2026-03-29",
+        "category": "스페셜"
+      },
+      {
+        "title": "홍콩, 외국인 관광객까지 … 폰 비번 해제 요구 법제화 - 매일경제",
+        "body": "홍콩, 외국인 관광객까지 … 폰 비번 해제 요구 법제화\n홍콩 외교부는 성명을 통해 \"해당 총영사는 (조례 규칙 개정에) 강한 불만과 단호한 반대 의사를 표명했다\"며 \"미국 측이 어떤 형태로든 홍콩 사무와 중국 내정에 간섭하는 행위를 즉각 중단할 것을 촉구했다\"고 밝혔다.\n갈등의 발단은 최근 중국 베이징 주도로 통과된 홍콩 국가안보수호조례 시행규칙 개정이다. 이 조례는 홍콩 내에서 2014년부터 민주화 시위가 격화한 걸 빌미로 삼아 반역·선동·국가전복 등 국가안보 위협 행위를 처벌한다는 명분으로 홍콩 입법회가 2024년 3월 통과시킨 법률이다. 이는 홍콩의 자유와 인권을 제한하는 '홍콩판 국가보안법'으로 불린다.\n미국 영사관은 안보 경보를 통해 \"홍콩 경찰에 휴대폰이나 노트북컴퓨터 등 개인 전자기기의 비밀번호",
+        "source": "Maeil Business Newspaper",
+        "language": "ko",
+        "date": "2026-03-29",
+        "category": "국제"
+      },
+      {
+        "title": "최대 다섯 개의 ETF 동시에 비교·분석… 개인 맞춤형 자산 배분 제안도",
+        "body": "최근 국내 투자자들 사이에서 ETF(상장지수펀드)가 주요 투자 수단으로 각광받고 있다. 국내 ETF 시장 규모는 올해 들어서만 80조원 넘게 성장해 400조원에 육박하는 수준이다. 지난 2002년 상장한 국내 첫 ETF이자 시가총액 1위인 삼성자산운용의 ‘KODEX 200’은 17조6000억원 규모로 불어났다. 이런 가운데 삼성자산운용의 ETF 정보 제공 포털인 ‘FunETF’가 투자 편의를 극대화한 통합 설루션으로 주목받고 있다.\n\n◇국내 ETF 한눈에 분석 가능\n\n삼성자산운용 FunETF의 대표 기능인 ‘ETF 검색’을 통해 ETF 유형, 수익률 범위, 거래량, 거래 대금, 투자 위험 등 다양한 조건을 조합해 원하는 상품을 간편하게 찾아낼 수 있다. KODEX ETF를 포함한 국내 모든 ETF·펀드 상품",
+        "source": "Chosun Ilbo",
+        "language": "ko",
+        "date": "2026-03-29",
+        "category": "경제 일반"
+      },
+      {
+        "title": "태국·파키스탄 \"이란과 호르무즈 통과 합의\" - 매일경제",
+        "body": "Key Points\n-\n태국과 파키스탄이 이란과의 호르무즈 해협 안전 항행 합의를 이끌어내면서 에너지 공급망 불안감 해소에 대한 기대감이 커지고 있어요. 🤝\n-\n이번 합의는 전쟁 발발 이후 이란이 호르무즈 해협 통행을 통제하며 발생했던 연료 수입 차질과 에너지난을 겪었던 국가들에게 희소식이며, 특히 태국은 이달 초 겪었던 공급 중단 사태 재발 방지에 대한 확신을 얻었다고 해요. ✨\n-\n파키스탄은 이란과 협상을 통해 국적 선박 20척의 통행권을 확보했으며, 매일 2척이 해협을 건너게 될 예정이라고 해요. 이는 '평화의 전조이자 건설적인 움직임'으로 평가받고 있어요. 🕊️\n-\n인도네시아 역시 유조선의 안전한 호르무즈 해협 통과를 위해 이란과 협상이 거의 마무리 단계에 이르렀다고 밝히며, 해당 지역의 에너지 물류",
+        "source": "Maeil Business Newspaper",
+        "language": "ko",
+        "date": "2026-03-29",
+        "category": "국제"
+      },
+      {
+        "title": "경북 경주 외동읍 야산에 불…진화 중 | 연합뉴스",
+        "body": "(영천=연합뉴스) 김용민 기자 = 29일 오후 4시 16분께 경북 경주시 외동읍 석계리 야산에 불이 났다.\n소방 당국과 경주시는 진화 작업을 벌이고 있다.\nyongmin@yna.co.kr\n제보는 카카오톡 okjebo <저작권자(c) 연합뉴스, 무단 전재-재배포, AI 학습 및 활용 금지> 2026년03월29일 16시31분 송고\n송고 2026년03월29일 16시31분\n(영천=연합뉴스) 김용민 기자 = 29일 오후 4시 16분께 경북 경주시 외동읍 석계리 야산에 불이 났다.\n소방 당국과 경주시는 진화 작업을 벌이고 있다.\nyongmin@yna.co.kr\n제보는 카카오톡 okjebo <저작권자(c) 연합뉴스, 무단 전재-재배포, AI 학습 및 활용 금지> 2026년03월29일 16시31분 송고\nESC 닫기\n댓글",
+        "source": "Yonhap News Agency",
+        "language": "ko",
+        "date": "2026-03-29",
+        "category": "사건사고"
+      },
+      {
+        "title": "트럼프 \"다음은 쿠바\" 이란 이어 공격 시사 - 매일경제",
+        "body": "\"위대한 피스메이커 될 것\"\n트럼프 대통령은 27일(현지시간) 미국 플로리다주 마이애미에서 열린 사우디아라비아 국부펀드 주최 '미래 투자 이니셔티브 정상회의' 연설에서 자신이 미국의 군사력을 위대하게 만들었다고 강조한 뒤 \"나는 '이걸' 쓸 일은 절대 없을 것\"이라고 말했다. 그러면서 \"하지만 가끔은 써야 할 때도 있다. 그리고 어쨌거나 쿠바가 다음\"이라고 밝혔다. 그는 앞서 지난 16일에도 \"나는 쿠바를 접수하는 영광을 누리게 될 것으로 확신한다\"고 기자들에게 말한 적 있다.\n트럼프 대통령의 이날 언급은 쿠바의 반미 정권에 대한 압박용 발언이라는 분석이다. 현재 마코 루비오 미국 국무장관이 쿠바 정부와 협상을 진행 중인 것으로 알려진 가운데 미국이 미겔 디아스카넬 쿠바 대통령의 퇴진을 요구하고 있다는 보도",
+        "source": "Maeil Business Newspaper",
+        "language": "ko",
+        "date": "2026-03-29",
+        "category": "국제"
+      },
+      {
+        "title": "日 국채금리 27년래 최고 … 기준금리 조기인상 움직임 - 매일경제",
+        "body": "Key Points\n-\n2026년 3월 27일, 뉴욕 외환시장에서 달러당 엔화값은 160.24엔까지 떨어지며 2024년 7월 이후 1년 8개월 만에 최저치를 기록했어요. 이는 최근 중동 지역의 정세 불안으로 안전자산인 미국 달러화로 자금이 몰리는 '달러 강세' 현상 때문으로 풀이됩니다. 💸\n-\n엔화 약세뿐만 아니라 일본 국채 10년물 금리가 2.385%를 기록하며 1999년 2월 이후 27년 만에 최고치를 찍었어요. 이는 국제 유가 상승으로 인한 물가 상승 우려와 기준금리 조기 인상 가능성이 시장에 반영된 결과로 보여요. 📈\n-\n과거 2024년 4월과 6~7월에도 엔화가 160엔대로 떨어진 적이 있었는데, 이때 일본 정부와 일본은행은 시장 개입을 통해 엔화 가치를 끌어올린 바 있어요. 현재 일본 정부는 외환",
+        "source": "Maeil Business Newspaper",
+        "language": "ko",
+        "date": "2026-03-29",
+        "category": "국제"
+      },
+      {
+        "title": "AI가 투자 종목 분석… 맞춤형 정보·뉴스 알려준다",
+        "body": "신한투자증권은 고객의 통합 자산 관리를 돕기 위한 AI(인공지능) 혁신에 속도를 내고 있다. 자산 관리를 돕는 AI PB(프라이빗 뱅커)가 단순히 투자 관련 정보를 제공하는 걸 넘어 사용자의 투자 성향을 분석해 맞춤형 정보를 제공하는 등 기능을 고도화했다. 신한투자증권은 신한SOL증권 앱을 투자는 물론 절세 관리, 온라인 커뮤니티 등을 아우르는 종합 디지털 자산 관리 설루션으로 만들겠다는 전략이다.\n\n신한SOL증권 앱의 AI PB는 투자자들을 위한 일종의 개인 투자 비서다. 일반적인 투자 정보뿐 아니라 고객의 보유 종목과 관심사를 바탕으로 투자 결정에 필요한 시장 정보와 뉴스를 선별·요약해 제공하고 있다. 실시간 챗봇 상담, 뉴스 요약 등도 가능하다.\n\n투자 편의를 높이기 위한 ‘투자 자동화’도 이뤄지고 있",
+        "source": "Chosun Ilbo",
+        "language": "ko",
+        "date": "2026-03-29",
+        "category": "경제 일반"
+      },
+      {
+        "title": "美 지상군 증파·후티 참전 … 공격 수위만 더 올라가 - 매일경제",
+        "body": "美 해병대 3500명 중동 도착\n전쟁부 몇 주간 지상전 준비\n후티, 이스라엘에 미사일공격\n'후티 원수' 사우디 참전 가능성\n\"홍해 봉쇄 시 유가 150달러\"\n루비니, 스태그플레이션 경고\n도널드 트럼프 미국 대통령이 제시한 사실상의 협상 시한인 다음달 6일까지 전쟁의 긴장은 고조되고 중동발 공급망 충격이 지속될 전망이다.\n미국과 이란은 종전 협상의 주도권을 잡기 위해 모두 '화전양면' 전략을 구사하며 협상과 동시에 군사 공격 수위를 끌어올리고 있다.\n미국 중부사령부는 28일(현지시간) 소셜미디어 엑스(X)에 \"미국 해군과 해병대가 탑승한 트리폴리함이 27일 중부사령부 작전 책임 구역에 도착했다\"고 밝혔다. 미국이 최후의 카드인 지상전 투입을 위한 준비를 진행하고 있는 것이다.\n미국 캘리포니아에 주둔 중인 제1",
+        "source": "Maeil Business Newspaper",
+        "language": "ko",
+        "date": "2026-03-29",
+        "category": "국제"
+      },
+      {
+        "title": "대상과 오늘을 더 맛있게",
+        "body": "대상 청정원이 브랜드 론칭 30주년을 맞아 ‘라이프푸드 전문 브랜드’로서 정체성을 다시 강조하고, 이를 알리기 위한 광고 캠페인과 기념 엠블럼을 공개했다. 식품을 넘어 소비자 일상 전반에서 함께하는 브랜드로 영역을 넓히겠다는 취지다.\n\n대상그룹은 1956년 설립 이후 발효 기술을 이용한 장류 사업을 중심으로 성장해 왔으며, 청정원은 1996년 론칭된 대상그룹의 종합식품 브랜드다. 청정원은 출범 후 장류와 소스, 조미료 중심에서 간편식과 음료 등으로 제품군을 확대하며 사업 영역을 넓혀왔다. 최근에는 가정간편식(HMR) 수요 증가에 맞춰 관련 제품군을 강화하고 있다. 대표 제품군으로는 장류 브랜드 ‘순창’을 비롯해 간장 ‘햇살담은’, 조미료 ‘맛선생’, 카레 제품 ‘카레여왕’, 음료 ‘홍초’, 안주 간편식 ‘안",
+        "source": "Chosun Ilbo",
+        "language": "ko",
+        "date": "2026-03-29",
+        "category": "생활경제"
+      },
+      {
+        "title": "\"건자재, 두배 쳐줘도 원료 못 구해\"… 제약·유통은 포장재 대란 - 매일경제",
+        "body": "Key Points\n-\n중동 전쟁의 여파로 나프타 공급이 크게 줄어들면서 건설 자재, 페인트, 의약품 포장재 등 산업 전반에 걸쳐 원료 부족과 가격 급등이 심화되고 있어요. 😥\n-\n건설 자재 업계는 4월 중순 이후 생산 시설 가동 중단(셧다운)까지 우려하는 상황이며, 이미 페인트 가격은 최고 55%까지 인상 통보된 상태예요. 🚧\n-\n약국에서는 조제약 포장지(롤지)와 시럽 용기 등 포장재를 사재기하고 있으며, 이마트 등 대형마트는 종량제 봉투 구매 수량을 제한하는 등 일상생활에도 불편이 시작되었어요. 🛍️\n-\n국내 나프타 재고가 2~3주 분량밖에 남지 않아 정부의 수출 통제와 매점매석 금지 조치에도 불구하고 단기간 내 공급 부족이 해소되기는 어려울 것으로 전망돼요. 📈\n1. 사건 개요: 무슨 일이 있었나?\n최",
+        "source": "Maeil Business Newspaper",
+        "language": "ko",
+        "date": "2026-03-29",
+        "category": "부동산"
+      }
+    ]
+  },
+  "naver_finance": {
+    "fetched_at": "2026-03-31T00:36:48.774626",
+    "stocks": {
+      "005930": {
+        "ticker": "005930",
+        "name": "삼성전자",
+        "current_price": "176,300",
+        "change": "-3,400",
+        "change_pct": "-1.89%",
+        "direction": "down",
+        "prev_close": "179,700",
+        "open_price": "171,000",
+        "high": "176,650",
+        "low": "170,600",
+        "volume": "22,024,888",
+        "market_cap": "1,043.6조",
+        "per": "26.86배",
+        "eps": "6,564원",
+        "foreign_ratio": "48.70%",
+        "op_income_growth": "65.00%",
+        "roe": "10.85%",
+        "pbr": "2.75배",
+        "revenue_100m": "938,374",
+        "fetched_at": "2026-03-31T00:36:46"
+      },
+      "000660": {
+        "ticker": "000660",
+        "name": "SK하이닉스",
+        "current_price": "873,000",
+        "change": "-49,000",
+        "change_pct": "-5.31%",
+        "direction": "down",
+        "prev_close": "922,000",
+        "open_price": "867,000",
+        "high": "884,000",
+        "low": "862,000",
+        "volume": "4,490,953",
+        "market_cap": "622.2조",
+        "per": "14.81배",
+        "eps": "58,955원",
+        "foreign_ratio": "53.05%",
+        "op_income_growth": "68.40%",
+        "roe": "44.15%",
+        "pbr": "5.00배",
+        "revenue_100m": "328,267",
+        "fetched_at": "2026-03-31T00:36:46"
+      },
+      "042700": {
+        "ticker": "042700",
+        "name": "한미반도체",
+        "current_price": "260,500",
+        "change": "-15,000",
+        "change_pct": "-5.44%",
+        "direction": "down",
+        "prev_close": "275,500",
+        "open_price": "259,500",
+        "high": "264,500",
+        "low": "253,500",
+        "volume": "596,465",
+        "market_cap": "24.8조",
+        "per": "116.66배",
+        "eps": "2,233원",
+        "foreign_ratio": "6.94%",
+        "op_income_growth": "-59.26%",
+        "roe": "34.76%",
+        "pbr": "35.79배",
+        "revenue_100m": "830",
+        "fetched_at": "2026-03-31T00:36:47"
+      },
+      "035420": {
+        "ticker": "035420",
+        "name": "NAVER",
+        "current_price": "207,000",
+        "change": "-5,500",
+        "change_pct": "-2.59%",
+        "direction": "down",
+        "prev_close": "212,500",
+        "open_price": "205,500",
+        "high": "208,500",
+        "low": "204,000",
+        "volume": "379,513",
+        "market_cap": "32.5조",
+        "per": "16.73배",
+        "eps": "12,376원",
+        "foreign_ratio": "38.47%",
+        "op_income_growth": "7.01%",
+        "roe": "7.36%",
+        "pbr": "1.12배",
+        "revenue_100m": "31,951",
+        "fetched_at": "2026-03-31T00:36:48"
+      },
+      "034020": {
+        "ticker": "034020",
+        "name": "두산에너빌리티",
+        "current_price": "94,200",
+        "change": "-3,900",
+        "change_pct": "-3.98%",
+        "direction": "down",
+        "prev_close": "98,100",
+        "open_price": "93,000",
+        "high": "94,500",
+        "low": "91,400",
+        "volume": "2,828,606",
+        "market_cap": "60.3조",
+        "per": "713.64배",
+        "eps": "132원",
+        "foreign_ratio": "23.98%",
+        "op_income_growth": "54.73%",
+        "roe": "1.11%",
+        "pbr": "7.75배",
+        "revenue_100m": "48,599",
+        "fetched_at": "2026-03-31T00:36:48"
+      }
+    }
+  },
+  "watchlist": {
+    "005930": "삼성전자",
+    "000660": "SK하이닉스",
+    "042700": "한미반도체",
+    "035420": "NAVER",
+    "034020": "두산에너빌리티"
+  }
+}

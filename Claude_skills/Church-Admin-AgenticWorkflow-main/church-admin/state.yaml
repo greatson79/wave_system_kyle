@@ -1,0 +1,151 @@
+# state.yaml — Church Administration System SOT
+# Central Single Source of Truth — Orchestrator/Team Lead ONLY writer
+# All other agents: READ-ONLY access
+# This is the CHURCH ADMIN system SOT (separate from the build workflow SOT at project root)
+
+church:
+  name: "디딤교회"
+  denomination: "PCK"
+  current_bulletin_issue: 1250
+  status: "active"
+
+  # Data file paths — central registry
+  data_paths:
+    members: "data/members.yaml"
+    finance: "data/finance.yaml"
+    schedule: "data/schedule.yaml"
+    newcomers: "data/newcomers.yaml"
+    bulletin: "data/bulletin-data.yaml"
+    glossary: "data/church-glossary.yaml"
+
+  # Active features (which workflows are enabled)
+  features:
+    bulletin_generation: true
+    newcomer_pipeline: true
+    finance_reporting: true
+    document_generation: true
+    denomination_reports: false   # No workflow exists yet — only template available
+
+  # Workflow states (per-feature state tracking)
+  # Field names MUST match workflow.md references exactly
+  workflow_states:
+    bulletin:
+      # Referenced by: weekly-bulletin.md (lines 69, 216, 417-449)
+      # Referenced by: generate-bulletin.md (line 9)
+      last_generated_issue: 1250
+      last_generated_date: "2026-03-29"
+      next_due_date: "2026-04-05"
+      status: "completed"
+    newcomer:
+      # Referenced by: newcomer-pipeline.md (lines 262, 583)
+      total_active: 6
+      last_check_date: "2026-03-12"
+      last_report: "docs/generated/newcomer-status-report-2026-03.md"
+      status: "idle"
+    finance:
+      # Referenced by: monthly-finance-report.md (lines 329, 537-538)
+      # Referenced by: generate-finance-report.md (line 15)
+      current_month: "2026-03"
+      next_due_month: "2026-04"           # workflow reads this field (line 538)
+      last_report_date: "2026-03-12"
+      outputs:                             # workflow writes here (line 329)
+        "2026-02": "docs/generated/2026-02-finance-report.md"
+        "2026-03": "docs/generated/2026-03-finance-report.md"
+      status: "idle"
+    schedule:
+      # Referenced by: schedule-manager.md workflow
+      last_updated: "2026-03-12"
+      last_report: "docs/generated/schedule-monthly-2026-03.md"
+      status: "idle"
+    document:
+      # Referenced by: document-generator.md workflow
+      last_generated: "2026-03-12"
+      last_document_type: "official_letter"
+      last_output_path: "docs/generated/sample-official-letter.md"
+      generated_samples:
+        baptism_certificate: "docs/generated/sample-baptism-certificate.md"
+        ordination_certificate: "docs/generated/sample-ordination-certificate.md"
+        transfer_certificate: "docs/generated/sample-transfer-certificate.md"
+        meeting_minutes: "docs/generated/sample-meeting-minutes.md"
+        official_letter: "docs/generated/sample-official-letter.md"
+        donation_receipt: "docs/generated/sample-donation-receipt.md"
+      status: "idle"
+
+  # Legal entity information (for receipts, official letters)
+  legal_info:
+    registration_number: "123-82-01234"
+    address: "서울시 마포구 성산로 123"
+    representative: "이성훈"
+    representative_title: "담임목사"
+    phone: "02-1234-5678"
+    bank_account: "국민은행 012-345-67-890123 (소망과사랑의교회)"
+
+  # System configuration
+  config:
+    autopilot:
+      enabled: false
+      finance_override: false
+    backup:
+      enabled: true
+      last_backup: "2026-02-28"
+      backup_dir: "backups/"
+    scale:
+      max_members: 500
+      file_split_threshold: 1000
+
+  # Validation tracking — last successful validation run per data file
+  verification_gates:
+    members:
+      last_run: "2026-02-28"
+      result: "7/7 passed"
+      rules: "M1-M7"
+    finance:
+      last_run: "2026-02-28"
+      result: "7/7 passed"
+      rules: "F1-F7"
+    schedule:
+      last_run: "2026-02-28"
+      result: "6/6 passed"
+      rules: "S1-S6"
+    newcomers:
+      last_run: "2026-02-28"
+      result: "6/6 passed"
+      rules: "N1-N6"
+    bulletin:
+      last_run: "2026-02-28"
+      result: "3/3 passed"
+      rules: "B1-B3"
+    aggregate:
+      last_run: "2026-02-28"
+      total_passed: 29
+      total_checks: 29
+
+  # Agent session tracking — most recent activity per agent
+  # NOTE: "seed_setup" indicates initial data seeding, NOT actual agent execution.
+  # Agents have not yet been invoked in production. First real execution will
+  # overwrite these entries with actual timestamps and action descriptions.
+  agent_sessions:
+    bulletin-generator:
+      last_active: "2026-03-12"
+      last_action: "generated bulletin #1250 for 2026-03-29"
+    newcomer-tracker:
+      last_active: "2026-03-12"
+      last_action: "generated newcomer status report (8 records, 6 active)"
+    member-manager:
+      last_active: "2026-03-12"
+      last_action: "generated member directory summary (42 members, 39 active)"
+    finance-recorder:
+      last_active: "2026-03-12"
+      last_action: "generated 2026-03 monthly finance report"
+    schedule-manager:
+      last_active: "2026-03-12"
+      last_action: "generated 2026-03 monthly schedule summary"
+    document-generator:
+      last_active: "2026-03-12"
+      last_action: "generated 6 sample documents (baptism, ordination, transfer, minutes, letter, receipt)"
+    data-ingestor:
+      last_active: "2026-03-12"
+      last_action: "sample inbox files created (5 CSV + 2 TXT)"
+    template-scanner:
+      last_active: null
+      last_action: "4 templates available (bulletin, worship, receipt, denomination-report)"

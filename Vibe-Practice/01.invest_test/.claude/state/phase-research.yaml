@@ -1,0 +1,37 @@
+# .claude/state/phase-research.yaml — Research Phase SOT
+# Research Lead exclusive write | Orchestrator reads after merge_ready
+# ALL KEYS AND VALUES IN ENGLISH (P5-A)
+
+phase: research
+last_updated: ""
+merge_ready: false
+
+envscan_agent:
+  status: "idle"              # idle | running | completed | failed
+  found: false
+  path: ""
+  schema: {}
+  error: ""
+  completed_at: ""
+
+fred_agent:
+  status: "idle"
+  fred_ready: false
+  connectivity: ""
+  available_series: []
+  error: ""
+  completed_at: ""
+
+gnews_agent:
+  status: "idle"
+  found: false
+  path: ""
+  file_exists: false
+  error: ""
+  completed_at: ""
+
+merge_summary:
+  envscan_discovered: false
+  fred_connected: false
+  gnews_available: false
+  runtime_mode: ""            # full | envscan_only | independent

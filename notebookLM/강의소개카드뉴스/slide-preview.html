@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>카드뉴스 — 목회자를 위한 AI Class</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&display=swap');
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Noto Sans KR', sans-serif;
+    background: #E5E7EB;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 48px 20px;
+    gap: 28px;
+  }
+
+  .page-header { text-align: center; margin-bottom: 8px; }
+  .page-header h1 { font-size: 18px; font-weight: 700; color: #111827; }
+  .page-header p  { font-size: 13px; color: #9CA3AF; margin-top: 4px; }
+
+  .slide-wrap { display: flex; flex-direction: column; align-items: center; gap: 8px; }
+  .slide-label { font-size: 12px; color: #9CA3AF; }
+
+  /* ── 공통 슬라이드 크기 ── */
+  .slide {
+    width: 480px;
+    min-height: 600px;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 12px 40px rgba(0,0,0,0.2);
+    position: relative;
+  }
+
+  /* ════════════════════════════════
+     SLIDE 1 · 표지
+  ════════════════════════════════ */
+  .s1 {
+    background: #111827;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 60px 52px 52px;
+  }
+
+  .wave-badge {
+    position: absolute;
+    top: 28px; right: 28px;
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    background: rgba(255,255,255,0.07);
+    border: 1px solid rgba(255,255,255,0.13);
+    border-radius: 30px;
+    padding: 7px 16px 7px 10px;
+  }
+  .wave-badge img {
+    height: 20px;
+    filter: brightness(10) saturate(0);
+    opacity: 0.75;
+  }
+  .wave-badge span {
+    font-size: 12px;
+    font-weight: 500;
+    color: rgba(255,255,255,0.65);
+    white-space: nowrap;
+    letter-spacing: 0.3px;
+  }
+
+  .s1 .for-label {
+    font-size: 16px;
+    font-weight: 400;
+    color: rgba(255,255,255,0.45);
+    margin-bottom: 10px;
+    letter-spacing: 0.5px;
+  }
+  .s1 .main-title {
+    font-size: 72px;
+    font-weight: 900;
+    color: #fff;
+    line-height: 1.0;
+    letter-spacing: -2.5px;
+    margin-bottom: 6px;
+  }
+  .s1 .main-title .accent { color: #F59E0B; }
+  .s1 .title-class {
+    font-size: 72px;
+    font-weight: 900;
+    color: #fff;
+    line-height: 1.05;
+    letter-spacing: -2.5px;
+    margin-bottom: 32px;
+  }
+  .s1 .subtitle {
+    font-size: 15px;
+    font-weight: 400;
+    color: rgba(255,255,255,0.42);
+    line-height: 1.7;
+  }
+  .s1 .nav-hint {
+    position: absolute;
+    bottom: 28px; left: 52px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 12px;
+    color: rgba(255,255,255,0.25);
+  }
+  .s1 .nav-hint::before {
+    content: '↗';
+    font-size: 14px;
+  }
+
+  /* ════════════════════════════════
+     SLIDE 2 · 과정 목표
+  ════════════════════════════════ */
+  .s2 {
+    background: #111827;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 60px 52px;
+  }
+  .s2 .section-tag {
+    font-size: 12px;
+    font-weight: 700;
+    color: #F59E0B;
+    letter-spacing: 3.5px;
+    text-transform: uppercase;
+    margin-bottom: 22px;
+  }
+  .s2 .goal-text {
+    font-size: 24px;
+    font-weight: 700;
+    color: rgba(255,255,255,0.92);
+    line-height: 1.65;
+    margin-bottom: 28px;
+  }
+  .s2 .goal-text .hl { color: #F59E0B; }
+  .s2 .goal-sub {
+    font-size: 15px;
+    font-weight: 400;
+    color: rgba(255,255,255,0.48);
+    line-height: 1.75;
+    border-top: 1px solid rgba(255,255,255,0.1);
+    padding-top: 22px;
+  }
+  .s2 .goal-sub strong {
+    color: rgba(255,255,255,0.78);
+    font-weight: 600;
+  }
+
+  /* ════════════════════════════════
+     SLIDE 3·4·5 · 트랙 카드 (공통)
+  ════════════════════════════════ */
+  .s-track {
+    background: #fff;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 52px 48px;
+  }
+  .class-num {
+    font-size: 12px;
+    font-weight: 700;
+    color: #F59E0B;
+    letter-spacing: 3.5px;
+    text-transform: uppercase;
+    margin-bottom: 6px;
+  }
+  .track-title {
+    font-size: 40px;
+    font-weight: 900;
+    color: #111827;
+    line-height: 1.15;
+    letter-spacing: -1.5px;
+    margin-bottom: 6px;
+  }
+  .track-sub {
+    font-size: 14px;
+    font-weight: 400;
+    color: #9CA3AF;
+    margin-bottom: 22px;
+  }
+  .track-divider {
+    width: 100%;
+    height: 1px;
+    background: #F3F4F6;
+    margin-bottom: 26px;
+  }
+
+  .week-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+    margin-bottom: 22px;
+  }
+  .week-item:last-child { margin-bottom: 0; }
+
+  .week-badge {
+    flex-shrink: 0;
+    width: 52px;
+    height: 52px;
+    background: #D1FAE5;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 11px;
+    font-weight: 700;
+    color: #065F46;
+    line-height: 1.2;
+    text-align: center;
+  }
+
+  .week-content { display: flex; flex-direction: column; gap: 5px; padding-top: 2px; }
+  .week-name {
+    font-size: 17px;
+    font-weight: 700;
+    color: #111827;
+    line-height: 1.35;
+  }
+  .week-desc {
+    font-size: 13px;
+    font-weight: 400;
+    color: #6B7280;
+    line-height: 1.5;
+  }
+
+  /* ════════════════════════════════
+     SLIDE 6 · CTA
+  ════════════════════════════════ */
+  .s6 {
+    background: #111827;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 60px 52px;
+  }
+  .s6 .sparkle-icon {
+    font-size: 38px;
+    color: #F59E0B;
+    margin-bottom: 28px;
+    display: block;
+  }
+  .s6 .cta-main {
+    font-size: 32px;
+    font-weight: 900;
+    color: #fff;
+    line-height: 1.35;
+    letter-spacing: -0.8px;
+    margin-bottom: 16px;
+  }
+  .s6 .cta-sub {
+    font-size: 15px;
+    font-weight: 400;
+    color: rgba(255,255,255,0.48);
+    line-height: 1.65;
+    margin-bottom: 44px;
+  }
+  .s6 .cta-btn {
+    display: inline-block;
+    background: #F59E0B;
+    color: #111827;
+    font-size: 17px;
+    font-weight: 700;
+    padding: 16px 52px;
+    border-radius: 60px;
+    letter-spacing: 0.3px;
+  }
+</style>
+</head>
+<body>
+
+<div class="page-header">
+  <h1>목회자를 위한 AI Class · 강의 소개</h1>
+  <p>Wave AI Networks · 총 9주 과정 / 3 클래스</p>
+</div>
+
+<!-- ── Slide 1 : 표지 ── -->
+<div class="slide-wrap">
+  <span class="slide-label">1 / 6 · 표지</span>
+  <div class="slide s1">
+    <div class="wave-badge">
+      <img src="../../src/wave_ai/SNS_Logo_Designed by Wave with AI.png" alt="Wave AI">
+      <span>Wave AI Networks</span>
+    </div>
+    <div class="for-label">목회자를 위한</div>
+    <div class="main-title"><span class="accent">AI</span></div>
+    <div class="title-class">Class</div>
+    <div class="subtitle">
+      기술을 넘어 본질로,<br>
+      AI 시대를 이끌어갈 목회 리더 양성 과정
+    </div>
+    <div class="nav-hint">앞으로 넘겨서 확인하세요</div>
+  </div>
+</div>
+
+<!-- ── Slide 2 : 과정 목표 ── -->
+<div class="slide-wrap">
+  <span class="slide-label">2 / 6 · 과정 목표</span>
+  <div class="slide s2">
+    <div class="section-tag">과정 목표</div>
+    <div class="goal-text">
+      AI 기술을 <span class="hl">선택하고 이해</span>하고,<br>
+      목회와 사역에 <span class="hl">적용</span>하고,<br>
+      공동체를 이끌어 가는<br>
+      <strong style="color:#fff">AI 시대의 사역자</strong>로 성장합니다.
+    </div>
+    <div class="goal-sub">
+      나아가 교회 공동체와 AI 시대 이웃들을<br>
+      <strong>섬기는 인사</strong>로서 <strong>백교회 운동에 동참</strong>합니다.
+    </div>
+  </div>
+</div>
+
+<!-- ── Slide 3 : CLASS #1 Foundation Track ── -->
+<div class="slide-wrap">
+  <span class="slide-label">3 / 6 · CLASS #1</span>
+  <div class="slide s-track">
+    <div class="class-num">CLASS #1</div>
+    <div class="track-title">Foundation<br>Track</div>
+    <div class="track-sub">사역자에게 필요한 AI 기초 역량 습득</div>
+    <div class="track-divider"></div>
+    <div class="week-item">
+      <div class="week-badge">1주차</div>
+      <div class="week-content">
+        <div class="week-name">생성형 AI 활용 기초</div>
+        <div class="week-desc">ChatGPT, Claude 등 주요 AI 도구 기초 활용법</div>
+      </div>
+    </div>
+    <div class="week-item">
+      <div class="week-badge">2주차</div>
+      <div class="week-content">
+        <div class="week-name">NotebookLM &amp; Gemini 활용</div>
+        <div class="week-desc">NotebookLM 기본 설정 및 Gemini 연동 실습</div>
+      </div>
+    </div>
+    <div class="week-item">
+      <div class="week-badge">3주차</div>
+      <div class="week-content">
+        <div class="week-name">이미지 &amp; 영상 기초</div>
+        <div class="week-desc">AI 이미지 생성 도구와 영상 제작 기초</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ── Slide 4 : CLASS #2 Creator Track ── -->
+<div class="slide-wrap">
+  <span class="slide-label">4 / 6 · CLASS #2</span>
+  <div class="slide s-track">
+    <div class="class-num">CLASS #2</div>
+    <div class="track-title">Creator<br>Track</div>
+    <div class="track-sub">사역의 효율을 넘어 '접점'에 집중하는 시간 확보</div>
+    <div class="track-divider"></div>
+    <div class="week-item">
+      <div class="week-badge">1주차</div>
+      <div class="week-content">
+        <div class="week-name">말씀 선포의 혁신</div>
+        <div class="week-desc">AI를 활용한 설교 준비와 콘텐츠 제작 전략</div>
+      </div>
+    </div>
+    <div class="week-item">
+      <div class="week-badge">2주차</div>
+      <div class="week-content">
+        <div class="week-name">목양과 돌봄의 확장</div>
+        <div class="week-desc">성도 케어와 목양을 돕는 AI 활용 방법</div>
+      </div>
+    </div>
+    <div class="week-item">
+      <div class="week-badge">3주차</div>
+      <div class="week-content">
+        <div class="week-name">교육과 양육의 진화</div>
+        <div class="week-desc">AI 기반 교육 자료 제작과 양육 시스템 구축</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ── Slide 5 : CLASS #3 Operator Track ── -->
+<div class="slide-wrap">
+  <span class="slide-label">5 / 6 · CLASS #3</span>
+  <div class="slide s-track">
+    <div class="class-num">CLASS #3</div>
+    <div class="track-title">Operator<br>Track</div>
+    <div class="track-sub">AI를 직접 설계하고 운영하는 사역자</div>
+    <div class="track-divider"></div>
+    <div class="week-item">
+      <div class="week-badge">7주차</div>
+      <div class="week-content">
+        <div class="week-name">AI와 제대로 대화하기</div>
+        <div class="week-desc">프롬프트 엔지니어링과 컨텍스트 설계</div>
+      </div>
+    </div>
+    <div class="week-item">
+      <div class="week-badge">8주차</div>
+      <div class="week-content">
+        <div class="week-name">AI, 내 GPT가 달라졌어요</div>
+        <div class="week-desc">커스텀 GPT 구성과 자동화 워크플로우</div>
+      </div>
+    </div>
+    <div class="week-item">
+      <div class="week-badge">9주차</div>
+      <div class="week-content">
+        <div class="week-name">AI, 미디어 컨텐츠를 제작하기</div>
+        <div class="week-desc">영상, 이미지, SNS 콘텐츠 통합 제작</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ── Slide 6 : CTA ── -->
+<div class="slide-wrap">
+  <span class="slide-label">6 / 6 · 마무리</span>
+  <div class="slide s6">
+    <span class="sparkle-icon">✦</span>
+    <div class="cta-main">사역의 패러다임을<br>바꾸는 여정,</div>
+    <div class="cta-sub">
+      지금 Wave AI Networks와 함께<br>시작하세요.
+    </div>
+    <div class="cta-btn">수강 신청하기</div>
+  </div>
+</div>
+
+</body>
+</html>

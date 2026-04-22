@@ -1,0 +1,27 @@
+# .claude/state/phase-planning.yaml — Planning Phase SOT
+# Planning Lead exclusive write | ALL KEYS AND VALUES IN ENGLISH (P5-A)
+
+phase: planning
+last_updated: ""
+merge_ready: false
+
+completion_definition:
+  status: "pending"           # pending | in_progress | completed
+  output_file: "output/completion-definition.md"
+  translation_status: "pending"
+  completed_at: ""
+
+blueprint:
+  status: "pending"
+  output_file: "output/blueprint.md"
+  translation_status: "pending"
+  category_a_stocks: []
+  category_b_stocks: []
+  completed_at: ""
+
+schema_mapping:
+  status: "pending"
+  output_file: "output/schema-mapping.md"
+  translation_status: "pending"
+  field_mappings: {}
+  completed_at: ""

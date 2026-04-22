@@ -1,0 +1,249 @@
+{
+  "agent": "risk",
+  "round": 2,
+  "date": "2026-04-17",
+  "cross_review_notes": {
+    "igloo_debate": {
+      "tech_position": "BUY_CAUTIOUS — 전일 +6.61% 차익실현 + 소형주 수급 취약. PBR 1.02배 하방 제한 논거. 목표가 9,500원.",
+      "risk_r1_position": "전량 매도 — EPS -4원(적자), ROE -0.05%, PER N/A. 기술적 붕괴(-8.3%) 신호 동시 충족.",
+      "valuation_position": "SELL — Fair Value 6,200원(PBR 기반), 현재 7,400원 대비 -16.2% 고평가. ROE 음수 → 추가 하락 리스크 잔존.",
+      "round2_verdict": "SELL 유지 및 강화",
+      "reasoning": "tech 에이전트의 'PBR 1.02배 하방 제한' 논거를 검토했으나 기각한다. ROE가 -0.05%로 음수인 상태에서 PBR 1.02배는 장부가 근접이 아니라 장부가 소멸 위험을 의미한다. EPS -4원 적자 기업은 수익 창출력 없이 자본을 소진하므로 PBR 지지선은 신뢰 불가다. valuation 에이전트도 독립적으로 SELL을 산출했다. '섹터 펀더멘털 훼손 없음'이라는 tech 판단은 섹터 전체에는 적용되나 이글루 개별주에는 해당 없다. 사이버보안 섹터 강세는 안랩·파수가 수혜를 받는 구조이며, 이글루는 실적 기반 부재로 동일 테마 수혜를 향유하기 어렵다. 이글루 전량 매도 포지션 강화."
+    },
+    "macro_bear_scenario_impact": {
+      "macro_bear_prob": 0.25,
+      "macro_bear_range": "2600-2750",
+      "portfolio_max_drawdown_calculation": {
+        "method": "KOSPI Bear 시나리오에서 섹터별 예상 조정폭 적용",
+        "assumptions": {
+          "kospi_current_est": 2900,
+          "kospi_bear_mid": 2675,
+          "kospi_correction_pct": -0.0776,
+          "cybersecurity_beta_adj": -0.10,
+          "defense_highper_correction": -0.25,
+          "defense_lowper_correction": -0.12,
+          "shipbuilding_hd_correction": -0.10
+        },
+        "stock_level_bear_drawdowns": {
+          "053800_ahnlab": "KOSPI -7.8% 환경에서 PER 13.76배 저평가 방어력 → 예상 -10~12%. 상대적 방어",
+          "067920_igloo": "이미 -8.3% 당일 낙폭. Bear 시나리오 추가 -15~20% 가능. 적자 기업 Bear 취약",
+          "012450_hanwha_aero": "PER 50.54배 고평가 + Bear 환경 멀티플 압축 → -25~30% 리스크",
+          "064350_hyundai_rotem": "PER 30.76배 상대 저평가 + ROE 30.05% 수익력 → -15~18%",
+          "079550_lignex1": "PER 75.63배 극고평가 + Bear → -30~35% 리스크",
+          "272210_hanwha_system": "PER 100.7배 극고평가 → -35~40% 최대 위험",
+          "047810_kai": "PER 98.95배 극고평가 → -30~35% 리스크",
+          "009540_hd_kship": "PER 13.19배 저평가 방어 → -10~12%",
+          "150900_fasoo": "소형주 유동성 위험 가중 → -20~25%"
+        },
+        "portfolio_weighted_max_drawdown": "고PER 방산 집중 포트폴리오 기준 -25~30%. 안랩+HD한국조선해양 중심 방어 포트폴리오 기준 -12~15%.",
+        "tail_risk": "Bear 시나리오 25% 확률 × 포트폴리오 -25~30% 손실 = 기댓값 기여 -6.25~7.5%"
+      }
+    },
+    "korea_defense_structural_bull_review": {
+      "korea_position": "방산 중기 구조적 강세 — 수주 파이프라인 견고, 정책 주도 수요",
+      "risk_assessment": {
+        "agreed": "NATO/유럽 수주 파이프라인 구조적 수요는 타당. 현대로템(ROE 30.05%, PER 30.76배)은 방산 내 상대 안전처.",
+        "disagreed": "korea 에이전트가 한화에어로스페이스를 BUY로 제시했으나 valuation 기준 Fair Value 1,440,100원 vs 현재 1,444,000원 — 실질 업사이드 -0.3%. 수주 기대가 선반영 완료 상태.",
+        "political_risk_gap": "korea 에이전트가 '호르무즈 파병 시사'를 방산 예산 증가 촉매로 해석했으나, 리스크 관점에서는 (1) 파병 현실화 시 국내 정치적 반발로 정권 지지도 하락 → 방산 정책 연속성 불확실성, (2) 한국군 직접 교전 개입 시 인근국(이란·친이란 세력) 보복 가능성 → 국내 인프라 사이버공격 리스크 급등, (3) 파병 무산 시 시장 기대 역전. korea 에이전트는 이 3가지 리스크를 충분히 반영하지 않았다.",
+        "rare_earth_gap": "한국 방산의 핵심 부품(K2 전차 파워팩 필터, K9 자주포 유도 부품)이 중국산 희토류 의존. 중국 희토류 수출 제한(확률 45%) 시 수주잔고가 있어도 납기 지연 → 수주취소 리스크. korea 에이전트 미반영."
+      }
+    },
+    "igloo_drop_sector_vs_idiosyncratic": {
+      "tech_view": "전일 +6.61% 차익실현 + 소형주 수급 취약 — 섹터 리스크 아닌 개별주 수급 이슈",
+      "risk_r1_view": "개별주 악재(적자 구조) 가능성 높음",
+      "round2_updated_view": "tech 에이전트의 '차익실현' 설명은 절반만 맞다. 전일 +6.61% → 당일 -8.30%의 비대칭 반응은 단순 차익실현 이상이다. 안랩은 전일 +6.65% → 당일 -2.75% (되돌림율 41%), 파수는 +7.25% → -3.28% (되돌림율 45%)인데, 이글루는 +6.61% → -8.30% (되돌림율 125%). 이는 명백히 이글루 고유의 매도 압력이다. tech가 제시한 '오버나이트 매도 주문 집중' 가설은 타당하나 그 원인 자체가 이글루의 적자 지속·수급 취약(외인 3.95%) 구조에 기인한다. 섹터 리스크 아닌 개별주 리스크 판단 유지하되, 악화 정도를 tech보다 심각하게 평가.",
+      "conclusion": "이글루 -8.3%는 개별주 리스크 확인. 섹터 전체 우려로 확산 가능성은 낮으나 이글루 포지션 자체는 즉시 청산 대상."
+    },
+    "cybersecurity_concentration_risk": {
+      "current_cybersecurity_tickers": ["053800 안랩", "150900 파수", "067920 이글루 (매도 권고)"],
+      "concentration_assessment": "사이버보안 3종목 합산이 포트폴리오 내 과다 집중된 경우 단일 섹터 충격 시 손실 심화. 다만 안랩은 PER 13.76배(방어적), 파수는 소형주 리스크 별도 관리 필요.",
+      "diversification_recommendation": "이글루 전량 매도 후 사이버보안 익스포저는 안랩으로 단일화. 방산은 현대로템(PER 합리적) 중심 재편. 조선은 HD한국조선해양 앵커 유지. 섹터 간 비율: 사이버보안 30%, 방산 35%, 조선 20%, 현금 15% 이상 권고."
+    }
+  },
+  "position_changes": [
+    {
+      "ticker": "067920",
+      "name": "이글루시큐리티",
+      "previous": "SELL (Round 1)",
+      "updated": "SELL — 강화",
+      "reason": "tech BUY_CAUTIOUS 논거 검토 후 기각. ROE -0.05% 음수 환경에서 PBR 1.02배 지지선 신뢰 불가. 차익실현 초과 매도(-8.3%)는 구조적 취약성 확인. valuation 독립 SELL과 일치. 즉시 전량 청산."
+    },
+    {
+      "ticker": "012450",
+      "name": "한화에어로스페이스",
+      "previous": "WATCH (Round 1 — 고PER 리스크 언급)",
+      "updated": "SELL — 명시적 격상",
+      "reason": "valuation Fair Value 1,440,100원 vs 현재 1,444,000원. 업사이드 -0.3%로 실질 매수 근거 없음. korea의 BUY 근거인 수주 파이프라인은 이미 PER 50.54배에 선반영. Bear 시나리오 -25~30% 리스크 대비 기댓값 음수."
+    },
+    {
+      "ticker": "064350",
+      "name": "현대로템",
+      "previous": "HOLD (Round 1 — 방산 내 상대적 안전처 언급)",
+      "updated": "BUY — 명시적 상향",
+      "reason": "방산 내 유일한 당일 상승(+0.93%). PER 30.76배(방산 Fair PER 38배 대비 -19.1% 디스카운트). ROE 30.05% 업종 최고. valuation Fair Value 308,300원 → 업사이드 +42.1%. Bear 시나리오에서도 상대 방어력 보유."
+    },
+    {
+      "ticker": "115310",
+      "name": "지니언스",
+      "previous": "EXCLUDE (데이터 오류 — Round 1)",
+      "updated": "EXCLUDE — 유지",
+      "reason": "티커 데이터 오류(115310 ≠ 지니언스 실제 티커 263860) 확인. 모든 분석에서 제외. 운영팀 티커 수정 후 재분석 필요."
+    }
+  ],
+  "agreements": [
+    "macro 에이전트 동의: KOSPI Bear 시나리오(25%) 기반 포트폴리오 최대 손실 재계산 결과 고PER 방산 집중 포트폴리오는 -25~30% 취약. 현금 비중 확보 전략 일치.",
+    "tech 에이전트 부분 동의: 이글루 -8.3%가 개별주 리스크라는 기본 판단은 공유. 단 tech의 'BUY_CAUTIOUS' 결론은 기각.",
+    "valuation 에이전트 완전 동의: 이글루 SELL, 한화에어로스페이스 SELL(업사이드 소멸), LIG넥스원 SELL(PER 75.63배), 한화시스템 SELL(PER 100.7배), KAI SELL(PER 98.95배). 5개 종목 동일 결론.",
+    "korea 에이전트 부분 동의: 현대로템(방산 내 상대강도 우위) BUY 일치. 삼성중공업 실적 모멘텀(+24.43%) 긍정 평가 공유.",
+    "전체 에이전트 공통: 사이버보안 섹터 333점 구조적 강세는 훼손 없음. 안랩(PER 13.76배) 저평가 매력 일치.",
+    "지니언스(115310) 데이터 오류 — 전 에이전트 분석 제외 동일"
+  ],
+  "disagreements": [
+    {
+      "counterpart": "tech",
+      "point": "이글루 BUY_CAUTIOUS vs 리스크의 SELL",
+      "risk_position": "SELL 유지. PBR 1.02배 지지선은 ROE 음수 상태에서 신뢰 불가. 되돌림율 125%(안랩 41%, 파수 45% 대비)는 구조적 매도 압력. 기술적 반등 기회 존재해도 적자 기업 반등 지속력 낮아 리스크 대비 보상 비율 부정적."
+    },
+    {
+      "counterpart": "korea",
+      "point": "한화에어로스페이스 BUY vs 리스크의 SELL",
+      "risk_position": "SELL 격상. '수주 파이프라인이 중기 성장 엔진'이라는 korea 논거는 타당하나 그 기대가 PER 50.54배에 이미 선반영됨. valuation Fair Value와 현재가 괴리 -0.3%는 사실상 고평가 포화 상태. 추가 Bear 시나리오 -25~30% 손실 대비 기댓값 음수."
+    },
+    {
+      "counterpart": "korea",
+      "point": "파병 시사를 순수 방산 호재로 해석",
+      "risk_position": "파병 관련 리스크 3가지를 korea 에이전트가 미반영: (1) 국내 정치 반발 → 정권 불안 → 방산 정책 연속성 위협, (2) 이란·친이란 세력의 한국 사이버 보복 가능성, (3) 파병 무산 시 기대 역전."
+    },
+    {
+      "counterpart": "macro",
+      "point": "전일 하락을 '기술적 차익실현'으로만 해석",
+      "risk_position": "macro의 해석은 안랩·파수에 적용 가능하나 이글루에는 부적절. 이글루의 비대칭 낙폭은 구조적 매도 신호로, 단순 차익실현 범주 초과."
+    }
+  ],
+  "overall_risk_level_revised": "HIGH",
+  "risk_scenarios_revised": [
+    {
+      "scenario": "미중 희토류 보복 — 방산·반도체 공급망 단절",
+      "probability": 0.45,
+      "impact": "HIGH",
+      "sectors_affected": ["defense", "semiconductor", "semiconductor_equipment", "battery_ev"],
+      "reasoning": "Round 1 확률 유지. 중국의 희토류 수출 제한 현실화 시 한국 방산 수주잔고 이행 차질(K2 전차 파워팩, K9 유도 부품 소재 조달). 섹터 스코어가 높아도 납기 지연 → 계약 위약금 → 수주 신뢰 손상 연쇄 리스크. korea 에이전트가 수주 파이프라인을 긍정적으로만 평가했으나 희토류 위험 미반영은 중대한 분석 공백."
+    },
+    {
+      "scenario": "방산주 고PER 버블 붕괴 — FOMC 매파 전환 트리거",
+      "probability": 0.32,
+      "impact": "HIGH",
+      "sectors_affected": ["defense"],
+      "reasoning": "Round 1 0.30 → 0.32 소폭 상향. macro Bear 시나리오(25%)와 연동 시 고PER 방산주 멀티플 압축 가속. 한화시스템(PER 100.7배), KAI(PER 98.95배), LIG넥스원(PER 75.63배)은 금리 상승 환경에서 Fair Value 대비 -27~58% 괴리. FOMC(05/07) 매파 강화 시 트리거 현실화."
+    },
+    {
+      "scenario": "호르무즈 해협 분쟁 에스컬레이션 — 한국 직접 개입",
+      "probability": 0.30,
+      "impact": "HIGH",
+      "sectors_affected": ["shipbuilding", "energy", "cybersecurity", "defense"],
+      "reasoning": "Round 1 0.40 → 0.30 하향 조정. 한국 국방부 다국적군 참여 '시사'는 정치적 수사로 실제 파병 결정까지 상당한 절차가 필요. 그러나 에스컬레이션 시 파급효과는 더 크다: (1) LNG 수입 차질(한국 원유 수입 70%+ 호르무즈 경유), (2) 조선 신조 발주 지연, (3) 이란계 사이버 공격 급증 → 사이버보안 긴급 수요 급등(단기 패닉 → 중기 수혜 역설). 호르무즈 리스크는 방산 기회이기도 하지만 에너지·조선에는 양면성."
+    },
+    {
+      "scenario": "El Niño 기후 충격 — 인플레이션 재점화",
+      "probability": 0.62,
+      "impact": "MEDIUM",
+      "sectors_affected": ["energy", "chemicals", "consumer", "biotech"],
+      "reasoning": "Round 1 그대로 유지. 62% 발생 확률로 가장 높은 확률 리스크. 단 Impact는 MEDIUM으로 유지 — 사이버보안·방산·조선 섹터 직접 타격 제한적. 간접 경로(Fed 매파 → 고PER 멀티플 압축)로 방산주 취약성 악화."
+    },
+    {
+      "scenario": "이글루 실적 악화 지속 — 사이버보안 소형주 연쇄 매도",
+      "probability": 0.55,
+      "impact": "LOW",
+      "sectors_affected": ["cybersecurity"],
+      "reasoning": "Round 1 MEDIUM → LOW로 Impact 하향. 이유: 이글루 전량 청산 후에는 포트폴리오에서 해당 리스크가 제거됨. 파수(소형주)는 별도 유동성 리스크 관리 필요하나 이글루 연쇄 매도가 안랩에 미치는 영향은 제한적(PER·ROE 구조 차별화). 섹터 신뢰 훼손 가능성은 낮음."
+    },
+    {
+      "scenario": "한국 파병 무산 — 방산 기대 역전",
+      "probability": 0.35,
+      "impact": "MEDIUM",
+      "sectors_affected": ["defense"],
+      "reasoning": "신규 시나리오 추가. korea 에이전트가 포착하지 못한 역리스크. 호르무즈 파병 시사가 방산 기대를 높인 상태에서 파병 최종 불가 결정 시 방산 테마 모멘텀 역전. 특히 단기 차익실현 매도를 유발해 방산 조정폭 확대 가능. PER 50~100배 구간에서 기대 역전 시 -15~20% 조정 잠재."
+    }
+  ],
+  "portfolio_risk_assessment": {
+    "max_drawdown_scenario": "KOSPI Bear 시나리오(25% 확률, KOSPI 2600-2750)에서 고PER 방산 집중 포트폴리오 최대 손실 -25~30%. 구체적으로 한화시스템(-35~40%), KAI(-30~35%), LIG넥스원(-30~35%)이 주요 손실 기여. 안랩+HD한국조선해양+현대로템 중심 방어 포트폴리오로 재편 시 최대 손실 -12~15%로 축소 가능.",
+    "concentration_risk": "현재 사이버보안 집중도 과대 여부: 이글루 전량 매도 전제 시 안랩+파수 2종목 집중은 관리 가능 수준. 단 방산 섹터는 5종목(한화에어로·현대로템·LIG넥스원·한화시스템·KAI) 중 4종목이 SELL 대상으로, 현대로템 단일 집중 리밸런싱 필요. 조선 3종목 중 HD한국조선해양 앵커 유지, 나머지 SELL이 valuation 권고. 전체 포트폴리오 섹터 분산도가 낮아 단일 섹터 충격 시 연쇄 손실 위험 상존.",
+    "hedging_strategy": "1순위: 이글루(067920) 즉시 전량 매도 — 리스크 대비 기댓값 음수 확정. 2순위: 한화에어로스페이스·LIG넥스원·한화시스템·KAI 비중 단계적 축소(Bear 시나리오 최대 손실 원천). 3순위: 현금 비중 15~25% 확보 후 FOMC(05/07) 및 1분기 실적 발표(04/30~05/15) 결과 확인 후 재배분. 4순위: 현대로템(방산 내 합리적 PER)·안랩(사이버보안 저평가)·HD한국조선해양(조선 저평가) 3종목 코어 포지션 유지. 5순위: WTI 원유 ETF 소량 편입으로 호르무즈 리스크 헷지."
+  },
+  "stock_risk_ratings": {
+    "053800": {
+      "name": "안랩",
+      "risk_level": "LOW",
+      "recommendation": "BUY",
+      "key_risk": "단기 기술적 조정(-2.75%)은 관리 가능. PER 13.76배 저평가 방어력. 주요 리스크: 국내 사이버보안 시장 성장 속도 둔화 시 PER 재평가 압박. AI 네이티브 위협 대응 솔루션 경쟁력 유지 여부. 그러나 현 구간에서 리스크보다 기회가 우세."
+    },
+    "150900": {
+      "name": "파수",
+      "risk_level": "MEDIUM",
+      "recommendation": "HOLD",
+      "key_risk": "소형주(시총 0.1조) 유동성 리스크. 영업이익 +2,228% 개선이나 절대 EPS 규모 미미(228원). 장중 저가 4,410원(-12.3%)까지 급락 후 회복은 변동성 구조 확인. valuation SELL(Fair Value 3,900원 < 현재 4,865원)이나 실적 모멘텀 감안 HOLD로 조정. 추가 급등 시 SELL 전환 권고."
+    },
+    "067920": {
+      "name": "이글루시큐리티",
+      "risk_level": "HIGH",
+      "recommendation": "SELL",
+      "key_risk": "EPS -4원 적자 + ROE -0.05% + PER 산출 불가. 되돌림율 125%(안랩 41% 대비 3배) = 구조적 매도 압력. Fair Value 6,200원 vs 현재 7,400원(-16.2% 고평가). 115310 데이터 오류와 별개로 이글루 자체 펀더멘털 취약. 즉시 전량 매도."
+    },
+    "115310": {
+      "name": "지니언스 (데이터 오류 — 분석 제외)",
+      "risk_level": "UNKNOWN",
+      "recommendation": "EXCLUDE",
+      "key_risk": "티커 오류(115310 ≠ 지니언스). 실제 지니언스 티커는 263860. 운영팀 수정 전 모든 투자 판단 불가. 해당 종목 기반 모든 리스크 평가 무효."
+    },
+    "012450": {
+      "name": "한화에어로스페이스",
+      "risk_level": "HIGH",
+      "recommendation": "SELL",
+      "key_risk": "PER 50.54배로 Fair PER 42배 대비 +20.3% 프리미엄. Fair Value 1,440,100원 vs 현재 1,444,000원 — 사실상 업사이드 소멸. Bear 시나리오 -25~30% 최대 손실. 희토류 공급망 리스크 직접 노출(항공우주 부품). 호르무즈 파병 무산 시 모멘텀 역전 위험."
+    },
+    "064350": {
+      "name": "현대로템",
+      "risk_level": "LOW",
+      "recommendation": "BUY",
+      "key_risk": "방산 내 최저 리스크. PER 30.76배(Fair 38배 대비 -19.1% 디스카운트), ROE 30.05% 업종 최고. K2 전차 유럽 수주 이행 진행 중으로 가시성 높음. 주요 리스크: 폴란드 정치 변화로 K2 계약 지연 가능성(낮음). 방산 전반 Bear 시나리오 -15~18% 손실 범위(방산 내 최소)."
+    },
+    "079550": {
+      "name": "LIG넥스원",
+      "risk_level": "HIGH",
+      "recommendation": "SELL",
+      "key_risk": "PER 75.63배 vs Fair PER 48배(+57.6% 프리미엄). 영업이익 성장 -56.83% 역성장. Fair Value 635,700원 vs 현재 871,000원(-27.0% 고평가). Bear 시나리오 -30~35% 최대 손실. 미사일 국내 독점이나 고평가 구조에서 실적 개선 없으면 멀티플 압축 불가피."
+    },
+    "272210": {
+      "name": "한화시스템",
+      "risk_level": "HIGH",
+      "recommendation": "SELL",
+      "key_risk": "PER 100.7배 vs Fair PER 38배(+165% 프리미엄). 영업이익 성장 -74.41% 급감. Fair Value 53,600원 vs 현재 129,100원(-58.5% 고평가). 포트폴리오 내 최대 밸류에이션 리스크. Bear+금리 상승 시 -35~40% 최대 손실 가능. UAM·위성통신 옵션가치 존재하나 현 PER에 과다 반영."
+    },
+    "047810": {
+      "name": "KAI",
+      "risk_level": "HIGH",
+      "recommendation": "SELL",
+      "key_risk": "PER 98.95배 vs Fair PER 45배(+119.9% 프리미엄). Fair Value 94,400원 vs 현재 188,700원(-50.0% 고평가). KF-21 수출 협상(말레이시아·UAE)은 장기 옵션으로 단기 실적 기여 없음. Bear 시나리오 -30~35% 손실 위험."
+    },
+    "009540": {
+      "name": "HD한국조선해양",
+      "risk_level": "LOW",
+      "recommendation": "BUY",
+      "key_risk": "PER 13.19배(조선 Fair PER 20배 대비 -34.1% 디스카운트). Fair Value 551,400원 vs 현재 404,000원(+36.5% 업사이드). 조선 섹터 내 밸류에이션 합리성 최우수. 주요 리스크: 호르무즈 봉쇄 장기화 시 발주 지연(역설적 단기 리스크). Bear 시나리오 -10~12% 방어."
+    },
+    "042660": {
+      "name": "한화오션",
+      "risk_level": "MEDIUM",
+      "recommendation": "HOLD",
+      "key_risk": "영업이익 성장 -14.58% 역성장. PBR 6.38배 부담. Fair Value 87,100원 vs 현재 128,400원(-32.2% 고평가). 외국인 비율 11.16% 수급 열위. 방산·조선 복합 모델은 중기 강점이나 단기 진입은 위험."
+    },
+    "010140": {
+      "name": "삼성중공업",
+      "risk_level": "MEDIUM",
+      "recommendation": "HOLD",
+      "key_risk": "PER 45.48배 vs Fair PER 22배(+106.7% 프리미엄). Fair Value 11,700원 vs 현재 28,200원(-58.5% 고평가). 영업이익 +24.43% 실적 모멘텀 긍정적이나 valuation 괴리 극심. korea BUY와 valuation SELL 상충 — 리스크 관점에서 중립(HOLD)."
+    }
+  },
+  "conviction_score": 0.81,
+  "summary": "Round 2 리스크 에이전트 교차검토 결과: 4개 에이전트의 분석을 비판적으로 검토하여 핵심 포지션 2건을 변경했다. (1) 이글루시큐리티(067920) — tech 에이전트의 BUY_CAUTIOUS 논거(PBR 하방 지지)를 기각하고 전량 매도 포지션을 강화한다. 되돌림율 125%(안랩 41% 대비)는 구조적 매도 압력을 확인하며, ROE -0.05% 상태에서 PBR 1.02배 지지선은 신뢰 불가다. valuation 에이전트의 독립적 SELL 산출과 완전 일치. (2) 한화에어로스페이스(012450) — korea 에이전트의 BUY를 SELL로 격상한다. Fair Value 1,440,100원 vs 현재 1,444,000원으로 수주 기대가 선반영 완료 상태이며, 희토류 리스크와 파병 무산 시나리오가 한국 에이전트 분석에서 누락됐다. (3) 현대로템(064350) — BUY로 명시적 상향한다. 방산 내 유일 상승 + PER 30.76배(Fair 38배 대비 -19.1% 디스카운트) + ROE 30.05% 업종 최고. macro Bear 시나리오(-25%, KOSPI 2600-2750)를 포트폴리오에 적용하면 고PER 방산 집중 포트폴리오는 -25~30% 최대 손실이 예상되며, 이를 안랩+현대로템+HD한국조선해양 코어 포트폴리오로 전환 시 -12~15%로 축소된다. 지니언스(115310) 데이터 오류는 전 에이전트 공통 확인 사항으로 리스크 평가 제외를 유지한다. 전체 리스크 레벨 HIGH 유지. 핵심 권고: 이글루 즉시 청산, 고PER 방산 4종목(한화에어로·LIG넥스원·한화시스템·KAI) 단계적 축소, 현금 15~25% 확보 후 FOMC(05/07) 및 1분기 실적 대기."
+}

@@ -1,0 +1,41 @@
+# investscan.yaml — Local config (mock values for dry-run mode)
+# Production: ~/.investscan/investscan.yaml with real API keys via keyring
+# This file: dry-run safe (no real API keys, uses mock data path)
+
+mode: dry-run          # dry-run | live  (override via INVESTSCAN_MODE=live env var)
+version: "1.0.0"
+
+# API keys — loaded from keyring in live mode; dummy values for dry-run
+api_keys:
+  fred_api_key: "MOCK_FRED_KEY_DRY_RUN"
+  dart_api_key: "MOCK_DART_KEY_DRY_RUN"
+  telegram_bot_token: "MOCK_TELEGRAM_TOKEN_DRY_RUN"
+  telegram_chat_id: "MOCK_CHAT_ID_DRY_RUN"
+
+# Data paths
+paths:
+  # Standalone system output directories (adapters read from here automatically)
+  envscan_output_dir: "/Users/kylechoi/Desktop/Ai_works/Vibe-Practice/EnvironmentScan-system-main-v4-main/output"
+  gnews_output_dir:   "/Users/kylechoi/Desktop/Ai_works/Vibe-Practice/GlobalNews-Crawling-AgenticWorkflow/data/output"
+  # Legacy dry-run fixture paths (still used by existing tests)
+  envscan_output: "tests/fixtures/envscan_sample.json"
+  gnews_signals:  "tests/fixtures/gnews_sample.parquet"
+  accuracy_data: "data/accuracy/"
+  journal_data: "data/journal/"
+  output_dir: "output/"
+
+# Sector watchlist (user confirmed via HITL-1)
+watchlist:
+  sectors: ["technology", "healthcare", "financials"]
+  custom_stocks: []    # populated after HITL-1
+
+# Onboarding
+onboarding_mode: true  # Bear Case section shows explanation prefix
+
+# Library availability tracking (v3.6 I-6)
+library_tracking:
+  enabled: true
+  alert_threshold: 0.80   # 4-week availability < 80% → Telegram warning
+
+# Platform
+platform: "macos"   # macos | windows | linux

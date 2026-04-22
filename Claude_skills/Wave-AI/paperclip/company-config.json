@@ -1,0 +1,171 @@
+{
+  "company": {
+    "name": "Wave AI Networks",
+    "description": "AI가 기획하고, AI가 만들고, AI가 실행하는 조직. 신학적 정체성에 뿌리를 두고 지식·콘텐츠·교육을 통합하는 AI 기반 Ecosystem.",
+    "owner": "Kyle Choi",
+    "owner_title": "Chief Wave Architect",
+    "timezone": "Asia/Seoul",
+    "language": "ko"
+  },
+
+  "integrations": {
+    "anthropic": {
+      "auth": "login",
+      "account": "claude.ai 유료 계정"
+    },
+    "openai": {
+      "auth": "login",
+      "account": "ChatGPT Plus / OpenAI 유료 계정"
+    },
+    "google": {
+      "auth": "login",
+      "account": "Google Gemini 유료 계정"
+    }
+  },
+
+  "agents": [
+    {
+      "id": "flow-operations-orchestrator",
+      "name": "Flow Operations Orchestrator",
+      "title": "운영총괄",
+      "department": "Executive",
+      "activation": "on_demand",
+      "model": {
+        "provider": "anthropic",
+        "model": "claude-sonnet-4-6"
+      },
+      "reports_to": "chief-wave-architect",
+      "manages": [
+        "learning-wave-lead",
+        "content-wave-lead",
+        "network-wave-lead",
+        "knowledge-wave-lead",
+        "flow-operations-lead"
+      ],
+      "system_prompt_file": "system-prompts/01_flow-operations-orchestrator.md",
+      "task_types": ["routing", "decomposition", "orchestration", "reporting"]
+    },
+
+    {
+      "id": "ai-systems-orchestrator",
+      "name": "AI Systems Orchestrator",
+      "title": "CTO",
+      "department": "Executive",
+      "activation": "on_demand",
+      "model": {
+        "provider": "openai",
+        "model": "gpt-4o"
+      },
+      "reports_to": "chief-wave-architect",
+      "manages": ["ai-systems-lead"],
+      "system_prompt_file": "system-prompts/02_ai-systems-orchestrator.md",
+      "task_types": ["system_design", "architecture", "technical_review"]
+    },
+
+    {
+      "id": "learning-wave-lead",
+      "name": "Learning Wave Lead",
+      "title": "교육본부 팀장",
+      "department": "Learning Wave Team",
+      "activation": "on_demand",
+      "model": {
+        "provider": "anthropic",
+        "model": "claude-sonnet-4-6"
+      },
+      "reports_to": "flow-operations-orchestrator",
+      "manages": [],
+      "system_prompt_file": "system-prompts/03_learning-wave-lead.md",
+      "task_types": ["curriculum_design", "lecture_creation", "education_package"]
+    },
+
+    {
+      "id": "content-wave-lead",
+      "name": "Content Wave Lead",
+      "title": "콘텐츠본부 팀장",
+      "department": "Content Wave Team",
+      "activation": "on_demand",
+      "model": {
+        "provider": "openai",
+        "model": "gpt-4o"
+      },
+      "reports_to": "flow-operations-orchestrator",
+      "manages": [],
+      "system_prompt_file": "system-prompts/04_content-wave-lead.md",
+      "task_types": ["copywriting", "sns_content", "platform_conversion", "visual_planning"]
+    },
+
+    {
+      "id": "network-wave-lead",
+      "name": "Network Wave Lead",
+      "title": "네트워크본부 팀장",
+      "department": "Network Wave Team",
+      "activation": "on_demand",
+      "model": {
+        "provider": "anthropic",
+        "model": "claude-sonnet-4-6"
+      },
+      "reports_to": "flow-operations-orchestrator",
+      "manages": [],
+      "system_prompt_file": "system-prompts/05_network-wave-lead.md",
+      "task_types": ["outreach", "partnership_proposal", "crm", "community"]
+    },
+
+    {
+      "id": "knowledge-wave-lead",
+      "name": "Knowledge Wave Lead",
+      "title": "출판본부 팀장",
+      "department": "Knowledge Wave Team",
+      "activation": "on_demand",
+      "model": {
+        "provider": "google",
+        "model": "gemini-2.5-pro"
+      },
+      "reports_to": "flow-operations-orchestrator",
+      "manages": [],
+      "system_prompt_file": "system-prompts/06_knowledge-wave-lead.md",
+      "task_types": ["writing", "editing", "publishing", "knowledge_archiving"]
+    },
+
+    {
+      "id": "flow-operations-lead",
+      "name": "Flow Operations Lead",
+      "title": "운영본부 팀장",
+      "department": "Flow Operations Team",
+      "activation": "on_demand",
+      "model": {
+        "provider": "google",
+        "model": "gemini-2.0-flash"
+      },
+      "reports_to": "flow-operations-orchestrator",
+      "manages": [],
+      "system_prompt_file": "system-prompts/07_flow-operations-lead.md",
+      "task_types": ["notice", "scheduling", "admin", "finance_tracking"]
+    },
+
+    {
+      "id": "ai-systems-lead",
+      "name": "AI Systems Lead",
+      "title": "AI개발본부 팀장",
+      "department": "AI Systems Team",
+      "activation": "on_demand",
+      "model": {
+        "provider": "openai",
+        "model": "gpt-4o"
+      },
+      "reports_to": "ai-systems-orchestrator",
+      "manages": [],
+      "system_prompt_file": "system-prompts/08_ai-systems-lead.md",
+      "task_types": ["prompt_engineering", "workflow_design", "automation", "qa"]
+    }
+  ],
+
+  "escalation_rules": {
+    "theological_judgment": "chief-wave-architect",
+    "financial_execution": "chief-wave-architect",
+    "brand_decision": "chief-wave-architect",
+    "agent_failure_after_3_retries": "chief-wave-architect"
+  },
+
+  "audit_log": true,
+  "task_tracking": true
+}
