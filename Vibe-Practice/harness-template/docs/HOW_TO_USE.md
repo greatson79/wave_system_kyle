@@ -16,6 +16,9 @@ git add -A
 git commit -m "init: harness template"
 ```
 
+> 이후 모든 문서(CLAUDE.md, docs/, phases/)는 이 폴더 안에 바로 작성된다.
+> `output/` 폴더는 스킬 실행 후 생성되는 결과물 전용 저장소다.
+
 ---
 
 ## 1. 기획 — `/skill-plan`

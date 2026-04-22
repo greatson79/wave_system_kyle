@@ -238,8 +238,8 @@ class StepExecutor:
         prompt = preamble + step_file.read_text()
         result = subprocess.run(
             ["claude", "-p", "--output-format", "json",
-             "--allowedTools", "Edit,Write,Bash,Read,Grep,Glob",
-             prompt],
+             "--allowedTools", "Edit,Write,Bash,Read,Grep,Glob"],
+            input=prompt,
             cwd=self._root, capture_output=True, text=True, timeout=1800,
         )
 

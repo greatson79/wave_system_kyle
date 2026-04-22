@@ -70,6 +70,12 @@ ls docs/skill-brief.md
 
 승인 후 순서대로 작성한다. 각 문서 완료 후 다음으로 넘어간다.
 
+**각 문서는 `prompts/` 폴더의 해당 프롬프트 파일을 먼저 읽은 후 양식에 맞게 작성한다:**
+- `prompts/prd-prompt.md` → `docs/PRD.md`
+- `prompts/architecture-prompt.md` → `docs/ARCHITECTURE.md`
+- `prompts/adr-prompt.md` → `docs/ADR.md`
+- `prompts/ui-guide-prompt.md` → `docs/UI_GUIDE.md` (UI 없으면 생략)
+
 ### CLAUDE.md
 ```markdown
 # 프로젝트: [스킬명]

@@ -1,105 +1,88 @@
-# Step 5: Assignment & Grade
+# Step 5: Main Pipeline
 
 ## 읽어야 할 파일
 
 먼저 아래 파일들을 읽고 프로젝트의 아키텍처와 설계 의도를 파악하라:
 
 - `/CLAUDE.md`
-- `/docs/ARCHITECTURE.md` — 과제_정의/과제_현황 스키마, 데이터 흐름 2(과제 체크), 데이터 흐름 3(학점 계산)
-- `/docs/PRD.md` — F3(과제 관리), F4(학점 계산), 관련 엣지케이스
-- `/docs/ADR.md` — ADR-004(동적 과제 관리)
-- `/gas/src/` — step0~4 전체 산출물
+- `/docs/ARCHITECTURE.md` — 전체 파이프라인 데이터 흐름
+- `/src/` — step0~4 전체 산출물. 모든 파일을 읽어라.
 
 이전 step에서 만들어진 코드를 꼼꼼히 읽고, 설계 의도를 이해한 뒤 작업하라.
 
 ## 작업
 
-### 5-1. AssignmentManager.js
+### 5-1. src/main.py
 
-과제 정의 CRUD + 과제 현황 체크 모듈.
+CLI 진입점. 전체 파이프라인을 연결하는 메인 함수.
 
-```javascript
-// 시그니처
-const AssignmentManager = {
-  // 과제 정의 CRUD
-  listDefs(filters) { ... },         // filters: { category, class_level }
-  addDef(data) { ... },              // 과제 정의 추가
-  updateDef(defId, data) { ... },    // 과제 정의 수정
-  deleteDef(defId) { ... },          // soft delete
+```python
+# 시그니처
+def main() -> None: ...
+# argparse로 CLI 옵션:
+#   --scan-only     파일 스캔만 (다운로드까지)
+#   --export-only   기존 마스터에서 내보내기만
+#   --no-upload     Drive 업로드 스킵 (로컬 파일만 생성)
+#   --master PATH   기존 마스터 Excel 경로 (업데이트 모드)
+#   --output PATH   출력 파일 경로 (기본: output/)
 
-  // 과제 현황
-  getStudentAssignments(studentId) { ... },  // 특정 수강생의 과제 현황 목록
-  check(studentId, assignmentId, status) { ... },  // 과제 완료/미완료 체크
-  bulkCheck(assignmentId, studentIds, status) { ... },  // 일괄 체크
-
-  // 통계
-  getCompletionRate(studentId) { ... }  // weight 기반 가중 완료율 계산
-};
+# 전체 파이프라인:
+# 1. DriveClient 초기화 (OAuth 인증)
+# 2. DriveScanner로 wave_수강신청 폴더 스캔 + 다운로드
+# 3. 각 파일에 대해:
+#    a. filename_parser로 파일명 파싱
+#    b. StudentProcessor.process_file()로 데이터 처리
+# 4. GradeCalculator.calculate_all()로 학점 계산
+# 5. ExcelExporter.export()로 마스터 Excel 생성
+# 6. DriveClient.upload_file()로 Google Drive에 업로드 (--no-upload 아닌 경우)
+# 7. 처리 결과 요약 출력
 ```
 
 핵심 규칙:
-- 과제 정의 변경 시 기존 현황 데이터는 보존 (orphan 현황은 경고 로그만)
-- weight 합이 100%가 아니어도 허용 — 비례 계산
-- check() 후 자동으로 수강생_마스터의 assignment_completion_rate 재계산
-- CRITICAL: 쓰기 시 LockService 사용
-- bulkCheck는 BatchRunner 활용 (다수 수강생 일괄 처리)
+- 각 단계 시작/완료 로그 출력
+- 개별 파일 실패 시 스킵 + 다음 파일 계속 처리
+- 전체 완료 후 요약 출력: 처리 파일 수, 신규/업데이트/스킵/에러 수
 
-### 5-2. GradeCalculator.js
+### 5-2. output/ 디렉토리
 
-이수 판정 모듈.
+프로젝트 루트에 `output/` 디렉토리 생성. .gitignore에 `output/` 추가.
 
-```javascript
-// 시그니처
-const GradeCalculator = {
-  calculate(studentId) { ... },
-  // 이수 판정 로직:
-  // 1. assignment_completion_rate >= PASS_THRESHOLD (기본 80%)
-  // 2. AND course_completed == true
-  // 3. AND payment_status == true
-  // → 모두 충족: Pass
-  // → payment 미확인: '진행중' (입금 확인 대기)
-  // → course_completed false: '진행중'
-  // → completion_rate < threshold: Fail (과정 종료 후) 또는 '진행중' (과정 중)
-  // 반환: { grade, reason }
+### 5-3. 전체 통합 테스트
 
-  calcAll(filters) { ... },
-  // 필터 조건에 맞는 전체 수강생 학점 일괄 계산
-  // BatchRunner 활용
+Google Drive 연동 없이 로컬 Excel 파일로 전체 파이프라인을 검증하는 테스트:
 
-  getPassThreshold() { ... }
-  // _config에서 PASS_THRESHOLD 조회
-};
+```python
+# tests/test_pipeline.py
+def test_full_pipeline_local():
+    # 1. 테스트용 .xlsx 파일 생성 (수강신청 응답 형식)
+    # 2. StudentProcessor로 처리
+    # 3. GradeCalculator로 학점 계산
+    # 4. ExcelExporter로 내보내기
+    # 5. 결과 Excel 검증 (시트 수, 행 수, 컬럼 확인)
 ```
 
-핵심 규칙:
-- 학점 계산은 비파괴적 — 이전 grade를 덮어쓰되 변경 이력은 _log에 기록
-- calcAll은 BatchRunner 사용 (대량 수강생)
-- 계산 후 관련 캐시 무효화
+### 5-4. README 업데이트
 
-### 5-3. Router.js 라우트 추가
+프로젝트 루트 README.md에 사용법 추가:
 
-step4에서 stub으로 남긴 라우트를 연결:
-- getAssignments → AssignmentManager.listDefs
-- addAssignment → AssignmentManager.addDef (admin)
-- updateAssignment → AssignmentManager.updateDef (admin)
-- checkAssignment → AssignmentManager.check (admin)
-- calculateGrades → GradeCalculator.calcAll (admin)
+```markdown
+## 사용법
 
-### 5-4. Jest 테스트 작성
+### 사전 준비
+1. Google Cloud Console에서 OAuth2 Client ID 생성 (Desktop)
+2. credentials.json을 `credentials/` 디렉토리에 저장
 
-`test/GradeCalculator.test.js`:
-- Pass 조건 충족 (rate >= 80, completed, paid)
-- Fail (rate < 80, 과정 종료)
-- 진행중 (rate >= 80 but not completed)
-- 진행중 (completed but not paid)
-- 경계값 (rate = 80 정확히)
-- PASS_THRESHOLD 변경 시 동작
+### 실행
+python src/main.py                  # 전체 파이프라인
+python src/main.py --scan-only      # 스캔만
+python src/main.py --no-upload      # 업로드 스킵
+```
 
 ## Acceptance Criteria
 
 ```bash
-cd gas && npm test 2>&1 | tail -10   # GradeCalculator 포함 전체 테스트 PASS
-cd gas && clasp push --force 2>&1 | tail -5   # 배포 에러 없음
+source .venv/bin/activate && pytest tests/ -v 2>&1 | tail -20   # 전체 테스트 PASS
+python -c "from src.main import main; print('import OK')"   # 임포트 성공
 ```
 
 ## 검증 절차
@@ -116,6 +99,6 @@ cd gas && clasp push --force 2>&1 | tail -5   # 배포 에러 없음
 
 ## 금지사항
 
-- 과제 완료율을 단순 개수 비율로 계산하지 마라. 이유: weight(배점 비중)에 따른 가중 평균 사용.
-- 학점을 자동으로 Fail로 변경하지 마라 (과정 진행 중일 때). 이유: 아직 과제 제출 기회가 남아있을 수 있음. '진행중' 유지.
-- GradeCalculator에서 직접 시트에 쓰지 마라. 이유: StudentManager.update()를 통해 쓰기. 단일 쓰기 경로 유지.
+- main.py에서 비즈니스 로직을 직접 구현하지 마라. 이유: 각 모듈을 조합만 해야 함.
+- Google Drive 인증 실패 시 자동 재시도하지 마라. 이유: 사용자가 credentials를 확인해야 함. blocked 처리.
+- output/ 디렉토리의 기존 파일을 삭제하지 마라. 이유: 이전 결과물 보존.

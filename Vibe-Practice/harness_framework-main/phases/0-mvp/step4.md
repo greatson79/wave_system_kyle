@@ -1,114 +1,67 @@
-# Step 4: Student Manager
+# Step 4: Exporter
 
 ## 읽어야 할 파일
 
 먼저 아래 파일들을 읽고 프로젝트의 아키텍처와 설계 의도를 파악하라:
 
 - `/CLAUDE.md`
-- `/docs/ARCHITECTURE.md` — 수강생_마스터 스키마 (27 컬럼), Router.js 라우팅 테이블, 접근 제어 매트릭스
-- `/docs/ADR.md` — ADR-007(soft delete), ADR-009(LockService), ADR-010(마스킹)
-- `/gas/src/utils/` — 모든 유틸 파일
-- `/gas/src/Auth.js`, `/gas/src/Setup.js`
-- `/gas/src/scanners/`, `/gas/src/parsers/` — step3 산출물
+- `/docs/ARCHITECTURE.md` — 마스터 스프레드시트 구조, 시트별 스키마
+- `/docs/ADR.md` — ADR-003(NotebookLM 범위 밖)
+- `/src/processors/` — step3 산출물
+- `/src/utils/constants.py` — 시트 이름 상수
 
 이전 step에서 만들어진 코드를 꼼꼼히 읽고, 설계 의도를 이해한 뒤 작업하라.
 
 ## 작업
 
-### 4-1. StudentManager.js
+### 4-1. src/exporters/excel_exporter.py
 
-수강생 CRUD + 중복 체크 + upsert 모듈.
+마스터 스프레드시트(.xlsx) 생성 모듈.
 
-```javascript
-// 시그니처
-const StudentManager = {
-  list(filters, role) { ... },
-  // filters: { category, class_level, target, region, cohort, grade, search, page, limit }
-  // role이 viewer면 마스킹 적용
-  // 반환: { students: [...], total, page, limit }
+```python
+# 시그니처
+class ExcelExporter:
+    def export(
+        self,
+        master_df: pd.DataFrame,
+        assignment_defs: pd.DataFrame,
+        assignment_status: pd.DataFrame,
+        output_path: Path
+    ) -> Path: ...
+    # 3개 시트를 가진 .xlsx 파일 생성:
+    # 1. 수강생_마스터 — master_df
+    # 2. 과제_정의 — assignment_defs
+    # 3. 과제_현황 — assignment_status
 
-  get(studentId, role) { ... },
-  // 단일 수강생 조회. role이 viewer면 마스킹.
+    def _style_sheet(self, ws, df: pd.DataFrame) -> None: ...
+    # 헤더 스타일링: 굵은 글씨, 배경색, 자동 열 너비
+    # 조건부 서식: grade=Pass → 초록, Fail → 빨강, 진행중 → 노랑
 
-  add(data) { ... },
-  // 수동 추가. UUID 생성, created_at/updated_at 설정, is_active=true
-
-  update(studentId, data) { ... },
-  // 수정. updated_at 갱신. is_active=false인 레코드는 수정 불가.
-
-  softDelete(studentId) { ... },
-  // is_active = false. 물리적 삭제 금지 (CLAUDE.md CRITICAL).
-
-  upsert(rows) { ... },
-  // 스캔 결과 일괄 등록. 중복 기준: email + class_level + cohort.
-  // 기존 → updated_at 갱신 + 변경 필드만 업데이트.
-  // 신규 → add() 호출.
-
-  search(query, role) { ... },
-  // 이름, 이메일, 교회명으로 검색
-
-  _findDuplicate(email, classLevel, cohort) { ... },
-  // 내부: 중복 확인
-
-  _applyMasking(student, role) { ... }
-  // 내부: viewer 역할 마스킹 적용
-};
+    def _add_summary_sheet(self, wb, master_df: pd.DataFrame) -> None: ...
+    # 요약 시트 추가:
+    # - 카테고리별 수강생 수
+    # - 클래스별 이수율
+    # - 기수별 현황
 ```
 
 핵심 규칙:
-- CRITICAL: 쓰기(add, update, softDelete, upsert) 시 반드시 LockService.getScriptLock() 사용
-- CRITICAL: softDelete만 허용. deleteRow() 절대 사용 금지.
-- upsert의 중복 기준: email + class_level + cohort 조합
-- list()는 CacheHelper 활용 (TTL 5분, 필터 조합을 캐시 키에 포함)
-- 쓰기 작업 후 관련 캐시 무효화
-- is_active=false인 레코드는 기본적으로 목록에서 제외 (필터 옵션으로 포함 가능)
-
-### 4-2. Router.js 뼈대
-
-ARCHITECTURE.md의 라우팅 테이블을 구현하라. 이 step에서는 student 관련 라우트만 연결.
-
-```javascript
-// 시그니처
-function route(action, params) { ... }
-// action → 핸들러 매핑. Auth.withAuth로 권한 체크 래핑.
-// 미등록 action → { error: 'Unknown action', code: 404 }
-```
-
-이 step에서 연결할 라우트:
-- getStudents → StudentManager.list
-- getStudent → StudentManager.get
-- addStudent → StudentManager.add (admin)
-- updateStudent → StudentManager.update (admin)
-- deleteStudent → StudentManager.softDelete (admin)
-- searchStudents → StudentManager.search
-- getFilterOptions → 카테고리/클래스/대상/지역/기수 목록 반환
-
-나머지 라우트(getDashboard, assignments, scan, export 등)는 stub으로 남겨둬라:
-```javascript
-// TODO: step5에서 구현
-```
-
-### 4-3. 스캔 통합 연결
-
-DriveScanner.scan() 결과를 StudentManager.upsert()로 연결하는 전체 스캔 플로우 함수:
-
-```javascript
-function runFullScan() {
-  // 1. DriveScanner.scan()
-  // 2. 신규 파일 필터링
-  // 3. 각 파일 SheetReader.readAndNormalize()
-  // 4. StudentManager.upsert()
-  // 5. DriveScanner.recordScanHistory()
-}
-```
-
-이 함수를 Router.js의 `runScan` 액션에 연결하라 (admin only).
+- openpyxl로 서식 적용 (pandas to_excel은 데이터만, 서식은 openpyxl로)
+- 파일명: `wave-academy-master-{cohort}-{timestamp}.xlsx`
+- 한글 호환 (UTF-8)
+- 기존 마스터 파일이 있으면 덮어쓰기 (새 파일로 생성)
 
 ## Acceptance Criteria
 
 ```bash
-cd gas && npm test 2>&1 | tail -10   # 기존 테스트 PASS 유지
-cd gas && clasp push --force 2>&1 | tail -5   # 배포 에러 없음
+source .venv/bin/activate && python -c "
+from src.exporters.excel_exporter import ExcelExporter
+import pandas as pd
+from pathlib import Path
+e = ExcelExporter()
+df = pd.DataFrame({'name': ['테스트'], 'grade': ['Pass']})
+p = e.export(df, pd.DataFrame(), pd.DataFrame(), Path('/tmp/test-export.xlsx'))
+print('OK:', p.exists())
+"
 ```
 
 ## 검증 절차
@@ -125,6 +78,6 @@ cd gas && clasp push --force 2>&1 | tail -5   # 배포 에러 없음
 
 ## 금지사항
 
-- 물리적 행 삭제(sheet.deleteRow)를 구현하지 마라. 이유: CLAUDE.md CRITICAL — soft delete만 허용.
-- LockService 없이 시트에 쓰지 마라. 이유: 동시성 충돌 위험 (ADR-009).
-- upsert에서 기존 레코드의 source_file, source_sheet_id를 덮어쓰지 마라. 이유: 최초 등록 원본 추적 필요.
+- NotebookLM에 직접 업로드하지 마라. 이유: ADR-003 — 범위 밖.
+- xlsxwriter를 사용하지 마라. 이유: openpyxl로 통일 (읽기+쓰기 모두 가능).
+- 원본 수강신청 파일을 수정하지 마라. 이유: CLAUDE.md CRITICAL.

@@ -10,126 +10,117 @@
 
 ## 작업
 
-### 0-1. clasp 프로젝트 생성
+### 0-1. 기존 GAS 디렉토리 정리
 
-```bash
-mkdir -p gas
-cd gas
-clasp create --type webapp --title "Wave Academy 수강관리"
-```
+`gas/` 디렉토리가 존재하면 삭제하라 (이전 GAS 접근법의 잔재).
 
-생성된 `.clasp.json`과 `appsscript.json`을 확인하라.
+### 0-2. Python 프로젝트 디렉토리 구조 생성
 
-### 0-2. appsscript.json 설정
-
-```json
-{
-  "timeZone": "Asia/Seoul",
-  "dependencies": {},
-  "exceptionLogging": "STACKDRIVER",
-  "runtimeVersion": "V8",
-  "webapp": {
-    "executeAs": "USER_DEPLOYING",
-    "access": "ANYONE"
-  }
-}
-```
-
-### 0-3. 디렉토리 구조 생성
-
-ARCHITECTURE.md의 디렉토리 구조를 그대로 따라 빈 파일들을 생성하라:
+ARCHITECTURE.md의 디렉토리 구조를 따라 생성하라:
 
 ```
+src/
+├── __init__.py
+├── main.py
+├── config.py
+├── drive/
+│   ├── __init__.py
+│   ├── client.py
+│   └── scanner.py
+├── parsers/
+│   ├── __init__.py
+│   ├── filename_parser.py
+│   ├── column_mapper.py
+│   └── normalizer.py
+├── processors/
+│   ├── __init__.py
+│   ├── student_processor.py
+│   ├── assignment_manager.py
+│   └── grade_calculator.py
+├── exporters/
+│   ├── __init__.py
+│   └── excel_exporter.py
+└── utils/
+    ├── __init__.py
+    ├── error_handler.py
+    └── constants.py
+tests/
+├── __init__.py
+├── test_filename_parser.py
+├── test_column_mapper.py
+├── test_normalizer.py
+├── test_grade_calculator.py
+└── test_student_processor.py
+credentials/
+└── .gitignore
+```
+
+각 `.py` 파일에는 모듈 docstring만 넣어라. 예:
+```python
+"""Google Drive API 클라이언트 — 인증, 다운로드, 업로드."""
+```
+
+### 0-3. pyproject.toml
+
+```toml
+[project]
+name = "wave-academy"
+version = "0.1.0"
+requires-python = ">=3.12"
+dependencies = [
+    "google-api-python-client>=2.0",
+    "google-auth-oauthlib>=1.0",
+    "google-auth-httplib2>=0.2",
+    "openpyxl>=3.1",
+    "pandas>=2.0",
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=8.0", "pytest-cov>=5.0"]
+
+[project.scripts]
+wave-academy = "src.main:main"
+```
+
+### 0-4. requirements.txt
+
+pyproject.toml의 dependencies를 평탄화한 requirements.txt도 생성하라 (pip install -r 호환용).
+
+### 0-5. credentials/.gitignore
+
+```
+*.json
+!.gitignore
+```
+
+### 0-6. .gitignore (프로젝트 루트)
+
+기존 .gitignore가 있으면 Python 관련 항목을 추가하라. 없으면 생성:
+```
+__pycache__/
+*.pyc
+.venv/
+*.egg-info/
+dist/
+credentials/*.json
+.env
+node_modules/
 gas/
-├── src/
-│   ├── Code.js
-│   ├── Router.js
-│   ├── Auth.js
-│   ├── Setup.js
-│   ├── scanners/
-│   │   ├── DriveScanner.js
-│   │   └── SheetReader.js
-│   ├── parsers/
-│   │   ├── FileNameParser.js
-│   │   └── ResponseNormalizer.js
-│   ├── managers/
-│   │   ├── StudentManager.js
-│   │   ├── AssignmentManager.js
-│   │   └── GradeCalculator.js
-│   ├── exporters/
-│   │   └── CsvExporter.js
-│   ├── utils/
-│   │   ├── ColumnMapper.js
-│   │   ├── BatchRunner.js
-│   │   ├── ErrorHandler.js
-│   │   ├── CacheHelper.js
-│   │   └── Constants.js
-│   ├── triggers/
-│   │   └── TimeTrigger.js
-│   └── html/
-│       ├── index.html
-│       ├── dashboard.html
-│       ├── student-detail.html
-│       ├── assignment.html
-│       ├── setup.html
-│       ├── css/
-│       │   └── style.html
-│       └── js/
-│           ├── app.html
-│           └── api.html
-├── test/
-│   ├── FileNameParser.test.js
-│   ├── ColumnMapper.test.js
-│   ├── GradeCalculator.test.js
-│   └── ResponseNormalizer.test.js
-├── .clasp.json
-├── appsscript.json
-├── package.json
-└── jest.config.js
 ```
 
-각 `.js` 파일에는 모듈 헤더 주석만 넣어라. 예:
-```javascript
-// DriveScanner.js — Google Drive 폴더 스캔
-```
-
-### 0-4. package.json
-
-```json
-{
-  "name": "wave-academy",
-  "version": "0.1.0",
-  "scripts": {
-    "test": "jest",
-    "push": "clasp push",
-    "pull": "clasp pull",
-    "open": "clasp open"
-  },
-  "devDependencies": {
-    "jest": "^29.0.0"
-  }
-}
-```
-
-### 0-5. jest.config.js
-
-Jest가 `test/` 디렉토리의 `.test.js` 파일만 실행하도록 설정하라. GAS 전역 객체(`SpreadsheetApp`, `DriveApp` 등)는 테스트에서 mock 처리할 것이므로 별도 setup 파일은 아직 불필요.
-
-### 0-6. .clasp.json rootDir 설정
-
-clasp push가 `gas/src/` 디렉토리를 루트로 사용하도록 `.clasp.json`에 `"rootDir": "src"` 추가.
-
-### 0-7. npm install
+### 0-7. 가상환경 생성 및 의존성 설치
 
 ```bash
-cd gas && npm install
+python3 -m venv .venv
+source .venv/bin/activate
+pip install -e ".[dev]"
 ```
 
 ## Acceptance Criteria
 
 ```bash
-cd gas && npm test 2>&1 | tail -3   # "No tests found" 또는 테스트 스위트 0 — 에러 없음
-cd gas && clasp push --force 2>&1 | tail -5   # 배포 에러 없음
+source .venv/bin/activate && pytest --collect-only 2>&1 | tail -5   # 테스트 수집 에러 없음
+python -c "import openpyxl; import pandas; import googleapiclient; print('OK')"   # 의존성 import 성공
 ```
 
 ## 검증 절차
@@ -147,5 +138,5 @@ cd gas && clasp push --force 2>&1 | tail -5   # 배포 에러 없음
 ## 금지사항
 
 - 이 step에서 비즈니스 로직을 구현하지 마라. 이유: 다음 step에서 구현.
-- `gas/src/` 외부에 소스 파일을 만들지 마라. 이유: clasp push 범위 밖.
-- `.clasp.json`의 scriptId를 하드코딩하지 마라. 이유: clasp create가 자동 생성.
+- `gas/` 디렉토리 내용을 Python으로 포팅하지 마라. 이유: 완전 새로 작성.
+- credentials/ 디렉토리에 실제 인증 파일을 생성하지 마라. 이유: 사용자가 별도 제공.
