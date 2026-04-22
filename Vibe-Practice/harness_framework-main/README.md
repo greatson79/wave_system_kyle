@@ -106,6 +106,43 @@ python3 scripts/execute.py {phase}
 # 4. 재실행
 ```
 
+## Wave Academy 수강관리 시스템 사용법
+
+### 사전 준비
+
+1. Google Cloud Console에서 OAuth2 Client ID 생성 (Desktop 유형)
+2. `credentials.json`을 `credentials/` 디렉토리에 저장
+
+### 실행
+
+```bash
+# 가상환경 활성화
+source .venv/bin/activate
+
+# 전체 파이프라인 (스캔 → 처리 → 내보내기 → 업로드)
+python src/main.py
+
+# 스캔만 (다운로드까지)
+python src/main.py --scan-only
+
+# 업로드 스킵 (로컬 파일만 생성)
+python src/main.py --no-upload
+
+# 기존 마스터에서 내보내기만
+python src/main.py --export-only --master output/wave_academy_master_xxx.xlsx
+
+# 출력 디렉토리 지정
+python src/main.py --output /path/to/dir
+```
+
+### 테스트
+
+```bash
+pytest tests/ -v
+```
+
+---
+
 ## 요구사항
 
 - Python 3.10+

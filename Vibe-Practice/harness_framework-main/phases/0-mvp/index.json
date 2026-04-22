@@ -45,7 +45,10 @@
     {
       "step": 5,
       "name": "main-pipeline",
-      "status": "pending"
+      "status": "completed",
+      "started_at": "2026-04-22T16:06:26+0900",
+      "summary": "main.py CLI 진입점(전체 파이프라인 연결, argparse 옵션)·output/ 디렉토리·test_pipeline.py(로컬 통합 테스트 4개)·README 사용법 추가, 75 tests passed",
+      "completed_at": "2026-04-22T17:00:00+0900"
     }
   ],
   "created_at": "2026-04-22T15:58:30+0900"
