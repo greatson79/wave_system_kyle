@@ -40,7 +40,7 @@
       "status": "completed",
       "started_at": "2026-04-22T16:05:25+0900",
       "summary": "ExcelExporter 구현: 수강생_마스터·과제_정의·과제_현황·요약 4개 시트 .xlsx 생성, 헤더 스타일링·grade 조건부 서식·자동 열너비 적용, 121 tests passed",
-      "completed_at": "2026-04-22T16:10:00+0900"
+      "completed_at": "2026-04-22T16:06:26+0900"
     },
     {
       "step": 5,
