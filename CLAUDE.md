@@ -50,6 +50,9 @@ uv tool install yt-dlp
 | `/wave [요청]` | WAVE AI Orchestrator (범용 요청) |
 | `/연구 [주제]` | 리서치 에이전트 |
 | `/research run <주제> --auto` | YouTube → NotebookLM → 리포트 파이프라인 |
+| `/인터뷰` (youth_life_plan) | 청소년 인생계획 시작점 — 학년대 분기 인터뷰 |
+| `/수련회` (youth_life_plan) | 수련회 45~60분 집중 플로우 |
+| `/반기회고` (youth_life_plan) | 청소년 반기 성찰 10문 |
 
 **선택 실행 플래그** (`/주간총괄`에 추가):
 `--설교만` / `--묵상만` / `--기도만` / `--나눔지만` / `--카드뉴스만` / `이어서`
@@ -67,6 +70,9 @@ Ai_works/
 │   │   ├── data/               ← SOT 데이터 (sermon-plan-2026.json, prayer/*.csv)
 │   │   ├── src/                ← 템플릿, 에셋, 스크립트 (capture-a4.js, logos)
 │   │   └── output/             ← 결과물 ({월}/{주차}/ 구조)
+│   ├── youth_life_plan/        ← ⭐ 청소년 인생계획 스킬 (9개 전문 에이전트)
+│   │   ├── SKILL.md            ← 진입 분기·오케스트레이션·안전 장치
+│   │   └── references/         ← 에이전트별 상세 프롬프트 (11개)
 │   └── Wave-AI/                ← 멀티-LLM 에이전트 시스템 (8개 역할, Claude/GPT/Gemini 혼용)
 ├── AgenticWorkflow-Template/   ← 부모 프레임워크 — 모든 에이전트 시스템의 설계 철학 원본
 │   ├── AGENTS.md               ← 방법론 허브 (가장 중요한 참조 문서)
@@ -128,9 +134,32 @@ Phase 2 (병렬):       소그룹 나눔지  ∥  SNS 카드뉴스
 
 ---
 
+## InvestScan 커맨드 (Vibe-Practice/01.invest_test/)
+
+```bash
+cd Vibe-Practice/01.invest_test
+
+# Done Gate 검증 (API 호출 없음)
+python3 run_m05.py --dry-run       # M0.5 게이트 DG-01~08
+python3 run_m1.py --dry-run        # M1 게이트 DG-09~16
+
+# 파이프라인 실행
+python3 -m investscan.weekly_orchestrator   # 전체 주간 파이프라인
+
+# 보고서 관련
+python3 -m investscan.preview_report        # 미리보기
+python3 -m investscan.approve_hitl          # HITL 승인
+python3 -m investscan.export_report         # 최종 내보내기
+
+# 테스트
+python3 run_m05.py --gate DG-04            # 단일 게이트 실행
+```
+
+---
+
 ## MCP 서버
 
-- **NotebookLM MCP**: 도구 접두사 `mcp__notebooklm__`. 각 단계(collect/analyze/export) 시작 전 `refresh_auth()` 선제 호출.
+- **NotebookLM MCP**: 도구 접두사 `mcp__notebooklm__`. 각 단계(collect/analyze/export) 시작 전 `mcp__notebooklm__re_auth` 선제 호출. 인증 만료 시 터미널에서 `nlm login` 재실행.
 - **Telegram**: `@kyle_cc_bot` — 메시지 수신 시 `<channel source="telegram">` 태그로 전달됨.
 
 ---
@@ -141,6 +170,16 @@ Phase 2 (병렬):       소그룹 나눔지  ∥  SNS 카드뉴스
 - 환경스캐닝 산출물: `output/환경스캐닝/{날짜}_{주제}/`에 저장
 - NotebookLM 작업 파일: `notebookLM/{노트북 이름}/` 하위에 저장
 - 모든 주간 산출물: `Claude_skills/weekly-works/output/{월}/{주차}/` 구조 준수
+
+---
+
+## 현재 작업 브랜치
+
+| 브랜치 | 목적 | 상태 |
+|--------|------|------|
+| `feat-0-mvp` | InvestScan MVP Phase 0 — 5단계 파이프라인 구축 | Phase 완료 (`mark phase completed`) |
+
+`feat-0-mvp`는 `main`으로 머지 대기 중. 신규 InvestScan 작업은 이 브랜치 기반으로 진행.
 
 ---
 
