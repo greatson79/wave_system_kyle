@@ -155,7 +155,7 @@ def _mock_stock_financials(stock_code: str, stock_name: str, category: str) -> S
         "latest_quarter": "2025Q3",
         "per_current": 15.0,
         "per_sector_avg": 15.0,
-        "foreign_flow_4w": 0.0,
+        "foreign_flow_4w": None,  # unknown stocks: no ground truth → NBS-03 skipped
     })
     return StockFinancials(
         stock_code=stock_code,

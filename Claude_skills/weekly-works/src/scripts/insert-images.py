@@ -58,7 +58,7 @@ def replace_placeholders(html: str, img_url: str, orig_url: str) -> str:
 
 
 def run(week: str, output_base: str):
-    base_dir = Path("/Users/kylechoi/Desktop/Ai_works/Claude_skills/weekly-works")
+    base_dir = Path(__file__).resolve().parents[2]
     output_dir = base_dir / output_base
     images_dir = output_dir / "매일묵상" / "images"
     html_orig = output_dir / "매일묵상" / "html-original"
@@ -109,8 +109,9 @@ def run(week: str, output_base: str):
                 continue
 
             html = src_file.read_text(encoding="utf-8")
-            if "[이미지_URL]" not in html:
-                # 이미 삽입됨
+            needs_insert = "[이미지_URL]" in html or "[이미지_원본_URL]" in html
+            if not needs_insert:
+                # 두 플레이스홀더 모두 없음 → 완전히 삽입된 상태
                 shutil.copy(src_file, html_out / src_file.name)
                 print(f"  [{day}-{variant}] 이미 삽입됨 — 복사")
                 success += 1
@@ -192,7 +193,7 @@ const TYPES = ['adult-a4','youth-a4'];
 
     print(f"""
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-✅ 이미지 삽입 완료 — {week}주차 (4월 2주차)
+✅ 이미지 삽입 완료 — {week}주차 ({output_base})
 ├── html-with-images/: {success}개 HTML
 ├── images/: {len(image_files)}개 이미지
 └── WP 업로드: {len(wp_urls)}개

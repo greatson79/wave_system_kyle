@@ -9,7 +9,7 @@ Usage (via export_report):
     python3 -m investscan.export_report --date 2026-04-09 --formats html --no-live
 
 Saves to:
-    ~/Desktop/Ai_works/output/투자분析제안/{DATE}_주간투자분析_대시보드.html
+    ~/Desktop/Ai_works/output/투자분석제안/{DATE}_주간투자분석_대시보드.html
 """
 from __future__ import annotations
 
@@ -993,12 +993,12 @@ body::before{{content:'';position:fixed;inset:0;background-image:url("data:image
   <div class="ticker-inner">
     <span>KOSPI <strong>{data['kospi_current']}</strong> {kospi_arrow} {data['kospi_change_pct']}</span>
     <span>InvestScan {data['pipeline_version']}</span>
-    <span>분析기준 {data['date']}</span>
+    <span>분석기준 {data['date']}</span>
     <span>생성일 {_date.today().isoformat()}</span>
     <span>바이어스 {overall_bias} — 합의 신뢰도 {overall_confidence}</span>
     <span>KOSPI <strong>{data['kospi_current']}</strong> {kospi_arrow} {data['kospi_change_pct']}</span>
     <span>InvestScan {data['pipeline_version']}</span>
-    <span>분析기준 {data['date']}</span>
+    <span>분석기준 {data['date']}</span>
     <span>생성일 {_date.today().isoformat()}</span>
     <span>바이어스 {overall_bias} — 합의 신뢰도 {overall_confidence}</span>
   </div>
@@ -1008,7 +1008,7 @@ body::before{{content:'';position:fixed;inset:0;background-image:url("data:image
   <!-- Header + stats -->
   <div class="header">
     <h1>INVESTSCAN</h1>
-    <div class="sub">주간 투자 분析 대시보드 &nbsp;|&nbsp; {data['date']} &nbsp;|&nbsp; {data['pipeline_version']}</div>
+    <div class="sub">주간 투자 분석 대시보드 &nbsp;|&nbsp; {data['date']} &nbsp;|&nbsp; {data['pipeline_version']}</div>
     <div class="stats-row">
       <div class="stat-pill">
         <span class="stat-label">전체 바이어스</span>
@@ -1249,7 +1249,7 @@ function showStockModal(ticker) {{
   if (allTargetNA) {{
     const naMsg = d.category === 'P6 미통과'
       ? '⚠️ P6 임계값 미달 종목 — 투자 권장 불가. 아래 핵심 논거는 서사적 이해 참고용입니다.'
-      : '개요 수준 분析 — 에이전트 감시 우주 미포함으로 심층 밸류에이션 미설정';
+      : '개요 수준 분석 — 에이전트 감시 우주 미포함으로 심층 밸류에이션 미설정';
     targetSection.innerHTML = '<div class="modal-section-label">목표주가 (서사 참고용)</div>'
       + `<p style="color:var(--amber);font-size:12px;padding:8px 0">${{naMsg}}</p>`;
   }} else {{
@@ -1385,6 +1385,6 @@ def generate(
                                        reports_dir=reports_dir, live=live)
     html     = render_html(data)
     out_dir.mkdir(parents=True, exist_ok=True)
-    out_path = out_dir / f"{date}_주간투자분析_대시보드.html"
+    out_path = out_dir / f"{date}_주간투자분석_대시보드.html"
     out_path.write_text(html, encoding="utf-8")
     return out_path

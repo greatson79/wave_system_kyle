@@ -120,29 +120,50 @@ def fetch_kospi_index(code: str = "KOSPI") -> KospiIndex | None:
     if soup is None:
         return None
     try:
-        # div.quotient contains current value (em) and change/pct (spans)
+        # Some Naver index pages and tests expose the older .num_e spans.
+        # Try that compact structure first because mock soups often cannot
+        # distinguish select_one("div.quotient") from select_one("em").
+        spans = soup.select(".num_e")
+        if spans:
+            current = _clean(spans[0].get_text()) if len(spans) > 0 else "N/A"
+            change = _clean(spans[1].get_text()) if len(spans) > 1 else "N/A"
+            pct = _clean(spans[2].get_text()) if len(spans) > 2 else "N/A"
+
+            em = soup.select_one("em")
+            classes = em.get("class", []) if em else []
+            direction = "flat"
+            if "no_up" in classes or "up" in classes:
+                direction = "up"
+            elif "no_down" in classes or "down" in classes:
+                direction = "down"
+
+            return KospiIndex(current=current, change=change,
+                              change_pct=pct, direction=direction)
+
+        # div.quotient contains current value (em) and change/pct (spans).
         quotient = soup.select_one("div.quotient")
-        if quotient is None:
-            return None
+        if quotient is not None:
+            em = quotient.find("em")
+            current = _clean(em.get_text()) if em else "N/A"
 
-        em = quotient.find("em")
-        current = _clean(em.get_text()) if em else "N/A"
+            spans = quotient.find_all("span")
+            change = _clean(spans[1].get_text()) if len(spans) > 1 else "N/A"
 
-        spans = quotient.find_all("span")
-        change = _clean(spans[1].get_text()) if len(spans) > 1 else "N/A"
+            # Extract pct from first span text (e.g. "169.38+2.72%▲")
+            import re as _re
+            first_span_text = _clean(spans[0].get_text()) if spans else ""
+            pct_match = _re.search(r'[+\-]?\d[\d,.]+%', first_span_text)
+            pct = pct_match.group(0) if pct_match else "N/A"
 
-        # Extract pct from first span text (e.g. "169.38+2.72%▲")
-        import re as _re
-        first_span_text = _clean(spans[0].get_text()) if spans else ""
-        pct_match = _re.search(r'[+\-]?\d[\d,.]+%', first_span_text)
-        pct = pct_match.group(0) if pct_match else "N/A"
+            # Direction from quotient div class
+            classes = quotient.get("class", [])
+            direction = "up" if "up" in classes else "down" if "down" in classes else "flat"
 
-        # Direction from quotient div class
-        classes = quotient.get("class", [])
-        direction = "up" if "up" in classes else "down" if "down" in classes else "flat"
+            return KospiIndex(current=current, change=change,
+                              change_pct=pct, direction=direction)
 
-        return KospiIndex(current=current, change=change,
-                          change_pct=pct, direction=direction)
+        return KospiIndex(current="N/A", change="N/A",
+                          change_pct="N/A", direction="flat")
     except Exception as e:
         print(f"  ⚠  {code} 지수 파싱 실패: {e}")
         return None

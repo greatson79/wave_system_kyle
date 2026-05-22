@@ -272,6 +272,63 @@ def _noop_reviewer(narrative: NarrativeOutput) -> tuple[bool, list[str]]:
     return True, []
 
 
+def run_dynamic_pipeline(config: dict | None = None) -> list[dict]:
+    """
+    Signal-driven entry point: dynamically select stocks from EnvScan signals,
+    then run run_full_pipeline() for each selected stock.
+
+    Uses orchestrate._select_dynamic_watchlist() (P6 Python-First) to map
+    STEEPs signals → active sectors → Korean stock universe.
+    Returns list of per-stock result dicts.
+    """
+    envscan_raw = _load_raw_envscan_signals()
+    gnews_raw   = _load_raw_gnews_articles()
+
+    try:
+        import yaml
+        from pathlib import Path
+        from investscan.orchestrate import _select_dynamic_watchlist  # type: ignore[attr-defined]
+
+        watchlist, _ = _select_dynamic_watchlist(
+            signals=envscan_raw,
+            articles=gnews_raw,
+            max_stocks=8,
+        )
+    except Exception as e:
+        logger.warning("Dynamic watchlist failed (%s) — falling back to empty watchlist", e)
+        watchlist = {}
+
+    if not watchlist:
+        logger.warning("No stocks selected by dynamic watchlist — pipeline aborted")
+        return [{"status": "aborted", "reason": "empty_watchlist"}]
+
+    # Determine category per stock using sector_stock_map category_hint
+    try:
+        import yaml
+        from pathlib import Path
+        sector_map = yaml.safe_load(Path("config/sector_stock_map.yaml").read_text())
+        hint_map: dict[str, str] = {}
+        for sec_data in sector_map.get("sectors", {}).values():
+            for stock in sec_data.get("sample_stocks", []):
+                code = str(stock.get("code", "")).strip()
+                hint = stock.get("category_hint", "A")
+                if code and code not in hint_map:
+                    hint_map[code] = hint
+    except Exception:
+        hint_map = {}
+
+    results = []
+    for code, name in watchlist.items():
+        category = hint_map.get(str(code), "A")
+        logger.info("Dynamic pipeline: %s (%s) Category %s", name, code, category)
+        result = run_full_pipeline(stock_code=code, stock_name=name, category=category, config=config)
+        result["stock_code"] = code
+        result["stock_name"] = name
+        results.append(result)
+
+    return results
+
+
 def run_full_pipeline(
     stock_code: str,
     stock_name: str,
@@ -342,9 +399,27 @@ def _build_context_data(
 
     financials = synthesize_stock_data(stock_code, stock_name, category, config=config)
 
-    # Macro context: dry-run reads fixture; live mode would call FRED API (Phase 2)
+    # Load EnvScan signals first — needed for sector_scores injection into synthesize_macro
+    # P6: sector scores computed by Python (orchestrate._score_sectors), not LLM
+    envscan_raw = _load_raw_envscan_signals()
+    gnews_raw   = _load_raw_gnews_articles()
+    sector_scores = _compute_sector_scores(envscan_raw, gnews_raw)
+
+    # Load analyst agent round2 outputs → aggregate sector_adjustments into boost scores
+    # P6: envscan_sector_boost() is deterministic Python averaging — no LLM judgment
+    from investscan.synthesize_macro import envscan_sector_boost
+    agent_round2_outputs = _load_agent_round2_outputs()
+    envscan_boost = envscan_sector_boost(agent_round2_outputs)
+
+    # Macro context: FRED fixture + EnvScan sector_scores (confidence boost)
+    #   + envscan_boost (direction override for strong signals like war/health crises)
     fred_data = load_fred_fixture()
-    meta = synthesize(fred_data, config=config)
+    meta = synthesize(
+        fred_data,
+        external_scores=sector_scores,
+        envscan_boost_scores=envscan_boost,
+        config=config,
+    )
 
     # Top signals: EnvironmentScan (primary) + GlobalNews (supplement, if available)
     envscan_signals = _load_top_signals_from_envscan(top_n=5)
@@ -380,6 +455,83 @@ def _build_context_data(
         "action_checklist": meta.action_checklist,
         "top_signals": top_signals,
     }
+
+
+def _load_raw_envscan_signals() -> list[dict]:
+    """Load raw EnvScan signal dicts for sector score computation (P6)."""
+    try:
+        from investscan.adapters.envscan_adapter import load_signals as envscan_load
+        return envscan_load() or []
+    except Exception as e:
+        logger.debug("Raw EnvScan load skipped: %s", e)
+        return []
+
+
+def _load_raw_gnews_articles() -> list[dict]:
+    """Load raw GNews article dicts for sector score computation (P6)."""
+    try:
+        from investscan.adapters.gnews_adapter import load_signals as gnews_load
+        signals = gnews_load() or []
+        return [{"title": s.get("title", ""), "body": s.get("summary", "")} for s in signals[:150]]
+    except Exception as e:
+        logger.debug("Raw GNews load skipped: %s", e)
+        return []
+
+
+def _compute_sector_scores(envscan_signals: list[dict], gnews_articles: list[dict]) -> dict[str, float]:
+    """
+    Delegate sector score computation to orchestrate._score_sectors (P6 Python-First).
+    Returns {sector_name: score} for synthesize_macro external_scores injection.
+    Falls back to empty dict on any error (synthesize_macro handles missing external_scores).
+    """
+    try:
+        import yaml
+        from pathlib import Path
+        from investscan.orchestrate import _score_sectors  # type: ignore[attr-defined]
+
+        sector_map_path = Path("config/sector_stock_map.yaml")
+        if not sector_map_path.exists():
+            return {}
+        sectors = yaml.safe_load(sector_map_path.read_text()).get("sectors", {})
+        scores = _score_sectors(envscan_signals, gnews_articles, sectors)
+        logger.info("Sector scores computed: top-3 = %s",
+                    sorted(scores.items(), key=lambda x: x[1], reverse=True)[:3])
+        return scores
+    except Exception as e:
+        logger.debug("Sector score computation skipped: %s", e)
+        return {}
+
+
+def _load_agent_round2_outputs() -> list[dict]:
+    """
+    Load analyst agent Round 2 JSON outputs from output/temp/.
+    These files contain sector_adjustments produced by analyst agents
+    (macro, korea, tech, valuation, risk) after the debate round.
+
+    Pattern: output/temp/round2_*.json
+
+    Returns list of dicts. Empty list on any failure (safe fallback —
+    envscan_sector_boost() handles empty input gracefully).
+    """
+    import json
+    from pathlib import Path
+
+    outputs = []
+    temp_dir = Path("output/temp")
+    if not temp_dir.exists():
+        return []
+    for path in sorted(temp_dir.glob("round2_*.json")):
+        try:
+            data = json.loads(path.read_text(encoding="utf-8"))
+            if isinstance(data, dict) and "sector_adjustments" in data:
+                outputs.append(data)
+        except Exception as e:
+            logger.debug("_load_agent_round2_outputs: skipping %s — %s", path.name, e)
+    logger.info(
+        "_load_agent_round2_outputs: loaded %d round2 files from %s",
+        len(outputs), temp_dir,
+    )
+    return outputs
 
 
 def _load_top_signals_from_envscan(top_n: int = 5) -> list[str]:
@@ -455,10 +607,12 @@ def run_data_only_pipeline(
     top_signals = _load_top_signals_from_envscan()
     logger.info("Stage 1: %d top signals loaded", len(top_signals))
 
-    # Synthesize macro context
-    from investscan.synthesize_macro import synthesize, load_fred_fixture
+    # Synthesize macro context (with envscan boost if round2 outputs available)
+    from investscan.synthesize_macro import synthesize, load_fred_fixture, envscan_sector_boost
     fred_data = load_fred_fixture()
-    meta = synthesize(fred_data, config=config)
+    agent_round2_outputs = _load_agent_round2_outputs()
+    envscan_boost = envscan_sector_boost(agent_round2_outputs)
+    meta = synthesize(fred_data, envscan_boost_scores=envscan_boost, config=config)
 
     # Build context contract (Stage 1 → Stage 2 interface)
     today = date.today().isoformat()

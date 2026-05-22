@@ -351,6 +351,108 @@ def _derive_sector_directions(fred_data: dict) -> dict:
     return sectors
 
 
+def envscan_sector_boost(agent_round2_outputs: list[dict]) -> dict[str, float]:
+    """
+    Aggregate sector_adjustments from analyst agent Round 2 outputs into a
+    numeric score dict consumed by _build_sectors_list(external_scores=...).
+
+    Each agent (macro, korea, tech, valuation, risk) emits `sector_adjustments`
+    in their round2_*.json output: {sector_name: float} in range [-0.30, +0.30].
+    This function averages across all agents that provided an adjustment and
+    clamps the result to [-0.30, +0.30].
+
+    Also applies ENVSCAN_OVERRIDE: if the average exceeds ENVSCAN_BULLISH_OVERRIDE
+    threshold, the sector direction is forced to "bullish" regardless of FRED.
+    This ensures strong environmental signals (e.g. defense amid active war) are
+    not masked by FRED neutrality.
+
+    Args:
+        agent_round2_outputs: list of dicts loaded from output/temp/round2_*.json.
+            Each dict must contain "sector_adjustments": {sector_name: float}.
+
+    Returns:
+        {sector_name: float} — aggregated boost scores, range [-0.30, +0.30].
+        Empty dict if no valid inputs.
+    """
+    if not agent_round2_outputs:
+        return {}
+
+    CLAMP_MAX: float = 0.30
+    CLAMP_MIN: float = -0.30
+
+    sums: dict[str, float] = {}
+    counts: dict[str, int] = {}
+
+    for output in agent_round2_outputs:
+        adjustments = output.get("sector_adjustments")
+        if not isinstance(adjustments, dict):
+            continue
+        for sector, value in adjustments.items():
+            if not isinstance(value, (int, float)):
+                continue
+            sums[sector] = sums.get(sector, 0.0) + float(value)
+            counts[sector] = counts.get(sector, 0) + 1
+
+    result: dict[str, float] = {}
+    for sector, total in sums.items():
+        n = counts[sector]
+        avg = total / n
+        result[sector] = max(CLAMP_MIN, min(CLAMP_MAX, avg))
+
+    logger.info(
+        "envscan_sector_boost: %d sectors boosted from %d agent outputs",
+        len(result), len(agent_round2_outputs),
+    )
+    return result
+
+
+# Threshold above which envscan boost overrides FRED-neutral to "bullish"
+ENVSCAN_BULLISH_OVERRIDE: float = 0.12
+
+
+def _apply_envscan_overrides(
+    sector_directions: dict[str, str],
+    boost_scores: dict[str, float],
+) -> dict[str, str]:
+    """
+    Override FRED-derived sector directions when envscan boost is strong enough.
+
+    Rules (P6 Python-First — deterministic thresholds):
+      - boost >= ENVSCAN_BULLISH_OVERRIDE (+0.12) AND current != "bullish"
+        → force "bullish"  (strong positive envscan signal overrides FRED neutral)
+      - boost <= -ENVSCAN_BULLISH_OVERRIDE (-0.12) AND current != "bearish"
+        → force "bearish"  (strong negative envscan signal overrides FRED neutral)
+      - |boost| < ENVSCAN_BULLISH_OVERRIDE
+        → keep FRED direction unchanged
+
+    This ensures signals like "defense sector — active war" or
+    "energy sector — Hormuz blockade" are not masked by FRED neutrality.
+
+    Args:
+        sector_directions: dict produced by _derive_sector_directions().
+        boost_scores: dict produced by envscan_sector_boost().
+
+    Returns:
+        Updated sector_directions dict (new dict, not mutated in-place).
+    """
+    updated = dict(sector_directions)
+    for sector, boost in boost_scores.items():
+        if boost >= ENVSCAN_BULLISH_OVERRIDE:
+            if updated.get(sector) != "bullish":
+                logger.info(
+                    "_apply_envscan_overrides: %s neutral→bullish (boost=%.3f)", sector, boost
+                )
+            updated[sector] = "bullish"
+        elif boost <= -ENVSCAN_BULLISH_OVERRIDE:
+            if updated.get(sector) != "bearish":
+                logger.info(
+                    "_apply_envscan_overrides: %s neutral→bearish (boost=%.3f)", sector, boost
+                )
+            updated[sector] = "bearish"
+        # else: keep FRED direction
+    return updated
+
+
 def _build_sectors_list(
     sector_directions: dict,
     external_scores: dict | None = None,
@@ -451,6 +553,7 @@ def synthesize(
     fred_data: dict,
     config: dict | None = None,
     external_scores: dict | None = None,
+    envscan_boost_scores: dict[str, float] | None = None,
 ) -> InvestmentMeta:
     """
     Synthesize FRED macro data into an InvestmentMeta object.
@@ -464,6 +567,12 @@ def synthesize(
         config: Optional config dict (currently unused; reserved for future thresholds).
         external_scores: Optional {sector_name: float} from orchestrate._score_sectors().
             Blended into sector confidence as a +0~0.15 boost (M2 bridge).
+        envscan_boost_scores: Optional {sector_name: float} from envscan_sector_boost().
+            Aggregated analyst sector_adjustments from environmental scanning signals.
+            Applied via _apply_envscan_overrides() BEFORE _build_sectors_list().
+            Strong signals (|boost| >= 0.12) override FRED neutral → bullish/bearish.
+            This ensures defense/energy/biotech sectors activated by war/health crises
+            are not masked by FRED-only neutrality.
 
     Returns:
         InvestmentMeta with all fields populated including sectors (list[SectorDirection]),
@@ -474,6 +583,10 @@ def synthesize(
     risk_appetite = _determine_risk_appetite(fred_data)
     usd_strength = _determine_usd_strength(fred_data)
     sector_directions = _derive_sector_directions(fred_data)
+
+    # Apply environmental scanning overrides (P6: deterministic threshold logic)
+    if envscan_boost_scores:
+        sector_directions = _apply_envscan_overrides(sector_directions, envscan_boost_scores)
 
     generated_at = datetime.now(tz=timezone.utc).isoformat()
 

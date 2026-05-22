@@ -226,57 +226,150 @@ def _parse_narrative(raw_json: str, category: str) -> NarrativeOutput:
 
 
 def _mock_narrative(context_data: dict) -> NarrativeOutput:
-    """Return a realistic mock NarrativeOutput for dry-run mode and TDD."""
+    """
+    Return a stock-aware mock NarrativeOutput for dry-run mode and TDD.
+
+    Uses actual per_current, per_sector_avg, foreign_flow_4w from context_data
+    so NBS (Numeric Backstop) checks pass — prevents cross-stock number mismatch.
+    Falls back to safe DATA_UNAVAILABLE strings when fields are None.
+    """
     category = context_data.get("category", "A")
+    stock_code = context_data.get("stock_code", "")
+    stock_name = context_data.get("stock_name", "Unknown Stock")
+
+    # Read actual numeric fields — NBS verifies these appear in narrative text
+    per_current = context_data.get("per_current")
+    per_sector_avg = context_data.get("per_sector_avg")
+    foreign_flow_4w = context_data.get("foreign_flow_4w")
+    top_signals = context_data.get("top_signals", [])
+    signals_text = "; ".join(str(s)[:60] for s in top_signals[:3]) or "No signals available"
+
+    # Build NBS-compatible field strings from actual context values
+    if per_current is not None and per_sector_avg is not None:
+        try:
+            per_curr_f = float(per_current)
+            per_sect_f = float(per_sector_avg)
+            diff_pct = round((per_curr_f / per_sect_f - 1) * 100, 1)
+            if diff_pct == 0.0:
+                per_vs_sector_str = f"{per_curr_f:.1f}x, at parity with sector avg {per_sect_f:.1f}x"
+                per_text = f"PER of {per_curr_f:.1f}x is at parity with the sector average of {per_sect_f:.1f}x."
+            else:
+                direction_word = "premium" if diff_pct > 0 else "discount"
+                per_vs_sector_str = (
+                    f"{per_curr_f:.1f}x, {abs(diff_pct):.1f}% {direction_word}"
+                    f" vs. sector avg {per_sect_f:.1f}x"
+                )
+                per_text = f"PER of {per_curr_f:.1f}x represents a {abs(diff_pct):.1f}% {direction_word} to the sector average of {per_sect_f:.1f}x."
+        except (TypeError, ValueError):
+            per_vs_sector_str = "N/A — PER data unavailable"
+            per_text = "Valuation data unavailable (dry-run)."
+    else:
+        per_vs_sector_str = "N/A — PER data unavailable"
+        per_text = "Valuation data unavailable (dry-run)."
+
+    if foreign_flow_4w is not None:
+        try:
+            flow_f = float(foreign_flow_4w)
+            flow_direction = "buy" if flow_f >= 0 else "sell"
+            foreign_flow_str = f"4-week net {flow_direction}: {abs(flow_f):.1f}M (cumulative foreign institutional flow)"
+            foreign_text = f"Foreign institutional 4-week flow of {abs(flow_f):.1f}M net {flow_direction} reflects current positioning."
+        except (TypeError, ValueError):
+            foreign_flow_str = "N/A — foreign flow data unavailable"
+            foreign_text = "Foreign flow data unavailable (dry-run)."
+    else:
+        foreign_flow_str = "N/A — foreign flow data unavailable (dry-run)"
+        foreign_text = "Foreign flow data unavailable (dry-run)."
+
+    # Build YoY growth context for text body (NBS-01 anchors on yoy_growth field, not text)
+    yoy_rev = context_data.get("yoy_revenue_growth")
+    yoy_op = context_data.get("yoy_op_income_growth")
+    if yoy_rev is not None and yoy_op is not None:
+        try:
+            yoy_text = (
+                f"Mock financial context: revenue growth estimated at {float(yoy_rev)*100:.1f}% YoY, "
+                f"operating income growth at {float(yoy_op)*100:.1f}% YoY (dry-run placeholders — DART API not connected). "
+            )
+        except (TypeError, ValueError):
+            yoy_text = "YoY financial data unavailable in dry-run mode (DART API not connected). "
+    else:
+        yoy_text = "YoY financial data unavailable in dry-run mode (DART API not connected). "
 
     if category == "A":
+        text = (
+            f"{stock_name} ({stock_code}) weekly investment signal analysis for dry-run mode. "
+            f"{per_text} "
+            f"{foreign_text} "
+            f"{yoy_text}"
+            f"Quarterly trend assessment is based on available EnvironmentScan signals and macro context. "
+            f"Active macro environment: Fed rate direction hold, inflation cooling, "
+            f"risk appetite moderate, USD strength noted. "
+            f"Current sector confidence reflects signal-driven scoring from EnvironmentScan pipeline. "
+            f"Key environmental signals driving this analysis: {signals_text}. "
+            f"Macro backdrop assessment: global central bank policy normalization ongoing, "
+            f"with geopolitical risk premium elevated across emerging market equities. "
+            f"Primary downside risk is macro-driven volatility from geopolitical escalation "
+            f"and yen carry trade unwind risk, "
+            f"with estimated portfolio impact of minus five to minus ten percentage points in adverse scenario. "
+            f"Foreign institutional positioning and sector signal strength support current stance. "
+            f"Signal-driven watchlist selection confirmed this stock as relevant to active themes."
+        )
         return NarrativeOutput(
             category="A",
-            text=(
-                "Samsung Electronics enters Q1 2026 with memory fundamentals showing structural "
-                "recovery. HBM3E ramp for AI training clusters positions the DRAM segment as the "
-                "primary growth vector, with Q4 2025 operating income surging 34.2% YoY on improved "
-                "ASP mix. The 4-week cumulative foreign institutional net buy of +$380M signals "
-                "sustained conviction from global asset managers. Current PER of 10.2x represents a "
-                "28.4% discount to the sector average of 14.2x, creating a compelling entry window "
-                "for value-oriented investors. Primary downside risk remains DRAM oversupply "
-                "resurgence if the AI capex cycle moderates faster than anticipated, with an estimated "
-                "revenue impact of -12% in that scenario. The stock trajectory aligns with the broader "
-                "technology sector bullish regime established by stabilizing Fed policy and improving "
-                "risk appetite indicators. Foreign institutional accumulation pattern further validates "
-                "the thesis that memory cycle recovery is entering a sustained phase rather than a "
-                "transient bounce driven by inventory restocking alone."
-            ),
+            text=text,
             sentiment_weight=0.0,
-            yoy_growth="Revenue +8.3% YoY, Op.Income +34.2% (2025Q4)",
-            per_vs_sector="10.2x, 28.4% discount vs. sector avg 14.2x",
-            foreign_flow_direction="4-week net buy: +$380M (cumulative)",
-            downside_risk="DRAM oversupply resurgence → est. -12% revenue if AI capex cycle moderates Q3 2026",
-            direction="Positive momentum maintained",
+            yoy_growth="N/A — YoY/quarterly data unavailable (dry-run, DART API not connected)",
+            per_vs_sector=per_vs_sector_str,
+            foreign_flow_direction=foreign_flow_str,
+            downside_risk=(
+                "Geopolitical escalation (Hormuz crisis) + yen carry unwind → "
+                "est. -5 to -10 percentage point portfolio impact in adverse scenario"
+            ),
+            direction="Neutral — monitor and wait",
         )
     else:
+        # Category B — theme stock mock (generic, not stock-specific)
+        DEFAULT_MARKET_SIZE = "Global addressable market: $180bn, CAGR 18% (2024-2030, McKinsey estimate)"
+        market_size_val = context_data.get("market_size") or DEFAULT_MARKET_SIZE
+        catalyst_val = context_data.get("catalyst", "Q2 2026 product launch — primary monetization catalyst")
+        theme_duration_val = context_data.get(
+            "theme_duration", "16-24 week momentum expected as theme adoption curve accelerates"
+        )
+        dissolution_val = context_data.get(
+            "dissolution_risk", "Competitive entry by global platform players — est. 3-8pp market share erosion"
+        )
+        disclaimer_val = context_data.get(
+            "disclaimer",
+            "This analysis does not constitute investment advice. Past performance is not indicative of future results.",
+        )
+        text = (
+            f"{stock_name} ({stock_code}) Category B theme analysis for dry-run mode. "
+            f"Market size context: {market_size_val}. "
+            f"This stock is positioned within an emerging theme with significant growth potential, "
+            f"reflecting a total addressable market growth trajectory of approximately 18% CAGR. "
+            f"The stock holds a meaningful positioning within its primary theme, "
+            f"supported by active EnvironmentScan signals: {signals_text}. "
+            f"Macro environment (FRED): rate hold, inflation cooling, risk moderate, USD strong. "
+            f"Catalyst: {catalyst_val}. "
+            f"Theme duration estimate: {theme_duration_val}. "
+            f"Primary dissolution risk: {dissolution_val}. "
+            f"Valuation premium over sector average requires catalyst execution evidence. "
+            f"Theme momentum is signal-driven, with EnvironmentScan confirming active thematic "
+            f"alignment across technological and structural change dimensions. "
+            f"This analysis does not constitute investment advice and is based solely on "
+            f"publicly available information. Past performance is not indicative of future results. "
+            f"Investment decisions remain solely the reader's responsibility."
+        )
         return NarrativeOutput(
             category="B",
-            text=(
-                "NAVER's convergence of AI capability and commerce dominance creates a defensible "
-                "growth runway through 2026. The HyperCLOVA X integration into Smart Store ecosystem "
-                "positions NAVER at the intersection of Korea's two fastest-growing digital verticals. "
-                "With 78% Korean search market share and 12M monthly active users primed for AI "
-                "shopping assistant adoption, the upcoming Q2 2026 launch represents a significant "
-                "monetization inflection point. The global AI commerce market trajectory of $42bn "
-                "with 19% CAGR through 2028 provides the macro tailwind. Theme duration estimate of "
-                "18-30 weeks reflects the adoption curve of AI-integrated commerce features. Primary "
-                "dissolution risk remains Google's AI Mode expansion into the Korean market, with "
-                "potential search share erosion of 3-8 percentage points by Q4 2026. Operating "
-                "leverage is expected to improve as AI infrastructure costs plateau in H2 2026. "
-                "This analysis does not constitute investment advice and is based solely on publicly "
-                "available information. Investment decisions remain solely the reader's responsibility."
-            ),
+            text=text,
             sentiment_weight=0.0,
-            market_size="Korean AI commerce market: $42bn, CAGR 19% (2025-2028, Gartner)",
-            stock_positioning="Dominant search-to-commerce funnel with HyperCLOVA X integration — 78% Korean search market share",
-            catalyst="Q2 2026 AI shopping assistant launch targeting 12M monthly active users",
-            theme_duration="18-30 week momentum expected as AI commerce adoption curve steepens",
-            dissolution_risk="Google AI Mode Korean market entry by Q4 2026 — search share erosion risk (est. 3-8pp)",
-            disclaimer="This analysis is based on publicly available information and does not constitute investment advice.",
+            market_size=market_size_val,
+            stock_positioning=(
+                context_data.get("stock_positioning")
+                or f"{stock_name} — theme positioning data not provided in dry-run"
+            ),
+            catalyst=catalyst_val,
+            theme_duration=theme_duration_val,
+            dissolution_risk=dissolution_val,
+            disclaimer=disclaimer_val,
         )
