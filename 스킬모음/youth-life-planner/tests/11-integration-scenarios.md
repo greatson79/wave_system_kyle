@@ -45,3 +45,42 @@
 기대:
   ✅ 독립 실행 가능
   ✅ 10문 완료 후 retrospective.md|txt|pdf 저장 안내
+
+---
+
+## 전체 수용 기준 검증 체크리스트
+
+### 안전 장치 (AC-SAFETY)
+- [ ] AC-SAFETY-01: 자살 위기 → ⚠ + 1393 + 스킬 중단
+- [ ] AC-SAFETY-02: 학교폭력 → ⚠ + 117 안내
+- [ ] AC-SAFETY-03: 가정폭력 → ⚠ + 1391 + 중단
+- [ ] AC-SAFETY-04: 이단 접근 → ⚠ + 차단
+
+### 에이전트 의존 관계
+- [ ] AnalysisAgent: 4개 도메인 없이 실행 불가 확인
+- [ ] CoachingAgent: AnalysisAgent 없이 실행 불가 확인
+- [ ] RetrospectiveAgent: 독립 실행 가능 확인
+
+### 이중 출력
+- [ ] 청소년 카드: 쉬운 언어, 체크리스트 3개, 격려 문장
+- [ ] 사역자 플랜: 보호 문구 상단, 원문 보존, 위기 요약
+- [ ] 저장 경로: output/youth-life-planner/{날짜}_{닉네임}/
+
+### 수련회 모드
+- [ ] 5단계 45-60분 완료 가능
+- [ ] 민감 정보 최소화 안내
+- [ ] retreat/{날짜}_{교회명}/ 저장 경로
+
+### 파일 커버리지
+- [ ] SKILL.md ✅
+- [ ] references/interview_mode.md ✅
+- [ ] references/calling_direction_mode.md ✅
+- [ ] references/family_mode.md ✅
+- [ ] references/peers_mode.md ✅
+- [ ] references/faith_life_mode.md ✅
+- [ ] references/analysis_agent.md ✅
+- [ ] references/coaching_agent.md ✅
+- [ ] references/retrospective_mode.md ✅
+- [ ] references/output_templates.md ✅
+- [ ] references/calendar_mode.md ✅
+- [ ] references/retreat_mode.md ✅
