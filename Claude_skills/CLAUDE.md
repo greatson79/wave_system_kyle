@@ -83,8 +83,55 @@ Claude skills/
 - `/research run <주제> --auto` — YouTube → NotebookLM → 리포트/팟캐스트/슬라이드
 - 필수: `nlm login` (최초 1회)
 
+---
+
+## Weekly-Works 운영 상세
+
+### 워크플로우 DAG
+
+```
+Phase 1-Auto (병렬):  매일묵상 15개 HTML  ∥  수요기도회 기도카드
+Phase 1-Interactive:  설교 1~4단계 (심층 연구 에이전트 소환 가능)
+                              ↓
+                      4.5 제목확정 → sermon-context.md 갱신
+                              ↓
+Phase 2 (병렬):       소그룹 나눔지  ∥  SNS 카드뉴스
+                              ↓
+                          주간 보고서
+```
+
+### SOT 데이터 원천
+
+| 데이터 | 파일 | 쓰기 권한 |
+|--------|------|----------|
+| 주일설교 52주 + 월삭 12개 | `weekly-works/data/sermon-plan-2026.json` | 사용자만 |
+| 매일묵상 52주 | `weekly-works/.claude/skills/weekly-devotion/devotion-data.json` | 사용자만 |
+| 수요기도회 | `weekly-works/data/prayer/*.csv` | 사용자만 |
+| 설교 맥락 | `output/{월}/{주차}/설교/sermon-context.md` | Sermon Agent만 |
+| 진행 상태 | `output/{월}/{주차}/status.md` | Team Leader만 |
+
+### 에이전트 목록
+
+| 에이전트 | 타입 | 역할 |
+|---------|------|------|
+| team-leader | interactive | DAG 총괄, status.md 관리 |
+| sermon | interactive | 설교 준비 5단계 |
+| weekly-devotion | auto | 매일묵상 15개 HTML 생성 |
+| insert-images | auto | 묵상 이미지 삽입 + A4 PNG 캡쳐 |
+| prayer-doc | auto | 수요기도회 기도카드 HTML+PNG |
+| small-group | auto | 소그룹 나눔지 (장년+청소년) |
+| sns-cardnews | auto | SNS 카드뉴스 7장 |
+
+새 에이전트 등록: `weekly-works/.claude/skills/team-leader/rules/agent-registry.md`
+
+### 산출물 경로 규칙
+- 카드뉴스 제작 전: `src/assets/templete src/` 레퍼런스 파일 먼저 확인
+- 모든 주간 산출물: `weekly-works/output/{월}/{주차}/` 구조 준수
+
+---
+
 ## 실행 환경
-- Node.js 18+, Puppeteer
+- Node.js 18+, Puppeteer: `cd weekly-works && npm install`
 - Python 3.12+
 - nlm (NotebookLM CLI): `uv tool install notebooklm-mcp-cli`
 - yt-dlp: `uv tool install yt-dlp`
