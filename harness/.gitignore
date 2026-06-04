@@ -1,0 +1,18 @@
+# Runtime artifacts — regenerated every run, not source
+artifacts/plan/*.md
+artifacts/plan/*.json
+artifacts/sprints/*
+artifacts/session/*
+!artifacts/**/.gitkeep
+
+# Isolated app workspaces (each has its own git repo)
+workspace/*
+!workspace/.gitkeep
+
+# Python
+__pycache__/
+*.pyc
+.pytest_cache/
+
+# OS cruft
+.DS_Store

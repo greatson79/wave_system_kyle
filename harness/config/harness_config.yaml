@@ -1,0 +1,72 @@
+# ─────────────────────────────────────────────────────────────
+# Harness Engineering System — tunable parameters
+# Three-agent GAN-style harness (Planner / Generator / Evaluator)
+# ─────────────────────────────────────────────────────────────
+
+harness:
+  max_sprints: 8
+  max_qa_rounds: 3            # QA fix-loop rounds per sprint before giving up
+  qa_pass_threshold: 6.0      # minimum weighted overall score to clear a sprint
+  min_criteria_per_sprint: 15 # Evaluator rejects contracts with fewer criteria
+
+models:
+  # NOTE: the source spec referenced fictional IDs (claude-opus-4-6-20251101).
+  # These are the REAL current model IDs. Aliases ('opus'/'sonnet'/'haiku') also work.
+  # Cost-tuned default: planner & evaluator reason hard (opus); generator does the
+  # bulk of token-heavy building (sonnet). Set all three to 'opus' to match the
+  # original spec's all-opus configuration.
+  planner: claude-opus-4-8
+  generator: claude-sonnet-4-6
+  evaluator: claude-opus-4-8
+  dry_run_probe: haiku        # used by the cheap real wiring-probe only
+
+context:
+  # Use --bare for clean, cheap, isolated context (no monorepo CLAUDE.md / global
+  # rules / hooks leaking into spawned agents). HOWEVER --bare disables OAuth/keychain
+  # auth and requires ANTHROPIC_API_KEY. The runtime auto-enables --bare ONLY when
+  # ANTHROPIC_API_KEY is present in the environment, so OAuth/subscription users are
+  # never broken. Force on/off with: auto | always | never
+  bare_mode: auto
+
+execution:
+  # Permission posture for spawned agents. 'acceptEdits' lets agents edit files in
+  # their scoped workspace without prompting but does NOT auto-allow arbitrary tools.
+  # For a FULLY autonomous evaluator (Playwright/Bash without prompts) set the
+  # evaluator posture to 'bypassPermissions' — only do this knowing the workspace is
+  # isolated. Generator never needs bypass because Edit/Write/Bash(git) are allowlisted.
+  generator_permission_mode: acceptEdits
+  evaluator_permission_mode: acceptEdits
+  agent_timeout_seconds: 5400   # hard wall-clock cap per agent invocation (90 min)
+  output_format: json           # claude -p output format (json gives cost/usage)
+
+evaluation:
+  weights:
+    design_quality: 0.35
+    originality: 0.30
+    craft: 0.20
+    functionality: 0.15
+
+  thresholds:
+    design_quality: 6
+    originality: 6
+    craft: 7
+    functionality: 7
+
+communication:
+  method: file                  # the ONLY inter-agent mechanism is files in artifacts/
+  artifacts_dir: artifacts      # relative to harness/ root
+
+tools:
+  evaluator_has_playwright: true
+  generator_has_git: true
+  planner_reads_frontend_skill: true
+  # Playwright MCP config file passed to the evaluator via --mcp-config
+  playwright_mcp_config: config/playwright_mcp.json
+
+safety:
+  # The generated app lives in an ISOLATED workspace with its OWN git repo — never the
+  # parent monorepo. This is the core safety guarantee of the harness.
+  workspace_root: workspace     # relative to harness/ root; per-run subdir created
+  isolate_git: true             # git init inside the workspace, separate from monorepo
+  commit_each_sprint: true      # per-sprint commit enables rollback
+  revert_evaluator_changes: true # if the read-only evaluator dirties tracked files, revert

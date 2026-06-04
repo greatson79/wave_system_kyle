@@ -1,0 +1,13 @@
+# Harness Engineering System — standalone runtime dependencies
+# Install:  pip install -r requirements.txt
+#
+# This is the COMPLETE Python dependency set. The harness is self-contained:
+# it imports nothing from the parent monorepo.
+
+PyYAML>=6.0        # config loading
+jsonschema>=4.0    # validate the structured sidecars (sprints/contract/qa)
+
+# NOT a Python dependency — listed here for clarity:
+#   • claude CLI ............ execution backend (install Claude Code; `claude --version`)
+#   • Node.js / npx ......... the Evaluator's Playwright MCP runs via `npx @playwright/mcp@latest`
+# Neither is a pip package. The harness does NOT import the `playwright` Python package.

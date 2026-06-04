@@ -22,8 +22,9 @@
 |------|------|----------|
 | `Claude_skills/` | ⭐ 핵심 스킬·콘텐츠 운영 공간 | `Claude_skills/CLAUDE.md` |
 | `Vibe-Practice/` | 실험적 에이전트 프로젝트 | `Vibe-Practice/CLAUDE.md` |
-| `AgenticWorkflow-Template/` | 에이전트 설계 방법론 원본 | `AgenticWorkflow-Template/AGENTS.md` |
+| `Vibe-Practice/AgenticWorkflow-main/` | 에이전트 설계 방법론·개발 규율 원본 (전체 하네스 틀) | `Vibe-Practice/AgenticWorkflow-main/AGENTS.md` |
 | `church-accounting/` | 교회 회계 웹앱 (Next.js/Vercel) | `church-accounting/README.md` |
+| `harness/` | AI 에이전트 안전 개발용 3-에이전트 하네스 (Planner/Generator/Evaluator) | `harness/CLAUDE.md` |
 | `notebookLM/` | NotebookLM 작업 파일 | `{노트북명}/` 하위 |
 | `output/` | 루트 산출물 | `환경스캐닝/{날짜}_{주제}/` |
 
