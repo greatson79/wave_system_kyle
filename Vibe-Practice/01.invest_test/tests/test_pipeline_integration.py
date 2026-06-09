@@ -135,24 +135,25 @@ class TestStage2_StockSelector:
         return synthesize(load_fred_fixture())
 
     def test_select_stocks_returns_tuple(self, meta):
-        """select_stocks returns (list, list)."""
+        """select_stocks returns (cat_a, cat_b, conditional_cat_a) — 3-tuple."""
         result = select_stocks(meta)
         assert isinstance(result, tuple)
-        assert len(result) == 2
-        cat_a, cat_b = result
+        assert len(result) == 3
+        cat_a, cat_b, conditional_cat_a = result
         assert isinstance(cat_a, list)
         assert isinstance(cat_b, list)
+        assert isinstance(conditional_cat_a, list)
 
     def test_select_stocks_max_size(self, meta):
         """cat_a max 5, cat_b max 3."""
-        cat_a, cat_b = select_stocks(meta)
+        cat_a, cat_b, _ = select_stocks(meta)
         assert len(cat_a) <= 5
         assert len(cat_b) <= 3
 
     def test_watchlist_override_takes_priority(self, meta):
         """watchlist_override tickers appear first in cat_a."""
         override = ["TEST001", "TEST002"]
-        cat_a, _ = select_stocks(meta, watchlist_override=override)
+        cat_a, _, _cca = select_stocks(meta, watchlist_override=override)
         # Override tickers should be at the front (if present)
         for ticker in override:
             if ticker in cat_a:

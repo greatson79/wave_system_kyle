@@ -163,9 +163,17 @@ def classify_category(
     return "unknown"
 
 
-def select_stocks(investment_meta, watchlist_override: list | None = None) -> tuple[list, list]:
+_CAT_A_CAP: int = 5   # mirrors agent_consensus.CAT_A_CAP
+_CAT_B_CAP: int = 3
+_CONDITIONAL_CAT_A_THRESHOLD: float = 0.65   # confidence gate for non-bullish sectors
+
+
+def select_stocks(
+    investment_meta,
+    watchlist_override: list | None = None,
+) -> tuple[list, list, list]:
     """
-    Select Category A and Category B tickers from InvestmentMeta.
+    Select Category A, Category B, and conditional-Cat-A tickers from InvestmentMeta.
     Implements workflow.md Step 10 select_stocks() specification.
 
     P6 Python-First: selection is deterministic threshold logic — no LLM.
@@ -177,76 +185,117 @@ def select_stocks(investment_meta, watchlist_override: list | None = None) -> tu
         watchlist_override: Optional list of ticker strings to prioritize in Cat A.
 
     Returns:
-        (cat_a, cat_b): Two lists of ticker strings, max 5 and 3 respectively.
-        Tickers come from config/sector_stock_map.yaml mapping;
-        overflow saved to data/watchlist_candidates.jsonl by caller.
+        (cat_a, cat_b, conditional_cat_a): Three lists of ticker strings.
+        - cat_a:            bullish direction AND confidence >= 0.65 (max 5).
+        - cat_b:            bullish but confidence < 0.65 (max 3).
+        - conditional_cat_a: high-confidence (>= 0.65) but non-bullish direction
+                             (neutral/bearish) — preserved as user-confirmation
+                             candidates rather than silently discarded (max 5).
+        Tickers come from config/sector_stock_map.yaml mapping.
     """
-    import json
     from pathlib import Path
 
-    # Load sector → ticker mapping
+    # Load sector → stock mapping (fix: navigate the 'sectors' top-level key)
     stock_map_path = Path("config/sector_stock_map.yaml")
-    sector_stock_map: dict = {}
+    sectors_data: dict = {}
     if stock_map_path.exists():
         try:
             import yaml
-            sector_stock_map = yaml.safe_load(stock_map_path.read_text()) or {}
+            raw = yaml.safe_load(stock_map_path.read_text()) or {}
+            sectors_data = raw.get("sectors", {})
         except Exception:
             pass
 
-    # Determine bullish sectors — supports both typed list and legacy dict
-    bullish_sectors: list[str] = []
-    theme_sectors: list[str] = []
+    def _get_codes(sector: str) -> list[str]:
+        """Return stock codes for a sector from the YAML mapping."""
+        stocks = sectors_data.get(sector, {}).get("sample_stocks", [])
+        return [str(s.get("code", "")).strip() for s in stocks if s.get("code")]
+
+    # Classify sectors into three tracks
+    bullish_sectors:      list[str] = []   # direction==bullish AND conf>=0.65 → cat_a
+    conditional_sectors:  list[str] = []   # conf>=0.65 but NOT bullish → conditional_cat_a
+    theme_sectors:        list[str] = []   # direction==bullish but conf<0.65 → cat_b
 
     if investment_meta.sectors:
-        # New typed path: list[SectorDirection]
+        # Typed path: list[SectorDirection]
         for sd in investment_meta.sectors:
-            direction = sd.direction.lower() if hasattr(sd, "direction") else ""
-            confidence = sd.confidence if hasattr(sd, "confidence") else 0.0
-            sector_name = sd.sector_name if hasattr(sd, "sector_name") else ""
-            if direction == "bullish" and confidence >= 0.65:
+            direction = (sd.direction.lower() if hasattr(sd, "direction") else "")
+            confidence = (sd.confidence if hasattr(sd, "confidence") else 0.0)
+            sector_name = (sd.sector_name if hasattr(sd, "sector_name") else "")
+            if not sector_name:
+                continue
+            if direction == "bullish" and confidence >= _CONDITIONAL_CAT_A_THRESHOLD:
                 bullish_sectors.append(sector_name)
+            elif confidence >= _CONDITIONAL_CAT_A_THRESHOLD:
+                # Non-bullish but high confidence → preserve as conditional candidate
+                conditional_sectors.append(sector_name)
             elif direction == "bullish":
                 theme_sectors.append(sector_name)
     else:
         # Legacy dict path: {"technology": "bullish", ...}
         for sector_name, direction in investment_meta.sector_directions.items():
-            if direction == "bullish":
+            if direction.lower() == "bullish":
                 bullish_sectors.append(sector_name)
 
-    # Build Category A: Bullish sectors with confidence >= 0.65
+    # ── Build Cat A: bullish + high-confidence (per-sector min-1 guarantee) ────
+    seen: set[str] = set()
     cat_a: list[str] = []
+
+    # Pass 1: guarantee at least 1 code per bullish sector (confidence order preserved
+    # by the order sectors appear in investment_meta.sectors).
     for sector in bullish_sectors:
-        tickers = sector_stock_map.get(sector, [])
-        for t in tickers:
-            if t not in cat_a:
-                cat_a.append(t)
+        for code in _get_codes(sector):
+            if code and code not in seen:
+                seen.add(code)
+                cat_a.append(code)
+                break  # one per sector in pass 1
 
-    # Apply watchlist_override — HITL-1 manual inserts take priority (workflow.md Step 10)
+    # Pass 2: fill remaining slots up to _CAT_A_CAP
+    for sector in bullish_sectors:
+        if len(cat_a) >= _CAT_A_CAP:
+            break
+        for code in _get_codes(sector):
+            if len(cat_a) >= _CAT_A_CAP:
+                break
+            if code and code not in seen:
+                seen.add(code)
+                cat_a.append(code)
+
+    # Apply watchlist_override — HITL-1 manual inserts take priority
     if watchlist_override:
-        override_tickers = list(watchlist_override)[:5]
+        override_tickers = list(watchlist_override)[:_CAT_A_CAP]
         remaining = [t for t in cat_a if t not in override_tickers]
-        cat_a = (override_tickers + remaining)[:5]
-    else:
-        cat_a = cat_a[:5]
+        cat_a = (override_tickers + remaining)[:_CAT_A_CAP]
 
-    # Build Category B: theme signals from lower-confidence bullish + theme sectors
+    # ── Build Conditional Cat A: high-confidence non-bullish sectors ────────────
+    conditional_cat_a: list[str] = []
+    for sector in conditional_sectors:
+        if len(conditional_cat_a) >= _CAT_A_CAP:
+            break
+        for code in _get_codes(sector):
+            if len(conditional_cat_a) >= _CAT_A_CAP:
+                break
+            if code and code not in seen:
+                seen.add(code)
+                conditional_cat_a.append(code)
+
+    # ── Build Cat B: lower-confidence bullish (theme signals) ───────────────────
     cat_b: list[str] = []
-    for sector in (theme_sectors or list(investment_meta.sector_directions.keys())):
-        if sector in bullish_sectors:
-            continue  # already in Category A
-        tickers = sector_stock_map.get(sector, [])
-        for t in tickers:
-            if t not in cat_a and t not in cat_b:
-                cat_b.append(t)
-
-    cat_b = cat_b[:3]
+    for sector in theme_sectors:
+        for code in _get_codes(sector):
+            if len(cat_b) >= _CAT_B_CAP:
+                break
+            if code and code not in seen:
+                seen.add(code)
+                cat_b.append(code)
 
     logger.info(
-        "select_stocks: bullish_sectors=%s → cat_a=%d tickers, cat_b=%d tickers",
-        bullish_sectors, len(cat_a), len(cat_b),
+        "select_stocks: bullish=%s conditional=%s → "
+        "cat_a=%d cat_b=%d conditional_cat_a=%d tickers",
+        bullish_sectors, conditional_sectors,
+        len(cat_a), len(cat_b), len(conditional_cat_a),
     )
-    return cat_a, cat_b
+    return cat_a, cat_b, conditional_cat_a
 
 
 def get_direction(return_4w: float) -> str:
