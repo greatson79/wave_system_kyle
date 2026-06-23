@@ -16,15 +16,16 @@
 3. 로드맵/블루프린트 1차 안 생성
 4. 이해관계자 리뷰 & 피드백 루프 (3회차 적대 반박)
 5. 최종 방법론·지침서 산출
-6. 블로그 글 산출 (article-writing)
+6. 블로그 글 산출 (article-content)
 
 **산출물 경로**: `output/전략·기획/{주제}/{날짜}/`
 
 **전속 스킬**:
 - wave-orchestrator: 전체 사업 워크플로우 오케스트레이션
-- blueprint: 블루프린트 및 시스템 설계
-- planner: 구현 계획 수립
 - workflow-generator: 워크플로우 설계 및 자동화
+
+**참고 패턴**:
+- 블루프린트·계획 — 로드맵 설계 시 Master agent의 planning 기능 활용
 
 **엔진**: Claude
 

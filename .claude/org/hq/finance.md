@@ -21,10 +21,11 @@
 
 **산출물 경로**: `output/재무/{주제}/{날짜}/`
 
-**전속 스킬**:
-- finance-billing-ops: 회계·청구·정산 자동화
-- church-accounting (웹앱): 교회 회계 관리 시스템
-- (korean-law MCP): 법률 조회 및 분석
+**산출 웹앱**:
+- church-accounting: 교회 회계 관리 시스템
+
+**참고 도구**:
+- korean-law MCP: 법률 조회 및 분석
 
 **엔진**: Claude
 

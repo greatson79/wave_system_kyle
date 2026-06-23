@@ -23,11 +23,12 @@
 
 **전속 스킬**:
 - harness-init: 새 프로젝트 하네스 초기화
-- gan-*: GAN 개발 하네스 (Planner/Generator/Evaluator)
-- frontend-design: 프론트엔드 설계·컴포넌트
-- backend-patterns: 백엔드 아키텍처·패턴
-- deployment-patterns: 배포·인프라 자동화
+- design-template-scout: 디자인 시스템·컴포넌트 참고
 - (Vercel MCP)
+
+**참고 패턴**:
+- GAN 개발 하네스 (Planner/Generator/Evaluator) — harness-init 하위
+- 백엔드·배포 패턴 — knowledge base 참고
 
 **엔진**: Claude (메인) + Codex (코드 검수·협업)
 

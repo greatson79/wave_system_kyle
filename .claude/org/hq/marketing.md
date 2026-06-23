@@ -23,8 +23,9 @@
 
 **전속 스킬**:
 - seo-strategy: SEO 전략·감사·최적화
-- content-engine: 콘텐츠 배포 최적화 엔진
 - content-marketing: 마케팅 콘텐츠 전략
+- content-strategy: 콘텐츠 배포 전략
+- content-optimization: 콘텐츠 최적화
 - (마케팅 172개 스킬 중 필요 부분 호출)
 
 **엔진**: Claude

@@ -38,7 +38,7 @@
 
 **5. 산출 & 아카이빙**
 - 마크다운 보고서 작성
-- 블로그 글 변환 (article-writing)
+- 블로그 글 변환 (article-content)
 - `output/` 저장
 
 **산출물 경로**:
@@ -48,11 +48,8 @@
 
 **전속 스킬**:
 - env-scanner: 환경 스캐닝 워크플로우
-- deep-research: 딥 리서치 & 분석
-- exa-search: Exa 기반 고급 검색
-- market-research: 시장 조사
-- research-ops: 리서치 운영 자동화
-- search-first: 검색 우선 패러다임
+- research-sources: 리서치 소스 관리 & 검증
+- competitor-research: 시장·경쟁사 조사
 
 **엔진**: Claude
 

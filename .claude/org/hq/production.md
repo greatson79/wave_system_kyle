@@ -21,7 +21,7 @@
 **셀 2: 글쓰기 & 아티클**
 1. 주제/방향 수령
 2. 아웃라인 작성
-3. 본문 작성 (brunch/article-writing 스킬)
+3. 본문 작성 (brunch-writing-workflow/article-content 스킬)
 4. 교정 & 리뷰
 5. 블로그 발행 (blog-posting)
 
@@ -40,8 +40,8 @@
 - 셀3: `output/교육/{날짜}/` (교안·실습자료)
 
 **전속 스킬**:
-- 셀1: sns-cardnews, frontend-slides, manim-video, canvas-design
-- 셀2: article-writing, brunch-writing-workflow
+- 셀1: sns-cardnews, canvas-design
+- 셀2: article-content, brunch-writing-workflow
 - 셀3: lecture-design
 
 **엔진**: Claude + Codex (이미지 생성만 — 중앙 코드검수 제약)
