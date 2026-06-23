@@ -40,9 +40,9 @@
 - 셀3: `output/교육/{날짜}/` (교안·실습자료)
 
 **전속 스킬**:
-- 셀1: sns-cardnews, canvas-design
-- 셀2: article-content, brunch-writing-workflow
-- 셀3: lecture-design
+- **셀1 (비주얼·영상)**: sns-cardnews, canvas-design
+- **셀2 (글쓰기·아티클)**: article-content, brunch-writing-workflow
+- **셀3 (교육콘텐츠·교안)**: lecture-design
 
 **엔진**: Claude + Codex (이미지 생성만 — 중앙 코드검수 제약)
 

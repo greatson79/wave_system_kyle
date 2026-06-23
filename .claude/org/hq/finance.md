@@ -21,11 +21,12 @@
 
 **산출물 경로**: `output/재무/{주제}/{날짜}/`
 
-**산출 웹앱**:
-- church-accounting: 교회 회계 관리 시스템
+**전속 스킬**:
+- (현재 법무·회계 전용 스킬 없음 — MCP 및 기존 claude 능력 활용)
 
 **참고 도구**:
 - korean-law MCP: 법률 조회 및 분석
+- church-accounting 웹앱: 교회 회계 관리 시스템 (AI-Tech 제작)
 
 **엔진**: Claude
 
