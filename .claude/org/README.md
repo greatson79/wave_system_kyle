@@ -12,7 +12,7 @@
 - **이사회/오너** (`board`) — 주인님 · 최종승인·denylist·kill-switch · *(role only, no surface — 노드 카운트 제외)*
 - **CEO** (`ceo`) — Master(Opus) · 전략·라우팅·승인게이트·회장 보고
 - **CSO** (`cso`) — Claude · 자원·cmux·컨텍스트·IT·지식관리/SOT 겸직
-- **품질감사실** (`qa-office`) — agy(콘텐츠·신학·전략) + Codex(코드·기술) · 적대적 반박 검증
+- **품질감사실** (`agy` + `codex` 2노드) — agy(콘텐츠·신학·전략) + Codex(코드·기술) · 적대적 반박 검증
 
 ### 사업부 3 (세로축 — 가치흐름 end-to-end 소유)
 | 사업부 | 미션 | 핵심 자산 | 엔진 |

@@ -47,9 +47,10 @@
 - 딥리서치: `output/리서치/{주제}/{날짜}/`
 
 **전속 스킬**:
-- env-scanner: 환경 스캐닝 워크플로우
-- research-sources: 리서치 소스 관리 & 검증
-- competitor-research: 시장·경쟁사 조사
+- env-scanner: 환경 스캐닝 워크플로우 (`.claude/skills/`)
+- research-sources: 리서치 소스 관리 & 검증 (`.claude/skills/`)
+- competitor-research: 시장·경쟁사 조사 (`.claude/skills/`)
+- deep-research·exa-search·market-research: 딥리서치·검색 (플러그인 제공 — 레지스트리 디렉토리엔 없으나 세션에서 사용 가능)
 
 **엔진**: Claude
 
