@@ -18,7 +18,9 @@
 - 산출물 경로 규칙 유지(`output/{주제}/`·환경스캐닝·뉴스크롤링·weekly-works/output).
 - **백그라운드 서버 0** — 작업 시만 띄우고 즉시 kill. idle 노드 누적 금지.
 - 루트 `CLAUDE.md` 변경 = denylist → 본 계획에서 건드리지 않음(별도 승인 시 Phase 후반).
-- 상주 13노드 = 경영4 + 사업부3 + 본부6. 단 물리 기동은 수명주기(L0/L1/L2)로 수요 기반 관리(전면 동시 기동 금지).
+- 상주 = **13 AI 노드** (주인님=오너 role·surface 없음 → 카운트 제외; 품질감사실=agy+Codex **2노드**; CEO 1 + CSO 1 + agy 1 + Codex 1 + 사업부 3 + 본부 6 = 13). 물리 기동은 **이벤트 구동**(희소 부서 L2 동면, 활성 부서만 L1 단기; 전면 동시 기동 금지).
+- **Virtual Matrix**: 기존 커맨드는 사업부장 노드가 단독 실행(보존), 매트릭스는 sub-agent 스폰 시 대상 본부 SOP 결합으로 구현(무거운 inter-pane 위임 강제 금지).
+- **이원화 검증**: 리서치·검증본부=Fact Validation(사실·출처·환각) / 품질감사실=Value&Logic(전략·신학·문체). 게이트 격리.
 - cmux send/send-key는 항상 `--workspace`+`--surface` 둘 다 명시, 회전ID는 `cmux tree --all`로 동적 해소.
 
 ---
@@ -71,6 +73,7 @@ Create `.claude/org/_charter_template.md`:
 - **SOP**: <표준 작업 절차 — 단계·게이트>
 - **산출물 경로**: <output/... 또는 폴더 규칙>
 - **전속 스킬**: <발동할 핵심 스킬 목록>
+- **엔진**: <Claude / Codex / agy>
 - **영구기억**: `.claude/org/memory/<slug>.md`
 - **협업 라우팅**: <주로 협업하는 본부/사업부 + 품질게이트>
 ```
@@ -234,17 +237,19 @@ git commit -m "feat(org): 경영 거버넌스 헌장 4 (이사회·CEO·CSO·품
 
 Create `.claude/org/lifecycle.md`:
 ```markdown
-# 상주 노드 수명주기 (대기모드)
+# 상주 노드 수명주기 (이벤트 구동형 — 적대검증 H2 반영)
+
+**Charter-level 상주**(전 부서 헌장 상시) ≠ **pane-level 상주**(물리 프로세스). CSO = 중앙 메시지 큐·라우터.
 
 - **L0 활성(Active)**: 작업 수행 중. 병렬은 sub-agent fan-out(pane 추가 금지). 백그라운드 서버 0.
-- **L1 대기(Idle)**: 작업 큐 비면 즉시 전환. pane 살아있고 토큰 0 소비, push 받으면 즉시 응답.
-- **L2 동면(Hibernate)**: 장기 무작업 + 컨텍스트 누적 시 CSO가 핸드오프 저장 → pane 종료(메모리 회수) → 수요 시 재기동.
+- **L1 대기(Idle, 단기)**: 작업 직후 짧은 유휴. 후속 작업 즉응용 잠깐 유지, 토큰 0.
+- **L2 동면(Hibernate, 기본 휴지)**: 유휴 임계 초과 시 CSO가 핸드오프 저장 → pane 종료(메모리 회수).
 
 ## 전이 규칙
 - L0→L1: 작업 완료·큐 빔.
-- L1→L2: CSO가 장기 idle(임계: 무작업 + 컨텍스트 누적) 감지 시 핸드오프 저장 후 종료.
-- L2→L0: 신규 작업 라우팅 시 CSO/CEO가 재기동 + 핸드오프 복원.
-- 전 부서 L1/L2 = 감시 루프 중단([[feedback_monitoring_only_when_working]]).
+- L1→L2: CSO가 유휴 임계 초과 감지 시 핸드오프 저장 후 pane 종료(기본 휴지 상태).
+- L2→L0: 신규 작업 라우팅 시 CSO가 재기동 + 헌장·핸드오프 복원.
+- 희소 부서는 평소 L2, 활성 부서만 L1 단기. 전 부서 L1/L2 = 감시 루프 중단([[feedback_monitoring_only_when_working]]).
 
 ## CSO watchdog 책무
 - 13노드 메모리·load·컨텍스트 60% 상시 감시.
@@ -257,11 +262,13 @@ Create `.claude/org/lifecycle.md`:
 
 - [ ] **Step 3: 검증**
 
-Run:
+Run (스키마 무결성 — 적대검증 M3 반영, false-positive 차단):
 ```bash
-grep -c "L0\|L1\|L2" /Users/kylechoi/Desktop/Ai_works/.claude/org/lifecycle.md && grep -c "상태" /Users/kylechoi/Desktop/Ai_works/SESSION_STATE.md
+grep -c "L0\|L1\|L2" /Users/kylechoi/Desktop/Ai_works/.claude/org/lifecycle.md
+# 13 AI 노드 slug 전수 + 상태 컬럼 존재 확인 (누락행·빈주소 적발)
+for s in ceo cso agy codex ministry intelligence vision-edu strategy production marketing ai-tech finance research; do grep -q "$s" /Users/kylechoi/Desktop/Ai_works/SESSION_STATE.md && echo "OK $s" || echo "MISSING $s"; done | grep -c OK
 ```
-Expected: lifecycle 상태 토큰 ≥ 3, SESSION_STATE "상태" 컬럼 추가 확인.
+Expected: lifecycle 상태 토큰 ≥ 3; slug OK 카운트 = 13(MISSING 0). 주인님=오너 role은 노드표 제외(surface 없음).
 
 - [ ] **Step 4: 커밋**
 
@@ -295,7 +302,8 @@ Create `.claude/org/command-map.md` (verbatim 시작값):
 | env-scanner(환경스캐닝)·GlobalNews(뉴스크롤링) | 리서치·검증 | — |
 | deep-research·exa·market-research | 리서치·검증 | (전 사업부 지원) |
 | 투자분석·insight-report·financial | 인텔리전스 | 리서치 |
-| sns-cardnews·frontend-slides·manim·lecture-design | 제작본부 | (발주 사업부) |
+| sns-cardnews·frontend-slides·manim | 제작본부(셀1) | (발주 사업부) |
+| lecture-design | **주제 사업부 소유** — 제작본부 셀3 협업 생산 | 기획본부(방법론) |
 | article-writing·brunch | 제작본부(글쓰기셀) | 마케팅 |
 | seo·광고·마케팅 스킬 | 마케팅·배포 | — |
 | harness·gan·webapp·dashboard | AI Tech | (발주 사업부) |
@@ -385,17 +393,21 @@ cmux send --workspace <ws> --surface <surface> "[CEO→목회사역 사업부장
 cmux send-key --workspace <ws> --surface <surface> enter
 ```
 
-- [ ] **Step 3: 1사이클 작업 — 기존 커맨드 무결성 + 사업부 운영 검증**
+- [ ] **Step 3: 1사이클 작업 — 전체 QA 게이트 파일럿 (적대검증 M1 반영)**
 
-사업부장에게 가벼운 실작업 지시(예: `/주간현황` 실행 또는 다음 주차 설교 본문 확인). 기존 커맨드가 새 조직 하에서도 정상 작동하는지 확인.
+사업부장에게 작은 실산출물 지시(예: 다음 주차 묵상 1편 초안 또는 `/주간현황`). 산출 후 **이원화 검증 게이트를 실제로 통과**시켜 모델을 검증한다: ① 리서치·검증(Fact — 본문·출처 사실성) → ② 품질감사실(agy=신학·문체 / Codex=구조) → CEO 취합 → 회장 보고. 기존 커맨드가 새 조직 하에서 정상 작동(Virtual Matrix)하는지 함께 확인.
 
-- [ ] **Step 4: 수명주기 검증 (L0→L1)** — 작업 완료 후 노드가 L1 대기로 전이하는지, CSO가 자원 청정(서버 0·load 정상) 확인:
+- [ ] **Step 4: 수명주기 + 서버위생 검증** — 작업 완료 후 노드 L1 대기 전이 확인, CSO 병행 자원 청정 검사:
 
 Run:
 ```bash
 cmux read-screen --workspace <ws> --surface <surface> | tail -20
 ```
-Expected: 작업 완료·idle 대기 상태. (CSO 병행: `ps aux | grep -E "bun|vite" | grep -v grep` → 결과 0행 = 서버위생 무결.)
+Expected: 작업 완료·idle(L1) 대기. CSO 병행 — 서버위생 false-positive 차단(bun/vite만이 아니라 광범위):
+```bash
+ps aux | grep -E 'bun|vite|next|node .*(server|dev)|npm|pnpm|python.*http|uv run|streamlit' | grep -v grep | wc -l
+```
+Expected: 작업 전 대비 **신규 장기 리스너 0** (서버위생 무결).
 
 - [ ] **Step 5: 파일럿 결과 기록 + 커밋**
 
@@ -421,6 +433,6 @@ git commit -m "feat(org): 목회사역 사업부 파일럿 검증 — 커맨드 
 
 **Spec coverage:** spec 8장 Phase 1 항목 — 13부서 헌장(Task 2·3·4) ✓ / 노드 레지스트리 확장(Task 5) ✓ / 상주 인프라 메모리·라우팅(Task 6·7) ✓ / 대기모드(Task 5) ✓ / 기존 커맨드 부서 귀속(Task 6) ✓ / 목회사역 파일럿(Task 8) ✓. 대시보드=Phase 1.5 명시 연기 ✓. 전체 13노드 물리 롤아웃=Phase 1b 연기 ✓.
 
-**Placeholder scan:** 헌장 내용은 표로 verbatim 값 제공(placeholder 아님). SOP는 각 부서 기존 워크플로우 참조로 구체화 지시. 검증 단계 모두 실행 가능한 bash 명령. 통과.
+**Placeholder scan:** 헌장 내용은 표로 verbatim 값 제공(placeholder 아님). SOP는 부서 기존 워크플로우 참조. 검증 대부분 실행가능 bash. **단 Task 8은 운영 태스크 — `<ws>/<surface>`를 Step 1 `cmux tree` 동적 해소 결과로 치환 후 실행**(정적 bash 아님, 의도된 운영 절차 — 적대검증 M4 반영). 통과.
 
 **Type consistency:** slug 명칭 일관(ministry·intelligence·vision-edu·strategy·production·marketing·ai-tech·finance·research·board·ceo·cso·qa-office) — Task 2·3·4·6·7·8 전반에서 동일 사용. 디렉토리 구조(divisions/hq/exec/memory) Task 1과 후속 일치. 통과.
