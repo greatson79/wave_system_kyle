@@ -54,11 +54,12 @@ CEO가 목표 위임 → 사업부장이 마감·품질·산출물 소유.
 
 ## 부서 헌장 및 문서
 
-### 경영 거버넌스 (4)
-- [이사회/오너 헌장](./exec/board.md)
+### 경영 거버넌스 (board role + 4 노드)
+- [이사회/오너 헌장](./exec/board.md) — role only (no node/memory)
 - [CEO 헌장](./exec/ceo.md)
 - [CSO 헌장](./exec/cso.md)
-- [품질감사실 헌장](./exec/qa-office.md)
+- [품질감사 agy 헌장](./exec/agy.md) — Value & Logic 검증
+- [품질감사 codex 헌장](./exec/codex.md) — 코드·기술 검증
 
 ### 사업부 (3)
 - [목회사역 헌장](./divisions/ministry.md)

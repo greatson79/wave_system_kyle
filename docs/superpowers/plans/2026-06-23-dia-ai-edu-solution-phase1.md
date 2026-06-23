@@ -33,10 +33,10 @@
 - `.claude/org/_charter_template.md` — (생성) 부서 헌장 표준 템플릿(8필드).
 - `.claude/org/divisions/{ministry,intelligence,vision-edu}.md` — (생성) 사업부 헌장 3.
 - `.claude/org/hq/{strategy,production,marketing,ai-tech,finance,research}.md` — (생성) 본부 헌장 6.
-- `.claude/org/exec/{board,ceo,cso,qa-office}.md` — (생성) 경영 거버넌스 헌장 4(기존 DIRECTIVE 포인터+조직 역할).
+- `.claude/org/exec/{board,ceo,cso,agy,codex}.md` — (생성) 경영 거버넌스 헌장. board=오너 role-only 문서(노드·메모리 없음); ceo·cso·agy·codex=주소화 노드(품질감사실 qa-office는 agy+codex 2노드로 분해).
 - `.claude/org/lifecycle.md` — (생성) 상주 3단계(L0/L1/L2) 수명주기·CSO watchdog 프로토콜.
 - `.claude/org/command-map.md` — (생성) 기존 커맨드·스킬 → 소유 부서 귀속표.
-- `.claude/org/memory/<dept>.md` × 13 — (생성) 부서별 영구기억 stub(누적 학습처).
+- `.claude/org/memory/<slug>.md` × 13 — (생성) **노드 13**(ceo·cso·agy·codex + 사업부3 + 본부6) 영구기억 stub. board(오너 role)은 학습메모리 없음. Task 5 노드 레지스트리와 동일 slug 집합.
 - `SESSION_STATE.md` — (수정) 노드 레지스트리를 13노드 + 상태(L0/L1/L2) 컬럼으로 확장.
 
 각 파일은 단일 책임(부서 1개 = 헌장 1개). 헌장은 200줄 이하 유지.
@@ -118,13 +118,14 @@ git commit -m "feat(org): 조직 스캐폴딩 + 헌장 템플릿 + 조직 README
 
 - [ ] **Step 1: 세 헌장 작성** — 템플릿에 위 표 값을 채워 `ministry.md`·`intelligence.md`·`vision-edu.md` 생성. SOP는 각 사업부의 기존 워크플로우 단계를 기술(예: ministry SOP = `/주간총괄` 5단계 + 품질게이트).
 
-- [ ] **Step 2: 스킬 실존 검증** (환각 방지 — 참조 스킬이 실제 레지스트리에 있는지)
+- [ ] **Step 2: 전속 스킬 전수 실존 검증** (환각 방지 — 누락 시 실패 loop, 적대검증 HIGH#2 반영)
 
 Run:
 ```bash
-ls /Users/kylechoi/Desktop/Ai_works/.claude/skills/ | grep -E "sermon|weekly-devotion|youth-life-planner|insight-report|theological-reasoning" | sort
+cd /Users/kylechoi/Desktop/Ai_works/.claude/skills
+miss=0; for s in sermon weekly-devotion small-group sns-cardnews prayer-doc church-admin theological-reasoning youth-life-planner insight-report; do test -e "$s" && echo "OK $s" || { echo "MISSING $s"; miss=1; }; done; echo "MISS=$miss vision_count=$(ls -d vision-* 2>/dev/null | wc -l)"
 ```
-Expected: 참조한 핵심 스킬들이 레지스트리에 실존(각 1행 이상).
+Expected: 모든 핵심 스킬 OK, **MISS=0**, vision_count ≥ 60. MISSING 1건이라도 있으면 해당 헌장 스킬 참조를 수정(통과 불가).
 
 - [ ] **Step 3: 헌장 완전성 검증**
 
@@ -163,13 +164,14 @@ git commit -m "feat(org): 사업부 헌장 3 (목회사역·인텔리전스·비
 
 - [ ] **Step 1: 여섯 헌장 작성** — 템플릿에 위 표 값을 채워 생성. `production.md`는 3셀 구조를 명시. `research.md` SOP = 환경스캐닝 퀸투플(WF1~4) + 뉴스크롤링 + 출처검증 게이트.
 
-- [ ] **Step 2: 스킬 실존 검증**
+- [ ] **Step 2: 전속 스킬 전수 실존 검증** (누락 시 실패 loop)
 
 Run:
 ```bash
-ls /Users/kylechoi/Desktop/Ai_works/.claude/skills/ | grep -E "env-scanner|lecture-design|article-writing|seo-strategy|harness-init|sns-cardnews" | sort
+cd /Users/kylechoi/Desktop/Ai_works/.claude/skills
+miss=0; for s in wave-orchestrator blueprint sns-cardnews frontend-slides manim-video article-writing lecture-design seo-strategy content-engine harness-init frontend-design env-scanner deep-research exa-search market-research finance-billing-ops; do test -e "$s" && echo "OK $s" || { echo "MISSING $s"; miss=1; }; done; echo "MISS=$miss"
 ```
-Expected: 참조 핵심 스킬 실존.
+Expected: 모든 본부 핵심 스킬 OK, **MISS=0**. MISSING이 있으면 헌장 스킬 참조 수정(통과 불가).
 
 - [ ] **Step 3: 완전성 검증**
 
@@ -188,23 +190,24 @@ git commit -m "feat(org): 공유기능본부 헌장 6 (기획·제작·마케팅
 
 ---
 
-### Task 4: 경영 거버넌스 헌장 4 (이사회·CEO·CSO·품질감사실)
+### Task 4: 경영 거버넌스 헌장 5 (이사회 role·CEO·CSO·agy·codex)
 
 **Files:**
-- Create: `.claude/org/exec/{board,ceo,cso,qa-office}.md`
+- Create: `.claude/org/exec/{board,ceo,cso,agy,codex}.md`
 
 **Interfaces:**
 - Consumes: 기존 `.claude/MASTER_DIRECTIVE.md`·`CSO_DIRECTIVE.md`·`WORKER_DIRECTIVE.md`(원본 불변).
-- Produces: 4 경영 헌장 — 기존 DIRECTIVE를 **포인터로 참조**하고 조직 역할만 추가(중복 금지·drift 방지).
+- Produces: 5 경영 헌장 — 기존 DIRECTIVE를 **포인터로 참조**하고 조직 역할만 추가(중복 금지·drift 방지). **slug 집합은 노드 레지스트리(Task 5)·메모리(Task 7)와 일치**(board는 role-only 예외).
 
-| slug | 역할 | 포인터 | 추가 조직 역할 |
-|---|---|---|---|
-| **board** | 이사회/오너 = 주인님 | `.claude/MASTER_DIRECTIVE.md` denylist | 최종승인·kill-switch·외부발행·비가역 결정 |
-| **ceo** | CEO = Master(Opus) | `.claude/MASTER_DIRECTIVE.md` | 전 부서 라우팅·승인게이트·자원충돌 중재·회장 보고 |
-| **cso** | CSO + 지식관리/SOT | `.claude/CSO_DIRECTIVE.md` | 노드 수명주기(L0/L1/L2) 집행·SESSION_STATE/SOT 관리·자원 watchdog |
-| **qa-office** | 품질감사실 = agy + Codex | `.claude/WORKER_DIRECTIVE.md` 6조 | 전 산출물 적대 검증 게이트(agy=콘텐츠·신학·전략 / Codex=코드·기술) |
+| slug | 역할 | 노드? | 포인터 | 추가 조직 역할 |
+|---|---|---|---|---|
+| **board** | 이사회/오너 = 주인님 | ❌ role-only(surface·메모리 없음) | `.claude/MASTER_DIRECTIVE.md` denylist | 최종승인·kill-switch·외부발행·비가역 결정 |
+| **ceo** | CEO = Master(Opus) | ✅ | `.claude/MASTER_DIRECTIVE.md` | 전 부서 라우팅·승인게이트·자원충돌 중재·회장 보고 |
+| **cso** | CSO + 지식관리/SOT | ✅ | `.claude/CSO_DIRECTIVE.md` | 노드 수명주기 집행·SESSION_STATE/SOT·자원 watchdog |
+| **agy** | 품질감사 — 콘텐츠·신학·전략 | ✅ | `.claude/WORKER_DIRECTIVE.md` 6조 | Value & Logic Validation 게이트 |
+| **codex** | 품질감사 — 코드·기술·구조 | ✅ | `.claude/WORKER_DIRECTIVE.md` 6조 | 코드·구조·기술 적대 검증 게이트 |
 
-- [ ] **Step 1: 네 헌장 작성** — 각 파일은 "원본 헌장은 <포인터>에 있음, 여기는 조직 역할만 기록" 명시. 중복 금지.
+- [ ] **Step 1: 다섯 헌장 작성** — 각 파일은 "원본 헌장은 <포인터>에 있음, 여기는 조직 역할만 기록" 명시(중복 금지). board.md=role-only(노드·메모리 없음 명시). agy·codex=품질감사실을 2노드로 분해(이원화 검증 中 Value&Logic 담당).
 
 - [ ] **Step 2: 포인터 무결성 검증** (참조 DIRECTIVE 실존)
 
@@ -310,13 +313,15 @@ Create `.claude/org/command-map.md` (verbatim 시작값):
 | church-accounting·finance·korean-law | 재무·관리 | — |
 ```
 
-- [ ] **Step 2: 기존 커맨드 보존 검증** (Global Constraint — 커맨드 100% 유지)
+- [ ] **Step 2: 기존 커맨드 resolve 검증** (Global Constraint — 커맨드 100% 유지, 적대검증 HIGH#1 반영)
 
 Run:
 ```bash
-ls /Users/kylechoi/Desktop/Ai_works/.claude/skills/ | grep -E "^sermon$|^env-scanner$|^lecture-design$|^youth-life-planner$" | sort
+cd /Users/kylechoi/Desktop/Ai_works/.claude/skills
+# /설교=sermon · /묵상=weekly-devotion · 나눔지=small-group · 카드뉴스=sns-cardnews 등 백킹 스킬 resolve(누락 시 실패)
+miss=0; for s in sermon weekly-devotion small-group sns-cardnews prayer-doc env-scanner lecture-design youth-life-planner insight-report; do test -e "$s" && echo "OK $s" || { echo "MISSING $s"; miss=1; }; done; echo "MISS=$miss"
 ```
-Expected: 핵심 스킬 실존(귀속만 추가, 변경 없음).
+Expected: **MISS=0** → 모든 커맨드 백킹 스킬 resolve. (org 작업은 `.claude/org/`만 생성 — 기존 커맨드 정의 무변경.)
 
 - [ ] **Step 3: 커밋**
 
@@ -330,7 +335,7 @@ git commit -m "feat(org): 커맨드·스킬 부서 귀속 매핑 (기존 커맨�
 ### Task 7: 부서별 영구기억 초기화
 
 **Files:**
-- Create: `.claude/org/memory/<slug>.md` × 13 (board·ceo·cso·qa-office·ministry·intelligence·vision-edu·strategy·production·marketing·ai-tech·finance·research)
+- Create: `.claude/org/memory/<slug>.md` × 13 (ceo·cso·agy·codex·ministry·intelligence·vision-edu·strategy·production·marketing·ai-tech·finance·research) — **노드 레지스트리(Task 5)·헌장(Task 4)과 동일 slug 집합**. board(오너 role)은 학습메모리 없음.
 
 **Interfaces:**
 - Produces: 13 부서 메모리 stub — 재귀적 자기개선 5단계의 저장처([[feedback_recursive_self_improvement]]).
@@ -348,7 +353,7 @@ git commit -m "feat(org): 커맨드·스킬 부서 귀속 매핑 (기존 커맨�
 Run (생성 자동화 예시):
 ```bash
 cd /Users/kylechoi/Desktop/Ai_works/.claude/org/memory
-for s in board ceo cso qa-office ministry intelligence vision-edu strategy production marketing ai-tech finance research; do printf '# %s 영구기억\n\n> 부서 단위 누적 학습·SOP 개선 기록.\n\n## 학습 로그\n- (작업 완료마다 패턴·교훈 1줄 추가)\n' "$s" > "$s.md"; done
+for s in ceo cso agy codex ministry intelligence vision-edu strategy production marketing ai-tech finance research; do printf '# %s 영구기억\n\n> 부서 단위 누적 학습·SOP 개선 기록.\n\n## 학습 로그\n- (작업 완료마다 패턴·교훈 1줄 추가)\n' "$s" > "$s.md"; done
 ```
 
 - [ ] **Step 2: 검증**
@@ -384,8 +389,10 @@ git commit -m "feat(org): 부서별 영구기억 13 stub 초기화"
 Run:
 ```bash
 cmux tree --all
+# 서버위생 baseline 캡처(전후 비교용)
+ps aux | grep -E 'bun|vite|next|node .*(server|dev)|npm|pnpm|python.*http|uv run|streamlit' | grep -v grep | wc -l > /Users/kylechoi/Desktop/Ai_works/.superpowers/sdd/srvbase.txt; echo "baseline=$(cat /Users/kylechoi/Desktop/Ai_works/.superpowers/sdd/srvbase.txt)"
 ```
-Expected: 디딤팀장 노드(탭="디딤주간작업") 현재 ws/surface 식별.
+Expected: 디딤팀장 노드(탭="디딤주간작업") 현재 ws/surface 식별 + 서버 baseline 카운트 기록.
 
 - [ ] **Step 2: 사업부장 헌장 주입** — 해소된 노드에 ministry 헌장 + WORKER_DIRECTIVE를 주입(브리핑):
 ```bash
@@ -405,9 +412,9 @@ cmux read-screen --workspace <ws> --surface <surface> | tail -20
 ```
 Expected: 작업 완료·idle(L1) 대기. CSO 병행 — 서버위생 false-positive 차단(bun/vite만이 아니라 광범위):
 ```bash
-ps aux | grep -E 'bun|vite|next|node .*(server|dev)|npm|pnpm|python.*http|uv run|streamlit' | grep -v grep | wc -l
+SRVNOW=$(ps aux | grep -E 'bun|vite|next|node .*(server|dev)|npm|pnpm|python.*http|uv run|streamlit' | grep -v grep | wc -l); SRVBASE=$(cat /Users/kylechoi/Desktop/Ai_works/.superpowers/sdd/srvbase.txt); echo "before=$SRVBASE after=$SRVNOW"; [ "$SRVNOW" -le "$SRVBASE" ] && echo "PASS 서버위생(신규0)" || echo "FAIL 신규 서버 발생"
 ```
-Expected: 작업 전 대비 **신규 장기 리스너 0** (서버위생 무결).
+Expected: after ≤ before → **PASS**(신규 장기 리스너 0). FAIL이면 신규 서버를 즉시 kill.
 
 - [ ] **Step 5: 파일럿 결과 기록 + 커밋**
 
@@ -431,8 +438,8 @@ git commit -m "feat(org): 목회사역 사업부 파일럿 검증 — 커맨드 
 
 ## Self-Review
 
-**Spec coverage:** spec 8장 Phase 1 항목 — 13부서 헌장(Task 2·3·4) ✓ / 노드 레지스트리 확장(Task 5) ✓ / 상주 인프라 메모리·라우팅(Task 6·7) ✓ / 대기모드(Task 5) ✓ / 기존 커맨드 부서 귀속(Task 6) ✓ / 목회사역 파일럿(Task 8) ✓. 대시보드=Phase 1.5 명시 연기 ✓. 전체 13노드 물리 롤아웃=Phase 1b 연기 ✓.
+**Spec coverage:** spec 8장 Phase 1 항목 — 헌장 14(사업부3 Task2 + 본부6 Task3 + 경영5 Task4: board role+ceo+cso+agy+codex) ✓ / 노드 레지스트리 13 확장(Task 5) ✓ / 상주 인프라 메모리 13·라우팅(Task 6·7) ✓ / 이벤트 구동 대기모드(Task 5) ✓ / 기존 커맨드 부서 귀속·resolve(Task 6) ✓ / 목회사역 파일럿+QA게이트(Task 8) ✓. 대시보드=Phase 1.5 연기 ✓. 전체 노드 물리 롤아웃=Phase 1b 연기 ✓. **slug 정합: 노드(Task5)·헌장 노드분(Task4)·메모리(Task7) = 동일 13(ceo·cso·agy·codex+9), board=role-only 예외.**
 
 **Placeholder scan:** 헌장 내용은 표로 verbatim 값 제공(placeholder 아님). SOP는 부서 기존 워크플로우 참조. 검증 대부분 실행가능 bash. **단 Task 8은 운영 태스크 — `<ws>/<surface>`를 Step 1 `cmux tree` 동적 해소 결과로 치환 후 실행**(정적 bash 아님, 의도된 운영 절차 — 적대검증 M4 반영). 통과.
 
-**Type consistency:** slug 명칭 일관(ministry·intelligence·vision-edu·strategy·production·marketing·ai-tech·finance·research·board·ceo·cso·qa-office) — Task 2·3·4·6·7·8 전반에서 동일 사용. 디렉토리 구조(divisions/hq/exec/memory) Task 1과 후속 일치. 통과.
+**Type consistency:** 노드 slug 13 = ceo·cso·agy·codex·ministry·intelligence·vision-edu·strategy·production·marketing·ai-tech·finance·research — Task 4(헌장)·5(레지스트리)·7(메모리) 동일 집합. board=role-only(헌장 O, 노드·메모리 X). qa-office는 agy+codex로 분해(잔재 없음). 디렉토리(divisions/hq/exec/memory) Task 1과 일치. 통과.
