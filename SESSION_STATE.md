@@ -16,10 +16,12 @@
 - **목표**: 자비스(Master-Worker)를 **매트릭스 부서 조직**으로 격상. 기존 스킬·커맨드 100% 유지하며 거버넌스 레이어를 씌움.
 - **4대 결정**: ①하이브리드(내부 먼저→Phase2 외부상품화) ②주인님=회장·Master=CEO ③완전 상주(규율형·대기모드 L0/L1/L2) ④매트릭스(사업부×공유기능본부).
 - **조직도 v3 (상주 13노드)**: 경영4(이사회=주인님·CEO=Master·CSO+지식관리·품질감사실=agy+Codex) + 사업부3(①목회사역 ②인텔리전스 ③비전교육) + 공유기능본부6(A기획·B제작[비주얼/글쓰기/교육콘텐츠 3셀]·C마케팅·D AI Tech[앱빌딩]·E재무+법무·F리서치·검증[환경스캐닝·뉴스크롤링·딥리서치·팩트체크]).
-- **설계 문서(spec)**: `docs/superpowers/specs/2026-06-23-wave-ai-networks-org-design.md`. 브레인스토밍 완료, 회장 검토 게이트 → 통과 시 writing-plans(구축계획).
-- **대기모드**: 상주 노드 업무 없으면 L1(idle·토큰0·즉응), 장기무작업 L2(동면·메모리회수). CSO 감시.
-- **대시보드**: Phase 1.5 과제(전체 구축 후 별도 설계).
-- **다음**: 회장 spec 검토 → writing-plans로 Phase 1 구축계획 작성.
+- **설계 문서**: spec=`docs/superpowers/specs/2026-06-23-wave-ai-networks-org-design.md`(v3.2) · plan=`docs/superpowers/plans/2026-06-23-dia-ai-edu-solution-phase1.md`.
+- **★적대검증 게이트 PASS(2026-06-24)**: 주인님 직접명령 → agy+Codex 양자 적대검증. 2라운드 HOLD(노드카운팅 모순·Virtual Matrix·event-driven·이원화검증·slug 불일치) 전부 반영 후 **양자 PASS**.
+- **★Phase 1 빌드 8/8 완료(2026-06-24)**: `.claude/org/` 구축 — 헌장 14(사업부3·본부6·경영5 board role+ceo/cso/agy/codex) + 노드 레지스트리 13(SESSION_STATE) + 메모리 13 + 이벤트 구동 수명주기(L0/L1/L2, CSO=중앙라우터) + 커맨드 귀속맵. 커밋 c209e11→0bad4b4.
+- **★Task8 목회사역 파일럿 PASS**: 디딤=목회사역 사업부장 헌장 복창 + /주간현황 정상(Virtual Matrix·기존 커맨드 보존) + 서버위생 before=after=63(신규 0) + L1 전이.
+- **대기모드**: Charter-level 상주 + 이벤트 구동 pane(L1 단기 idle·토큰0 / L2 동면·메모리회수). board=role-only(노드 없음).
+- **다음**: 최종 whole-branch 리뷰 → Phase 1b(나머지 노드 수요기반 롤아웃)·Phase 1.5(대시보드)는 별도 계획. 회장 지시 대기.
 
 ## 🔄 진행: 요14:15-27 보혜사 설교 ★대상 변경 수정 (2026-06-20)
 - **대상 변경**: 기존 '영국 청년' → **런던 킹스크로스한인교회: 청년+장년·90대 고령자·믿음없는 출석교인 혼재(전 세대+비신자)**.
