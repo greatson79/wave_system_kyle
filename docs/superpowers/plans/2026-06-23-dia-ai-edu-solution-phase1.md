@@ -221,7 +221,7 @@ Expected: 3개 DIRECTIVE 모두 실존.
 
 ```bash
 git add .claude/org/exec/
-git commit -m "feat(org): 경영 거버넌스 헌장 4 (이사회·CEO·CSO·품질감사실)"
+git commit -m "feat(org): 경영 거버넌스 헌장 5 (board role·CEO·CSO·agy·codex)"
 ```
 
 ---
