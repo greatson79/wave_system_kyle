@@ -81,23 +81,38 @@
 - 후속: 원천환각(A)표기·발행가이드 작성·전워커 idle·CSO 감시중단·서버위생0.
 - 다음 재개 트리거: 주인님 새 명령(발행 실행 or 신규작업). 전 워커 idle 대기.
 
-## 노드 통신 레지스트리 (★전면 실측 재매핑 2026-06-20)
+## 노드 통신 레지스트리 (★13노드 확장 2026-06-24 / 원 실측 2026-06-20)
 > 통신 두절 = 치명결함. ★2026-06-20 점검에서 surface ID 전면 회전 확인 → 아래가 현재 유효 주소(cmux tree --all + read-screen 실측).
+> **2026-06-24 확장**: DiA Ai Edu. Solution 조직 13 AI 노드 + 상태(L0/L1/L2) 컬럼 추가. board(오너·주인님)=role-only, 노드표 제외.
 
-| 노드 | 역할 | 현재 주소(2026-06-20 실측) | 상태 |
-|------|------|---------|------|
-| **총괄팀장** | Top-Master | **ws1 / surface:3** (탭=Configure master-worker) | 🟡 점검시 auto-compact 51% 진행 |
-| CSO | Claude 시스템운영 | **ws1 / surface:1** (탭=CSO) | 🟢 Live |
-| 작업리뷰(리뷰어) | Gemini 콘텐츠·전략·사실성 | **ws1 / surface:12** (pane:11, 탭 "◇ Ready (Ai_works)", s4→s12 재기동 2026-06-20) | 🟠 **프로세스 Live(CLI v0.47.0)나 인증 차단** — OAuth(Sign in with Google) 구글 서버측 지원중단("client no longer supported for Gemini Code Assist for individuals"). 복구엔 API Key(옵션2, aistudio.google.com/apikey) 또는 Vertex 필요. pane 재생성으로 해결 불가 실증됨. |
-| 코드검수(리뷰어) | Codex 코드·기술 | **ws1 / surface:2** (탭=코드검수) | 🟢 Live (gpt-5.5 medium) |
-| 강의2회차팀장 | 강의 배포자료 | **ws3 / surface:6** | 🟢 idle (fresh) |
-| 환경스캐닝 팀장 | 환경스캐닝/마케팅 | **ws5 / surface:8** | 🟢 active |
-| 투자분석팀장 | 투자신호 심층분석 | **ws4 / surface:7** | 🟢 06-20 resume 복구(컴팩트 진행) |
-| 디딤팀장 | 재정·주간사역 | **ws2 / surface:5** (탭=디딤주간작업) | 🟢 idle (fresh) |
-| ~~부교역자팀(총괄·전략·기획·실행)~~ | ~~31인 조직~~ | **퇴근·종료(close)** 2026-06-16 주인님 지시 — 업무 생기면 재호출 |
-| ~~글로벌뉴스 팀장~~ | | **퇴근·종료(close)** 2026-06-16 주인님 지시 — 업무 생기면 재호출 (종료 직전 CSO가 resume 복구는 완료해둠) |
-| ~~투자분석 팀장~~ | | **노드 소멸(workspace not found)** 2026-06-16 — DEAD shell이 닫혀 트리에서 제거됨. 필요 시 신규 workspace+pane 생성·재기동 필요(현재 비긴급) |
-| ~~앱빌딩 팀장~~ | ~~웹앱·대시보드~~ | **퇴근(close)** 2026-06-14 |
+### DiA Ai Edu. Solution — 13 AI 노드 레지스트리
+
+| slug | 조직 역할 | 현재 주소 | 상태(L0/L1/L2) | 비고 |
+|------|----------|-----------|----------------|------|
+| **ceo** | CEO = 총괄팀장(Master) | **ws1 / surface:3** (탭=Configure master-worker) | 🟢 **L1** | 관제타워 상주. cmux tree로 동적 해소 필수 |
+| **cso** | CSO = 시스템운영·중앙라우터 | **ws1 / surface:1** (탭=CSO) | 🟢 **L1** | 관제타워 상주. 13노드 watchdog |
+| **agy** | 품질감사·작업리뷰어(agy CLI) | **ws1 / surface:11** (탭 agy) | 🟢 **L1** | Gemini 3.5 Flash. 콘텐츠·전략·신학·사실성 |
+| **codex** | 코드검수·AI Tech 협업(Codex) | **ws1 / surface:2** (탭=코드검수) | 🟢 **L1** | gpt-5.5 medium. 코드·기술 적대검증 |
+| **ministry** | 목회사역 사업부 팀장(디딤) | **ws2 / surface:5** (탭=디딤주간작업) | 🟡 **L1** | 설교·묵상·주간사역. idle(fresh) |
+| **intelligence** | 인텔리전스 사업부 팀장 | 미기동 | 💤 **L2** | 투자분석·환경스캐닝 수요 시 기동 |
+| **vision-edu** | 비전교육 사업부 팀장 | 미기동 | 💤 **L2** | /인터뷰·/수련회·vision-* 수요 시 기동 |
+| **strategy** | 기획본부 팀장 | 미기동 | 💤 **L2** | 기획·방법론 수요 시 기동 |
+| **production** | 제작본부 팀장 | 미기동 | 💤 **L2** | 카드뉴스·슬라이드·글쓰기·교육콘텐츠 수요 시 기동 |
+| **marketing** | 마케팅·배포본부 팀장 | 미기동 | 💤 **L2** | SNS·SEO·광고 수요 시 기동 |
+| **ai-tech** | AI Tech본부 팀장 | 미기동 | 💤 **L2** | 앱빌딩·대시보드·harness 수요 시 기동 |
+| **finance** | 재무·법무본부 팀장 | 미기동 | 💤 **L2** | 회계·korean-law 수요 시 기동 |
+| **research** | 리서치·검증본부 팀장 | **ws3 / surface:6** | 🟡 **L1** | 환경스캐닝·뉴스크롤링·딥리서치. idle |
+
+> **현재 가동 매핑**: ceo=관제타워 master(ws1/s3), cso(ws1/s1), agy(ws1/s11), codex(ws1/s2), ministry=디딤(ws2/s5), research=환경스캐닝(ws3/s6).
+> **L2 동면(미기동)**: intelligence·vision-edu·strategy·production·marketing·ai-tech·finance — 수요 발생 시 CSO가 신규 workspace+pane 생성·재기동.
+
+### 퇴역 노드 (이력 보존)
+| 노드 | 상태 |
+|------|------|
+| ~~부교역자팀(총괄·전략·기획·실행)~~ | **퇴근·종료(close)** 2026-06-16 주인님 지시 — 업무 생기면 재호출 |
+| ~~글로벌뉴스 팀장~~ | **퇴근·종료(close)** 2026-06-16 주인님 지시 — 업무 생기면 재호출 |
+| ~~투자분석 팀장(구)~~ | **노드 소멸(workspace not found)** 2026-06-16 — 필요 시 신규 생성 |
+| ~~앱빌딩 팀장~~ | **퇴근(close)** 2026-06-14 |
 
 > ★★**surface ID 불안정성 경고(2026-06-16 규명)**: cmux 재시작마다 surface ID가 **회전 재배정**됨(CSO 자기 주소도 s2→s3 이동 관측). 캐시된 주소는 재시작 후 무효 → `Surface not found`. **대응: 통신 전 `cmux tree --all`로 현재 주소 재확인 필수. 탭이름(="CSO"·"작업리뷰"·"코드검수"·"Configure master-worker"·"디딤주간작업" 등)은 안정적이므로 content/탭名으로 역할 판정 후 surface 번호 매핑.**
 
