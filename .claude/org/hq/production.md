@@ -1,4 +1,4 @@
-# 제작본부(Production) 헌장
+# 크리에이티브본부(Production) 헌장
 
 > DiA Ai Edu. Solution · 공유기능본부 · 엔진: Claude (+Codex: 이미지)
 
