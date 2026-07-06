@@ -53,3 +53,8 @@
 2. 장기기억 2건(`exec-home-ai-works-absolute`·`hq-summon-standard-playbook`) 부재 시 이 파일 내용으로 `javis_memory.py add` 재영속.
 3. `~/.cys/depts.json`의 display_name 5본부 확인 — 소실 시 위 편성표대로 재등록.
 4. 각 부서 phoenix 빈 시드 유지 확인(전역 저널 부활 사고 방지 — upstream 대장 #3·0.12.21에서 로컬 스코핑 수정 정황).
+5. `cys schedule list`에 `hq-standard-watch`(매일 08:30 무결 점검) 존재 확인 — schedule.json도 pack 내부라 업데이트에 소실될 수 있음. 부재 시 재등록:
+   `cys schedule add --id hq-standard-watch --time 08:30 --to master --text "[hq-watch] 본부 표준 세팅 무결 점검 — 정본 .claude/org/HQ_SUMMON_STANDARD.md 참조"`.
+
+## 편성 변동 이력
+- 2026-07-07 00:5X: reviewer-claude-2(s66) 주인님 직접 종료 — 전략렌즈 폴백 슬롯 공석(gemini 휴면 7/13까지 — 필요 시 임시 재소환).
