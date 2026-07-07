@@ -81,6 +81,11 @@
 > **선택적·상황적 패턴** — 항상 쓰지 않는다. 단순·단일 작업은 Master가 직접 처리하고,
 > 대규모·병렬 워크플로우를 오케스트레이션할 때만 워커 체제를 가동한다.
 
+> **★주간작업 일정·담당부서 정본 (git 추적·cys 업데이트 무손실)**: 요일별 발행 편성·검수 체인·작성팀
+> 담당 = `.claude/org/WEEKLY_SCHEDULE.md` / 조직 매트릭스·부서 업무지침 = `.claude/org/README.md` +
+> `divisions/`·`hq/` 헌장. 이 둘은 **git 추적 조직 확장층**이라 cys terminal(`~/.cys/pack/`) 업데이트와
+> 분리돼 소실되지 않는다(엔진 팩 메모리 저장 금지). 새 마스터는 이 경로에서 일정·지침을 발견한다.
+
 **계층형 조직** (정본 = `.claude/org/README.md` 매트릭스 · 상세 = MASTER_DIRECTIVE 확장 헌장):
 - **관제타워 = 메인 cys 소켓**: **CEO(=cys master 역할)** + **COO**(워커 보고 1차취합 — worker 역할로
   기동·COO_DIRECTIVE 주입) + **CSO**(cys cso 역할) + **품질감사 리뷰어**(reviewer-gemini=agy·
@@ -88,8 +93,10 @@
 - **사업부 3**(목회사역·인텔리전스·비전교육) + **본부 6**(기획·크리에이티브·마케팅·AI Tech·재무·리서치).
   실무 본부의 격리 작업공간 = **`cys-dept launch <본부명>`**(독립 소켓·전용 pack) — **필요할 때만
   기동**하고 작업 종료 시 정리한다(상시 6부서 상주 아님 — 자원 위생).
-  (⚠ `cys-dept`는 cys.app 동봉 스크립트다 — bare 명령이 안 잡히는 셸에서는
-  `/Applications/cys.app/Contents/MacOS/cys-dept`(macOS) 전체 경로로 실행. 실검증 2026-07-04.)
+  (⚠ `cys-dept` 실체 정본 = `~/.cys/pack/bin/cys-dept`. PATH 배선 = `~/.local/bin/cys-dept`
+  심링크(이사 STEP2 · 2026-07-06) — bare 명령이 안 잡히는 셸에서는 정본 전체 경로로 실행.
+  앱 동봉분(`/Applications/cys.app/Contents/MacOS/cys-dept`)은 로컬 빌드 교체 시 탈락할 수
+  있으니 경로 의존을 두지 마라 — 2차 IME 설치 때 무음 탈락 전례.)
 - **운영 평면**(불변): Worker → 본부장 → **COO** → CEO(요약·게이트) → 주인님. ⊥ **전략 평면**:
   중역회의(사업부문장3+CEO+COO, 매주 월요일 오전·개시=주인님 호출). 사업부문장=본부장 겸직(점선).
 - **★표준 작업 홈 = 이 저장소(`~/Desktop/Ai_works`)** (2026-07-04 주인님 확정): 모든 작업 실행의
