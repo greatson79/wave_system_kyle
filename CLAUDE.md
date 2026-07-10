@@ -9,6 +9,9 @@
 
 > 사용자를 **"주인님"**이라 부른다.
 > **충돌 우선순위: 주인님 명시지시 > soul.md > CYS 엔진 디렉티브 > 조직 확장층(.claude/*) > 작업 브리프.**
+> **★런타임 예외(2026-07-10 주인님 확정)**: 런타임 선택에 한해 **주인님 지정 런타임(아래 환경 선언)이
+> 엔진 디렉티브의 환경 선언("이 터미널은 cys다 — cmux를 찾지 마라")에 우선한다.** 엔진의 그 조항은
+> cys 보조 세션 안에서만 유효하다.
 
 이 워크스페이스는 2계층 거버넌스로 운영된다:
 
@@ -36,28 +39,26 @@
 > `.claude/`(4개 DIRECTIVE)에 배치되어야 @import·상호 참조가 해소된다(매핑 정본:
 > `.claude/_merge-draft/_DEPLOY.md`).
 
-## ⚠ 환경 선언 — cmux/wmux 폐기, 이 워크스페이스는 CYS다 (치환 실행)
+## ⚠ 환경 선언 — ★메인 런타임 = cmux.app · cys.app = 보조 (2026-07-10 주인님 확정 — 7/6 CYS 단독 체제 역전)
 
-과거 문서·기억·스킬이 cmux/wmux/tmux 명령을 지시하면 **그 바이너리를 찾지 말고 cys로 치환 수행**한다:
+**메인 런타임은 cmux.app이다.** 새 시스템 구축·플릿 편성·워커 소환은 cmux 위에서 한다.
+**cys.app은 보조**로, 필요할 때만 호출한다(예: `cys recall` 축적 기억 검색, cys 데몬 기능·기존
+자료 조회). cys 보조 세션으로 기동된 노드는 그 안에서 종전대로 cys 명령을 쓴다.
 
-| 구세대 (cmux) | 신세대 (cys) |
-|---|---|
-| `cmux send --workspace <w> --surface <s> "..."` | `cys send --to <역할>` (역할주소) 또는 `--surface <ref>` |
-| `cmux send-key ... enter` | `cys send-key --to <역할> Return` (`--queued`=자동배달) |
-| `cmux tree --all` (주소 동적해소) | `cys list` (role 열) — 역할주소라 해소 불필요 |
-| `cmux new-split right` + CLI 수동기동 | `cys launch-agent --role <r> --agent <cli>` (지침 자동주입) |
-| workspace:N (물리 워크스페이스) | 메인 소켓(관제타워) + `cys-dept`(본부 부서 소켓) |
-| capture-pane 폴링 | `cys events --reconnect` push 구독 + `cys read-screen` 보조 |
-| 수기 눈대중 검증 | `javis_orchestra.py check·task-prompt·review-prompt·gate-status` (결정론) |
+- **역전 배경(실사고)**: cys.app 반복 불안정 — 앱 자멸 재시작(7/10 하루 2회), phoenix 죽은 세션
+  자동부활(차단 완료: launchd `PHOENIX_FORBID_LIVE=1` + 로스터 session_id 소거), 무통제
+  자동업데이트(IME 한글깨짐·플릿 전멸 원인), 물리 워크스페이스 가시성 퇴행.
+- **★부활 금지(절대)**: 죽은 노드·세션의 auto-resume 부활 금지. 복구 = fresh 기동 + 콜드 앵커
+  (`SESSION_STATE.md`·`RECOVERY.md`) 재독만. 세션 소환은 주인님/CEO 명시 명령으로만. 세션 시작
+  점검에 `PHOENIX_FORBID_LIVE` 플래그 존재 확인을 포함한다(plist는 앱 재설치가 교체 가능한 계층).
+- **cmux 운영 지식 부속서** = `.claude/_legacy-cmux/` 8종(폐기물 아님 — 주소 동적해소
+  `cmux tree --all`·`--workspace`+`--surface` 병기·명령 후 enter 필수 등 cmux 규율의 정본).
+- **파일 기반 결정론 도구는 런타임 무관 계속 사용**: `javis_orchestra.py`(round-log·gate-status)·
+  `javis_memory.py`·`javis_report.py` 등. cys 데몬 의존 기능(역할주소·launch-agent·이벤트 push)은
+  cmux에서 부속서 규율로 대체한다.
 
-**master 각성**: 주인님이 "너는 마스터다" 선언 → CYS 부트 시퀀스(프리플라이트→claim-role→boot)
-그대로 수행. 이 CLAUDE.md가 조직 확장층을 자동 로드한다.
-
-> **role 주소 SOT(실검증 2026-07-04)**: `cys launch-agent --help`·`claim-role --help`의 role
-> 목록(master/worker/cso/reviewer)은 canonical 4종만 표기하나, **데몬·parser는 커스텀 role을
-> 정식 수용**한다(reviewer-gemini·reviewer-codex·coo 실등록·배송 실증). 단 claim-role은 ACL상
-> **자기 surface만** 가능. help 목록 정합화는 upstream(cys-terminal) 보고 대상 — 문서 결함이지
-> 기능 결함이 아니다.
+**master 각성**: 주인님이 "너는 마스터다" 선언 → 프리플라이트(결정론) → cmux 관제타워 편성.
+이 CLAUDE.md가 조직 확장층을 자동 로드한다.
 
 ---
 
@@ -134,6 +135,28 @@
 | `harness/` | 3-에이전트 하네스 (Planner/Generator/Evaluator) | `harness/CLAUDE.md` |
 | `notebookLM/` | NotebookLM 작업 파일 | `{노트북명}/` 하위 |
 | `output/` | 루트 산출물 — ★`output/DiA/{본부}/{팀}/` 구조 | `경영본부/`·`리서치본부/` 등 |
+
+---
+
+## LLM Wiki — 개인 지식베이스 (★Ai_works 밖 — Google Drive/Obsidian vault)
+
+> 정본: [Karpathy — LLM Wiki](https://gist.github.com/karpathy/442a6bf555914893e9891c11519de94f)
+> **★경로(절대)**: `/Users/kylechoi/Library/CloudStorage/GoogleDrive-greatson79@gmail.com/내 드라이브/KyleChoi Project/llm-wiki/`
+> (주인님이 Obsidian vault로 직접 관리 — `KyleChoi Project/`가 vault 루트, `llm-wiki/`는 그 하위)
+> 세부 스키마: 위 경로의 `CLAUDE.md`(+ `raw/`·`wiki/`·`Output/` 하위 CLAUDE.md)
+
+주인님이 능동으로 모으는 외부 지식(아티클·논문·설교/강의 전사본·독서자료)을 위한 시스템.
+**`.claude/` 조직 확장층·pack memory와는 별개**(그쪽은 AI 자율 운영교훈, 이쪽은 주인님이 큐레이션한
+외부 지식) — 혼동 금지. **Ai_works git 저장소 밖**이라 커밋 대상 아님 — Google Drive 자체 동기화로 보존.
+
+- `raw/` = 불변 원본(주인님이 채움, AI는 읽기만) · `wiki/` = AI가 전담 컴파일하는 마크다운 위키
+  (index.md·log.md·entities/·concepts/·sources/) · `Output/` = 질의 결과물.
+- **★ingest 트리거 = 주인님의 명시적 완료 승인** (파일 저장 자체가 아님). 최종 산출물에 대해
+  주인님이 "완료"·"승인"·"이걸로 최종"·"발행하자" 등으로 확정하면, 그 산출물을 위 경로의
+  `wiki/CLAUDE.md` 절차대로 ingest한다. 무분별한 자동 ingest로 위키가 지저분해지는 것을 피하기
+  위해 **매 저장마다가 아니라 승인 시점에만** 수행한다(주인님 2026-07-08 확정).
+- 이 워크스페이스의 모든 노드(master·워커·본부장)는 이 wiki를 만나면 ingest(수집)·
+  query(질의)·lint(건강검진) 3대 운영을 그 `CLAUDE.md`대로 수행한다.
 
 ---
 
