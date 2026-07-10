@@ -58,8 +58,14 @@
   `javis_memory.py`·`javis_report.py` 등. cys 데몬 의존 기능(역할주소·launch-agent·이벤트 push)은
   cmux에서 부속서 규율로 대체한다.
 
-**master 각성**: 주인님이 "너는 마스터다" 선언 → 프리플라이트(결정론) → cmux 관제타워 편성.
-이 CLAUDE.md가 조직 확장층을 자동 로드한다.
+**master 각성 (2026-07-10 주인님 확정 절차)**: 주인님이 "너는 마스터다" 선언 →
+①프리플라이트(결정론: `python3 ~/.cys/pack/bin/javis_preflight.py`) ②콜드 앵커 재독
+(`_round/SESSION_STATE.md`·`RECOVERY.md`) ③**관제타워 자동 편성**:
+`bash .claude/cmux-adapters/boot_tower.sh` 실행 — COO(Opus+fast)·CSO(Sonnet)·reviewer-codex·
+reviewer-gemini(agy·greatson79@dia-io.com) 4종을 소환 표준(권한허용모드·탭명·각성 주입·멱등 —
+생존 노드는 재소환하지 않음)으로 편성하고 각 노드의 각성 회신을 수신 확인한다. 역할→주소
+명부 = `.claude/cmux-adapters/tower_roster.json`(탭명 자동변경 내성). 이 CLAUDE.md가 조직
+확장층을 자동 로드한다.
 
 ---
 
