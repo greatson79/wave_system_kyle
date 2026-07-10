@@ -15,9 +15,10 @@
 - **관제타워** = 메인 cys 소켓(경영본부). 이곳의 master = **총괄팀장(CEO)**. `cys boot` 4종 의무
   노드가 그대로 상주 편성이다: **CEO(master) + CSO(cso) + 품질감사 agy(reviewer-gemini) +
   코드검수 Codex(reviewer-codex)**. 여기에 **COO(운영총괄)** 를 추가 상주시킨다 —
-  ①`cys launch-agent --role worker --agent claude` 기동 → ②그 surface **안에서** `cys claim-role
-  coo` 실행(first-class 주소 승격 — 데몬이 커스텀 role 정식 수용·실검증 2026-07-04) →
-  ③`.claude/COO_DIRECTIVE.md` 주입. 이후 COO 호출은 `--to coo`(결정론 — worker 오배송 없음).
+  **★기동 정본(2026-07-10 v3)**: cmux 메인 체제에서는 CEO가 관제타워 워크스페이스에 COO 전용
+  pane을 열어 `claude --dangerously-skip-permissions` 기동(탭 타이틀 "COO" 명시) + 각성 선언
+  ("너는 DiA의 COO다") — 상세는 `.claude/COO_DIRECTIVE.md` v3 기동 방식 절. 구 cys 2단계 절차
+  (launch-agent → claim-role coo → `--to coo`)는 cys 보조 세션 한정.
   작업 워커를 관제타워에 두지 않는다.
 - **작업 워크스테이션**(작업마다): 실무 본부의 격리 공간 = **`cys-dept launch <본부명>`**(독립
   소켓·전용 pack) 또는 경량 작업은 메인 소켓의 워커 surface. 제1워커 = 그 공간의

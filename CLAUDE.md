@@ -49,8 +49,9 @@
   자동부활(차단 완료: launchd `PHOENIX_FORBID_LIVE=1` + 로스터 session_id 소거), 무통제
   자동업데이트(IME 한글깨짐·플릿 전멸 원인), 물리 워크스페이스 가시성 퇴행.
 - **★부활 금지(절대)**: 죽은 노드·세션의 auto-resume 부활 금지. 복구 = fresh 기동 + 콜드 앵커
-  (`SESSION_STATE.md`·`RECOVERY.md`) 재독만. 세션 소환은 주인님/CEO 명시 명령으로만. 세션 시작
-  점검에 `PHOENIX_FORBID_LIVE` 플래그 존재 확인을 포함한다(plist는 앱 재설치가 교체 가능한 계층).
+  (**`_round/SESSION_STATE.md`**(훅 주입 정본·실측 2026-07-10)·`RECOVERY.md`) 재독만. 세션 소환은
+  주인님/CEO 명시 명령으로만. 세션 시작 점검에 `PHOENIX_FORBID_LIVE` 플래그 존재 확인을 포함한다
+  (plist는 앱 재설치가 교체 가능한 계층). 루트 `SESSION_STATE.md` 구본은 `_archive/`로 격하됨.
 - **cmux 운영 지식 부속서** = `.claude/_legacy-cmux/` 8종(폐기물 아님 — 주소 동적해소
   `cmux tree --all`·`--workspace`+`--surface` 병기·명령 후 enter 필수 등 cmux 규율의 정본).
 - **파일 기반 결정론 도구는 런타임 무관 계속 사용**: `javis_orchestra.py`(round-log·gate-status)·
@@ -116,8 +117,9 @@
   금지(리셋까지 대기). agy·Codex는 별도 한도라 게이팅 중에도 가동 가능.
 
 **콜드 복구 (2층)**:
-- ①콜드 닻: 루트 `SESSION_STATE.md`(프로젝트 작업기억) + `RECOVERY.md` — 주요 이벤트마다 master가
-  갱신, 파국 후 가장 먼저 읽고 무손실 재개. (엔진 세션상태는 `~/.cys/pack/round/SESSION_STATE.md` — 별개)
+- ①콜드 닻: **`_round/SESSION_STATE.md`**(프로젝트 작업기억 — 훅 주입 정본·2026-07-10 SOT 단일화)
+  + `RECOVERY.md` — 주요 이벤트마다 master가 갱신, 파국 후 가장 먼저 읽고 무손실 재개.
+  (엔진 세션상태는 `~/.cys/pack/round/SESSION_STATE.md` — 별개. 루트 구본은 `_archive/`)
 - ②웜 재구성: cys 생존 시 `cys list`+`cys read-screen`+`output/` ③분산 SOT: 각 프로젝트 `state.yaml`.
 - 시스템 시각화: `output/자비스_시각화/` (대시보드·아키텍처·워크플로우).
 - **컨텍스트 60%** = 데몬이 결정론 발화 → CSO 주도 "주인 대리" clear 6단계(엔진 MASTER §11) → 복원·재개.
