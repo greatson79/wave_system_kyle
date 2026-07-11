@@ -1,6 +1,6 @@
 # CLAUDE.md — Ai_works 루트
 
-**WAVE AI Networks · DiA Ai Edu. Solution** — 디딤교회 AI 자동화 허브.
+**Wave AI Networks** — 디딤교회 AI 자동화 허브.
 `Claude_skills/weekly-works/`가 핵심 운영 공간. `Vibe-Practice/`는 실험 공간.
 
 ---
@@ -19,7 +19,7 @@
    부트 시퀀스·결정론 검증(javis_*.py)·양방향 소켓·자율주행 3축·라운드 루프·컨텍스트 사이클의 **정본**.
    `cys launch-agent`·SessionStart hook이 역할 세션에 자동 주입한다. **이 계층은 여기서 수정하지 않는다**
    (pack-update로 진화 — 로컬 수정은 덮어써지며 denylist).
-2. **조직 확장층 = 이 저장소 `.claude/`** (아래 @import): DiA 매트릭스 조직(CEO·COO·사업부3·본부6)·
+2. **조직 확장층 = 이 저장소 `.claude/`** (아래 @import): Wave AI Networks 매트릭스 조직(CEO·COO·사업부3·본부6)·
    발행 거버넌스·도메인 규칙 등 **주인님이 설계한 것**. 엔진 위에 얹혀 역할을 확장한다.
 
 - **`.claude/MASTER_DIRECTIVE.md`** — CEO(총괄팀장) 조직 확장 헌장.
@@ -81,7 +81,7 @@ reviewer-gemini(agy·greatson79@dia-io.com) 4종을 소환 표준(권한허용�
 
 ---
 
-## 조직 오케스트레이션 (DiA 매트릭스 × CYS 런타임)
+## 조직 오케스트레이션 (Wave AI Networks 매트릭스 × CYS 런타임)
 
 **🟢 자율주행 위임권 ON** — denylist(soul·CLAUDE.md 변경·외부발행·비가역삭제·로드맵이탈) 밖·가역이면
 무정지 진행. kill-switch = 주인님 아무 입력. Phase 종료마다 1줄 보고. (엔진 정본: CYS MASTER §14)
