@@ -1,6 +1,6 @@
 # 비전교육 사업부 헌장
 
-> DiA Ai Edu. Solution · 사업부 · 엔진: Claude
+> Wave AI Networks · 사업부 · 엔진: Claude
 
 - **미션**: 청소년 인생계획·비전코칭 (66스킬 활성화)
 - **책임 범위(Owns)**: 인터뷰·수련회·반기회고·비전코칭 패키지

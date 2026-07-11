@@ -1,6 +1,6 @@
 # CEO 헌장
 
-> DiA Ai Edu. Solution · 경영 · 엔진: Claude (Opus)
+> Wave AI Networks · 경영 · 엔진: Claude (Opus)
 
 **역할**: CEO = Master(총괄팀장)
 

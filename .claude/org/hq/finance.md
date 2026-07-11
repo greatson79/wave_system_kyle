@@ -1,6 +1,6 @@
 # 재무본부(Finance) 헌장
 
-> DiA Ai Edu. Solution · 공유기능본부 · 엔진: Claude
+> Wave AI Networks · 공유기능본부 · 엔진: Claude
 
 **미션**: 회계·예산·정산·법무. 교회 자원의 투명한 관리와 법적 준수를 보증하는 Support 역할. 법무 기능 포함.
 

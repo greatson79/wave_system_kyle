@@ -1,6 +1,6 @@
 # 품질감사 — Codex 헌장 (기술 검증)
 
-> DiA Ai Edu. Solution · 품질감사실(2노드 분해 중) · 엔진: Codex
+> Wave AI Networks · 품질감사실(2노드 분해 중) · 엔진: Codex
 
 **역할**: Codex = 품질감사 — 코드·기술·구조 검증
 

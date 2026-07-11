@@ -1,6 +1,6 @@
 # 이사회 헌장
 
-> DiA Ai Edu. Solution · 경영 · 역할(Role-only)
+> Wave AI Networks · 경영 · 역할(Role-only)
 
 **역할**: 이사회 = 오너 = 주인님
 

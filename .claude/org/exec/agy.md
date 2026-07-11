@@ -1,6 +1,6 @@
 # 품질감사 — agy 헌장 (Value & Logic Validation)
 
-> DiA Ai Edu. Solution · 품질감사실(2노드 분해 중) · 엔진: Claude
+> Wave AI Networks · 품질감사실(2노드 분해 중) · 엔진: Claude
 
 **역할**: agy = 품질감사 — 콘텐츠·신학·전략 검증
 

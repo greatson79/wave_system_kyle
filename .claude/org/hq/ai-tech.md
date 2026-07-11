@@ -1,6 +1,6 @@
 # AI-Tech본부(AI-Tech) 헌장
 
-> DiA Ai Edu. Solution · 공유기능본부 · 엔진: Claude + Codex
+> Wave AI Networks · 공유기능본부 · 엔진: Claude + Codex
 
 **미션**: 웹앱·대시보드·앱·하네스·자동화. 모든 사업부의 수요를 기술로 구현하는 Platform 역할. "앱개발 부서".
 

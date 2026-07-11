@@ -1,4 +1,4 @@
-# DiA Ai Edu. Solution 조직도
+# Wave AI Networks 조직도
 
 > **조직 설계**: 기존 자비스 시스템(Master-Worker)을 매트릭스 부서 조직으로 격상
 > **주소화 AI 노드 정의상 14**: CEO·COO·CSO·agy·Codex·사업부 3·본부 6 (주인님=오너 role·surface 없음→노드 제외; 품질감사실=agy+Codex 2노드). ★현행 물리 상주는 이벤트 구동, 실측 정본은 `SESSION_STATE.md` 노드 레지스트리.

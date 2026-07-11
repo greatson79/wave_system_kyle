@@ -1,6 +1,6 @@
 # 인텔리전스 사업부 헌장
 
-> DiA Ai Edu. Solution · 사업부 · 엔진: Claude
+> Wave AI Networks · 사업부 · 엔진: Claude
 
 - **미션**: 투자·미래 통찰 의사결정 제품 생산
 - **책임 범위(Owns)**: 투자신호 분석·통찰보고서

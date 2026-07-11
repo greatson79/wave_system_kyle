@@ -1,6 +1,6 @@
 # 마케팅본부(Marketing) 헌장
 
-> DiA Ai Edu. Solution · 공유기능본부 · 엔진: Claude
+> Wave AI Networks · 공유기능본부 · 엔진: Claude
 
 **미션**: SEO·광고·채널 배포. 제작된 콘텐츠를 타겟 오디언스에게 효과적으로 전달하는 Stream-support 역할.
 

@@ -1,6 +1,6 @@
 # 크리에이티브본부(Production) 헌장
 
-> DiA Ai Edu. Solution · 공유기능본부 · 엔진: Claude (+Codex: 이미지)
+> Wave AI Networks · 공유기능본부 · 엔진: Claude (+Codex: 이미지)
 
 **미션**: 비주얼·글·교육콘텐츠 생산. 기획된 전략을 실행 가능한 콘텐츠로 변환하는 Stream-support 역할.
 

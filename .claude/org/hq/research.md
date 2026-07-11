@@ -1,6 +1,6 @@
 # 리서치본부(Research) 헌장
 
-> DiA Ai Edu. Solution · 공유기능본부 · 엔진: Claude
+> Wave AI Networks · 공유기능본부 · 엔진: Claude
 
 **미션**: 정보 수집·검증 엔진. 모든 사업부의 의사결정을 뒷받침하는 팩트체크·할루시네이션 방지 역할. Enabling/Platform.
 

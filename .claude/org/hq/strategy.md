@@ -1,6 +1,6 @@
 # 기획본부(Strategy) 헌장
 
-> DiA Ai Edu. Solution · 공유기능본부 · 엔진: Claude
+> Wave AI Networks · 공유기능본부 · 엔진: Claude
 
 **미션**: 전략·로드맵·신규기획·방법론 공급. 모든 사업부의 사고와 결정에 토대가 되는 설계도를 제공하는 Enabling 역할.
 
