@@ -142,7 +142,7 @@ reviewer-gemini(agy·greatson79@dia-io.com) 4종을 소환 표준(권한허용�
 | `church-accounting/` | 교회 회계 웹앱 (Next.js/Vercel) | `church-accounting/README.md` |
 | `harness/` | 3-에이전트 하네스 (Planner/Generator/Evaluator) | `harness/CLAUDE.md` |
 | `notebookLM/` | NotebookLM 작업 파일 | `{노트북명}/` 하위 |
-| `output/` | 루트 산출물 — ★`output/DiA/{본부}/{팀}/` 구조 | `경영본부/`·`리서치본부/` 등 |
+| `output/` | 루트 산출물 — ★`output/WaveAI/{본부}/{팀}/` 구조 | `경영본부/`·`리서치본부/` 등 |
 
 ---
 

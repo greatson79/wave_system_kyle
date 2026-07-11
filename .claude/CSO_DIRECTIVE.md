@@ -68,7 +68,7 @@ cmux 메인에는 cysd의 기계 감시(watchdog·이벤트 push)가 없다. 엔
   15~30분 기준, CEO가 강도 조정**. 무규정 시 스윕이 형해화되거나 과잉 폴링이 된다.
 - **★pane.idle 상태 영속 + 스윕 원장 필드 (CSO 회신1 + codex C1-1)**: "스윕 간 화면 무변화
   대조"는 이전 스냅샷이 있어야 성립한다 — CSO clear 시 대조 기준이 증발하므로, 스윕 결과를
-  `output/DiA/경영본부/_round/CSO_스윕원장.md`에 영속한다. **원장 필드(pane당)**: 역할 · 마지막
+  `output/WaveAI/경영본부/_round/CSO_스윕원장.md`에 영속한다. **원장 필드(pane당)**: 역할 · 마지막
   입력/출력 시각 · 상태(working/idle/blocked) · 소유 프로세스(pid·PGID) · **다음 예상 이벤트**.
   `cmux tree --all`은 역할·health·queue depth·context 상태를 담지 못하므로(codex C1-1 — cys
   list/status 대비 정보 손실), 이 원장이 그 손실을 보전한다.
@@ -121,7 +121,7 @@ cmux 메인에는 cysd의 기계 감시(watchdog·이벤트 push)가 없다. 엔
 - launchd 자동화 잡(주간 발행 등)의 생존·플래그는 0-b 점검과 함께 주기 확인한다.
   **★`cys schedule` 의존 자동화는 launchd로 이관을 원칙으로 한다**(CSO 실무 입력1 — 오늘
   `dia-output-materialize-preflight` 침묵 실패·output dataless 967건 실측. 근거:
-  `output/DiA/경영본부/dataless근본대책_권고안_2026-07-10.md` §2). **★이관 대상에 게이팅 감시
+  `output/WaveAI/경영본부/dataless근본대책_권고안_2026-07-10.md` §2). **★이관 대상에 게이팅 감시
   잡 `cso-usage-gating-watch`를 포함한다**(F5 — §6이 이 잡을 실측원으로 인용하는데, 침묵 실패
   계열을 안전 임계 감시에 쓰는 자기모순. 침묵 실패 시 게이팅 미발동 = 한도 사고 직결).
 
@@ -241,18 +241,18 @@ Claude(Anthropic) 사용량을 주기 감시한다. **판정은 실측만**(결�
 | `cys cycle-agent --role master` | §5의 cmux 6단계(ack SOT고정 + sha256 4중검증 + `/clear` send+enter + clear후 복원검증) |
 | `cys launch-agent --role <r>` | §7 cmux 소환 절차(new-split→`claude --dangerously-skip-permissions` 등→지침 주입→enter→각성 확인) |
 | `cys-dept list/down` | `cmux tree --all` 워크스페이스 현황 + CEO 승인 정리(§4) |
-| `cys todo-path` | 고정 경로 `output/DiA/경영본부/_round/CSO_TODO.md`(§8) |
+| `cys todo-path` | 고정 경로 `output/WaveAI/경영본부/_round/CSO_TODO.md`(§8) |
 | `cys recall` / `cys schedule` 등 CLI | **cysd 생존 시 어느 세션 셸에서든 직접 호출 가능**(보조 기능 — CSO 실측: `cys schedule list` 정상 응답). 데몬 사망 시 대체 없음 — 기억은 파일 SOT(~/.claude memory·pack memory) 직독 폴백 (CSO 회신3 — 루트 CLAUDE.md "필요할 때만 호출" 정본과 정합) |
 
 ## 8. 통신·연속성 (COO v3.1 §5·§6 준용)
 - **통신 규약**: 주소 우선순위(**티켓 명시 > `tower_roster.json`(§1 CSO 소유 명부) >
   `cmux_addr.py` 동적해소** — 탭명 자동변경 내성 명부가 탭명 기반 해소의 보완재)·
   `--workspace`+`--surface` 항상 병기·enter까지가 1회 전송·ASCII "->"·긴 보고는
-  `output/DiA/경영본부/` 파일 저장 후 "1줄 판정+절대경로"만 push.
+  `output/WaveAI/경영본부/` 파일 저장 후 "1줄 판정+절대경로"만 push.
   [운영정책 정본: feedback_socket_ascii_arrow 2026-07-03]
 - **상태 SOT**: 공유 = 루트 `_round/SESSION_STATE.md`(훅 주입 정본·CEO 주 편집) / CSO 전용
-  todo = `output/DiA/경영본부/_round/CSO_TODO.md`(세부 완료마다 갱신) / CSO 핸드오프 =
-  `output/DiA/경영본부/_round/CSO_핸드오프_{날짜}.md`. 복원 우선순위: 핸드오프 → 공유 SOT →
+  todo = `output/WaveAI/경영본부/_round/CSO_TODO.md`(세부 완료마다 갱신) / CSO 핸드오프 =
+  `output/WaveAI/경영본부/_round/CSO_핸드오프_{날짜}.md`. 복원 우선순위: 핸드오프 → 공유 SOT →
   todo → 실측 대조.
 - **CSO 자신의 컨텍스트 사이클**: 트리거·절차는 COO v3.1 §6-2와 동일(상태줄 Ctx 실측 1차·
   집행자 = CEO). 자기 판단 무단 clear 금지.

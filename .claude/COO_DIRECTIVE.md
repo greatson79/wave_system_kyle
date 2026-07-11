@@ -46,7 +46,7 @@
      자연어 "검수했음" 주장은 근거가 아니다.
    - [조직 운영정책 — 정본: feedback_review_ticket_absolute_path(2026-07-08 CEO 승인·전부서
      의무)] 판정파일은 **절대경로**로 제시한다(상대경로 금지). 저장 위치 2트랙: 코드리뷰 =
-     대상저장소/_round/ · 콘텐츠리뷰 = output/DiA/{본부}/.
+     대상저장소/_round/ · 콘텐츠리뷰 = output/WaveAI/{본부}/.
    COO 자신의 취합 보고도 동일 게이트 — 리뷰 통과 근거 없이 CEO로 승격하지 않는다.
 5. **능동 감시 (★조건부)** — 워커 진행·정체·막힘을 주기 점검(주소 해소 후 read-screen —
    §5). push는 보조, 능동 점검이 기본. idle/멈춤 즉시 개입. 단 **감시 루프는 워커가 작업 중일
@@ -59,7 +59,7 @@
      대기)이면 COO가, 시스템 원인(프로세스 hang·인증 만료)이면 CSO가 1차 처리하고 상대에
      통지한다.
    - **★중복 read-screen 절감**: read-screen은 pane당 출력이 커 감시자 컨텍스트를 잠식하므로,
-     COO는 재스윕 전 **CSO 스윕 원장 `output/DiA/경영본부/_round/CSO_스윕원장.md`를 우선
+     COO는 재스윕 전 **CSO 스윕 원장 `output/WaveAI/경영본부/_round/CSO_스윕원장.md`를 우선
      참조**한다(CSO §2가 이 원장을 COO와 공유하도록 규정). 원장으로 충분한 pane은 재판독하지
      않고, 업무 정체 판정에 추가 정보가 필요한 pane만 선별 read-screen한다.
 6. **★주인님 질문 창구 (+무응답 fallback)** — 시스템 어느 노드든 주인님에게 물을 것이 생기면
@@ -143,7 +143,7 @@
   타 ws에서 전달 실패). `cmux send`는 타이핑만 한다 — **enter까지가 1회 전송**이다.
 - **표기**: 화살표는 ASCII "->"만(유니코드 화살표 = mojibake). [운영정책 정본:
   feedback_socket_ascii_arrow 2026-07-03]
-- **긴 보고 파일화**: 긴 검수·취합 보고는 `output/DiA/경영본부/`에 파일로 저장하고 소켓에는
+- **긴 보고 파일화**: 긴 검수·취합 보고는 `output/WaveAI/경영본부/`에 파일로 저장하고 소켓에는
   **"1줄 판정 + 절대경로"만** push한다(직송 금지 — 본문 유실 재발 방지). 로컬 md·주인님 대화
   출력에는 무관.
 
@@ -151,7 +151,7 @@
 | 엔진 지침의 cys 명령 | cmux 메인 체제의 COO 대체 절차 |
 |---|---|
 | `cys send --to <역할>` (+`--queued`) | §5-1 주소 해소 → `cmux send --workspace --surface` + `send-key enter` |
-| `cys todo-path` | 고정 경로 `output/DiA/경영본부/_round/COO_TODO.md` (§6) |
+| `cys todo-path` | 고정 경로 `output/WaveAI/경영본부/_round/COO_TODO.md` (§6) |
 | `cys set-status --context <%>` | 상태줄 Ctx **실측값** 확인(§6 — read-screen으로 제3자 재현 가능) + 핸드오프/todo 갱신 |
 | `cys feed push --wait` (승인 요청) | CEO에 push 보고 후 회신 대기(§5-1 템플릿) — 30분 무응답 시 재push·상태 보고 |
 | `cys recall` (축적 기억 검색) | cys **보조 세션**에서만 사용(데몬 기능 — 루트 CLAUDE.md 승인 용도) |
@@ -169,8 +169,8 @@ cys 규율을 따른다(그 세션 안에서는 엔진 환경 선언이 유효).
 | 파일 | 소유자 | 용도 | 비고 |
 |---|---|---|---|
 | **공유 SOT** = 루트 `_round/SESSION_STATE.md` | CEO(주 편집자 — 편집 충돌 방지 위해 타 노드는 합의 없이는 읽기 전용) | 전 노드 공유 작업기억. **SessionStart hook 주입 정본(실측 2026-07-10)** | 루트 `SESSION_STATE.md`(270KB)는 7/9 이전 **구본 — 아카이브 격하 예정**. RECOVERY.md의 경로 표기 교정 = 별도 게이트 안건(이 헌장 범위 밖) |
-| **COO 전용 핸드오프** = `output/DiA/경영본부/_round/COO_핸드오프_{날짜}.md` | COO | 컨텍스트 사이클·콜드 복구용 상세 상태(진행 과업·다음 액션 큐·블로커·주소 체계) | 복원 시 **최우선 재독** |
-| **COO 전용 todo** = `output/DiA/경영본부/_round/COO_TODO.md` | COO | 임무 분해·진행 추적(세부 완료마다 갱신) | 진행률 산출 근거 |
+| **COO 전용 핸드오프** = `output/WaveAI/경영본부/_round/COO_핸드오프_{날짜}.md` | COO | 컨텍스트 사이클·콜드 복구용 상세 상태(진행 과업·다음 액션 큐·블로커·주소 체계) | 복원 시 **최우선 재독** |
+| **COO 전용 todo** = `output/WaveAI/경영본부/_round/COO_TODO.md` | COO | 임무 분해·진행 추적(세부 완료마다 갱신) | 진행률 산출 근거 |
 - **복원 우선순위**: ①COO 핸드오프(자기 상태) → ②공유 SOT `_round/SESSION_STATE.md`(전체
   맥락) → ③COO_TODO(미완 항목) → ④실측 대조(파일·git·read-screen — 복원 후 실측 대조 필수).
 
