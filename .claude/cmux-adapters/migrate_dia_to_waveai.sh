@@ -18,6 +18,12 @@ SRC="$ROOT/output/DiA"
 DST="$ROOT/output/WaveAI"
 DRY_RUN="${DRY_RUN:-1}"   # 기본값=dry-run(안전). 실집행 시 DRY_RUN=0 명시 필요.
 
+# ★v2(2026-07-12 00:3x, COO 지시): node_modules 전량 제외 — dataless 정체 유발 확인
+# (크리에이티브본부 rsync가 유독 느렸던 원인 = node_modules 3개 트리·5655개 파일 실측).
+# 재생성 가능(신위치 npm install) — 구 node_modules는 후속 별도 정리 대상, 이 스크립트가
+# 안 건드린다. ★기존 중단 시점에 WaveAI쪽에 이미 일부 복사된 node_modules 잔여물이 있을 수
+# 있음(이번 실행에서 제외 대상이라 추가되진 않으나 기존 잔여물은 그대로 남음 — 후속 정리에서 처리).
+
 # ★COO 확정 지시(2026-07-12) — 둘 다 이동으로 확정. 필요 시 no로 override 가능.
 MOVE_INTELLIGENCE="${MOVE_INTELLIGENCE:-yes}"   # ask|yes|no — COO 확정: yes(정본명 한글 유지)
 MOVE_LOOSE_HANDOFF="${MOVE_LOOSE_HANDOFF:-yes}" # ask|yes|no — COO 확정: yes(같은 상대위치)
@@ -33,7 +39,8 @@ echo "=== 0. 사전 확인 ==="
 [ -d "$SRC" ] || { echo "FATAL: $SRC 없음"; exit 1; }
 git -C "$ROOT" rev-parse --verify 4a9af96 >/dev/null 2>&1 || { echo "FATAL: 백업 커밋 4a9af96 확인 불가"; exit 1; }
 [ -f "$HOME/Ai_works_premigration_backup_20260711.tar.gz" ] || { echo "FATAL: tar 백업 확인 불가"; exit 1; }
-git -C "$ROOT" status --porcelain | grep -q . && { echo "FATAL: 워크트리에 미커밋 변경 있음 — 먼저 정리할 것"; exit 1; } || true
+git -C "$ROOT" status --porcelain -- output/DiA/ | grep -q . && { echo "FATAL: output/DiA/ 내부에 미커밋 변경 있음 — race 위험, 먼저 정리할 것"; exit 1; } || true
+echo "  (참고: 레포 전체가 아니라 output/DiA/ 스코프만 검사 — 무관 서브모듈 드리프트는 차단 대상 아님)"
 echo "OK: 백업·워크트리 확인 통과 (DRY_RUN=$DRY_RUN)"
 
 echo ""
@@ -44,13 +51,13 @@ echo ""
 echo "=== 2. 단순 이동(병합 없음) ==="
 for d in 리서치본부 마케팅본부 크리에이티브본부; do
   if [ -d "$SRC/$d" ]; then
-    run rsync -a --remove-source-files "$SRC/$d/" "$DST/$d/"
+    run rsync -a --remove-source-files --exclude=node_modules "$SRC/$d/" "$DST/$d/"
     run find "$SRC/$d" -type d -empty -delete
   fi
 done
 
 if [ "$MOVE_INTELLIGENCE" = "yes" ]; then
-  run rsync -a --remove-source-files "$SRC/인텔리전스/" "$DST/인텔리전스/"
+  run rsync -a --remove-source-files --exclude=node_modules "$SRC/인텔리전스/" "$DST/인텔리전스/"
   run find "$SRC/인텔리전스" -type d -empty -delete
 elif [ "$MOVE_INTELLIGENCE" = "ask" ]; then
   echo "SKIP(확인대기): 인텔리전스 — COO 지시 없음, MOVE_INTELLIGENCE=yes|no로 재실행 필요"
@@ -59,16 +66,16 @@ fi
 echo ""
 echo "=== 3. 병합 A: AI-Tech본부(+개발본부+AI_Tech본부 stub) -> AI-Tech본부 (정본명 유지) ==="
 run mkdir -p "$DST/AI-Tech본부"
-[ -d "$SRC/AI-Tech본부" ] && run rsync -a --remove-source-files "$SRC/AI-Tech본부/" "$DST/AI-Tech본부/"
-[ -d "$SRC/개발본부" ] && run rsync -a --remove-source-files "$SRC/개발본부/" "$DST/AI-Tech본부/"
-[ -d "$SRC/AI_Tech본부" ] && run rsync -a --remove-source-files "$SRC/AI_Tech본부/" "$DST/AI-Tech본부/"
+[ -d "$SRC/AI-Tech본부" ] && run rsync -a --remove-source-files --exclude=node_modules "$SRC/AI-Tech본부/" "$DST/AI-Tech본부/"
+[ -d "$SRC/개발본부" ] && run rsync -a --remove-source-files --exclude=node_modules "$SRC/개발본부/" "$DST/AI-Tech본부/"
+[ -d "$SRC/AI_Tech본부" ] && run rsync -a --remove-source-files --exclude=node_modules "$SRC/AI_Tech본부/" "$DST/AI-Tech본부/"
 run find "$SRC/AI-Tech본부" "$SRC/개발본부" "$SRC/AI_Tech본부" -type d -empty -delete 2>/dev/null || true
 
 echo ""
 echo "=== 4. 병합 B: 목회사역-디딤 + 목회사역본부 -> 목회사역 (정본명) ==="
 run mkdir -p "$DST/목회사역"
-[ -d "$SRC/목회사역-디딤" ] && run rsync -a --remove-source-files "$SRC/목회사역-디딤/" "$DST/목회사역/"
-[ -d "$SRC/목회사역본부" ] && run rsync -a --remove-source-files "$SRC/목회사역본부/" "$DST/목회사역/"
+[ -d "$SRC/목회사역-디딤" ] && run rsync -a --remove-source-files --exclude=node_modules "$SRC/목회사역-디딤/" "$DST/목회사역/"
+[ -d "$SRC/목회사역본부" ] && run rsync -a --remove-source-files --exclude=node_modules "$SRC/목회사역본부/" "$DST/목회사역/"
 run find "$SRC/목회사역-디딤" "$SRC/목회사역본부" -type d -empty -delete 2>/dev/null || true
 
 echo ""
