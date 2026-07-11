@@ -74,7 +74,7 @@ summon() { # $1=탭명 $2=기동명령 $3=부팅마커 $4=각성문 [$5=후속�
 SPLIT_DIR=right SPLIT_FROM=$CALLER summon "COO" \
   "claude --dangerously-skip-permissions --model claude-opus-4-8" \
   "bypass permissions" \
-  "[COO 각성 - master 주입] 너는 Wave AI Networks의 COO(운영총괄)다. 헌장 .claude/COO_DIRECTIVE.md(자동 로드)의 기동 방식 절대로 각성하라 - 엔진 계약 계승(.claude/_engine-snapshot/WORKER_DIRECTIVE.md 1회 필독) 포함. 복원: output/DiA/경영본부/_round/ 최신 COO 핸드오프 + _round/SESSION_STATE.md 재독. 보고 채널 = master pane(탭명 'CEO 관제타워' - cmux_addr.py로 해소). 각성 완료를 push 보고하라." \
+  "[COO 각성 - master 주입] 너는 Wave AI Networks의 COO(운영총괄)다. 헌장 .claude/COO_DIRECTIVE.md(자동 로드)의 기동 방식 절대로 각성하라 - 엔진 계약 계승(.claude/_engine-snapshot/WORKER_DIRECTIVE.md 1회 필독) 포함. 복원: output/WaveAI/경영본부/_round/ 최신 COO 핸드오프 + _round/SESSION_STATE.md 재독. 보고 채널 = master pane(탭명 'CEO 관제타워' - cmux_addr.py로 해소). 각성 완료를 push 보고하라." \
   "/fast"
 
 COO_SF=$(tab_exists "COO")

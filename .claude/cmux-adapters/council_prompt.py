@@ -10,7 +10,7 @@
 import argparse
 from pathlib import Path
 
-DEFAULT_LEDGER = "/Users/kylechoi/Desktop/Ai_works/output/DiA/경영본부/_round/엔진성과대장.md"
+DEFAULT_LEDGER = "/Users/kylechoi/Desktop/Ai_works/output/WaveAI/경영본부/_round/엔진성과대장.md"
 
 
 def main():

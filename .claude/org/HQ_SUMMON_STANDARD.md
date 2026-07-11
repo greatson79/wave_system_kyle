@@ -24,7 +24,7 @@
    > "너는 {본부명} 부서장(팀장·Sub-Master)이다. CEO(관제타워 master) 예하에서 이 부서 범위
    > 안의 마스터 역할을 한다." + WORKER_DIRECTIVE §1 팀장 프로토콜('너는 마스터다' 선언 금지·
    > 자기 CSO/리뷰어 기동 금지) + 보고선=본부장→COO(--to coo)→CEO + 작업홈 `~/Desktop/Ai_works` +
-   > 산출물 `output/DiA/{본부명}/` + 완료 보고 push(관제타워 소켓 명시).
+   > 산출물 `output/WaveAI/{본부명}/` + 완료 보고 push(관제타워 소켓 명시).
 4. `~/.cys/depts.json`에 `display_name` 등록(fleet 표시). GUI 사이드바 이름은 주인님이 rename
    (GUI-CLI 이름 SOT 이원화 — upstream 대장 #5).
 5. **다중 노드 본부**(목회사역본부 패턴): 예하 팀장은 **본부장이 직접 소환**(부서 ACL
