@@ -1,0 +1,74 @@
+# churchTeam SOT — 총괄팀장만 쓰기 가능
+# 나머지 모든 에이전트: 읽기 전용
+
+# AgenticWorkflow 표준 SOT 스키마 (부모 게놈 계약 — validate_sot_schema / _context_lib.py)
+# current_step: int >= 0 (S1) · outputs: dict, 키는 step-N | step-N-ko (S2/S3)
+workflow:
+  name: "churchTeam"
+  version: "1.0"
+  current_step: 0
+  status: "phase3-complete"
+  outputs: {}
+  parent_genome:
+    source: "AgenticWorkflow-Template/"
+
+churchteam:
+  version: "1.0"
+  active_phase: "phase3-complete"
+  last_updated: null
+
+  teams:
+    lead_orchestrator:
+      leader: 총괄팀장
+      members: [intent-interpreter, task-planner, team-router, response-synthesizer]
+      status: active
+    strategy_team:
+      leader: strategy-synthesizer
+      members: [theology-alignment, kingdom-vision, culture-generation-analyst, ai-ministry-innovation, scenario-planner]
+      status: active
+    planning_team:
+      leader: 기획팀장
+      members: [주간사역설계관, 메시지정렬관]
+      status: active
+    execution_team:
+      leader: 실행팀장
+      sub_teams:
+        word_team:
+          leader: 말씀팀장
+          members: [sermon-structure, gospel-application, small-group-builder]
+        education_team:
+          leader: 교육팀장
+          members: [student-coaching, parent-education, spiritual-growth-tracker]
+        content_team:
+          leader: 콘텐츠팀장
+          members: [sns-optimization, storytelling, visual-prompt]
+        operations_team:
+          leader: 운영팀장
+          members: [document-generator, data-tracker, event-planner]
+      status: active
+
+  pastor_data:
+    philosophy_path: "pastor/philosophy/"
+    annual_plans_path: "pastor/annual-plans/"
+    reference_path: "pastor/reference/"
+    annual_plan_exists: false
+    philosophy_exists: false
+
+  env_scan:
+    path: "~/Desktop/Ai_works/Vibe-Practice/EnvironmentScan-system-main-v4-main/output/"
+    last_read: null
+
+  health_signals:
+    lead_orchestrator: null
+    strategy_team: null
+    planning_team: null
+    execution_team: null
+    theology_filter: null
+    overall: null
+
+  retry_budgets:
+    theology_filter_loop: {used: 0, max: 5}
+    strategy_team: {used: 0, max: 3}
+
+  pastoral_decisions: []
+  last_user_card: null

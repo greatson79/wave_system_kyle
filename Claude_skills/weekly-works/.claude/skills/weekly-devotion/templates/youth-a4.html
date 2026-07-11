@@ -23,7 +23,8 @@
         }
         * { box-sizing: border-box; margin: 0; padding: 0; -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; }
         body { font-family: var(--font-main); background-color: #555; color: var(--text-primary); display: flex; justify-content: center; align-items: center; min-height: 100vh; padding: 40px; }
-        .page { width: 210mm; height: 297mm; background-color: var(--bg-paper); padding: 15mm 18mm; position: relative; box-shadow: 0 10px 30px rgba(0,0,0,0.3); display: flex; flex-direction: column; justify-content: space-between; border-radius: 5px; }
+        /* 페이지: A4 고정 아님 — 너비는 세로비율(portrait) 유지, 높이는 내용에 맞춰 가변 */
+        .page { width: 210mm; min-height: 297mm; height: auto; background-color: var(--bg-paper); padding: 15mm 18mm; position: relative; box-shadow: 0 10px 30px rgba(0,0,0,0.3); display: flex; flex-direction: column; justify-content: flex-start; border-radius: 5px; }
         header { display: flex; align-items: center; border-bottom: 3px solid var(--point-color); padding-bottom: 15px; margin-bottom: 20px; gap: 20px; }
         .header-logo img { height: 65px; width: auto; display: block; }
         .header-text { flex: 1; }
@@ -49,7 +50,7 @@
         .prayer-text { font-style: normal; }
         .prayer-end { text-align: right; font-weight: 800; margin-top: 15px; color: var(--point-color); }
         footer { margin-top: 10px; padding-top: 10px; border-top: 1px solid var(--border-color); font-size: 9pt; color: #78909c; text-align: center; font-weight: 600; }
-        @media print { body { background: none; padding: 0; margin: 0; display: block; } .page { width: 100%; height: 100%; margin: 0; box-shadow: none; border: none; border-radius: 0; page-break-after: always; padding: 10mm 15mm; } header { border-bottom: 2px solid var(--point-color); } }
+        @media print { body { background: none; padding: 0; margin: 0; display: block; } .page { width: 100%; min-height: auto; height: auto; margin: 0; box-shadow: none; border: none; border-radius: 0; page-break-after: always; padding: 10mm 15mm; } header { border-bottom: 2px solid var(--point-color); } }
     </style>
 </head>
 <body>

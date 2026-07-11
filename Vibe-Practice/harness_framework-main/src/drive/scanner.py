@@ -1,6 +1,9 @@
 """wave_수강신청 폴더 스캔, 파일 목록 반환."""
 
+import logging
 from pathlib import Path
+
+logger = logging.getLogger(__name__)
 
 from src.config import SCAN_FOLDER_NAME, TEMP_DIR
 from src.drive.client import DriveClient
@@ -33,12 +36,23 @@ class DriveScanner:
         results: list[dict] = []
         for file in target_files:
             dest = TEMP_DIR / f"{file['id']}.xlsx"
+
+            if dest.exists():
+                results.append({
+                    "file_id": file["id"],
+                    "name": file["name"],
+                    "mime_type": file["mimeType"],
+                    "local_path": dest,
+                })
+                logger.debug("캐시 사용: %s", file["name"])
+                continue
+
             try:
                 local_path = self._client.download_as_xlsx(file["id"], dest)
                 results.append(
                     {
                         "file_id": file["id"],
-                        "file_name": file["name"],
+                        "name": file["name"],
                         "mime_type": file["mimeType"],
                         "local_path": local_path,
                     }

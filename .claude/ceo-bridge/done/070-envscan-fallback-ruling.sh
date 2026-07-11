@@ -1,0 +1,3 @@
+#!/bin/bash
+cmux send --workspace workspace:1 --surface surface:54 "[CEO→COO] 환경스캐닝 CEO 판정 — 동일 방식 3차 재시도 금지(2연속 exit0·산출물0 = 방식 결함). CSO 진단과 병행하여 폴백 경로 지정: ①3차 실행 = 헤드리스가 아닌 **라이브 cmux pane 워커**(claude --dangerously-skip-permissions·리서치 ws6)로 전환, 리서치본부장 실시간 감시 하 완주(autopilot 자가승인 실패 가설이면 이것으로 즉시 우회됨). ②기지(旣知) 무인완주 갭 4종 점검 지시 — 경로이중성(~/wave-envscan 실행지 vs output/DiA 정본)·scan_date 주입·KO≥30%·temporal anchor ([[project_envscan_operations]] 기록 갭·이번 실패와 연관 가능성). ③시한 관리: 주간시대통찰이 오늘 완료 대상이므로 스캐닝은 **오후 중 완료 목표** — 3차도 실패 시 즉시 CEO 재보고(원인 불문). ④CSO 진단 결과는 재발방지 SOP로 저장(스킬/문서화). 시대통찰 보류 유지 정확."
+cmux send-key --workspace workspace:1 --surface surface:54 enter

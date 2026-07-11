@@ -9,9 +9,14 @@ from google_auth_oauthlib.flow import InstalledAppFlow
 from googleapiclient.discovery import build
 from googleapiclient.http import MediaFileUpload, MediaIoBaseDownload
 
-from src.config import CREDENTIALS_FILE, SCOPES, TEMP_DIR, TOKEN_FILE
+from src.config import CREDENTIALS_FILE, OUTPUT_FOLDER_PATH, SCOPES, TEMP_DIR, TOKEN_FILE
 from src.utils.constants import FOLDER_MIME, GSHEET_MIME, XLSX_MIME
 from src.utils.error_handler import Severity, log_error
+
+
+def _escape_drive_query(value: str) -> str:
+    """Drive API 쿼리 값에서 특수문자 이스케이프."""
+    return value.replace("\\", "\\\\").replace("'", "\\'")
 
 
 class DriveClient:
@@ -50,7 +55,7 @@ class DriveClient:
 
     def find_folder(self, name: str) -> str | None:
         query = (
-            f"name = '{name}' and mimeType = '{FOLDER_MIME}' and trashed = false"
+            f"name = '{_escape_drive_query(name)}' and mimeType = '{FOLDER_MIME}' and trashed = false"
         )
         result = (
             self._service.files()
@@ -68,7 +73,7 @@ class DriveClient:
             params: dict = {
                 "q": f"'{folder_id}' in parents and trashed = false",
                 "fields": "nextPageToken, files(id, name, mimeType)",
-                "pageSize": 100,
+                "pageSize": 1000,
             }
             if page_token:
                 params["pageToken"] = page_token
@@ -104,7 +109,9 @@ class DriveClient:
         dest_path.write_bytes(buffer.getvalue())
         return dest_path
 
-    def upload_file(self, local_path: Path, folder_id: str, name: str) -> str:
+    def upload_file(self, local_path: Path, folder_id: str | None = None, name: str | None = None) -> str:
+        folder_id = folder_id or self.find_or_create_folder(OUTPUT_FOLDER_PATH)
+        name = name or local_path.name
         file_metadata = {"name": name, "parents": [folder_id]}
         media = MediaFileUpload(str(local_path), resumable=True)
         uploaded = (
@@ -120,7 +127,7 @@ class DriveClient:
 
         for part in parts:
             query = (
-                f"name = '{part}' and mimeType = '{FOLDER_MIME}' "
+                f"name = '{_escape_drive_query(part)}' and mimeType = '{FOLDER_MIME}' "
                 f"and '{parent_id}' in parents and trashed = false"
             )
             result = (

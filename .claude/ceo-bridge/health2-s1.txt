@@ -1,0 +1,13 @@
+• Ran cmux send --workspace workspace:1 --surface
+  │ surface:54 "[s��COO] 통신점검 pong 1+1=2" && cmux
+  │ send-key --workspace workspace:1 --surface
+  │ … +1 lines
+  └ OK surface:54 workspace:1
+    OK surface:54 workspace:1
+
+──────────────────────────────────────────────────────────
+
+ 
+› Write tests for @filename
+ 
+  gpt-5.5 medium · ~/Desktop/Ai_works

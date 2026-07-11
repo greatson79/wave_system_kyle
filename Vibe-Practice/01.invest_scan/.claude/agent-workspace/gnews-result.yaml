@@ -1,0 +1,523 @@
+signals:
+- confidence: 0.7
+  date: '2026-05-09'
+  psst_score: 43.0
+  sector: technology
+  source: Maeil Business Newspaper
+  steeps_category: Se
+  summary: '테니스, 러닝, 발레코어에 이어 골프코어까지.
+
+    최근 골프웨어의 일상복화가 패션 시장의 트렌드로 주목받고 있다. 과거 중장년층 중심의 스포츠웨어로 인식됐던 골프복이 기능성과 디자인, 또 다양한
+    소재를 앞세워 일상복 경계를 허물고 있다. 비록 골프 인구 증가세는 둔화하고 있더라도 프리미엄 캐쥬얼웨어로 거듭나며 침체된 골프웨어 시장의
+    새 돌파구로 주목받는 모습이'
+  title: “김 과장, 바로 골프치러 가?”...필드서 입던 그 옷, 요즘 출근룩도 가능 - 매일경제
+  url: https://www.mk.co.kr/news/business/12042392
+- confidence: 0.7
+  date: '2026-05-09'
+  psst_score: 40.13999938964844
+  sector: financials
+  source: Maeil Business Newspaper
+  steeps_category: P
+  summary: '朴 26%, 韓 25%...오차범위 內서 접전
+
+    단일화 여부에 쏠리는 눈...‘완주’에 무게
+
+    6·3 지방선거와 함께 치러질 부산 북구갑 국회의원 보궐선거에서 가장 큰 변수는 박민식 국민의힘 후보와 한동훈 무소속 후보 간 단일화 여부다.
+    두 후보 모두 단일화에 선을 그은 가운데 하정우 더불어민주당 후보가 선두를 달린다는 여론조사 결과가 나와 정치권의 이목이 쏠'
+  title: 하정우 선두 달리는 부산 북갑...한동훈·박민식 막판 단일화 이뤄질까 - 매일경제
+  url: https://www.mk.co.kr/news/politics/12042391
+- confidence: 0.7
+  date: '2026-05-09'
+  psst_score: 34.83000183105469
+  sector: financials
+  source: Maeil Business Newspaper
+  steeps_category: P
+  summary: 'Key Points
+
+    -
+
+    미국의 호르무즈 해협 봉쇄로 물류난을 겪던 이란과 러시아가 카스피해를 새로운 물자 수송로로 활용하며 제재와 전쟁 속에서도 버틸 수 있는 동력을
+    얻고 있어요 🤝.
+
+    -
+
+    이란은 카스피해 연안 항구를 24시간 가동해 필수 식료품뿐만 아니라 러시아로부터 드론 부품과 같은 군사 물자까지 공급받고 있으며, 이는 장기전에도
+    이란이 무기고를 재건할 '
+  title: 호르무즈 막힌 이란, 믿는 구석 있었구나...미국 건드리지 못한다는데 - 매일경제
+  url: https://www.mk.co.kr/news/world/12042386
+- confidence: 0.7
+  date: '2026-05-09'
+  psst_score: 35.81999969482422
+  sector: technology
+  source: Maeil Business Newspaper
+  steeps_category: Se
+  summary: 'Key Points
+
+    -
+
+    연세대 졸업생 콜린스 씨와 김동혁 씨가 2019년부터 케냐 부루부루 스포츠 FC에 축구 용품을 기증하기 시작하며 1만km 떨어진 두 나라 사이에
+    훈훈한 우정을 쌓고 있어요. 🌍✨
+
+    -
+
+    단순한 물품 전달을 넘어, 축구를 사랑하는 마음으로 뭉친 동문들과 동아리, 심지어 기업과 모교인 연세대학교까지 후원에 동참하며 나눔의 의미가
+    더욱 커지고'
+  title: 케냐 축구팀이 왜 연세대 유니폼 입냐고요?...1만km 이어진 우정 [톡톡에듀] - 매일경제
+  url: https://www.mk.co.kr/news/society/12042385
+- confidence: 0.7
+  date: '2026-05-09'
+  psst_score: 36.130001068115234
+  sector: financials
+  source: Maeil Business Newspaper
+  steeps_category: P
+  summary: 'Key Points
+
+    -
+
+    AI 기술의 발전으로 글의 완성도가 지나치게 높아지면 오히려 AI가 쓴 것이 아닌가 하는 의심을 받게 되어, 작가들이 의도적으로 어색한 문장이나
+    오타를 넣어 ''사람''이 쓴 글임을 증명하고 있어요. 📝
+
+    -
+
+    전문가들은 AI 글쓰기 시대의 이러한 현상을 ''새 시대의 매카시즘''에 비유하며, 기계의 도움을 받지 않았다는 것을 보여주기 위해 글'
+  title: “실화냐!!!!!” 이 정도는 써야 사람 작가 인증...AI 시대 달라진 글쓰기 - 매일경제
+  url: https://www.mk.co.kr/news/world/12042384
+- confidence: 0.5
+  date: '2026-05-09'
+  psst_score: 37.11000061035156
+  sector: technology
+  source: Maeil Business Newspaper
+  steeps_category: Se
+  summary: '남 “이성 만날 시간 여유 없어서”
+
+    여 “검증된 상대 만나기 위해서”
+
+    “이젠 여성의 외모만 보지 않아요. 능력이나 직업도 매우 중요한 요소죠”
+
+    최근 결혼 적령기에 들어선 2030 세대들은 선호하는 이상형이 과거보다 더 현실적이고 구체적으로 변한 것으로 나타났다.
+
+    결혼정보회사 가연에 따르면, 과거 남성은 외모, 여성은 경제력을 우선시한다는 공식이 있었다면, '
+  title: “누나도 좋아요”“키 큰 두부상 선호”...결정사 찾는 요즘 2030의 이상형 - 매일경제
+  url: https://www.mk.co.kr/news/society/12042382
+- confidence: 0.7
+  date: '2026-05-09'
+  psst_score: 37.0
+  sector: consumer
+  source: Maeil Business Newspaper
+  steeps_category: S
+  summary: '로또복권 운영사 동행복권은 제1223회 로또복권 추첨에서 ‘16, 18, 20, 32, 33, 39’가 1등 당첨번호로 뽑혔다고
+    9일 밝혔다.
+
+    2등 보너스 번호는 ‘26’이다. 당첨번호 6개를 모두 맞힌 1등 당첨자는 16명으로 18억5755만원씩 받는다.
+
+    당첨번호 5개와 보너스 번호가 일치한 2등은 103명으로 각 4809만원씩을, 당첨번호 5개를 맞힌 '
+  title: 로또 1등 16명, 18억6천만원씩...‘16, 18, 20, 32, 33, 39’ - 매일경제
+  url: https://www.mk.co.kr/news/society/12042381
+- confidence: 0.7
+  date: '2026-05-09'
+  psst_score: 36.970001220703125
+  sector: financials
+  source: Maeil Business Newspaper
+  steeps_category: E
+  summary: 'Key Points
+
+    -
+
+    일본의 인기 유튜버 커플 ''나코타코''(코쿤, 나고미)가 9년 열애 끝에 결혼 2년 만에 이혼 소식을 전했어요. 😔
+
+    -
+
+    두 사람은 각자의 성장과 새로운 도전을 위해 별도의 길을 걷기로 결정했다고 밝히며, 서로에 대한 감사함과 앞으로의 응원을 당부했어요. 🙏
+
+    -
+
+    2019년부터 커플 채널로 약 150만 명의 구독자를 모으며 큰 사랑을 받았'
+  title: 9년 열애, 결혼했는데 2년만에 파경...이혼 소식 전한 日 스타 커플 - 매일경제
+  url: https://www.mk.co.kr/news/world/12042380
+- confidence: 0.7
+  date: '2026-05-09'
+  psst_score: 39.27000045776367
+  sector: technology
+  source: Maeil Business Newspaper
+  steeps_category: Se
+  summary: '‘대중교통계 혜자카드’에 연회비까지 없앤 BC카드
+
+    신한카드, 도서관 조성 등 군장병 복지지원
+
+    중동 사태에 따른 고물가·고유가 등으로 국민 부담이 커지는 가운데, 카드사들이 고객 부담 완화를 위한 포용금융 행보를 확대하고 있어 주목된다.
+
+    대표적인 고정지출인 교통비·관리비부터 군장병 복지 지원에 이르기까지 생활 밀착형 혜택이 다양화되는 모습이다.
+
+    8일 업계에 '
+  title: 고물가·고유가 속 맞춤형 포용금융 나선 카드사들 - 매일경제
+  url: https://www.mk.co.kr/news/economy/12042378
+- confidence: 0.7
+  date: '2026-05-09'
+  psst_score: 35.79999923706055
+  sector: financials
+  source: Maeil Business Newspaper
+  steeps_category: P
+  summary: 'Key Points
+
+    -
+
+    2026년 5월 9일, 러시아 전승절 기념 군사 열병식에 북한군이 처음으로 참가하며 국제 사회의 이목을 집중시켰어요. 🇷🇺🇰🇵
+
+    -
+
+    이 행진은 우크라이나 전쟁에 병력을 지원한 북한에 대한 러시아의 ''예우''이자, 양국의 ''전략적 동반자·동맹 관계''를 강조하는 의미를
+    담고 있어요. 🤝
+
+    -
+
+    북한군이 붉은 광장에서 행진하는 모습은 2024년 '
+  title: 지금까지 이런 적은 없었다...러시아 붉은 광장에 등장한 북한군, 왜? - 매일경제
+  url: https://www.mk.co.kr/news/world/12042377
+- confidence: 0.7
+  date: '2026-05-09'
+  psst_score: 32.869998931884766
+  sector: financials
+  source: Korea Economic Daily
+  steeps_category: E
+  summary: '투자상품
+
+    -
+
+    상가 임대료 얼마나 올릴 수 있을까...건물주·세입자 실전 가이드 [한경부동산밸류업센터]
+
+    안녕하세요. 여러분의 부동산 주치의 배준형 수석전문위원입니다.이번 칼럼에서는 밸류업센터에 실제로 접수된 상담 사례를 바탕으로 상가 임대료 인상
+    과정에서 가장 자주 발생하는 법적 쟁점과 협의 방법을 정리해 보겠습니다. 상가 임대료 인상은 단순한 금액 조정 문'
+  title: 집코노미 투자상품 뉴스 | 한국경제
+  url: https://www.hankyung.com/realestate/news-commercial
+- confidence: 0.7
+  date: '2026-05-09'
+  psst_score: 35.63999938964844
+  sector: technology
+  source: Maeil Business Newspaper
+  steeps_category: En
+  summary: 'Key Points
+
+    -
+
+    2026년 5월, 필리핀은 비아 밀란-윈도스키를 새로운 미스 유니버스 후보로 선정하며 화제를 모았어요. 🇵🇭✨
+
+    -
+
+    윈도스키는 필리핀계 미국인으로 위스콘신에서 자라 미국 대학에서 역사와 국제 관계학을 전공했으며, 이는 그녀의 필리핀 대표 자격을 두고 일부
+    논란을 불러일으키고 있어요. 🤔🇺🇸
+
+    -
+
+    그녀는 ''필리핀 국민의 무한한 잠재력을 믿'
+  title: 미국인인데 미스 필리핀에 뽑히다니...미인대회 우승자 자격 논란 - 매일경제
+  url: https://www.mk.co.kr/news/world/12042374
+- confidence: 0.7
+  date: '2026-05-09'
+  psst_score: 38.52000045776367
+  sector: financials
+  source: Maeil Business Newspaper
+  steeps_category: E
+  summary: '최근 여야 대표를 향한 민심 동향 조사 결과가 심상치 않다. 정청래 더불어민주당 대표와 장동혁 국민의힘 대표 모두 각 당 지지층에서는
+    일정 수준 지지를 받았지만, 전체 여론에선 거취를 둘러싼 부정 평가가 만만치 않은 것으로 나타났다.
+
+    최근 양당 지도부는 6·3 지방선거와 국회의원 재보궐선거를 앞두고 민심잡기에 한창이다. 민주당은 ‘내란 청산’을 전면에 내걸'
+  title: 여야 대표 거취 민심에 물어보니...정청래 연임 반대 45%, 장동혁 사퇴 42% - 매일경제
+  url: https://www.mk.co.kr/news/politics/12042372
+- confidence: 0.7
+  date: '2026-05-09'
+  psst_score: 35.619998931884766
+  sector: financials
+  source: Korea Economic Daily
+  steeps_category: E
+  summary: '"5억이던 아파트가 13억"...강남까지 20분이면 가요 [철길옆집]
+
+    "GTX 들어오니 신세계 열려"...GTX 만족도 높아
+
+    강남까지 20분대 교통 혁명...잠자던 일산 ''기지개''
+
+    ''킨텍스원시티'' 국평 13억원대 안착하며 시세 견인
+
+    "GTX-A 노선 전 구간 개통 시 파급력 커질 것"
+
+    강남까지 20분대 교통 혁명...잠자던 일산 ''기지개''
+
+    ''킨텍스원시티'' '
+  title: '"5억이던 아파트가 13억"...강남까지 20분이면 가요 [철길옆집]'
+  url: https://www.hankyung.com/article/2026050834156
+- confidence: 0.7
+  date: '2026-05-09'
+  psst_score: 32.72999954223633
+  sector: financials
+  source: Maeil Business Newspaper
+  steeps_category: P
+  summary: 'Key Points
+
+    -
+
+    중국 여성이 유명 밀크티 체인점에서 음료에 수은이 섞여 나왔다고 주장했지만, 조사 결과 남자친구가 넣은 것으로 밝혀졌어요. ☕️
+
+    -
+
+    여성은 지난 4월 27일 남자친구가 사준 밀크티에서 이상한 알갱이를 발견하고 수은 중독을 의심하며 찻집에 항의했지만, 찻집 측은 생산 과정의
+    문제가 아니라고 주장했어요. 😠
+
+    -
+
+    사건 조사에 나선 공무원들'
+  title: “찻집 잘못인 줄 알았는데”...여성 음료에 수은 탄 범인의 정체 ‘경악’ - 매일경제
+  url: https://www.mk.co.kr/news/world/12042368
+- confidence: 0.7
+  date: '2026-05-09'
+  psst_score: 32.52000045776367
+  sector: technology
+  source: Korea Economic Daily
+  steeps_category: T
+  summary: '"이란 무기 생산 지원"...트럼프 방중 앞두고 美, 中기업 제재
+
+    도널드 트럼프 미국 대통령의 방중을 앞두고 미국 정부가 이란 군수 산업을 지원한 중국·홍콩 기업 등을 제재했다. 미중 정상회담을 앞둔 시점에
+    중국의 대이란 지원 문제가 다시 양국 갈등 변수로 떠오르는 모습이다.
+
+    8일(현지시간) 로이터통신과 뉴욕타임스 등 외신에 따르면 미국 재무부는 이란의 무'
+  title: '"이란 무기 생산 지원"...트럼프 방중 앞두고 美, 中기업 제재'
+  url: https://www.hankyung.com/article/2026050955857
+- confidence: 0.7
+  date: '2026-05-08'
+  psst_score: 33.689998626708984
+  sector: financials
+  source: Korea Economic Daily
+  steeps_category: P
+  summary: "서울 아파트가 7000만원 | 총총견문록\n전용면적 59m2 기준으로 서울에서 가장 저렴한 아파트가 어디인지 총총견문록에서 알려드렸었죠☺️\
+    \ 그렇다면.. 모든 면적대를 통틀어 서울에서 가장 낮은 가격에 실거래된 단지는 어디일까요. 이 단지에 숨은 독특한 사연까지 총총 담아왔습니다.\n\
+    전형진 기자 \nADVERTISEMENT\n전용면적 59m2 기준으로 서울에서 가장"
+  title: 서울 아파트가 7000만원 | 총총견문록
+  url: https://www.hankyung.com/article/202605085081i
+- confidence: 0.7
+  date: '2026-05-09'
+  psst_score: 38.86000061035156
+  sector: financials
+  source: Maeil Business Newspaper
+  steeps_category: E
+  summary: '하와이안항공 합병·국제선 운영 노하우도
+
+    한식 기내식·한국어 구사 승무원 배치 진행
+
+    네트워크 확장·브랜드 인지도 제고에 집중
+
+    인천에서 미국 시애틀로 향하는 하늘길에 새로운 바람이 불고 있다.
+
+    미국 서부 지역 항공사라는 오랜 꼬리표를 떼어내고, 과감한 국제선 확장과 서비스 개편으로 글로벌 네트워크 항공사로 거듭난 알래스카항공이 그
+    주인공이다. 알래스카항공은 하'
+  title: 美 서부 넘어 韓·유럽까지 진출...지역 항공사 꼬리표 뗀 알래스카항공 [여행人터뷰] - 매일경제
+  url: https://www.mk.co.kr/news/culture/12042367
+- confidence: 0.7
+  date: '2026-05-09'
+  psst_score: 35.970001220703125
+  sector: technology
+  source: Korea Economic Daily
+  steeps_category: En
+  summary: '7년 만에 열린 주중대사관저...''작은 한국'' 재현에 1000여명 ''북적'' [차이나 워치]
+
+    어린이날 기념 주중한국대사관, 오픈 하우스 개최
+
+    전통 놀이·한국 음식 체험 프로그램 줄이어
+
+    노재헌 대사, 직접 음식 제공하며 행사 이끌어
+
+    전통 놀이·한국 음식 체험 프로그램 줄이어
+
+    노재헌 대사, 직접 음식 제공하며 행사 이끌어
+
+    "정말 궁금했는데 너무 좋아요. 건물도 '
+  title: 7년 만에 열린 주중대사관저...'작은 한국' 재현에 1000여명 '북적' [차이나 워치]
+  url: https://www.hankyung.com/article/202605084638i
+- confidence: 0.5
+  date: '2026-05-09'
+  psst_score: 35.619998931884766
+  sector: technology
+  source: Maeil Business Newspaper
+  steeps_category: T
+  summary: '귀신 성지순례 예산군 ‘살목지’
+
+    영화따라 가는 스크린 투어리즘
+
+    영화 ‘기리고’와 ‘살목지’. 최근 흥행에 성공한 두 작품 사이에는 공통점이 있다. 하나는 많은 이들의 등골을 서늘하게 만든 공포물이라는 점.
+    또 하나는 모두 충남과 연결돼 있다는 점이다.
+
+    최근 충남이 영화·드라마 업계에서 새로운 ‘호러 배경지’로 주목받고 있다.
+
+    지난달 24일 공개한 넷플릭스 '
+  title: 충남이 무서워?!... ‘기리고’ ‘살목지’ 흥행에 뜨는 호러 배경지 - 매일경제
+  url: https://www.mk.co.kr/news/culture/12042366
+- confidence: 0.7
+  date: '2026-05-09'
+  psst_score: 38.849998474121094
+  sector: technology
+  source: Korea Economic Daily
+  steeps_category: Se
+  summary: '호르무즈 막히자...이란·러시아 카스피해 ''뒷거래'' 부상
+
+    미국과의 전쟁 여파로 호르무즈 해협이 봉쇄되자, 카스피해가 이란의 새로운 전략적 물자 수송로로 급부상하고 있다는 분석이 나왔다.
+
+    뉴욕타임스(NYT)는 8일(현지 시간) 카스피해가 서방의 제재와 전쟁이라는 공통 분모를 가진 이란과 러시아 사이의 핵심 무역 통로 역할을 하고
+    있다고 보도했다. 그동안 러시'
+  title: 호르무즈 막히자...이란·러시아 카스피해 '뒷거래' 부상
+  url: https://www.hankyung.com/article/2026050958167
+- confidence: 0.7
+  date: '2026-05-09'
+  psst_score: 31.420000076293945
+  sector: technology
+  source: Korea Economic Daily
+  steeps_category: En
+  summary: '안규백, 내일 방미...한미 국방장관 회담서 전작권 등 논의
+
+    전시작전통제권 전환과 핵추진잠수함 건조 협력 등 한미 간 안보 현안이 쌓인 가운데 안규백 국방부 장관이 미국을 찾는다. 지난해 7월 취임 이후
+    첫 방미다.
+
+    국방부는 안 장관이 오는 10일부터 14일까지 미국을 방문한다고 9일 밝혔다. 안 장관은 11일(현지시간) 워싱턴D.C.에서 피트 헤그세스
+    미'
+  title: 안규백, 내일 방미...한미 국방장관 회담서 전작권 등 논의
+  url: https://www.hankyung.com/article/2026050955697
+- confidence: 0.7
+  date: '2026-05-09'
+  psst_score: 36.900001525878906
+  sector: technology
+  source: Maeil Business Newspaper
+  steeps_category: T
+  summary: '경찰 “층간소음 범행 추정...구속영장 신청 방침”
+
+    대구 서부경찰서는 이웃을 흉기로 살해한 혐의로 A(20대)씨를 붙잡아 조사 중이라고 9일 밝혔다.
+
+    경찰에 따르면 A씨는 이날 오전 10시40분께 대구 서구 자신이 사는 아파트 엘리베이터 안에서 마주친 위층 이웃 주민 B(50대)씨를 흉기로
+    살해한 혐의를 받는다.
+
+    경찰은 아파트 관계자의 신고를 받고 출동해 '
+  title: 엘리베이터 안에서 위층 이웃 마주치자 20대가 한 짓 ‘충격’ - 매일경제
+  url: https://www.mk.co.kr/news/society/12042365
+- confidence: 0.7
+  date: '2026-05-08'
+  psst_score: 31.469999313354492
+  sector: technology
+  source: Korea Economic Daily
+  steeps_category: Se
+  summary: '한미, 조선협력 강화 MOU 체결...''마스가'' 탄력 받을지 주목
+
+    한미 ''조선파트너십 이니셔티브'' 업무협약 체결
+
+    연내 워싱턴DC에 한미조선파트너십센터 설립 예정
+
+    한미 조선협력 ''마스가'' 탄력받을지 주목
+
+    연내 워싱턴DC에 한미조선파트너십센터 설립 예정
+
+    한미 조선협력 ''마스가'' 탄력받을지 주목
+
+    한국과 미국이 조선 분야 협력을 확대한다. 양국이 추진 중인 ''마스'
+  title: 한미, 조선협력 강화 MOU 체결...'마스가' 탄력 받을지 주목
+  url: https://www.hankyung.com/article/2026050953487
+- confidence: 0.7
+  date: '2026-05-09'
+  psst_score: 40.2599983215332
+  sector: financials
+  source: Maeil Business Newspaper
+  steeps_category: E
+  summary: '확진자 사망에 시민들 불안 호소
+
+    ‘쥐 방제 실패했나’ 정치권 공방도
+
+    대만에서 최근 한타바이러스 감염 사례가 잇따르는 가운데, 타이중과 타이베이 등 도심 곳곳에서 쥐떼가 출몰했다는 신고가 이어지며 시민들의 불안감이
+    커지고 있다.
+
+    7일(현지시간) 자유시보 등 대만 현지 언론에 따르면 전날 오후 7시께 대만 타이중시 타이핑구 환중둥로의 한 대형마트 앞에서 쥐떼가'
+  title: “한타 바이러스 공포 커지는데, 쥐떼가”...대만서 ‘쥐 출몰’ 영상 확산 - 매일경제
+  url: https://www.mk.co.kr/news/world/12042362
+- confidence: 0.7
+  date: '2026-05-09'
+  psst_score: 37.15999984741211
+  sector: financials
+  source: Korea Economic Daily
+  steeps_category: E
+  summary: '북한군, 러시아 붉은광장서 행진...전승절 열병식 첫 참여(종합)
+
+    서방 언론들 "우크라전 참전 北군인들 퍼레이드 참여"
+
+    러 하원 국제문제위원장 "북한군 헌신적으로 싸워...진정한 전우애" 러시아가 제2차 세계대전 승리를 기념하는 전승절(5월 9일) 군사 행진에
+    북한군 부대가 처음으로 참여한 것으로 확인됐다.
+
+    러시아 관영 타스 통신은 9일 소셜미디어에 북한군'
+  title: 북한군, 러시아 붉은광장서 행진...전승절 열병식 첫 참여(종합)
+  url: https://www.hankyung.com/article/202605095786Y
+- confidence: 0.7
+  date: '2026-05-09'
+  psst_score: 38.29999923706055
+  sector: technology
+  source: Maeil Business Newspaper
+  steeps_category: Se
+  summary: '부캐 ‘댕이 아빠’로 활동해온 배우 조정석이 유트브 채널 ‘청계산댕이레코즈’를 내려놓겠다고 밝혔다.
+
+    8일 유튜브 채널 ‘청계산댕이레코즈’에는 “이 채널을 내려놓기로 결정했습니다”라는 제목의 영상이 공개됐다.
+
+    영상 속 조정석은 “오랜만에 인사드리는데 무거운 이야기를 전하려고 한다”며 “오늘부로 제 삶의 큰 부분이었던 이 채널을 내려놓기로 결정했다”고
+    조심스럽'
+  title: “무거운 이야기 하려 한다”...안타까운 소식 전한 배우 조정석, 무슨일이 - 매일경제
+  url: https://www.mk.co.kr/news/culture/12042356
+- confidence: 0.7
+  date: NaT
+  psst_score: 100.0
+  sector: financials
+  source: Korea Economic Daily
+  steeps_category: E
+  summary: 고수들의 자산 컨설팅 | 한국경제
+  title: 고수들의 자산 컨설팅 | 한국경제
+  url: https://www.hankyung.com/premium9/0107002
+- confidence: 0.7
+  date: '2026-05-09'
+  psst_score: 30.790000915527344
+  sector: technology
+  source: Korea Economic Daily
+  steeps_category: Se
+  summary: '-
+
+    기사 스크랩
+
+    -
+
+    댓글
+
+    -
+
+    공유
+
+    -
+
+    글자크기
+
+    -
+
+    프린트
+
+    이혼 후 대규모 자산을 보유하게 된 40대 여성이 시장 변동성 속에서 원금 보존과 안정적 수익 확보, 세금 관리를 위해 안전자산 70%와 성장자산
+    30%로 구성된 다각적인 포트폴리오를 구축하여 자산 안정화를 꾀했습니다.
+
+    안전자산 70%로 변동성부터 낮췄다
+
+    자산 급증 후 첫 고민 ‘운용 전략’
+
+    안전자산'
+  title: '"이혼 후 현금 ''50억'' 생겼는데"... 40대의 투자 전략은'
+  url: https://www.hankyung.com/article/202604309056i
+- confidence: 0.7
+  date: '2026-05-09'
+  psst_score: 33.61000061035156
+  sector: consumer
+  source: Maeil Business Newspaper
+  steeps_category: S
+  summary: '가수 유열이 죽음의 문턱에서 마지막 글을 썼다.
+
+    tvN ‘유 퀴즈 온 더 블럭’ 측은 9일 선공개 영상에서 유열이 지난 2024년 8월1일 새벽에 작성한 유언장을 공개했다.
+
+    유언장에는 남아 있을 가족들에 대한 애틋한 마음이 담겼다.
+
+    아내를 향해서는 “만일 하늘나라에 가게 된다면 모든 게 감사였다고 전해달라”고 적었다. 또 어린 아들에게는 “약속한 일들을 못'
+  title: “만일 하늘 나라 간다면”...죽음문턱서 돌아온 유열이 공개한 유언장 - 매일경제
+  url: https://www.mk.co.kr/news/culture/12042354
+status: completed

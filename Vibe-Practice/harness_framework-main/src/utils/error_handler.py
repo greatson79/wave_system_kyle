@@ -1,6 +1,7 @@
 """에러 분류 및 로깅."""
 
 import logging
+import os
 import sys
 from collections.abc import Callable
 from enum import Enum
@@ -10,8 +11,10 @@ from typing import Any, TypeVar
 LOG_DIR = Path(__file__).parent.parent.parent / "logs"
 LOG_DIR.mkdir(exist_ok=True)
 
+_LOG_LEVEL = logging.DEBUG if os.environ.get("WAVE_DEBUG") == "1" else logging.INFO
+
 logging.basicConfig(
-    level=logging.DEBUG,
+    level=_LOG_LEVEL,
     format="%(asctime)s [%(levelname)s] %(name)s: %(message)s",
     handlers=[
         logging.StreamHandler(sys.stdout),

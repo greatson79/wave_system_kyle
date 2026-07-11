@@ -1,0 +1,67 @@
+{
+  "totalFrames": 1796,
+  "totalDurationSec": 59.86666666666667,
+  "fps": 30,
+  "scenes": [
+    {
+      "id": "hook",
+      "label": "요한일서 3:16-18",
+      "text": "사랑한다 말하면서|왜 움직이지 않을까요?",
+      "color": "#ffffff",
+      "fromFrame": 0,
+      "durationInFrames": 136,
+      "audioFile": "scene-audio/scene_00_hook.mp3",
+      "durationSec": 4.536
+    },
+    {
+      "id": "msg1",
+      "label": "우리의 현실",
+      "text": "느꼈습니다\n그런데 닫았습니다",
+      "color": "#aaaaaa",
+      "fromFrame": 136,
+      "durationInFrames": 414,
+      "audioFile": "scene-audio/scene_01_msg1.mp3",
+      "durationSec": 13.8
+    },
+    {
+      "id": "msg2",
+      "label": "복음의 근거",
+      "text": "그리스도께서\n먼저 내어놓으셨습니다",
+      "color": "#ffffff",
+      "fromFrame": 550,
+      "durationInFrames": 429,
+      "audioFile": "scene-audio/scene_02_msg2.mp3",
+      "durationSec": 14.304
+    },
+    {
+      "id": "msg3",
+      "label": "오늘의 선언",
+      "text": "진짜 사랑은\n비용이 듭니다",
+      "color": "#e8c547",
+      "fromFrame": 979,
+      "durationInFrames": 239,
+      "audioFile": "scene-audio/scene_03_msg3.mp3",
+      "durationSec": 7.992
+    },
+    {
+      "id": "msg4",
+      "label": "오늘의 초청",
+      "text": "스마트폰을 내려놓고\n먼저 물어보세요\n'오늘 어땠어?'",
+      "color": "#ffffff",
+      "fromFrame": 1218,
+      "durationInFrames": 472,
+      "audioFile": "scene-audio/scene_04_msg4.mp3",
+      "durationSec": 15.744
+    },
+    {
+      "id": "cta",
+      "label": "CTA",
+      "text": "디딤교회|오늘 예배에서\\n함께 만나요|2026.05.03 주일예배",
+      "color": "#e8c547",
+      "fromFrame": 1690,
+      "durationInFrames": 106,
+      "audioFile": "scene-audio/scene_05_cta.mp3",
+      "durationSec": 3.552
+    }
+  ]
+}

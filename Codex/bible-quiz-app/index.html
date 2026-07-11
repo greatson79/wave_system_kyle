@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>성경퀴즈 보드</title>
+    <link rel="stylesheet" href="./styles.css">
+  </head>
+  <body>
+    <main class="app" data-view="dashboard">
+      <section class="dashboard" aria-label="성경퀴즈 대시보드">
+        <header class="topbar">
+          <div>
+            <h1>성경퀴즈 보드</h1>
+            <p>제공한 문제를 그대로 붙여넣고, 카드 클릭으로 발표 화면을 엽니다.</p>
+          </div>
+          <div class="topbar-actions">
+            <button class="secondary-button" id="downloadButton" type="button">HTML 다운로드</button>
+            <button class="primary-button" id="loadSampleButton" type="button">샘플 불러오기</button>
+          </div>
+        </header>
+
+        <section class="input-panel" aria-label="문제 입력">
+          <div class="panel-heading">
+            <h2>문제 입력</h2>
+            <p>문제만 한 줄씩 넣어도 되고, 정답이 있으면 <strong>문제 | 정답</strong> 형식으로 넣으면 됩니다.</p>
+          </div>
+          <textarea id="quizInput" spellcheck="false" aria-label="퀴즈 문제 입력"></textarea>
+          <div class="input-actions">
+            <button class="primary-button" id="applyButton" type="button">대시보드 만들기</button>
+            <span id="parseStatus" role="status"></span>
+          </div>
+        </section>
+
+        <section class="board-panel" aria-label="문제 대시보드">
+          <div class="panel-heading inline">
+            <div>
+              <h2>문제 목록</h2>
+              <p id="boardSummary">문제를 입력하면 여기에 카드가 표시됩니다.</p>
+            </div>
+            <button class="secondary-button" id="startButton" type="button" disabled>첫 문제 시작</button>
+          </div>
+          <div class="quiz-grid" id="quizGrid"></div>
+        </section>
+      </section>
+
+      <section class="presenter" aria-label="전체화면 문제 보기">
+        <header class="presenter-bar">
+          <button class="ghost-button" id="backButton" type="button">대시보드</button>
+          <span id="progressLabel">Q1 / 1</span>
+          <button class="ghost-button" id="fullscreenButton" type="button">전체화면</button>
+        </header>
+
+        <article class="question-stage" id="questionStage" tabindex="0">
+          <p class="set-label">성경퀴즈</p>
+          <h2 id="questionText"></h2>
+        </article>
+
+        <footer class="answer-dock">
+          <button class="nav-button" id="prevButton" type="button" aria-label="이전 문제">이전</button>
+          <button class="answer-button" id="answerButton" type="button">정답 보기</button>
+          <button class="nav-button" id="nextButton" type="button" aria-label="다음 문제">다음</button>
+          <div class="answer-panel" id="answerPanel" hidden>
+            <span>정답</span>
+            <strong id="answerText"></strong>
+          </div>
+        </footer>
+      </section>
+    </main>
+
+    <script src="./app.js"></script>
+  </body>
+</html>

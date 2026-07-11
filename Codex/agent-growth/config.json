@@ -1,0 +1,27 @@
+{
+  "schema": "codex-growth-config.v1",
+  "inspiration": {
+    "name": "NousResearch/hermes-agent",
+    "url": "https://github.com/NousResearch/hermes-agent",
+    "adaptation": "local file-based closed learning loop for Codex"
+  },
+  "paths": {
+    "inbox": "agent-growth/inbox",
+    "memory": "agent-growth/memory/MEMORY.md",
+    "reports": "agent-growth/reports",
+    "runs": "agent-growth/runs",
+    "skills": "agent-growth/skills",
+    "state": "agent-growth/state/state.json"
+  },
+  "tick": {
+    "delete_inbox_after_processing": false,
+    "write_report": true,
+    "write_ledger": true
+  },
+  "curator": {
+    "enabled": true,
+    "archive_enabled": false,
+    "stale_after_days": 30,
+    "archive_after_days": 90
+  }
+}

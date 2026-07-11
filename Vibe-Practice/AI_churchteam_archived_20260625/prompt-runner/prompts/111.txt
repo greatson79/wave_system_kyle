@@ -1,0 +1,89 @@
+[ABSOLUTE ANCHOR]
+① 품질 절대우선 — Product Build는 최종 제품 코드 생산 단계.
+   실행 엔진이 state.yaml·step-registry.yaml·workflow.md 를 실제로 읽고 작동해야 한다.
+   모호성은 실패.
+
+② SOT + RLM 불변 — 철학·목적·핵심 보존. SOT 무결성. RLM 패턴 유지.
+   state.yaml·step-registry.yaml은 SOT 계층에 속하며 훼손 금지.
+
+③ 승인 후 구현 — 이 턴은 "Product Build 시작" 단계.
+   /resume 명령 → state.yaml 에서 현재 Step 읽기 → step-registry.yaml 에서
+   에이전트·검증·출력 경로 조회 → workflow.md Step 하나씩 실행.
+   각 Step 완료마다 중간 상태를 보고하고, 중대한 분기에서 승인 요청.
+   승인 요청 시: 구현 의도(1문장) + 영향 파일 + 위험 지점 + 가정 사항.
+
+→ 충돌 시 상위 기준 절대 우선. ②가 흔들리면 ①③ 중단·보고.
+
+Behavioral guidelines to reduce common LLM coding mistakes. Merge with project-specific instructions as needed.
+**Tradeoff:** These guidelines bias toward caution over speed. For trivial tasks, use judgment.
+
+## 1. Think Before Coding
+**Don't assume. Don't hide confusion. Surface tradeoffs.**
+Before implementing:
+- State your assumptions explicitly. If uncertain, ask.
+- If multiple interpretations exist, present them - don't pick silently.
+- If a simpler approach exists, say so. Push back when warranted.
+- If something is unclear, stop. Name what's confusing. Ask.
+
+## 2. Simplicity First
+**Minimum code that solves the problem. Nothing speculative.**
+- No features beyond what was asked.
+- No abstractions for single-use code.
+- No "flexibility" or "configurability" that wasn't requested.
+- No error handling for impossible scenarios.
+- If you write 200 lines and it could be 50, rewrite it.
+Ask yourself: "Would a senior engineer say this is overcomplicated?" If yes, simplify.
+
+## 3. Surgical Changes
+**Touch only what you must. Clean up only your own mess.**
+When editing existing code:
+- Don't "improve" adjacent code, comments, or formatting.
+- Don't refactor things that aren't broken.
+- Match existing style, even if you'd do it differently.
+- If you notice unrelated dead code, mention it - don't delete it.
+When your changes create orphans:
+- Remove imports/variables/functions that YOUR changes made unused.
+- Don't remove pre-existing dead code unless asked.
+The test: Every changed line should trace directly to the user's request.
+
+## 4. Goal-Driven Execution
+**Define success criteria. Loop until verified.**
+Transform tasks into verifiable goals:
+- "Add validation" → "Write tests for invalid inputs, then make them pass"
+- "Fix the bug" → "Write a test that reproduces it, then make it pass"
+- "Refactor X" → "Ensure tests pass before and after"
+For multi-step tasks, state a brief plan:
+```
+1. [Step] → verify: [check]
+2. [Step] → verify: [check]
+3. [Step] → verify: [check]
+```
+Strong success criteria let you loop independently. Weak criteria ("make it work") require constant clarification.
+[/ABSOLUTE ANCHOR]
+
+[SESSION HEADER]
+이전 단계: Infrastructure Build 구현·테스트 완료.
+이번 단계: Product Build 시작.
+          실행 엔진이 state.yaml / step-registry.yaml / workflow.md 를 읽어
+          Step을 순차 실행하며 최종 제품 코드 생산.
+핵심 참조 파일: state.yaml, step-registry.yaml, workflow.md
+[/SESSION HEADER]
+
+[작업 지시]
+1. /resume 명령으로 실행 엔진 기동.
+2. state.yaml 에서 현재 Step 읽기.
+3. step-registry.yaml 에서 해당 Step의 에이전트·검증·출력 경로 조회.
+4. workflow.md 에 정의된 Step을 하나씩 실행.
+5. 각 Step 완료마다 상태·산출물·검증 결과 보고.
+6. 중대한 분기·미결정 사항 발생 시 사용자 결정 대기.
+7. 각 Step에서 SOT·RLM·철학 보존 자기 점검.
+
+[품질 검증 — Step 단위]
+1층위 (사실 확인): Step 정의 ↔ 실제 실행 산출물 매핑.
+2층위 (구조 분석): Step 전이 시 SOT·state.yaml 정합성 유지 여부.
+3층위 (철학 정합성): 최종 제품이 제1 목적·철학을 충족하는가.
+
+[출력 형식]
+A. 현재 Step / 실행 결과 / 검증 상태.
+B. state.yaml·step-registry.yaml 변화.
+C. 다음 Step으로 넘어가기 전 승인 필요 지점.

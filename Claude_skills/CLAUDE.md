@@ -38,10 +38,23 @@ Claude skills/
 │       ├── output_templates.md        ← YouthCardAgent + PastorPlanAgent
 │       ├── calendar_mode.md           ← 학사일정·신앙 루틴 통합
 │       └── retreat_mode.md            ← 수련회 45~60분 집중 모드
+├── AI_churchteam/          ← ⭐ 디딤 백본 오케스트레이터 (부교역자팀 31인)
+│   ├── CLAUDE.md           ← 진입점 (/팀 /팀-전략분析 /팀-연간계획 /팀-월간 /팀-분기)
+│   ├── .claude/
+│   │   ├── commands/       ← /팀 등 8개 커맨드
+│   │   └── skills/
+│   │       ├── weekly-works-bridge.md   ← weekly-works 브릿지 (★내부 불가침)
+│   │       ├── church-admin-bridge.md   ← church-admin 브릿지
+│   │       ├── theological-reasoning/   ← 개혁주의 신학 추론
+│   │       └── theology_filter_dual/    ← 이중 신학 필터
+│   ├── pastor/             ← 목회철학·연간계획·참고자료
+│   └── reports/            ← 시대통찰·월간기획·정렬검증
 └── Wave-AI/                ← WAVE AI 시스템 설계 문서
     ├── WAVE-AI.md
     └── agents/             ← 범용 에이전트 (orchestrator, research, content-creator, knowledge)
 ```
+
+> ★통합 구조: AI_churchteam(백본) → weekly-works·church-admin 브릿지 호출. weekly-works 내부(sermon·research-bridge·team-leader) 절대 불가침.
 
 ## 핵심 사용법
 
@@ -107,7 +120,7 @@ Phase 2 (병렬):       소그룹 나눔지  ∥  SNS 카드뉴스
 | 주일설교 52주 + 월삭 12개 | `weekly-works/data/sermon-plan-2026.json` | 사용자만 |
 | 매일묵상 52주 | `weekly-works/.claude/skills/weekly-devotion/devotion-data.json` | 사용자만 |
 | 수요기도회 | `weekly-works/data/prayer/*.csv` | 사용자만 |
-| 설교 맥락 | `output/{월}/{주차}/설교/sermon-context.md` | Sermon Agent만 |
+| 설교 맥락 | `output/{월}/{주차}/설교/sermon-context.md` | Team Leader 생성 (Sermon Agent 산출물 기반) |
 | 진행 상태 | `output/{월}/{주차}/status.md` | Team Leader만 |
 
 ### 에이전트 목록

@@ -1,0 +1,6 @@
+[mcp_servers.instagram]
+url = "https://smithery-composio.smithery.workers.dev/instagram/mcp"
+
+[mcp_servers.notebooklm]
+command = "npx"
+args = ["notebooklm-mcp@latest"]

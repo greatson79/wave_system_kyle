@@ -1,0 +1,24 @@
+  ⎿  │       └── surface surface:71 [terminal] "⠂ WF3 네이버 스캔 독립 실행 및
+     완료" [selected] tty=ttys075
+     ├── workspace workspace:4 "목회사역본부" [selected] ◀ active
+     │   ├── pane pane:8 [focused] ◀ active
+
+⏺ Confirmed — surface:71 is live and running WF3. Plan looks solid (single-WF
+  isolation, no cross-WF handoff, WF1/WF2 protected from re-run). Standing by for
+  the Step2.5 checkpoint.
+
+⏺ Bash(cmux send --workspace workspace:6 --surface surface:10 '[COO→리서치본부장]
+      surface:71 확인했습니다. 순서·제약 모두 적절합니다. Step2.5 계속
+      지켜봐주세요.' && cmux send-key --workspace workspa…)
+  ⎿  OK surface:10 workspace:6
+     OK surface:10 workspace:6
+
+⏺ WF3 진행을 기다리겠습니다.
+
+✻ Baked for 17s
+
+────────────────────────────────────────────────────────────────────────────────────
+❯ ㅊ
+────────────────────────────────────────────────────────────────────────────────────
+  Model: Sonnet 5 | Ctx: 373.9k | ⎇ feat-0-...
+  ⏵⏵ bypass permissions on (shift+tab to cycle)

@@ -1,0 +1,115 @@
+agents_executed:
+  analysis:
+  - analyst-macro
+  - analyst-korea
+  - analyst-tech
+  - analyst-valuation
+  - analyst-risk
+  data_collection:
+  - envscan-subagent
+  - gnews-subagent
+  - fred-subagent
+  translation:
+  - translator
+  validation:
+  - report-reviewer
+  - fact-checker
+  - reviewer
+completed_at: '2026-05-22T00:00:00.000000+00:00'
+external_output: /Users/kylechoi/Desktop/Ai_works/output/투자분析제안/2026-05-22_일일투자분析.md
+mode: dry-run
+override_summary:
+  date: '2026-05-22'
+  override_count: 6
+  override_sectors:
+  - cybersecurity: 0.35
+  - defense: 0.28
+  - nuclear: 0.216
+  - semiconductor: 0.192
+  - semiconductor_equipment: 0.168
+  - biotech: 0.168
+  record: 역대 최다 override 발동일 (6개 섹터 동시)
+  released_from_override:
+  - optical_network: 0.05
+packages:
+  m05_ready: true
+phases_completed:
+- A
+- B
+- C
+- D
+- E
+- F
+- G
+- H
+pipeline_version: 1.0.0
+run_date: '2026-05-22'
+sentinel_check:
+  sentiment_weight: 0.0
+  status: CONFIRMED
+status: COMPLETED
+stocks:
+  '000660':
+    category: A
+    direction: Conditional Positive — semiconductor override +0.192, pending vote
+      5/23-28
+    name: SK하이닉스
+  005930:
+    category: A
+    direction: Conditional Positive — pending vote 5/23-28, small position before
+      vote
+    name: 삼성전자
+  '012450':
+    category: A
+    direction: Strong Positive — defense override +0.280, THAAD restock + North Korea
+      vessel
+    name: 한화에어로스페이스
+  '034020':
+    category: A
+    direction: Strong Positive — nuclear override +0.216, UN ICJ climate ruling
+    name: 두산에너빌리티
+  '042700':
+    category: B
+    direction: Momentum — semiconductor_equipment override +0.168, Samsung vote pending
+    name: 한미반도체
+  '051600':
+    category: B
+    direction: Momentum — nuclear, UN ICJ maintenance & export services
+    name: 한전KPS
+  053800:
+    category: A
+    direction: Strong Positive — cybersecurity override +0.350, MCP vulnerability
+      dual-confirmed
+    name: 안랩
+  067920:
+    category: B
+    direction: Momentum — cybersecurity, MCP anomaly detection
+    name: 이글루시큐리티
+  079550:
+    category: B
+    direction: Strong Momentum — defense, THAAD restock + missile defense
+    name: LIG넥스원
+  '115310':
+    category: B
+    direction: Momentum — cybersecurity, zero-trust NAC for MCP authentication
+    name: 지니언스
+  '207940':
+    category: A
+    direction: Momentum (2-4주 단기) — biotech override +0.168, Ebola CMO demand
+    name: 삼성바이오로직스
+  '272210':
+    category: B
+    direction: Strong Momentum — defense+cybersecurity dual override (unique cross-sector)
+    name: 한화시스템
+validation_results:
+  override_threshold: 0.12
+  sentiment_weight_check: CONFIRMED 0.0
+  stocks_selected: 12
+workflow:
+  last_daily_report: output/reports/daily-report-2026-05-22.md
+  last_successful_report: output/reports/weekly-report-2026-06-11.md
+  last_updated: '2026-06-11T08:26:58.165723'
+  last_weekly_report: output/reports/weekly-report-2026-05-22.md
+  previous_run_date: '2026-05-21'
+  signal_count_previous: 106
+  signal_count_today: 112

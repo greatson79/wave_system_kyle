@@ -1,0 +1,13 @@
+status: completed
+files_translated: 3
+quality_check: passed
+completed_at: "2026-05-16T00:00:00+09:00"
+output_files:
+  - output/reports/weekly-report-2026-05-15-FINAL-ko.md
+  - output/reports/weekly-report-2026-05-15-000660-FINAL-ko.md
+  - output/reports/weekly-report-2026-05-15-035420-FINAL-ko.md
+qa_layers:
+  layer_1_completeness: passed
+  layer_2_numeric_accuracy: passed
+  layer_3_terminology_consistency: passed
+  layer_4_disclaimer_included: passed

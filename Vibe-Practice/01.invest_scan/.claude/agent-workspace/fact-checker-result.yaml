@@ -1,0 +1,24 @@
+status: completed
+claims_checked: 14
+verified: 4
+unverified: 5
+false_claims: 3
+partially_false: 2
+critical_findings:
+  - claim: "Samsung Q4 2025 Revenue +8.3% YoY"
+    verdict: false
+    evidence: "Official Samsung result is +24% YoY (KRW 93.8T record high)"
+  - claim: "Samsung Q4 2025 Op.Income +34.2% YoY"
+    verdict: false
+    evidence: "Official Samsung result is +756% YoY — data pipeline error suspected"
+  - claim: "NAVER 78% Korean search market share"
+    verdict: false
+    evidence: "Current share is 62-63% (Korea Times 2026); 78% was 2015 peak"
+  - claim: "KOSPI 8000 circuit breaker May 15"
+    verdict: partially_false
+    evidence: "KOSPI closed at 7,981 on May 15; circuit breaker was May 11"
+  - claim: "HMM Namu attacked May 14"
+    verdict: partially_false
+    evidence: "Attack occurred May 4, not May 14 — date is 10 days off"
+report_path: review-logs/fact-check-2026-05-15.md
+completed_at: "2026-05-16"

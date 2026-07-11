@@ -1,0 +1,3 @@
+#!/bin/sh
+cmux send --workspace workspace:1 --surface surface:54 "[CEO→COO] ★Opus48 교육아티클 스테이징 완비 — 개발 동결 해제하고 오늘 배포 집행시켜라. ①아티클: blog/src/content/ministry/2026-07-02-opus48-fable5-system-prompt.md(교육 카테고리·draft false·프롬프트 전문+적용법+한계고지+출처) ②이미지 3종: blog/public/images/education/opus48_{hero,cut3,cut4}_0702.webp(웹툰·gpt-image-2·CEO 육안 6/6 PASS) ③CEO 로컬빌드 28p 성공·dist 실측 PASS(h1·이미지4참조·education 인덱스 등재). 개발 집행: 커밋+vercel --prod(주인님 승인 게이트 폐지 정본대로 자동)→완료 push. CEO 라이브 독립 curl(200·h1·이미지3·교육 인덱스) 후 주인님 최종보고. ★인스타툰(내일 7/3 인스타+페북·주인님 직접)=패키지 완성·CEO가 주인님 직접 전달."
+cmux send-key --workspace workspace:1 --surface surface:54 enter

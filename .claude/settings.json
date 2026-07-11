@@ -3,5 +3,44 @@
     "allow": [
       "Bash(pkill -f bun)"
     ]
+  },
+  "hooks": {
+    "UserPromptSubmit": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "p=\"$(jq -r '.prompt // empty')\"; if echo \"$p\" | grep -qE '승인|컨펌|확정|최종.*(이야|이다|해|하자|본)|발행하|완료(됐|다|야|해)|이걸로.*(하자|가자|끝|최종)'; then echo \"{\\\"hookSpecificOutput\\\":{\\\"hookEventName\\\":\\\"UserPromptSubmit\\\",\\\"additionalContext\\\":\\\"[llm-wiki reminder] 방금 메시지가 최종 승인으로 보입니다. 이번 대화에서 완성된 산출물이 있다면 llm-wiki(Google Drive: KyleChoi Project/llm-wiki)에 ingest할지 검토하세요.\\\"}}\"; fi",
+            "timeout": 5
+          }
+        ]
+      }
+    ]
+  },
+  "enabledPlugins": {
+    "financial-analysis@claude-for-financial-services": true,
+    "investment-banking@claude-for-financial-services": true,
+    "equity-research@claude-for-financial-services": true,
+    "private-equity@claude-for-financial-services": true,
+    "wealth-management@claude-for-financial-services": true,
+    "fund-admin@claude-for-financial-services": true,
+    "operations@claude-for-financial-services": true,
+    "pitch-agent@claude-for-financial-services": true,
+    "market-researcher@claude-for-financial-services": true,
+    "earnings-reviewer@claude-for-financial-services": true,
+    "meeting-prep-agent@claude-for-financial-services": true,
+    "model-builder@claude-for-financial-services": true,
+    "gl-reconciler@claude-for-financial-services": true,
+    "kyc-screener@claude-for-financial-services": true,
+    "valuation-reviewer@claude-for-financial-services": true,
+    "month-end-closer@claude-for-financial-services": true,
+    "statement-auditor@claude-for-financial-services": true,
+    "lseg@claude-for-financial-services": true,
+    "sp-global@claude-for-financial-services": true,
+    "claude-for-msft-365-install@claude-for-financial-services": true,
+    "k-skill@k-skill": true,
+    "harness-creator@cys-harness-marketplace": true,
+    "andrej-karpathy-skills@karpathy-skills": true,
+    "superpowers@superpowers-dev": true
   }
 }

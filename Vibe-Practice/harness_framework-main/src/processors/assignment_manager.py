@@ -43,7 +43,10 @@ class AssignmentManager:
         if self._definitions.empty or self._status.empty:
             return 0.0
 
-        active_defs = self._definitions[self._definitions.get("is_active", True) == True]
+        if "is_active" in self._definitions.columns:
+            active_defs = self._definitions[self._definitions["is_active"] == True]
+        else:
+            active_defs = self._definitions
         if active_defs.empty:
             return 0.0
 

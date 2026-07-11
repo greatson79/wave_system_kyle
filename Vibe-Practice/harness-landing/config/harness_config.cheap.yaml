@@ -1,0 +1,41 @@
+harness:
+  max_sprints: 1
+  max_qa_rounds: 3
+  qa_pass_threshold: 6.0
+  min_criteria_per_sprint: 15
+models:
+  planner: haiku
+  generator: haiku
+  evaluator: haiku
+  dry_run_probe: haiku
+context:
+  bare_mode: auto
+execution:
+  generator_permission_mode: acceptEdits
+  evaluator_permission_mode: bypassPermissions
+  agent_timeout_seconds: 5400
+  output_format: json
+evaluation:
+  weights:
+    design_quality: 0.35
+    originality: 0.25
+    craft: 0.25
+    functionality: 0.15
+  thresholds:
+    design_quality: 6
+    originality: 6
+    craft: 7
+    functionality: 7
+communication:
+  method: file
+  artifacts_dir: artifacts
+tools:
+  evaluator_has_playwright: true
+  generator_has_git: true
+  planner_reads_frontend_skill: true
+  playwright_mcp_config: config/playwright_mcp.json
+safety:
+  workspace_root: workspace
+  isolate_git: true
+  commit_each_sprint: true
+  revert_evaluator_changes: true

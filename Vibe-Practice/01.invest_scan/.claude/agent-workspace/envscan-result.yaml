@@ -1,0 +1,532 @@
+signals:
+- confidence: 0.6
+  date: '2026-05-15'
+  psst_score: 50.0
+  sector: financials
+  source: Naver News
+  steeps_category: E
+  summary: '[Discontinuity][H1][ORANGE] KOSPI Hits Historic 8,000-Point Milestone.
+    Samsung strike risk to market'
+  title: KOSPI Hits Historic 8,000-Point Milestone
+  url: ''
+- confidence: 0.6
+  date: '2026-05-15'
+  psst_score: 50.0
+  sector: financials
+  source: Naver News
+  steeps_category: P
+  summary: '[Wild Card][H2][ORANGE] Trump Claims ''Fantastic'' Trade Deals with Xi
+    at Beijing Summit; China Agrees on Iran Nuclear and Hormuz. AI cooperation clause
+    directly affects Korean semiconductor position'
+  title: Trump Claims 'Fantastic' Trade Deals with Xi at Beijing Summit; China Agrees
+    on Iran Nuclear and Hormuz
+  url: ''
+- confidence: 0.6
+  date: '2026-05-15'
+  psst_score: 50.0
+  sector: financials
+  source: Naver News
+  steeps_category: P
+  summary: '[Precursor Event][H1][RED] Strait of Hormuz Crisis: Ship Seizures and
+    Sinkings Escalate as Iran-West Tensions Rise. Korean oil imports at risk (Middle
+    East 68% of Korea oil supply)'
+  title: 'Strait of Hormuz Crisis: Ship Seizures and Sinkings Escalate as Iran-West
+    Tensions Rise'
+  url: ''
+- confidence: 0.6
+  date: '2026-05-15'
+  psst_score: 50.0
+  sector: financials
+  source: Naver News
+  steeps_category: P
+  summary: '[Emerging Issue][H1][ORANGE] Seoul Blames Iran for Attack on Korean Cargo
+    Ship HMM Namu in Strait of Hormuz. Korea-Iran diplomatic fallout'
+  title: Seoul Blames Iran for Attack on Korean Cargo Ship HMM Namu in Strait of Hormuz
+  url: ''
+- confidence: 0.6
+  date: '2026-05-15'
+  psst_score: 50.0
+  sector: financials
+  source: Naver News
+  steeps_category: E
+  summary: '[Driver][H1][YELLOW] Samsung Electronics Union Proceeds with 18-Day Strike
+    Despite Dialogue Offer. Global DRAM/NAND supply potential impact'
+  title: Samsung Electronics Union Proceeds with 18-Day Strike Despite Dialogue Offer
+  url: ''
+- confidence: 0.6
+  date: '2026-05-15'
+  psst_score: 50.0
+  sector: technology
+  source: Naver News
+  steeps_category: T
+  summary: '[Discontinuity][H2][YELLOW] Hana Financial Acquires 6.55% Stake in Dunamu
+    (Upbit Operator) for 1 Trillion Won. Traditional banking transformation accelerates'
+  title: Hana Financial Acquires 6.55% Stake in Dunamu (Upbit Operator) for 1 Trillion
+    Won
+  url: ''
+- confidence: 0.6
+  date: '2026-05-15'
+  psst_score: 50.0
+  sector: technology
+  source: Naver News
+  steeps_category: T
+  summary: '[Emerging Issue][H2][GREEN] AI Bridge Safety System Prevents 99% of Suicide
+    Attempts on Han River Bridges. Model for AI-enabled public safety globally'
+  title: AI Bridge Safety System Prevents 99% of Suicide Attempts on Han River Bridges
+  url: ''
+- confidence: 0.6
+  date: '2026-05-15'
+  psst_score: 50.0
+  sector: technology
+  source: Naver News
+  steeps_category: T
+  summary: '[Wild Card][H2][YELLOW] US-China AI Cooperation Clause Included in Trump-Xi
+    Beijing Trade Deal. Korean AI companies lose bifurcation hedge'
+  title: US-China AI Cooperation Clause Included in Trump-Xi Beijing Trade Deal
+  url: ''
+- confidence: 0.6
+  date: '2026-05-15'
+  psst_score: 50.0
+  sector: financials
+  source: Naver News
+  steeps_category: P
+  summary: '[Trend][H1][GREEN] Japan PM Takaichi to Visit President Lee''s Hometown
+    Andong in Reciprocal Diplomatic Exchange. Korea-Japan security cooperation for
+    North Korea deterrence'
+  title: Japan PM Takaichi to Visit President Lee's Hometown Andong in Reciprocal
+    Diplomatic Exchange
+  url: ''
+- confidence: 0.6
+  date: '2026-05-15'
+  psst_score: 50.0
+  sector: energy
+  source: Naver News
+  steeps_category: E_env
+  summary: '[Emerging Issue][H1][YELLOW] Seoul Hits 31°C in Mid-May: Construction
+    Workers and Farmers Face Escalating Heat Risks. Agricultural productivity risk'
+  title: 'Seoul Hits 31°C in Mid-May: Construction Workers and Farmers Face Escalating
+    Heat Risks'
+  url: ''
+- confidence: 0.6
+  date: '2026-05-15'
+  psst_score: 50.0
+  sector: financials
+  source: Naver News
+  steeps_category: E
+  summary: '[Weak Signal][H1][YELLOW] Fitch Warns SME Borrower Risks as Biggest Threat
+    to Korean Banks. Credit crunch for Korean SMEs feeds unemployment'
+  title: Fitch Warns SME Borrower Risks as Biggest Threat to Korean Banks
+  url: ''
+- confidence: 0.6
+  date: '2026-05-15'
+  psst_score: 50.0
+  sector: consumer
+  source: Naver News
+  steeps_category: S
+  summary: '[Trend][H1][YELLOW] Teacher Assault Insurance Claims Surge 21x Since 2018
+    as School Violence Intensifies. Teacher recruitment and retention crisis'
+  title: Teacher Assault Insurance Claims Surge 21x Since 2018 as School Violence
+    Intensifies
+  url: ''
+- confidence: 0.6
+  date: '2026-05-15'
+  psst_score: 50.0
+  sector: financials
+  source: Naver News
+  steeps_category: E
+  summary: '[Trend][H2][GREEN] Samyang Foods Promotes Buldak Creator to Chairman Amid
+    20x Global Sales Growth. Korean food export economy diversification'
+  title: Samyang Foods Promotes Buldak Creator to Chairman Amid 20x Global Sales Growth
+  url: ''
+- confidence: 0.6
+  date: '2026-05-15'
+  psst_score: 50.0
+  sector: financials
+  source: Naver News
+  steeps_category: P
+  summary: '[Driver][H2][GREEN] Korea-Mexico FTA Discussions Progress as Presidents
+    Meet. Korean manufacturing diversification away from China'
+  title: Korea-Mexico FTA Discussions Progress as Presidents Meet
+  url: ''
+- confidence: 0.6
+  date: '2026-05-15'
+  psst_score: 50.0
+  sector: consumer
+  source: Naver News
+  steeps_category: S
+  summary: '[Emerging Issue][H2][GREEN] Co-living Spaces Redefine Urban Housing for
+    Young Single Seoulites. Real estate market disruption'
+  title: Co-living Spaces Redefine Urban Housing for Young Single Seoulites
+  url: ''
+- confidence: 0.6
+  date: '2026-05-15'
+  psst_score: 50.0
+  sector: technology
+  source: Naver News
+  steeps_category: T
+  summary: '[Discontinuity][H2][YELLOW] Hana Bank''s Crypto Investment Deepens TradFi-DeFi
+    Convergence in Korea. Financial system architecture change'
+  title: Hana Bank's Crypto Investment Deepens TradFi-DeFi Convergence in Korea
+  url: ''
+- confidence: 0.6
+  date: '2026-05-15'
+  psst_score: 50.0
+  sector: consumer
+  source: Naver News
+  steeps_category: S
+  summary: '[Trend][H2][GREEN] K-pop Subunit Strategy Signals Industry Maturation
+    into Multi-Format Global Ecosystem. Korean creative economy expansion'
+  title: K-pop Subunit Strategy Signals Industry Maturation into Multi-Format Global
+    Ecosystem
+  url: ''
+- confidence: 0.6
+  date: '2026-05-15'
+  psst_score: 50.0
+  sector: consumer
+  source: Naver News
+  steeps_category: S
+  summary: '[Trend][H2][GREEN] Han Kang at Berlin Philharmonic; Korean Teen Wins Prague
+    Spring — Elite Cultural Recognition Deepens. National cultural identity strengthening'
+  title: Han Kang at Berlin Philharmonic; Korean Teen Wins Prague Spring — Elite Cultural
+    Recognition Deepens
+  url: ''
+- confidence: 0.6
+  date: '2026-05-15'
+  psst_score: 50.0
+  sector: consumer
+  source: Naver News
+  steeps_category: S
+  summary: '[Trend][H1][GREEN] Wedding Gift Inflation Reflects Broader Cost-of-Living
+    Pressures in Korea. Consumer spending patterns'
+  title: Wedding Gift Inflation Reflects Broader Cost-of-Living Pressures in Korea
+  url: ''
+- confidence: 0.6
+  date: '2026-05-15'
+  psst_score: 50.0
+  sector: consumer
+  source: Naver News
+  steeps_category: S
+  summary: '[Precursor Event][H1][GREEN] Netflix ''The Wonderfools'' Tests Whether
+    Content Quality Overcomes Celebrity Scandal. K-content brand reputation management'
+  title: Netflix 'The Wonderfools' Tests Whether Content Quality Overcomes Celebrity
+    Scandal
+  url: ''
+- confidence: 0.6
+  date: '2026-05-15'
+  psst_score: 50.0
+  sector: financials
+  source: MIT Technology Review
+  steeps_category: P
+  summary: 'Trump administration approved H200 chip exports to Alibaba, ByteDance,
+    and 8 other Chinese firms. US receives 25% revenue share from approved sales. '
+  title: US Approves Nvidia H200 Chip Sales to 10 Chinese Firms — Semiconductor Policy
+    Reversal
+  url: https://www.technologyreview.com/2026/05/14/the-download-nvidia-chips-china/
+- confidence: 0.6
+  date: '2026-05-15'
+  psst_score: 50.0
+  sector: financials
+  source: MIT Technology Review
+  steeps_category: P
+  summary: 'China''s open-source AI models enable self-sufficient AI development independent
+    of US chips. Domestic semiconductor investment reduces reliance on Nvidia and
+    TSMC. '
+  title: China's AI Open-Source Independence Drive Structurally Weakens US Leverage
+  url: https://www.technologyreview.com/2026/05/14/china-ai-independence/
+- confidence: 0.6
+  date: '2026-05-15'
+  psst_score: 50.0
+  sector: technology
+  source: TechCrunch
+  steeps_category: T
+  summary: 'Former Salesforce AI chief Richard Socher raised $650M for self-improving
+    AI startup. Goal: AI systems that autonomously research and improve themselves
+    indefinitely. '
+  title: Richard Socher Launches $650M Self-Improving AI Venture — Recursive Superintelligence
+    Race
+  url: https://techcrunch.com/2026/05/14/what-happens-when-ai-starts-building-itself/
+- confidence: 0.6
+  date: '2026-05-15'
+  psst_score: 50.0
+  sector: energy
+  source: ScienceDaily
+  steeps_category: E_env
+  summary: 'UC Santa Barbara team created photochemical energy storage using DNA-inspired
+    molecules. System stores solar energy as chemical bonds — no electricity grids
+    needed. '
+  title: Solar 'Rechargeable Battery' Breakthrough — Outperforms Lithium-Ion, Multi-Year
+    Storage
+  url: https://www.sciencedaily.com/releases/2026/05/260513221821.htm
+- confidence: 0.6
+  date: '2026-05-15'
+  psst_score: 50.0
+  sector: financials
+  source: TechCrunch
+  steeps_category: E
+  summary: 'Cerebras raised $5.5B in IPO — the largest US tech IPO of 2026. Stock
+    jumped 108% on first trading day. '
+  title: Cerebras AI Chip IPO — $5.5B Raised, 108% Stock Pop, Opens 2026 Tech IPO
+    Season
+  url: https://techcrunch.com/2026/05/14/cerebras-raises-5-5b-kicking-off-2026s-ipo-season-with-a-bang/
+- confidence: 0.6
+  date: '2026-05-15'
+  psst_score: 50.0
+  sector: technology
+  source: MIT Technology Review
+  steeps_category: T
+  summary: '70% of global executives consider sovereign data and AI platforms essential.
+    Enterprises are repatriating AI and data away from third-party cloud providers. '
+  title: 70% of Global Executives See AI & Data Sovereignty as Essential — Enterprise
+    Repatriation Wave
+  url: https://www.technologyreview.com/2026/05/14/1137168/establishing-ai-and-data-sovereignty-in-the-age-of-autonomous-systems/
+- confidence: 0.6
+  date: '2026-05-15'
+  psst_score: 50.0
+  sector: consumer
+  source: WHO Press Releases
+  steeps_category: S
+  summary: 'World is off track for all major health-related SDG targets by 2030. Only
+    18% of countries report mortality data to WHO within one year. '
+  title: 'World Health Statistics 2026: SDG Health Targets Off Track, Only 18% of
+    Nations Report Data'
+  url: https://www.who.int/news/item/13-05-2026-global-health-gains-face-threat-of-reversal
+- confidence: 0.6
+  date: '2026-05-15'
+  psst_score: 50.0
+  sector: technology
+  source: ScienceDaily
+  steeps_category: T
+  summary: 'Mayo Clinic researchers discovered aptamers can selectively bind to senescent
+    ''zombie'' cells. Senescent cells are linked to aging and multiple age-related
+    diseases. '
+  title: Synthetic DNA Aptamers Target Aging 'Zombie Cells' — Mayo Clinic Anti-Aging
+    Breakthrough
+  url: https://www.sciencedaily.com/releases/2026/05/260515001733.htm
+- confidence: 0.6
+  date: '2026-05-15'
+  psst_score: 50.0
+  sector: financials
+  source: MIT Technology Review
+  steeps_category: P
+  summary: 'Gemini, ChatGPT, and Claude inadvertently reveal personal contact information
+    from training data. 400% surge in removal requests to AI companies. '
+  title: AI Chatbots Leaking Personal Phone Numbers — 400% Surge in Privacy Removal
+    Requests
+  url: https://www.technologyreview.com/2026/05/13/1137203/ai-chatbots-are-giving-out-peoples-real-phone-numbers/
+- confidence: 0.6
+  date: '2026-05-15'
+  psst_score: 50.0
+  sector: energy
+  source: MIT Technology Review
+  steeps_category: E_env
+  summary: 'Tesla Semi achieves 480-mile range — sufficient for most commercial routes.
+    Priced lower than competing electric trucks. '
+  title: Tesla Semi Launch — 480-Mile Range Electric Truck Targets 35% of Transport
+    Carbon Emissions
+  url: https://www.technologyreview.com/2026/05/14/1137197/tesla-semi-electric-trucking/
+- confidence: 0.6
+  date: '2026-05-15'
+  psst_score: 50.0
+  sector: financials
+  source: UN News
+  steeps_category: P
+  summary: 'Russian military strikes on Kyiv''s civilian areas condemned by UN humanitarian
+    coordinator. Strikes violate International Humanitarian Law. '
+  title: Russia Strikes Kyiv Civilian Areas — UN Condemns IHL Violations as War Continues
+  url: https://news.un.org/en/story/2026/05/1167509
+- confidence: 0.6
+  date: '2026-05-15'
+  psst_score: 50.0
+  sector: consumer
+  source: UN News
+  steeps_category: S
+  summary: 'UNAIDS warns HIV control gains could reverse without urgent intervention.
+    Donor funding for HIV programs declining amid global fiscal pressures. '
+  title: HIV/AIDS Progress at Risk — Donor Funding Decline Threatens Decades of Gains
+  url: https://news.un.org/en/story/2026/05/1167515
+- confidence: 0.6
+  date: '2026-05-15'
+  psst_score: 50.0
+  sector: consumer
+  source: WHO Press Releases
+  steeps_category: S
+  summary: '8 hantavirus cases (3 deaths) on MV Hondius cruise ship. Andes virus strain
+    confirmed capable of limited human-to-human transmission. '
+  title: Hantavirus Cruise Ship Outbreak — Andes Strain's Human-to-Human Transmission
+    Confirmed
+  url: https://www.who.int/news/item/14-05-2026-follow-up-message-by-the-who-director-general-to-the-people-of-tenerife-regarding-the-hantavirus-response
+- confidence: 0.6
+  date: '2026-05-15'
+  psst_score: 50.0
+  sector: financials
+  source: TechCrunch
+  steeps_category: E
+  summary: 'OpenAI plans litigation over failed ChatGPT integration on Apple devices.
+    Integration did not deliver expected subscriber acquisition or engagement. '
+  title: OpenAI vs. Apple Litigation — Failed Integration Exposes Big Tech AI Partnership
+    Risks
+  url: https://techcrunch.com/2026/05/14/openai-is-reportedly-preparing-legal-action-against-apple-it-wouldnt-be-the-first-partner-to-feel-burned/
+- confidence: 0.6
+  date: '2026-05-15'
+  psst_score: 50.0
+  sector: energy
+  source: UN News
+  steeps_category: E_env
+  summary: 'Nearly 6 million Somalis face acute hunger through June 2026. 2 million
+    face emergency-level food insecurity. '
+  title: 'Somalia: 6 Million Face Acute Hunger — East Africa Food Security Deterioration'
+  url: https://news.un.org/en/story/2026/05/1167514
+- confidence: 0.6
+  date: '2026-05-15'
+  psst_score: 50.0
+  sector: technology
+  source: MIT Technology Review
+  steeps_category: T
+  summary: 'Financial institutions struggle to deploy autonomous AI due to data quality
+    and compliance gaps. Key finding: success depends on data infrastructure, not
+    AI model sophistication. '
+  title: Agentic AI in Financial Services — Data Quality as the True Bottleneck
+  url: https://www.technologyreview.com/2026/05/14/1137034/data-readiness-for-agentic-ai-in-financial-services/
+- confidence: 0.6
+  date: '2026-05-15'
+  psst_score: 50.0
+  sector: financials
+  source: UN News
+  steeps_category: P
+  summary: 'Over 1,600 conflict detainees to be released under UN-brokered agreement.
+    Largest prisoner release since Yemen civil war began. '
+  title: Yemen Peace Signal — Largest Prisoner Release Brokered by UN Since Civil
+    War Began
+  url: https://news.un.org/en/story/2026/05/1167511
+- confidence: 0.6
+  date: '2026-05-15'
+  psst_score: 50.0
+  sector: financials
+  source: US Federal Register
+  steeps_category: E
+  summary: 'Commerce Department preliminary antidumping finding on glycine from India.
+    27 companies'' reviews rescinded. '
+  title: US Antidumping Duties on Indian Glycine — Chemical Trade Protectionism Intensifies
+  url: https://www.federalregister.gov/documents/2026/05/14/2026-09715/glycine-from-india-preliminary-results-and-rescission-in-part-of-antidumping-duty-administrative
+- confidence: 0.6
+  date: '2026-05-15'
+  psst_score: 50.0
+  sector: financials
+  source: US Federal Register
+  steeps_category: E
+  summary: 'Final antidumping determination on Turkish steel pipe products. Unfair
+    trade practices confirmed for 2023-2024 period. '
+  title: 'Final Antidumping: Turkish Steel Pipe Products — US Protectionism on Strategic
+    Materials'
+  url: https://www.federalregister.gov/documents/2026/05/14/2026-09714/circular-welded-carbon-steel-standard-pipe-and-tube-products-from-the-republic-of-trkiye-final
+- confidence: 0.6
+  date: '2026-05-15'
+  psst_score: 50.0
+  sector: consumer
+  source: ScienceDaily
+  steeps_category: S
+  summary: '47-year Swedish study confirms physical decline starts at age 35. Muscle
+    strength and fitness deteriorate acceleratingly post-35. '
+  title: Physical Decline Begins at Age 35 — Swedish Longitudinal Study Finds Late
+    Adoption Helps
+  url: https://www.sciencedaily.com/releases/2026/05/260515000947.htm
+- confidence: 0.6
+  date: '2026-05-15'
+  psst_score: 50.0
+  sector: financials
+  source: UN News
+  steeps_category: P
+  summary: 'US pledges $1.8B additional humanitarian funding. UN agencies face unprecedented
+    resource shortages in 2026. '
+  title: US $1.8B Humanitarian Pledge — UN Agencies Facing Unprecedented Resource
+    Shortfall
+  url: https://news.un.org/en/story/2026/05/1167513
+- confidence: 0.6
+  date: '2026-05-15'
+  psst_score: 50.0
+  sector: consumer
+  source: TechCrunch
+  steeps_category: S
+  summary: '50+ employees departed SpaceXAI since February merger. Burnout, leadership
+    transitions, weakened incentives cited as causes. '
+  title: SpaceXAI Staff Exodus — 50+ Departures Raise Organizational Stability Concerns
+  url: https://techcrunch.com/2026/05/14/elon-musks-spacexai-has-been-bleeding-staff-since-its-merger/
+- confidence: 0.6
+  date: '2026-05-15'
+  psst_score: 50.0
+  sector: technology
+  source: arXiv
+  steeps_category: T
+  summary: First adversarial attack exploiting quantization pipelines — models appear
+    safe at full precision but activate malicious behavior after INT8/INT4 quantization.
+    Breaks AI supply chain trust assumptions
+  title: 'Widening the Gap: Exploiting LLM Quantization via Outlier Injection — AI
+    Supply Chain Attack'
+  url: https://arxiv.org/abs/2605.15152
+- confidence: 0.6
+  date: '2026-05-15'
+  psst_score: 50.0
+  sector: technology
+  source: arXiv
+  steeps_category: T
+  summary: 'Formal proof that all current AI safety compliance methodology — including
+    EU AI Act — relies on behavioral testing that cannot verify the safety properties
+    it claims. Proposes mechanistic inspection '
+  title: Behavioural Assurance Cannot Verify the Safety Claims Governance Now Demands
+  url: https://arxiv.org/abs/2605.15164
+- confidence: 0.6
+  date: '2026-05-15'
+  psst_score: 50.0
+  sector: technology
+  source: arXiv
+  steeps_category: T
+  summary: Shodh-MoE achieves universal scientific ML across fluid dynamics, materials,
+    electromagnetics simultaneously. Removes negative transfer bottleneck — signals
+    3-5 year disruption to specialist simulatio
+  title: Eradicating Negative Transfer in Multi-Physics Foundation Models via Sparse
+    MoE Routing
+  url: https://arxiv.org/abs/2605.15179
+- confidence: 0.6
+  date: '2026-05-15'
+  psst_score: 50.0
+  sector: technology
+  source: arXiv
+  steeps_category: T
+  summary: 'Countermeasure to quantization-conditioned attacks: quantization-permanent
+    unlearning ensures malicious behaviors cannot survive weight compression. Requires
+    model internals access — problematic for c'
+  title: 'MANSU: Quantization-Permanent Unlearning for LLM Safety'
+  url: https://arxiv.org/abs/2605.15138
+- confidence: 0.6
+  date: '2026-05-15'
+  psst_score: 50.0
+  sector: technology
+  source: arXiv
+  steeps_category: T
+  summary: LLMs achieving systematic compositional generalization — signals potential
+    architectural shift away from current transformer paradigm toward causal models
+    with stronger reasoning.
+  title: Causal Language Models Achieving Systematic Compositional Generalization
+  url: https://arxiv.org/abs/2605.15200
+- confidence: 0.6
+  date: '2026-05-15'
+  psst_score: 50.0
+  sector: financials
+  source: Al Jazeera
+  steeps_category: P
+  summary: Trump-Xi summit addresses Hormuz blockade threat while Iran rallies BRICS
+    support — escalation could reshape global energy geopolitics
+  title: 'Iran war day 77: Trump, Xi discuss Hormuz as Tehran rallies BRICS'
+  url: https://aljazeera.com
+- confidence: 0.6
+  date: '2026-05-15'
+  psst_score: 50.0
+  sector: financials
+  source: NHK World
+  steeps_category: E
+  summary: Japan 10-year JGB yield at 2.73% — highest since 2008. Signals end of Japan's
+    ultra-low rate era with global bond market contagion risk
+  title: Japan long-term interest rate rises to 2.73% — fiscal pressure signal
+  url: https://nhk.or.jp
+status: completed
+total: 49

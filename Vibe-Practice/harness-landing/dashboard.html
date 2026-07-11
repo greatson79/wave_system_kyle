@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Harness · Landing 빌드 모니터</title>
+<style>
+  :root {
+    --bg: oklch(20% 0.02 264);
+    --bg-raised: oklch(25% 0.025 264);
+    --bg-card: oklch(28% 0.03 264);
+    --line: oklch(36% 0.03 264);
+    --text: oklch(94% 0.01 264);
+    --text-dim: oklch(72% 0.02 264);
+    --text-faint: oklch(58% 0.02 264);
+    --accent: oklch(80% 0.16 75);
+    --pass: oklch(78% 0.17 150);
+    --fail: oklch(68% 0.20 22);
+    --wait: oklch(75% 0.13 240);
+    --warn: oklch(82% 0.15 90);
+    --radius: 14px;
+    --radius-sm: 8px;
+    --space: clamp(1rem, 0.6rem + 1.5vw, 2rem);
+    --mono: ui-monospace, "SF Mono", "JetBrains Mono", Menlo, monospace;
+    --sans: "Inter", system-ui, -apple-system, "Apple SD Gothic Neo", sans-serif;
+    --ease: cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  * { box-sizing: border-box; margin: 0; }
+  body {
+    font-family: var(--sans);
+    background:
+      radial-gradient(1200px 600px at 85% -10%, oklch(30% 0.05 75 / 0.25), transparent 60%),
+      var(--bg);
+    color: var(--text);
+    line-height: 1.5;
+    min-height: 100vh;
+    padding: var(--space);
+    -webkit-font-smoothing: antialiased;
+  }
+  a { color: var(--accent); }
+
+  header.top {
+    display: flex; flex-wrap: wrap; align-items: baseline; gap: 0.75rem 1.5rem;
+    padding-bottom: 1.25rem; border-bottom: 1px solid var(--line); margin-bottom: 1.5rem;
+  }
+  .brand { font-size: clamp(1.3rem, 1rem + 1.5vw, 2rem); font-weight: 700; letter-spacing: -0.02em; }
+  .brand span { color: var(--accent); }
+  .sub { font-family: var(--mono); font-size: 0.8rem; color: var(--text-faint); }
+  .live {
+    margin-left: auto; display: inline-flex; align-items: center; gap: 0.5rem;
+    font-family: var(--mono); font-size: 0.78rem; color: var(--text-dim);
+  }
+  .dot { width: 9px; height: 9px; border-radius: 50%; background: var(--text-faint); transition: background .3s; }
+  .dot.on { background: var(--pass); box-shadow: 0 0 0 0 oklch(78% 0.17 150 / 0.6); animation: pulse 2s var(--ease) infinite; }
+  @keyframes pulse { 0% { box-shadow: 0 0 0 0 oklch(78% 0.17 150 / 0.5); } 70% { box-shadow: 0 0 0 8px transparent; } 100% { box-shadow: 0 0 0 0 transparent; } }
+  @media (prefers-reduced-motion: reduce) { .dot.on { animation: none; } }
+
+  /* summary band */
+  .summary {
+    display: grid; grid-template-columns: 2fr repeat(3, 1fr); gap: 1px;
+    background: var(--line); border: 1px solid var(--line); border-radius: var(--radius);
+    overflow: hidden; margin-bottom: 1.75rem;
+  }
+  .cell { background: var(--bg-raised); padding: 1.1rem 1.25rem; }
+  .cell .label { font-family: var(--mono); font-size: 0.68rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--text-faint); }
+  .cell .val { font-size: 1.5rem; font-weight: 650; margin-top: 0.35rem; letter-spacing: -0.01em; }
+  .cell .val small { font-size: 0.85rem; color: var(--text-dim); font-weight: 400; }
+  .bar { height: 7px; border-radius: 99px; background: var(--bg-card); overflow: hidden; margin-top: 0.7rem; }
+  .bar > i { display: block; height: 100%; background: linear-gradient(90deg, var(--accent), var(--pass)); width: 0; transition: width .6s var(--ease); }
+
+  @media (max-width: 720px) { .summary { grid-template-columns: 1fr 1fr; } }
+
+  h2.section { font-size: 0.78rem; font-family: var(--mono); text-transform: uppercase; letter-spacing: 0.1em; color: var(--text-faint); margin: 0 0 0.9rem; }
+
+  .sprints { display: grid; gap: 1rem; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); }
+  .sprint {
+    background: var(--bg-card); border: 1px solid var(--line); border-radius: var(--radius);
+    padding: 1.15rem 1.25rem; position: relative; overflow: hidden;
+    transition: transform .25s var(--ease), border-color .25s var(--ease);
+  }
+  .sprint::before { content: ""; position: absolute; inset: 0 auto 0 0; width: 3px; background: var(--accent-bar, var(--text-faint)); }
+  .sprint:hover { transform: translateY(-2px); border-color: var(--accent-bar, var(--line)); }
+  .sprint[data-state="passed"] { --accent-bar: var(--pass); }
+  .sprint[data-state="failed"] { --accent-bar: var(--fail); }
+  .sprint[data-state="active"] { --accent-bar: var(--warn); }
+  .sprint[data-state="contract"] { --accent-bar: var(--wait); }
+  .sprint[data-state="pending"] { --accent-bar: var(--line); opacity: 0.72; }
+
+  .sprint .head { display: flex; align-items: baseline; gap: 0.6rem; margin-bottom: 0.2rem; }
+  .sprint .num { font-family: var(--mono); font-size: 0.72rem; color: var(--text-faint); }
+  .sprint .name { font-weight: 650; font-size: 1.05rem; letter-spacing: -0.01em; }
+  .badge {
+    margin-left: auto; font-family: var(--mono); font-size: 0.66rem; font-weight: 600;
+    text-transform: uppercase; letter-spacing: 0.06em; padding: 0.25rem 0.55rem; border-radius: 99px;
+    border: 1px solid currentColor;
+  }
+  .b-passed { color: var(--pass); } .b-failed { color: var(--fail); }
+  .b-active { color: var(--warn); } .b-contract { color: var(--wait); } .b-pending { color: var(--text-faint); }
+
+  .meta { font-size: 0.82rem; color: var(--text-dim); margin-top: 0.5rem; min-height: 1.2em; }
+
+  .scores { display: grid; grid-template-columns: 1fr 1fr; gap: 0.5rem 1rem; margin-top: 0.9rem; }
+  .score .st { display: flex; justify-content: space-between; font-size: 0.74rem; font-family: var(--mono); color: var(--text-dim); }
+  .score .sval { color: var(--text); }
+  .score .sbar { height: 5px; border-radius: 99px; background: var(--bg-raised); overflow: hidden; margin-top: 0.25rem; }
+  .score .sbar > i { display: block; height: 100%; width: 0; transition: width .5s var(--ease); background: var(--pass); }
+  .score.under .sbar > i { background: var(--fail); }
+  .score.under .sval { color: var(--fail); }
+
+  .chips { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-top: 0.9rem; }
+  .chip { font-family: var(--mono); font-size: 0.68rem; padding: 0.2rem 0.5rem; border-radius: var(--radius-sm); background: var(--bg-raised); color: var(--text-dim); }
+  .chip.crit { color: var(--fail); }
+  .chip.ok { color: var(--pass); }
+
+  .empty {
+    text-align: center; padding: 4rem 1rem; color: var(--text-faint);
+    border: 1px dashed var(--line); border-radius: var(--radius); font-family: var(--mono); font-size: 0.9rem;
+  }
+  .links { margin-top: 1.75rem; font-family: var(--mono); font-size: 0.78rem; color: var(--text-faint); display: flex; flex-wrap: wrap; gap: 1rem; }
+  .err { color: var(--fail); font-family: var(--mono); font-size: 0.78rem; }
+</style>
+</head>
+<body>
+  <header class="top">
+    <div>
+      <div class="brand">Harness <span>·</span> Landing 빌드 모니터</div>
+      <div class="sub" id="runinfo">run 대기 중…</div>
+    </div>
+    <div class="live"><span class="dot" id="dot"></span><span id="livetxt">연결 중…</span></div>
+  </header>
+
+  <section class="summary" aria-label="요약">
+    <div class="cell">
+      <div class="label">진행 상태 / App State</div>
+      <div class="val" id="appstate" style="font-size:1.05rem;line-height:1.4">—</div>
+    </div>
+    <div class="cell">
+      <div class="label">통과 스프린트</div>
+      <div class="val"><span id="passed">0</span><small id="passtot">/0</small></div>
+      <div class="bar"><i id="passbar"></i></div>
+    </div>
+    <div class="cell">
+      <div class="label">현재 스프린트</div>
+      <div class="val" id="cursprint">—</div>
+    </div>
+    <div class="cell">
+      <div class="label">최근 QA 점수</div>
+      <div class="val" id="lastscore">—<small> /10</small></div>
+    </div>
+  </section>
+
+  <h2 class="section">스프린트</h2>
+  <div class="sprints" id="sprints"></div>
+  <div class="empty" id="empty">아직 계획(plan)이 생성되지 않았습니다. 다른 터미널에서 빌드를 실행하면 여기에 나타납니다:<br><br><code>python run_harness.py "&lt;랜딩페이지 아이디어&gt;"</code></div>
+
+  <div class="links">
+    <span>생성 사이트: <a href="http://localhost:3000" target="_blank" rel="noopener">localhost:3000</a> (Generator 실행 중일 때)</span>
+    <span id="poll">갱신 주기 3초</span>
+  </div>
+
+<script>
+const PHASES = ["design_quality","originality","craft","functionality"];
+const THRESH = { design_quality:6, originality:6, craft:7, functionality:7 };
+const LABEL  = { design_quality:"디자인", originality:"독창성", craft:"완성도", functionality:"기능" };
+const MAX_SPRINTS = 8;
+const STATE_BADGE = {
+  passed:["b-passed","통과"], failed:["b-failed","실패"], active:["b-active","빌드중"],
+  contract:["b-contract","계약"], pending:["b-pending","대기"]
+};
+
+async function getJSON(path){
+  try{ const r = await fetch(path + "?t=" + Date.now(), {cache:"no-store"}); if(!r.ok) return null; return await r.json(); }
+  catch(e){ return null; }
+}
+async function getText(path){
+  try{ const r = await fetch(path + "?t=" + Date.now(), {cache:"no-store"}); if(!r.ok) return null; return await r.text(); }
+  catch(e){ return null; }
+}
+function parseHandoff(txt){
+  if(!txt) return {};
+  const o = {};
+  for(const line of txt.split("\n")){
+    const m = line.match(/^\*\*(.+?):\*\*\s*(.*)$/);
+    if(m) o[m[1].trim()] = m[2].trim();
+  }
+  return o;
+}
+function esc(s){ return String(s==null?"":s).replace(/[&<>]/g, c=>({"&":"&amp;","<":"&lt;",">":"&gt;"}[c])); }
+
+function sprintState(contract, qa){
+  if(qa) return qa.verdict === "PASS" ? "passed" : "failed";
+  if(contract){
+    if(contract.status === "ready_for_qa") return "active";
+    if(contract.status === "building") return "active";
+    if(contract.status === "approved") return "active";
+    return "contract"; // proposed
+  }
+  return "pending";
+}
+
+function renderSprint(plan, contract, qa){
+  const num = plan.number;
+  const state = sprintState(contract, qa);
+  const [badgeCls, badgeTxt] = STATE_BADGE[state];
+  const el = document.createElement("article");
+  el.className = "sprint"; el.dataset.state = state;
+
+  let meta = esc((plan.deliverables||[]).join(" · "));
+  if(qa){ meta = `Round ${qa.round} · ${qa.criteria_results.filter(c=>c.result==="PASS").length}/${qa.criteria_results.length} 기준 통과`; }
+  else if(contract){
+    const map = {proposed:"계약 제안됨 — 검토 대기", approved:"계약 승인 — 빌드 진행", building:"빌드 중", ready_for_qa:"QA 대기 중"};
+    meta = `${esc(map[contract.status]||contract.status)} · ${contract.criteria?.length||0}개 기준`;
+  }
+
+  let scoresHTML = "";
+  if(qa && qa.scores){
+    scoresHTML = `<div class="scores">` + PHASES.map(p=>{
+      const v = qa.scores[p]; const under = v < THRESH[p];
+      return `<div class="score${under?" under":""}">
+        <div class="st"><span>${LABEL[p]}</span><span class="sval">${v.toFixed(1)}</span></div>
+        <div class="sbar"><i style="width:${v*10}%"></i></div></div>`;
+    }).join("") + `</div>`;
+  }
+
+  let chips = "";
+  if(qa){
+    chips += `<span class="chip ${qa.verdict==="PASS"?"ok":"crit"}">총점 ${qa.overall_score.toFixed(1)}</span>`;
+    const bugs = qa.bugs||[];
+    const crit = bugs.filter(b=>b.severity==="CRITICAL").length;
+    if(bugs.length) chips += `<span class="chip ${crit?"crit":""}">버그 ${bugs.length}${crit?` · CRIT ${crit}`:""}</span>`;
+    else chips += `<span class="chip ok">버그 0</span>`;
+  }
+
+  el.innerHTML = `
+    <div class="head">
+      <span class="num">SPRINT ${num}</span>
+      <span class="name">${esc(plan.name)}</span>
+      <span class="badge ${badgeCls}">${badgeTxt}</span>
+    </div>
+    <div class="meta">${meta}</div>
+    ${scoresHTML}
+    ${chips?`<div class="chips">${chips}</div>`:""}
+  `;
+  return el;
+}
+
+let firstOK = false;
+async function tick(){
+  const plan = await getJSON("artifacts/plan/sprints.json");
+  const dot = document.getElementById("dot");
+  const livetxt = document.getElementById("livetxt");
+
+  if(plan === null){
+    dot.classList.remove("on");
+    livetxt.textContent = firstOK ? "서버 응답 없음" : "plan 대기 중";
+    return;
+  }
+  firstOK = true; dot.classList.add("on");
+  const now = new Date();
+  livetxt.textContent = "마지막 갱신 " + now.toLocaleTimeString("ko-KR");
+
+  document.getElementById("empty").style.display = "none";
+
+  // handoff / run state
+  const handoff = parseHandoff(await getText("artifacts/session/handoff.md"));
+  document.getElementById("runinfo").textContent =
+    (handoff["Run ID"] ? "run: " + handoff["Run ID"] : "run 진행 중") +
+    (plan.tech_stack?.frontend ? "  ·  " + plan.tech_stack.frontend.split("+")[0].trim() : "");
+  document.getElementById("appstate").textContent = handoff["App State"] || handoff["Known Issues"] || "초기화 중";
+  document.getElementById("cursprint").textContent = handoff["Current Sprint"] || "1";
+
+  const sprints = (plan.sprints||[]).slice().sort((a,b)=>a.number-b.number);
+  const total = sprints.length;
+  const container = document.getElementById("sprints");
+  container.innerHTML = "";
+
+  let passed = 0, lastScore = null;
+  for(const sp of sprints){
+    const n = sp.number;
+    const contract = await getJSON(`artifacts/sprints/sprint_${n}_contract.json`);
+    const qa = await getJSON(`artifacts/sprints/sprint_${n}_qa_report.json`);
+    if(qa){ lastScore = qa.overall_score; if(qa.verdict==="PASS") passed++; }
+    container.appendChild(renderSprint(sp, contract, qa));
+  }
+
+  document.getElementById("passed").textContent = passed;
+  document.getElementById("passtot").textContent = "/" + total;
+  document.getElementById("passbar").style.width = total ? (passed/total*100) + "%" : "0";
+  document.getElementById("lastscore").innerHTML = (lastScore!=null ? lastScore.toFixed(1) : "—") + "<small> /10</small>";
+}
+
+tick();
+setInterval(tick, 3000);
+</script>
+</body>
+</html>

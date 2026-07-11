@@ -1,0 +1,79 @@
+agent: analyst-risk
+run_date: "2026-05-15"
+status: completed
+
+portfolio_risk_score: 62
+top_risk_72h: "R1, R2, R5"
+
+risk_matrix:
+  - risk_id: R1
+    name: "호르무즈 해협 에너지 위기 지속"
+    category: geopolitical
+    probability: 45%
+    impact_level: HIGH
+    affected_stocks: [005930, 000660, 035420]
+    timeframe: 72h
+    key_evidence:
+      - "HMM 나무 피격 (서울, 이란 비난)"
+      - "트럼프-시진핑 호르무즈 논의 (day 77)"
+      - "이란-러시아 카스피해 우회 루트 부상"
+
+  - risk_id: R2
+    name: "JGB 금리 급등 → 엔 캐리 청산 → 외국인 KOSPI 매도"
+    category: financial_macro
+    probability: 35%
+    impact_level: HIGH
+    affected_stocks: [005930, 000660, 035420]
+    timeframe: 72h
+    key_evidence:
+      - "외국인 지분율 51~59% (전 종목 고노출)"
+      - "USD 강세 지속 (macro: strong)"
+      - "리스크 선호 중립 (moderate)"
+
+  - risk_id: R3
+    name: "미중 AI 협력 공방 — 반도체 수출규제 재강화"
+    category: regulatory_tech
+    probability: 30%
+    impact_level: HIGH
+    affected_stocks: [000660, 005930]
+    timeframe: 72h
+    key_evidence:
+      - "Nvidia H200 중국 10개사 판매 승인 (긍정)"
+      - "중국 AI 오픈소스 독립 전략 (미국 레버리지 약화)"
+      - "트럼프 방중 무역 협의 진행 중"
+
+  - risk_id: R4
+    name: "AI 챗봇 개인정보 유출 → 규제 강화"
+    category: technology_security
+    probability: 25%
+    impact_level: MEDIUM
+    affected_stocks: [035420]
+    timeframe: 7d
+    key_evidence:
+      - "AI 챗봇 전화번호 유출 신고 400% 급증"
+      - "NAVER HyperCLOVA X 국내 최대 AI 서비스 노출"
+
+  - risk_id: R5
+    name: "KOSPI 7,000선 저항 — 기술적 단기 조정"
+    category: market_technical
+    probability: 40%
+    impact_level: MEDIUM
+    affected_stocks: [005930, 000660, 035420]
+    timeframe: 72h
+    key_evidence:
+      - "예탁금 137조 역대 최대 (과열 신호)"
+      - "1년간 앞자리 5번 변경 (변동성 확대 구간)"
+      - "50만전자 낙관론 극단화 (역발상 리스크)"
+
+risk_mitigation:
+  005930: "100,000원 단기 익절 고려 / 외국인 52.1% 이탈 모니터링"
+  000660: "미중 협상 전까지 신규 비중 확대 자제 / +3.1% 급등 후 차익실현 대비"
+  035420: "AI 규제 직접 노출 최대 / 방어적 포지션 유지"
+
+macro_context:
+  rate_direction: hold
+  inflation_trend: cooling
+  risk_appetite: moderate
+  usd_strength: strong
+
+output_file: "output/temp/round1_risk_20260515.json"

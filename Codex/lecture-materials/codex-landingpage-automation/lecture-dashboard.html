@@ -1,0 +1,836 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Codex 랜딩페이지 자동화 강의 대시보드</title>
+    <style>
+      :root {
+        --bg: #f6f7fb;
+        --ink: #111827;
+        --muted: #64748b;
+        --line: #d8dee9;
+        --navy: #073565;
+        --blue: #2563eb;
+        --teal: #0f9aa7;
+        --pink: #ef3b72;
+        --yellow: #ffc21a;
+        --green: #15803d;
+        --card: #ffffff;
+        --soft: #edf2f7;
+        --shadow: 0 18px 44px rgba(15, 23, 42, 0.10);
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        background: var(--bg);
+        color: var(--ink);
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+        line-height: 1.55;
+      }
+
+      a {
+        color: inherit;
+      }
+
+      button {
+        font: inherit;
+      }
+
+      .app-shell {
+        display: grid;
+        grid-template-columns: 320px minmax(0, 1fr);
+        min-height: 100vh;
+      }
+
+      .sidebar {
+        position: sticky;
+        top: 0;
+        align-self: start;
+        height: 100vh;
+        overflow: auto;
+        border-right: 1px solid var(--line);
+        background: #0f172a;
+        color: white;
+        padding: 28px;
+      }
+
+      .brand {
+        display: grid;
+        gap: 10px;
+        margin-bottom: 30px;
+      }
+
+      .brand-mark {
+        display: inline-grid;
+        width: 52px;
+        height: 52px;
+        place-items: center;
+        border-radius: 14px;
+        background: var(--yellow);
+        color: var(--navy);
+        font-size: 28px;
+        font-weight: 1000;
+      }
+
+      .brand h1 {
+        margin: 0;
+        font-size: 28px;
+        line-height: 1.08;
+      }
+
+      .brand p {
+        margin: 0;
+        color: #cbd5e1;
+        font-weight: 700;
+      }
+
+      .side-section {
+        display: grid;
+        gap: 12px;
+        margin-top: 26px;
+      }
+
+      .side-section h2 {
+        margin: 0;
+        color: #bfdbfe;
+        font-size: 13px;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+      }
+
+      .checklist {
+        display: grid;
+        gap: 9px;
+      }
+
+      .check {
+        display: flex;
+        gap: 10px;
+        align-items: flex-start;
+        color: #e2e8f0;
+        font-size: 14px;
+        font-weight: 700;
+      }
+
+      .check input {
+        width: 18px;
+        height: 18px;
+        margin-top: 2px;
+        accent-color: var(--yellow);
+      }
+
+      .side-links {
+        display: grid;
+        gap: 8px;
+      }
+
+      .side-links a,
+      .side-links button {
+        display: inline-flex;
+        min-height: 42px;
+        align-items: center;
+        justify-content: center;
+        border: 1px solid rgba(255, 255, 255, 0.18);
+        border-radius: 10px;
+        background: rgba(255, 255, 255, 0.08);
+        color: white;
+        text-decoration: none;
+        font-size: 14px;
+        font-weight: 900;
+        cursor: pointer;
+      }
+
+      .main {
+        padding: 34px;
+      }
+
+      .hero {
+        display: grid;
+        gap: 18px;
+        margin-bottom: 28px;
+        border-radius: 18px;
+        background: linear-gradient(135deg, #ffffff 0%, #eef8ff 58%, #fff4cf 100%);
+        padding: 34px;
+        box-shadow: var(--shadow);
+      }
+
+      .hero h2 {
+        max-width: 880px;
+        margin: 0;
+        color: var(--navy);
+        font-size: clamp(34px, 5vw, 68px);
+        line-height: 1;
+      }
+
+      .hero p {
+        max-width: 760px;
+        margin: 0;
+        color: var(--muted);
+        font-size: 20px;
+        font-weight: 800;
+      }
+
+      .hero-actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+      }
+
+      .primary-action,
+      .secondary-action,
+      .copy-button {
+        min-height: 44px;
+        border: 0;
+        border-radius: 10px;
+        padding: 10px 14px;
+        font-weight: 1000;
+        cursor: pointer;
+      }
+
+      .primary-action {
+        background: var(--navy);
+        color: white;
+      }
+
+      .secondary-action {
+        border: 2px solid var(--navy);
+        background: white;
+        color: var(--navy);
+      }
+
+      .status-bar {
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 12px;
+        margin-bottom: 28px;
+      }
+
+      .metric {
+        border: 1px solid var(--line);
+        border-radius: 14px;
+        background: var(--card);
+        padding: 18px;
+      }
+
+      .metric span {
+        color: var(--muted);
+        font-size: 13px;
+        font-weight: 900;
+        text-transform: uppercase;
+      }
+
+      .metric strong {
+        display: block;
+        margin-top: 6px;
+        color: var(--navy);
+        font-size: 24px;
+      }
+
+      .grid {
+        display: grid;
+        grid-template-columns: minmax(0, 1.35fr) minmax(300px, 0.65fr);
+        gap: 20px;
+      }
+
+      .panel {
+        border: 1px solid var(--line);
+        border-radius: 16px;
+        background: var(--card);
+        padding: 24px;
+        box-shadow: 0 10px 26px rgba(15, 23, 42, 0.06);
+      }
+
+      .panel h3 {
+        margin: 0 0 14px;
+        color: var(--navy);
+        font-size: 24px;
+      }
+
+      .section-stack {
+        display: grid;
+        gap: 20px;
+      }
+
+      .comparison-grid,
+      .ui-grid,
+      .lesson-grid {
+        display: grid;
+        gap: 14px;
+      }
+
+      .comparison-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .ui-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+
+      .lesson-grid {
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      }
+
+      .concept-card,
+      .ui-card,
+      .lesson-card {
+        border: 1px solid var(--line);
+        border-radius: 14px;
+        background: #fbfdff;
+        padding: 16px;
+      }
+
+      .concept-card.agent {
+        border-color: rgba(15, 154, 167, 0.38);
+        background: #eefcff;
+      }
+
+      .concept-card h4,
+      .ui-card h4,
+      .lesson-card h4 {
+        margin: 0 0 8px;
+        color: var(--navy);
+        font-size: 18px;
+      }
+
+      .concept-card p,
+      .ui-card p,
+      .lesson-card p {
+        margin: 0;
+        color: var(--muted);
+        font-weight: 700;
+      }
+
+      .concept-card ul,
+      .ui-card ul {
+        margin: 12px 0 0;
+        padding-left: 18px;
+        color: var(--ink);
+        font-weight: 750;
+      }
+
+      .lesson-card strong {
+        display: inline-grid;
+        min-width: 34px;
+        min-height: 34px;
+        place-items: center;
+        margin-bottom: 10px;
+        border-radius: 10px;
+        background: var(--yellow);
+        color: var(--navy);
+      }
+
+      .prompt-viewer {
+        display: none;
+        gap: 8px;
+        border-radius: 12px;
+        background: #0f172a;
+        padding: 14px;
+      }
+
+      .active-prompt-panel {
+        display: none;
+        margin-bottom: 20px;
+      }
+
+      .active-prompt-panel.is-open {
+        display: block;
+      }
+
+      .prompt-card.is-open .prompt-viewer {
+        display: grid;
+      }
+
+      .prompt-viewer strong {
+        color: #bfdbfe;
+        font-size: 13px;
+      }
+
+      .prompt-text {
+        overflow-x: auto;
+        margin: 0;
+        white-space: pre-wrap;
+        color: #f8fafc;
+        font: 700 13px/1.55 ui-monospace, SFMono-Regular, Menlo, monospace;
+      }
+
+      .prompt-list {
+        display: grid;
+        gap: 12px;
+      }
+
+      .prompt-card {
+        display: grid;
+        gap: 10px;
+        border: 1px solid var(--line);
+        border-radius: 14px;
+        background: #ffffff;
+        padding: 16px;
+      }
+
+      .prompt-card h4 {
+        margin: 0;
+        font-size: 17px;
+      }
+
+      .prompt-card p {
+        margin: 0;
+        color: var(--muted);
+        font-weight: 700;
+      }
+
+      .copy-button {
+        justify-self: start;
+        background: var(--yellow);
+        color: var(--navy);
+      }
+
+      .board {
+        display: grid;
+        gap: 14px;
+      }
+
+      .board-item {
+        border-left: 6px solid var(--blue);
+        border-radius: 12px;
+        background: #eff6ff;
+        padding: 14px;
+      }
+
+      .board-item.warning {
+        border-left-color: var(--pink);
+        background: #fff1f2;
+      }
+
+      .board-item.success {
+        border-left-color: var(--green);
+        background: #f0fdf4;
+      }
+
+      .board-item strong {
+        display: block;
+        margin-bottom: 4px;
+      }
+
+      .board-item span {
+        color: var(--muted);
+        font-weight: 700;
+      }
+
+      .brief-box {
+        width: 100%;
+        min-height: 220px;
+        resize: vertical;
+        border: 1px solid var(--line);
+        border-radius: 12px;
+        padding: 14px;
+        background: #fbfdff;
+        color: var(--ink);
+        font: 700 14px/1.55 ui-monospace, SFMono-Regular, Menlo, monospace;
+      }
+
+      .toast {
+        position: fixed;
+        right: 20px;
+        bottom: 20px;
+        transform: translateY(120px);
+        border-radius: 12px;
+        background: var(--navy);
+        color: white;
+        padding: 12px 16px;
+        font-weight: 900;
+        transition: transform 0.2s ease;
+      }
+
+      .toast.show {
+        transform: translateY(0);
+      }
+
+      @media (max-width: 980px) {
+        .app-shell {
+          grid-template-columns: 1fr;
+        }
+
+        .sidebar {
+          position: static;
+          height: auto;
+        }
+
+        .status-bar,
+        .grid {
+          grid-template-columns: 1fr;
+        }
+
+        .comparison-grid,
+        .ui-grid,
+        .lesson-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="app-shell">
+      <aside class="sidebar">
+        <div class="brand">
+          <span class="brand-mark">C</span>
+          <h1>Codex 랜딩페이지 자동화</h1>
+          <p>개인/이벤트 페이지를 기획서에서 배포까지</p>
+        </div>
+
+        <section class="side-section">
+          <h2>강의 준비</h2>
+          <div class="checklist">
+            <label class="check"><input type="checkbox"> Codex 작업 폴더 열기</label>
+            <label class="check"><input type="checkbox"> `node -v`, `npm -v` 확인</label>
+            <label class="check"><input type="checkbox"> `vercel --version` 확인</label>
+            <label class="check"><input type="checkbox"> Vercel 로그인 확인</label>
+            <label class="check"><input type="checkbox"> 대표 이미지/신청 링크 준비</label>
+          </div>
+        </section>
+
+        <section class="side-section">
+          <h2>수강생 자료</h2>
+          <div class="side-links">
+            <a href="./student-prompt-pack.md">수강생 프롬프트 팩</a>
+            <button type="button" data-print>인쇄 / PDF 저장</button>
+          </div>
+        </section>
+
+        <section class="side-section">
+          <h2>오늘의 문장</h2>
+          <p>프롬프트는 부탁이 아니라 작업 계약서다. Codex는 만들고, 검증하고, 배포하는 실행형 에이전트다.</p>
+        </section>
+      </aside>
+
+      <main class="main">
+        <section class="hero">
+          <h2>개인/이벤트 랜딩페이지를 Codex로 끝까지 만든다</h2>
+          <p>수강생은 브리프 하나로 MVP 제작, CTA/QR/OG 이미지 구성, 검증 자동화, Vercel 배포까지 경험한다.</p>
+          <div class="hero-actions">
+            <button class="primary-action" type="button" data-copy-target="master">마스터 자동화 프롬프트 보기 + 복사</button>
+            <button class="secondary-action" type="button" data-copy-target="brief">브리프 템플릿 보기 + 복사</button>
+          </div>
+        </section>
+
+        <section class="status-bar" aria-label="강의 핵심 지표">
+          <div class="metric"><span>강의 길이</span><strong>2시간</strong></div>
+          <div class="metric"><span>강의 방식</span><strong>실습 중심</strong></div>
+          <div class="metric"><span>최종 결과</span><strong>배포 URL</strong></div>
+          <div class="metric"><span>자동화 수준</span><strong>검증 + 배포</strong></div>
+        </section>
+
+        <section class="panel active-prompt-panel" data-active-prompt-panel>
+          <h3 data-active-prompt-title>선택한 프롬프트</h3>
+          <div class="prompt-viewer" style="display: grid;">
+            <strong>복사된 프롬프트 전문</strong>
+            <pre class="prompt-text" data-active-prompt-text></pre>
+          </div>
+        </section>
+
+        <div class="section-stack">
+          <section class="panel">
+            <h3>AI 에이전트 작업 방식 이해</h3>
+            <div class="comparison-grid">
+              <article class="concept-card">
+                <h4>질문하는 AI</h4>
+                <p>대화창 안에서 답변, 요약, 아이디어를 제공하는 조언자에 가깝다.</p>
+                <ul>
+                  <li>사용자가 직접 파일을 만들고 옮긴다.</li>
+                  <li>답변의 품질은 좋지만 실행은 사람 몫이다.</li>
+                  <li>결과물 검증과 배포를 따로 챙겨야 한다.</li>
+                </ul>
+              </article>
+              <article class="concept-card agent">
+                <h4>파일을 고치고 배포까지 하는 AI 에이전트</h4>
+                <p>작업 폴더를 읽고, 파일을 수정하고, 검증 명령을 실행하고, 배포 결과까지 확인한다.</p>
+                <ul>
+                  <li>요구사항을 작업 계획과 파일 변경으로 바꾼다.</li>
+                  <li>HTML, CSS, 이미지, 배포 설정을 실제 산출물로 만든다.</li>
+                  <li>검증 실패를 보고 다시 고치는 반복을 수행한다.</li>
+                </ul>
+              </article>
+            </div>
+          </section>
+
+          <section class="panel">
+            <h3>Codex Desktop UI 설명</h3>
+            <div class="ui-grid">
+              <article class="ui-card">
+                <h4>작업 폴더</h4>
+                <p>Codex가 읽고 고칠 실제 프로젝트 공간이다. 수업에서는 폴더를 먼저 정하고 그 안에서만 작업한다.</p>
+              </article>
+              <article class="ui-card">
+                <h4>대화창</h4>
+                <p>요청, 승인, 피드백을 주고받는 지휘석이다. “무엇을 만들지”보다 “완료 기준”을 함께 적는다.</p>
+              </article>
+              <article class="ui-card">
+                <h4>파일 변경</h4>
+                <p>Codex가 어떤 파일을 바꿨는지 확인하는 영역이다. 의도와 다른 변경은 여기서 바로 잡는다.</p>
+              </article>
+              <article class="ui-card">
+                <h4>터미널</h4>
+                <p>설치 확인, 미리보기 실행, 검증 스크립트, 배포 명령이 실행되는 곳이다.</p>
+              </article>
+              <article class="ui-card">
+                <h4>브라우저 미리보기</h4>
+                <p>로컬 페이지를 열어 CTA, 레이아웃, 모바일 흐름, 공유 이미지를 확인한다.</p>
+              </article>
+              <article class="ui-card">
+                <h4>배포 결과</h4>
+                <p>Vercel URL과 카카오톡 공유용 URL을 확인하고, 필요한 경우 캐시 우회 경로를 만든다.</p>
+              </article>
+            </div>
+          </section>
+        </div>
+
+        <div class="grid" style="margin-top: 20px;">
+          <section class="panel">
+            <h3>오늘 다룰 수업 내용</h3>
+            <div class="lesson-grid">
+              <article class="lesson-card">
+                <strong>1</strong>
+                <h4>브리프 작성</h4>
+                <p>대상, 메시지, CTA, 이미지, 링크를 한 장으로 정리한다.</p>
+              </article>
+              <article class="lesson-card">
+                <strong>2</strong>
+                <h4>구조 설계</h4>
+                <p>Codex가 섹션, 파일, 검증 기준을 먼저 제안하게 한다.</p>
+              </article>
+              <article class="lesson-card">
+                <strong>3</strong>
+                <h4>MVP 제작</h4>
+                <p>첫 화면, CTA, 정보 섹션을 빠르게 구현하고 바로 미리본다.</p>
+              </article>
+              <article class="lesson-card">
+                <strong>4</strong>
+                <h4>검증 고정</h4>
+                <p>필수 문구, CTA, OG 이미지, footer 조건을 스크립트로 확인한다.</p>
+              </article>
+              <article class="lesson-card">
+                <strong>5</strong>
+                <h4>배포 자동화</h4>
+                <p>Vercel 배포 후 실제 URL과 공유 미리보기를 점검한다.</p>
+              </article>
+            </div>
+          </section>
+
+          <aside class="panel">
+            <h3>운영 보드</h3>
+            <div class="board">
+              <div class="board-item">
+                <strong>강사 핵심 멘트</strong>
+                <span>좋은 프롬프트는 일을 시키는 문장이 아니라 완료 기준까지 포함한 작업 계약서입니다.</span>
+              </div>
+              <div class="board-item warning">
+                <strong>주의 지점</strong>
+                <span>카카오톡 미리보기는 OG 이미지를 캐시한다. 같은 URL이 계속 QR로 보이면 새 공유 경로를 만든다.</span>
+              </div>
+              <div class="board-item success">
+                <strong>성공 기준</strong>
+                <span>수강생이 자기 페이지를 열고 CTA와 공유 이미지를 설명할 수 있으면 성공이다.</span>
+              </div>
+            </div>
+          </aside>
+        </div>
+
+        <section class="panel" style="margin-top: 20px;">
+          <h3>수업 중 바로 복사할 프롬프트</h3>
+          <div class="prompt-list">
+            <article class="prompt-card" data-prompt-card>
+              <h4>1. 설계 먼저</h4>
+              <p>구현 전에 현재 폴더를 읽고 페이지 구조를 제안하게 한다.</p>
+              <button class="copy-button" type="button" data-copy-target="design">프롬프트 보기 + 복사</button>
+              <div class="prompt-viewer" aria-live="polite">
+                <strong>복사된 프롬프트 전문</strong>
+                <pre class="prompt-text" data-prompt-text></pre>
+              </div>
+            </article>
+            <article class="prompt-card" data-prompt-card>
+              <h4>2. MVP 구현</h4>
+              <p>정적 HTML/CSS/JS로 첫 화면과 CTA를 만든다.</p>
+              <button class="copy-button" type="button" data-copy-target="mvp">프롬프트 보기 + 복사</button>
+              <div class="prompt-viewer" aria-live="polite">
+                <strong>복사된 프롬프트 전문</strong>
+                <pre class="prompt-text" data-prompt-text></pre>
+              </div>
+            </article>
+            <article class="prompt-card" data-prompt-card>
+              <h4>3. 검증 자동화</h4>
+              <p>필수/금지 조건을 스크립트로 잠근다.</p>
+              <button class="copy-button" type="button" data-copy-target="verify">프롬프트 보기 + 복사</button>
+              <div class="prompt-viewer" aria-live="polite">
+                <strong>복사된 프롬프트 전문</strong>
+                <pre class="prompt-text" data-prompt-text></pre>
+              </div>
+            </article>
+            <article class="prompt-card" data-prompt-card>
+              <h4>4. 배포</h4>
+              <p>검증 통과 후 Vercel 배포와 배포 HTML 확인까지 시킨다.</p>
+              <button class="copy-button" type="button" data-copy-target="deploy">프롬프트 보기 + 복사</button>
+              <div class="prompt-viewer" aria-live="polite">
+                <strong>복사된 프롬프트 전문</strong>
+                <pre class="prompt-text" data-prompt-text></pre>
+              </div>
+            </article>
+          </div>
+        </section>
+
+        <section class="panel" style="margin-top: 20px;">
+          <h3>브리프 템플릿</h3>
+          <textarea class="brief-box" readonly data-brief-template># 랜딩페이지 제작 브리프
+
+종류:
+페이지 제목:
+부제:
+대상:
+핵심 메시지:
+일시/장소:
+주요 CTA:
+연결할 링크:
+연락처:
+대표 이미지 방향:
+꼭 들어갈 문구:
+절대 들어가면 안 되는 문구:
+배포 희망 경로:</textarea>
+        </section>
+      </main>
+    </div>
+
+    <div class="toast" role="status" aria-live="polite" data-toast>복사되었습니다.</div>
+
+    <script>
+      const prompts = {
+        brief: document.querySelector("[data-brief-template]").value,
+        design: `이 브리프를 바탕으로 개인/이벤트 랜딩페이지 구조를 설계해줘.
+
+먼저 구현하지 말고 아래를 출력해줘.
+1. 페이지 목적
+2. 섹션 구성
+3. CTA 구조
+4. 필요한 자산
+5. 검증 기준
+6. 배포 방식
+
+브리프:
+[여기에 브리프 붙여넣기]`,
+        mvp: `위 설계를 기준으로 랜딩페이지 MVP를 만들어줘.
+
+조건:
+- 현재 폴더 구조를 먼저 읽어라.
+- 정적 HTML/CSS/JS로 충분하면 프레임워크를 추가하지 마라.
+- 첫 화면에 제목, 부제, 핵심 CTA가 보여야 한다.
+- 모바일 대응을 포함해라.
+- 파일 변경 전 어떤 파일을 바꿀지 짧게 설명해라.
+- 완료 후 로컬 검증 명령을 제안해라.`,
+        verify: `이 랜딩페이지의 요구사항을 검증하는 스크립트를 만들어줘.
+
+검증해야 할 것:
+- 필수 문구가 모두 있는지
+- CTA 링크가 있는지
+- footer 정보가 있는지
+- og:image가 QR 이미지가 아닌 대표 이미지인지
+- 금지 문구가 없는지
+- 배포용 공유 경로가 있는지
+
+요구:
+- package.json의 npm run verify로 실행되게 해라.
+- 먼저 실패해야 할 조건을 만든 뒤, 수정해서 통과시켜라.`,
+        deploy: `검증이 통과하면 Vercel에 프로덕션 배포해줘.
+
+순서:
+1. npm run verify 실행
+2. vercel --prod --yes 실행
+3. 배포 URL 확인
+4. curl로 배포된 HTML의 og:image 확인
+5. 최종 공유 URL을 알려줘
+
+주의:
+- 배포 전 검증 실패가 있으면 배포하지 마라.
+- 카카오톡 캐시 문제가 생길 수 있으므로 캐시 우회용 공유 URL도 제안해라.`,
+        master: `다음 브리프를 바탕으로 개인/이벤트 랜딩페이지를 끝까지 제작해줘.
+
+자동으로 수행할 것:
+1. 요구사항 분석
+2. 페이지 구조 설계
+3. MVP 구현
+4. CTA/QR/OG/footer 추가
+5. 검증 스크립트 작성
+6. npm run verify 통과
+7. Vercel 배포
+8. 배포 URL과 카카오톡 공유용 URL 보고
+
+작업 원칙:
+- 현재 폴더 구조를 먼저 읽어라.
+- 구현 전 계획을 말해라.
+- 검증 없이 완료라고 말하지 마라.
+- 배포 전 npm run verify를 실행해라.
+
+브리프:
+[여기에 브리프 붙여넣기]`
+      };
+
+      const promptTitles = {
+        brief: "브리프 템플릿",
+        design: "1. 설계 먼저",
+        mvp: "2. MVP 구현",
+        verify: "3. 검증 자동화",
+        deploy: "4. 배포",
+        master: "마스터 자동화 프롬프트"
+      };
+
+      const toast = document.querySelector("[data-toast]");
+      const activePromptPanel = document.querySelector("[data-active-prompt-panel]");
+      const activePromptTitle = document.querySelector("[data-active-prompt-title]");
+      const activePromptText = document.querySelector("[data-active-prompt-text]");
+      let toastTimer;
+
+      function showToast(message) {
+        toast.textContent = message;
+        toast.classList.add("show");
+        clearTimeout(toastTimer);
+        toastTimer = setTimeout(() => toast.classList.remove("show"), 1600);
+      }
+
+      async function copyText(value) {
+        try {
+          await navigator.clipboard.writeText(value);
+          showToast("프롬프트를 표시하고 복사했습니다.");
+        } catch (error) {
+          showToast("프롬프트를 표시했습니다. 직접 선택해 복사하세요.");
+        }
+      }
+
+      function revealPrompt(key, button) {
+        const value = prompts[key] || "";
+        const card = button.closest("[data-prompt-card]");
+
+        if (card) {
+          card.classList.add("is-open");
+          const promptText = card.querySelector("[data-prompt-text]");
+          promptText.textContent = value;
+          return;
+        }
+
+        activePromptTitle.textContent = promptTitles[key] || "선택한 프롬프트";
+        activePromptText.textContent = value;
+        activePromptPanel.classList.add("is-open");
+      }
+
+      document.querySelectorAll("[data-copy-target]").forEach((button) => {
+        button.addEventListener("click", () => {
+          const key = button.getAttribute("data-copy-target");
+          revealPrompt(key, button);
+          copyText(prompts[key] || "");
+        });
+      });
+
+      document.querySelector("[data-print]").addEventListener("click", () => window.print());
+    </script>
+  </body>
+</html>

@@ -39,6 +39,7 @@ MANIFEST=(
 "lecture-design|Claude_skills/lecture_skill_build/skill"
 "youth-life-planner|Claude_skills/youth_life_plan"
 "brunch-writing-workflow|Claude_skills/Writingskills/brunch-writing-workflow"
+"aitoon-page-director|Claude_skills/aitoon-page-director"
 # ── 교회 행정 ──
 "church-admin|Claude_skills/Church-Admin-AgenticWorkflow-main/church-admin/.claude/skills/church-admin"
 # ── Wave-AI (오케스트레이터 정본) ──

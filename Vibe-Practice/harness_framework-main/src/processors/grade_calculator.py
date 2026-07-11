@@ -36,10 +36,22 @@ def calculate_all(master_df: pd.DataFrame, threshold: float = 80.0) -> pd.DataFr
     df = master_df.copy()
 
     def _grade_row(row: pd.Series) -> str:
+        completion_raw = row.get("assignment_completion_rate", 0.0)
+        try:
+            completion_rate = float(completion_raw) if completion_raw not in (None, "", "nan") else 0.0
+        except (ValueError, TypeError):
+            completion_rate = 0.0
+
+        course_raw = row.get("course_completed", False)
+        course_completed = bool(course_raw) if course_raw not in (None, "", "nan") else False
+
+        payment_raw = row.get("payment_status", False)
+        payment_status = bool(payment_raw) if payment_raw not in (None, "", "nan") else False
+
         grade, _ = calculate_grade(
-            completion_rate=float(row.get("assignment_completion_rate", 0.0) or 0.0),
-            course_completed=bool(row.get("course_completed", False)),
-            payment_status=bool(row.get("payment_status", False)),
+            completion_rate=completion_rate,
+            course_completed=course_completed,
+            payment_status=payment_status,
             threshold=threshold,
         )
         return grade

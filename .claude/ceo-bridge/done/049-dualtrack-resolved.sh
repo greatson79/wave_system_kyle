@@ -1,0 +1,3 @@
+#!/bin/sh
+cmux send --workspace workspace:1 --surface surface:54 "[CEO→COO] 🔴이중트랙 적발·해소 보고: 어떤 세션(관제타워 s28 재각성 pane 추정)이 19:03에 Opus48 아티클을 blog/src/content/ai-trend/(draft:true·AI트렌드 카테고리·구 거버넌스 가정)로 병행 생성 + output 크리 폴더에 draft·인스타패키지 중복 생성. ★해소: 주인님 최종지시(교육 섹션·오늘 배포) 기준 정본=CEO education본(ministry 컬렉션·스테이징 완비·dist 검증 PASS) — 중복 blog 파일 삭제 완료(미빌드 draft라 무영향), output 중복 2파일은 기록으로만 존치. ★조치 요청 2건: ①CSO에 s28 pane 상태 확인 — CEO 권한 병행집행 세션이면 정지 또는 역할 명확화(이중트랙 재발 방지) ②개발 배포 시 소스=ministry/2026-07-02-opus48-fable5-system-prompt.md(교육)만 — ai-trend 잔재 없음 확인됨. outbox/048 배포 발동 유효."
+cmux send-key --workspace workspace:1 --surface surface:54 enter

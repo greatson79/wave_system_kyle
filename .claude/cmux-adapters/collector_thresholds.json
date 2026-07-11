@@ -1,0 +1,8 @@
+{
+  "screen_unchanged_seconds": 300,
+  "context_threshold_percent": 60,
+  "proc_count_high": 20,
+  "working_interval_seconds": 30,
+  "idle_interval_seconds": 300,
+  "due_early_tolerance_seconds": 5
+}

@@ -30,7 +30,7 @@
 | 월삭 12개월 | `data/sermon-plan-2026.json` → `new_moon[]` | 사용자만 |
 | 매일묵상 52주 | `.claude/skills/weekly-devotion/devotion-data.json` | 사용자만 |
 | 수요기도회 | `data/prayer/*.csv` | 사용자만 |
-| 설교 맥락 | `output/{월}/{주차}/설교/sermon-context.md` | Sermon Agent만 |
+| 설교 맥락 | `output/{월}/{주차}/설교/sermon-context.md` | Team Leader 생성 (Sermon Agent 산출물 기반) |
 | 진행 상태 | `output/{월}/{주차}/status.md` | Team Leader만 |
 
 위반 시: 산출물을 폐기하고 SOT에서 다시 읽어 재생성한다.
@@ -145,9 +145,9 @@ weekly-works/
 ## DAG (워크플로우 순서)
 
 ```
-설교 1~4단계(대화형) ∥ 매일묵상(자동) ∥ 기도카드(자동)
+설교 1~4-4단계(대화형) ∥ 매일묵상(자동) ∥ 기도카드(자동)
          ↓
-    4.5 제목확정 → sermon-context.md 갱신
+    4-1 제목확정 → 4-2 전개방식확정 → 4-3 예화설계 → 4-4 아웃라인작성 → sermon-context.md 갱신
          ↓               ↓                    ↓
   5단계 원고(대화형)  소그룹 나눔지(자동)   디자인스카우트(자동)
                                                    ↓
@@ -155,9 +155,36 @@ weekly-works/
                      ↓                          ↓
                          주간 보고서 (D+E 완료 후)
 ```
-> **Phase 2 트리거**: 4.5단계 제목 확정 시 소그룹 나눔지(D)·디자인스카우트(E0) 자동 동시 소환. 5단계 원고 완료를 기다리지 않는다.
+> **Phase 2 트리거**: 4-4단계 아웃라인 작성 완료 시 소그룹 나눔지(D)·디자인스카우트(E0) 자동 동시 소환. 5단계 원고 완료를 기다리지 않는다.
+
+## 자동화 훅 — 이미지 감지 → insert-images 자동 실행
+
+매일묵상 `images/` 폴더에 mon~fri 이미지 5장이 모이면 insert-images 파이프라인이 자동 실행됩니다.
+
+### 작동 방식
+| 경로 | 역할 |
+|------|------|
+| `src/scripts/watch-devotion-images.sh` | fswatch 기반 파일시스템 감시 (수동 이미지 추가 시) |
+| `src/scripts/auto-insert-trigger.sh` | Claude Write 훅 (Claude가 이미지 생성 시) |
+| `src/scripts/check-devotion-done.sh` | captured/ 10개+ 시 status.md 자동 완료 처리 |
+| `.claude/settings.local.json` | PostToolUse Write 훅 등록 |
+
+### 시작 방법
+```bash
+# fswatch 최초 설치 (1회)
+npm run setup:watcher
+
+# 감시 시작 (주간 작업 시작 시 별도 터미널에서 실행)
+npm run watch:images
+```
+
+### 트리거 조건
+- `output/{월}/{주차}/매일묵상/images/` 폴더에 mon/tue/wed/thu/fri 확장자 파일 5장 감지
+- 락 파일(`.pipeline_running`) 으로 중복 실행 방지
+- 완료 시 `status.md` B. 매일묵상 → ✅완료 자동 갱신
 
 ## 실행 환경
 - Node.js 18+ (Puppeteer A4 캡쳐)
 - Python 3.12+ (기도카드 파이프라인)
+- fswatch (이미지 자동감지): `brew install fswatch`
 - wkhtmltoimage (PNG 캡쳐, 선택)

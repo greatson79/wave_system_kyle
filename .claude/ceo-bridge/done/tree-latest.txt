@@ -1,0 +1,49 @@
+window window:1 [current] ◀ active
+├── workspace workspace:1 "경영본부" [selected] ◀ active
+│   ├── pane pane:20 [focused] ◀ active
+│   │   └── surface surface:28 [terminal] "⠐ 경영본부 전원 clear 재각성 브리핑" [selected] ◀ active tty=ttys026
+│   ├── pane pane:2
+│   │   └── surface surface:3 [terminal] "CSO 시스템운영" [selected] tty=ttys011
+│   ├── pane pane:36
+│   │   └── surface surface:56 [terminal] "sh /Users/kylechoi/Desktop/Ai_works/.claude/ceo-bridge/bridge.sh" [selected] ◀ here tty=ttys067
+│   ├── pane pane:34
+│   │   └── surface surface:54 [terminal] "✳ CSO에서 COO로 재개 브리핑 및 체크포인트 확인" [selected] tty=ttys001
+│   ├── pane pane:4
+│   │   └── surface surface:2 [terminal] "agy 리뷰어" [selected] tty=ttys010
+│   ├── pane pane:17
+│   │   └── surface surface:22 [terminal] "agy-2 마케팅·SNS 리뷰어" [selected] tty=ttys022
+│   └── pane pane:5
+│       └── surface surface:1 [terminal] "코드검수" [selected] tty=ttys004
+├── workspace workspace:5 "마케팅본부"
+│   ├── pane pane:9 [focused]
+│   │   └── surface surface:9 [terminal] "✳ SNS 2주차 마케팅 카드 제작 브리프" [selected] tty=ttys012
+│   └── pane pane:15
+│       ├── surface surface:20 [terminal] "Ai_works" tty=ttys019
+│       └── surface surface:66 [browser] "7월 7일 이후를 준비하는 법 — Opus 4.8을 Fable 5급으로 쓰는 시스템 프롬프트 — Kyle Choi Notes" [selected] https://kylechoi.com/education/2026-07-02-opus48-fable5-system-prompt/
+├── workspace workspace:2 "크리에이티브본부"
+│   ├── pane pane:6
+│   │   └── surface surface:6 [terminal] "✳ Creative team briefing - Fable5 완료 및 배포 프로세스" [selected] tty=ttys010
+│   └── pane pane:35 [focused]
+│       └── surface surface:55 [terminal] "Ai_works" [selected] tty=ttys068
+├── workspace workspace:6 "리서치본부"
+│   └── pane pane:10 [focused]
+│       └── surface surface:10 [terminal] "✳ AI트렌드흐름 마스터2차 검수 대기" [selected] tty=ttys007
+├── workspace workspace:3 "개발본부"
+│   ├── pane pane:7 [focused]
+│   │   └── surface surface:7 [terminal] "✳ 개발 현황 브리핑 및 배포 대기" [selected] tty=ttys004
+│   └── pane pane:25
+│       └── surface surface:43 [terminal] "~/Desktop/Ai_works" [selected] tty=ttys054
+├── workspace workspace:4 "목회사역본부"
+│   ├── pane pane:8 [focused]
+│   │   └── surface surface:8 [terminal] "디딤주간작업" [selected] tty=ttys070
+│   ├── pane pane:26
+│   │   └── surface surface:44 [terminal] "기획팀장 Codex" [selected] tty=ttys053
+│   └── pane pane:38
+│       └── surface surface:60 [terminal] "실행팀장 agy" [selected] tty=ttys069
+└── workspace workspace:7 "젬마"
+    └── pane pane:19 [focused]
+        └── surface surface:26 [terminal] "ollama run gemma4:31b" [selected] tty=ttys024
+window window:2
+└── workspace workspace:8 "~/Desktop/Ai_works" [selected]
+    └── pane pane:39 [focused]
+        └── surface surface:61 [terminal] "~/Desktop/Ai_works" [selected] tty=ttys070

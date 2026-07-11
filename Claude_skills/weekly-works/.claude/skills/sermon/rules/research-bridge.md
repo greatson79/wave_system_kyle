@@ -122,7 +122,7 @@ Sermon Agent는 본문 특성과 목사의 필요를 판단하여 **최소 유�
 | ID | 에이전트 | 파일명 | 협업 시점 | 역할 |
 |----|---------|--------|----------|------|
 | SA-12 | **@message-synthesizer** | `message-synthesizer.md` | 2-4 종합통찰 이후 | 연구 결과 → Big Idea / CMT 종합 보조 |
-| SA-13 | **@outline-architect** | `outline-architect.md` | 4-2단계 구조설계 진입 시 | 설교 아웃라인 초안 제안 |
+| SA-13 | **@outline-architect** | `outline-architect.md` | 4-4단계 아웃라인작성 진입 시 | 설교 아웃라인 초안 제안 |
 | SA-14 | **@research-synthesizer** | `research-synthesizer.md` | 연구 결과 전체 수신 후 | 11개 연구 결과를 2000자로 압축 |
 
 ### 확장 에이전트 활성화 조건
@@ -134,7 +134,7 @@ SA-12 (@message-synthesizer):
   - 연구 결과가 많아 핵심 추출이 필요할 때
 
 SA-13 (@outline-architect):
-  - 4-2단계 구조설계 진입 시 목사 요청 있을 때
+  - 4-4단계 아웃라인작성 진입 시 목사 요청 있을 때
   - "아웃라인 초안을 먼저 보여줘" 요청 시
   - Mode A/B/C 결정 후 구체적 뼈대 설계 지원
 
@@ -293,8 +293,9 @@ output/{월}/{주차}주차/{날짜}_{절기}_{본문}/
 ├── 2-4_종합통찰.md
 ├── 3_내용전개.md
 ├── 4-1_제목확정.md
-├── 4-2_구조설계.md
+├── 4-2_전개방식확정.md
 ├── 4-3_예화설계.md
+├── 4-4_아웃라인작성.md
 └── 5_원고.md
 ```
 

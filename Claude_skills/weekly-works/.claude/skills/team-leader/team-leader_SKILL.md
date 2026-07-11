@@ -1,5 +1,5 @@
 ---
-name: wave-team-leader
+name: team-leader
 description: >
   디딤교회 주간 작업 총괄 팀 리더. 설교 준비를 시작으로 소그룹 나눔지,
   SNS 카드뉴스, 매일묵상, 수요기도회 기도카드 등 주간 전체 콘텐츠를
@@ -64,8 +64,9 @@ output/
         │   ├── 2-1_원어분석.md ~ 2-4_종합통찰.md
         │   ├── 3_내용전개.md
         │   ├── 4-1_제목확정.md
-        │   ├── 4-2_구조설계.md
+        │   ├── 4-2_전개방식확정.md
         │   ├── 4-3_예화설계.md
+        │   ├── 4-4_아웃라인작성.md
         │   └── sermon-context.md
         ├── 소그룹나눔지/
         │   ├── 장년-나눔지.html (+.png)
@@ -155,7 +156,21 @@ B(매일묵상)와 C(기도카드)를 **Agent 도구로 백그라운드 소환**
 1. `.claude/skills/weekly-devotion/SKILL.md`를 Read로 로드
 2. `.claude/skills/weekly-devotion/devotion-data.json`에서 해당 주차 데이터 로드
 3. Agent(SKILL + 주차 데이터 + 출력 경로, **run_in_background=true**) 소환
-4. → 백그라운드에서 15개 HTML 생성, 완료 시 알림 수신
+4. → 백그라운드에서 15개 HTML 생성 + image-prompts.txt 생성, 완료 시 알림 수신
+
+**B-2. ★이미지 자동화 파이프라인 (WK-F-img) — B 완료 알림 수신 즉시 자동 착수. STOP 없음.**
+
+> Autopilot 절대규칙: image-prompts.txt 완료 = 이미지 생성부터 캡처까지 무정지 완주.
+> "프롬프트만 만들고 멈추는 것"은 미완료다. (2026-06-29 교훈)
+
+1. `output/{월}/{주차}/매일묵상/image-prompts.txt` Read
+2. 이미지 생성 Agent 소환 (환경 분기):
+   - **cmux 환경(Codex 가용)**: Codex gpt-image-2로 5일치 이미지 생성 (프롬프트당 1장, 16:9)
+   - **비cmux 환경(현 세션 기본)**: PIL / Node.js Canvas로 텍스트 기반 임시 이미지 5장 생성
+3. 생성 이미지 → `images/mon.png ~ fri.png` 저장
+4. WK-F(insert-images) 즉시 소환 → `html-with-images/` 15개 생성
+5. Puppeteer `src/scripts/capture-a4.js` → `captured/` PNG 10개 생성
+6. status.md B항목 "HTML 15개 + 이미지 5장 + 캡처 10개 완료"로 갱신
 
 **C. 수요기도회 소환 (WK-C):**
 1. `.claude/skills/prayer-doc/SKILL.md`를 Read로 로드
@@ -188,16 +203,17 @@ B(매일묵상)와 C(기도카드)를 **Agent 도구로 백그라운드 소환**
 | 게이트 | 조건 | 후속 진행 |
 |--------|------|----------|
 | 최소 | `2-4_종합통찰.md` 존재 | D, E 실행 가능 (CMT, FCF, HP 확보) |
-| 권장 | `4-2_구조설계.md` 존재 | D, E, H 실행 (아웃라인 확보) ← 게이트 1 |
+| 권장 | `4-4_아웃라인작성.md` 존재 | D, E, H 실행 (아웃라인 확보) ← 게이트 1 |
 | 최적 | `5_원고.md` 존재 | 최고 품질 보장 |
 
 게이트 통과 시 **sermon-context.md 자동 생성**:
 
 1. `1_상황파악.md` → 본문, 장르, Mode, 대상, 절기 추출
-2. `2-4_종합통찰.md` → CMT, FCF, HP, 3가지 통찰 추출
-3. `3_내용전개.md` → 핵심 예화, 적용 포인트 추출
+2. `2-4_종합통찰.md` → CMT(나선=우산 CMT), FCF, HP, 3가지 통찰, **전개방식(선형|나선)** 추출
+3. `3_내용전개.md` → 적용 포인트 추출
 4. `4-1_제목확정.md` → 설교 제목 (예배용·콘텐츠용) 추출
-5. `4-2_구조설계.md` → 대지(아웃라인) 추출
+5. `4-3_예화설계.md` → 핵심 예화 추출
+6. `4-4_아웃라인작성.md` → 대지(아웃라인) / **나선 시 복음 폭발 지점(클라이맥스 그리스도·복음)** 추출
 
 ```markdown
 # Sermon Context — Week {N}
@@ -207,12 +223,16 @@ B(매일묵상)와 C(기도카드)를 **Agent 도구로 백그라운드 소환**
 - 성경 본문: {본문}
 - 절기/상황: {절기}
 - 장르/모드: {Mode}
+- 전개방식: {선형 | 나선}   ← 2-4_종합통찰.md 마커. 누락 시 선형.
 - 대상: {대상}
 
 ## 핵심 신학 데이터
-- CMT: {Central Message of the Text}
+- CMT: {Central Message of the Text — 나선이면 우산 CMT}
 - FCF: {Fallen Condition Focus}
 - HP: {Homiletical Point}
+
+## 복음 폭발 지점 (나선 구조 전용 — 선형이면 "해당 없음")
+{클라이맥스의 그리스도·복음 선언. 다운스트림 핵심 메시지는 여기서 추출.}
 
 ## 3가지 통찰
 1. {통찰1}
@@ -227,19 +247,19 @@ B(매일묵상)와 C(기도카드)를 **Agent 도구로 백그라운드 소환**
 {적용 포인트}
 ```
 
-### Phase 2: 설교 기반 후속 작업 (4-2단계 완료 직후 자동 병렬 소환)
+### Phase 2: 설교 기반 후속 작업 (4-4단계 완료 직후 자동 병렬 소환)
 
-**4-2단계 구조설계 완료 + sermon-context.md 생성 즉시** D, E0, H를 자동으로 백그라운드 소환한다.
-4-3단계(예화 설계)는 D·E0·H와 병렬로 대화형으로 진행한다.
+**4-4단계 아웃라인작성 완료(전개방식확정·예화설계를 모두 반영한 뒤) + sermon-context.md 생성 즉시** D, E0, H를 자동으로 백그라운드 소환한다.
+4-2(전개방식확정)·4-3(예화 설계)은 4-4 이전에 대화형으로 순차 진행되어 있어야 한다.
 5단계 원고 완료를 기다리지 않는다. 소환 패턴: `rules/agent-protocol.md` 패턴 A 참조.
 
-**D. 소그룹 나눔지 소환 (WK-D) — 4-2단계 완료 직후 즉시:**
+**D. 소그룹 나눔지 소환 (WK-D) — 4-4단계 완료 직후 즉시:**
 1. `sermon-context.md` 내용을 Read로 로드
 2. `.claude/skills/small-group/small-group_SKILL.md`를 Read로 로드
 3. Agent(SKILL + sermon-context.md 내용 + 출력 경로, **run_in_background=true**) 소환
 4. → 백그라운드에서 장년용 + 청소년용 나눔지 생성
 
-**E0. 디자인스카우트 소환 (WK-E0) — D와 동시, 4-2단계 완료 직후:**
+**E0. 디자인스카우트 소환 (WK-E0) — D와 동시, 4-4단계 완료 직후:**
 1. `sermon-context.md` 내용을 Read로 로드
 2. `design-template-scout` 스킬 로드
 3. Agent(스킬 + sermon-context.md + 출력 경로, **run_in_background=true**) 소환

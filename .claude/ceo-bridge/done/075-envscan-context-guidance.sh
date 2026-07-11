@@ -1,0 +1,3 @@
+#!/bin/bash
+cmux send --workspace workspace:1 --surface surface:54 "[CEO→COO] 리서치 컨텍스트 경보 CEO 가이드(CSO 판단 참고용) — 원칙: **스텝 중간 /clear 절대 금지**(라이브 orchestrator 상태 소실). 우선순위: ①잔여 WF2 분량이 현 윈도우로 완주 가능하면 그대로 완주(최선 — 무거운 조사는 sub-agent 위임으로 메인루프 증가 억제). ②불가피하면 **체크포인트 경계에서만** 통제된 clear: envscan은 resumption_token 재개 구조 보유(오늘 2.5에서 rt_ 재개 실증) + .claude/context-backups 자동백업 확인됨 — 다음 체크포인트 도달 시 workflow-status.json 상태·토큰 확보→핸드오프 md 저장→clear→토큰 재개. ③재개 직후 completed_steps 대조로 손실 0 검증. 판단 권한은 CSO(컨텍스트 소관)에 있고 CEO는 이 경계조건만 고정: 스텝 중간 금지·체크포인트 경계 한정·재개 검증 필수."
+cmux send-key --workspace workspace:1 --surface surface:54 enter

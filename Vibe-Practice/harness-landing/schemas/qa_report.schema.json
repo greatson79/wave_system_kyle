@@ -1,0 +1,73 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://wave.ai/harness/qa_report.schema.json",
+  "title": "QA Report (structured sidecar to sprint_N_qa_report.md)",
+  "description": "The Evaluator's verdict. The orchestrator reads `verdict` and `next_sprint_cleared` from here to drive the QA loop.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["sprint", "round", "verdict", "criteria_results", "scores", "overall_score", "next_sprint_cleared"],
+  "properties": {
+    "sprint": { "type": "integer", "minimum": 1 },
+    "round": { "type": "integer", "minimum": 1 },
+    "verdict": {
+      "type": "string",
+      "enum": ["PASS", "FAIL"]
+    },
+    "criteria_results": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["id", "result"],
+        "properties": {
+          "id": { "type": "integer", "minimum": 1 },
+          "result": {
+            "type": "string",
+            "enum": ["PASS", "FAIL", "PARTIAL"]
+          },
+          "notes": { "type": "string" }
+        }
+      }
+    },
+    "bugs": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["id", "severity", "criterion", "observed", "expected", "fix_guidance"],
+        "properties": {
+          "id": { "type": "string", "description": "e.g. BUG-1" },
+          "severity": {
+            "type": "string",
+            "enum": ["CRITICAL", "HIGH", "MEDIUM", "LOW"]
+          },
+          "criterion": { "type": "integer", "description": "contract criterion id this bug maps to" },
+          "observed": { "type": "string" },
+          "expected": { "type": "string" },
+          "location": { "type": "string", "description": "file:line or component name" },
+          "reproduction": { "type": "string" },
+          "fix_guidance": { "type": "string" }
+        }
+      }
+    },
+    "scores": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["design_quality", "originality", "craft", "functionality"],
+      "properties": {
+        "design_quality": { "type": "number", "minimum": 1, "maximum": 10 },
+        "originality": { "type": "number", "minimum": 1, "maximum": 10 },
+        "craft": { "type": "number", "minimum": 1, "maximum": 10 },
+        "functionality": { "type": "number", "minimum": 1, "maximum": 10 }
+      }
+    },
+    "overall_score": {
+      "type": "number",
+      "minimum": 1,
+      "maximum": 10,
+      "description": "Weighted average per evaluation_criteria.md weights"
+    },
+    "next_sprint_cleared": { "type": "boolean" }
+  }
+}

@@ -54,7 +54,7 @@ Team Leader가 소환할 수 있는 모든 에이전트의 단일 등록부.
 | ID | 이름 | type | source (기본 경로 이하) | 협업 시점 | output |
 |----|------|------|------------------------|----------|--------|
 | SA-12 | 메시지합성가 | auto | `message-synthesizer.md` | 2-4 종합통찰 이후 CMT/HP 도출 지원 | `research/core-message.md` |
-| SA-13 | 아웃라인설계가 | auto | `outline-architect.md` | 4-2단계 구조설계 진입 시 | `research/sermon-outline.md` |
+| SA-13 | 아웃라인설계가 | auto | `outline-architect.md` | 4-4단계 아웃라인작성 진입 시 | `research/sermon-outline.md` |
 | SA-14 | 연구합성가 | auto | `research-synthesizer.md` | 전체 연구 수신 후 압축 요약 | `research/research-synthesis.md` |
 
 ### 연구 에이전트 ↔ /설교 단계 매핑
@@ -68,7 +68,7 @@ Team Leader가 소환할 수 있는 모든 에이전트의 단일 등록부.
 | 2-3 우상분석 | SA-7, SA-8 | 2개 병렬 (background) |
 | 2-4 종합통찰 | SA-9, SA-10 병렬 → SA-11 순차 | SA-11은 SA-8,9,10 의존 |
 | 2-4 이후 (선택) | SA-12 메시지합성가 | CMT/HP 정리 필요 시 on-demand |
-| 4-2단계 구조설계 (선택) | SA-13 아웃라인설계가 | 목사 요청 시 on-demand |
+| 4-4단계 아웃라인작성 (선택) | SA-13 아웃라인설계가 | 목사 요청 시 on-demand |
 | 전체 연구 후 (선택) | SA-14 연구합성가 | 결과 압축 필요 시 on-demand |
 
 ---

@@ -1,0 +1,185 @@
+# churchTeam Workflow Step Registry
+# SOT: prompt/workflow-research/state.yaml 과 연동
+# 쓰기 권한: Orchestrator (본 workflow 실행자)만
+
+steps:
+
+  # ── Research Phase ──────────────────────────────────────────
+  step-1:
+    name: "PRD + workflow-idea 4단계 읽기 + 부모/didim 게놈 인덱싱"
+    phase: "research"
+    agent: "@prd-reader"
+    model: "opus"
+    output_path: "prompt/workflow-research/prd-idea-index.md"
+    sot_write: false
+    verification:
+      - "PRD §0.1 제1 핵심 목적 단일 문장 추출"
+      - "PRD 6대 절대 약속 6항 모두 인용"
+      - "workflow-idea §6 충돌 26건 + §11 BL 13건 인덱싱"
+      - "didim 7 에이전트 source 경로 존재 확인"
+    post_processing: "validate_traceability.py --check-cross-refs"
+
+  step-2:
+    name: "(team) 진입 게이트 8+1종 동시 해소"
+    phase: "research"
+    agent: "entry-gate-resolution-team"
+    model: "opus"
+    teammates:
+      - "@gate-A-meta-build"
+      - "@gate-B-pairing"
+      - "@gate-C-ux"
+      - "@gate-D-resilience"
+    output_path: "prompt/workflow-research/gate-resolutions/"
+    sot_write: true   # Team Lead만
+    context_budget:
+      turn_limit: 18
+      min_turns_per_bl: 2
+    checkpoint_pattern: "dense"
+    verification:
+      - "9개 진입 게이트 + 6개 부수 BL 모두 후보 ≥ 1"
+      - "모든 P0 진입 게이트 후보 ≥ 2"
+      - "B-1 사전 검증 실측(슬래시 커맨드 1회)"
+    post_processing:
+      - "validate_workflow.py --check-w1-w8"
+      - "validate_pacs.py"
+
+  step-3:
+    name: "(human) 사용자 결정 카드 — 게이트 8+1종 + 부수 BL"
+    phase: "research"
+    type: "human"
+    command: "/팀-결정"
+    block_until: "all_gates_answered"
+
+  # ── Planning Phase ──────────────────────────────────────────
+  step-4:
+    name: "결정 결과 외과적 반영 + PRD/idea 갱신 제안"
+    phase: "planning"
+    agent: "@meta-build-architect"
+    model: "opus"
+    output_path:
+      - "prompt/prd.v0.6.diff.md"
+      - "prompt/workflow-idea/workflow-idea.v0.6.diff.md"
+      - "prompt/workflow-research/decision-application-report.md"
+    sot_write: false
+    post_processing: "validate_traceability.py --check-decision-trace"
+
+  step-5:
+    name: "12직 부교역자 명함 확정 + 3축 매핑 확정"
+    phase: "planning"
+    agent: "@team-architect"
+    model: "opus"
+    output_path:
+      - "Claude_skills/AI_churchteam/.claude/roster.yaml"
+      - "Claude_skills/AI_churchteam/.claude/three-axis-mapping.md"
+      - "Claude_skills/AI_churchteam/.claude/hierarchy-view.md"
+    sot_write: false
+
+  step-6:
+    name: "didim 페어링 인터페이스 + 이중 SOT 페어링 정책 확정"
+    phase: "planning"
+    agent: "@didim-bridge-architect"
+    model: "opus"
+    output_path:
+      - "Claude_skills/AI_churchteam/.claude/didim-bridge-spec.md"
+      - "Claude_skills/AI_churchteam/.claude/dual-sot-pairing-policy.md"
+    sot_write: false
+
+  step-7:
+    name: "(human) 설계도 본문 진입 허가 — Implementation 봉인 해제"
+    phase: "planning"
+    type: "human"
+    command: "/팀-진입허가"
+    block_until: "bl9_consent_signed"
+
+  # ── Implementation Phase ─────────────────────────────────────
+  step-7-5:
+    name: "(사용자 안내) Bootstrap-of-Bootstrap — Python 사전 점검"
+    phase: "implementation_phase0"
+    type: "user_action"
+    command: "which python3 && python3 -c \"import sys; assert sys.version_info >= (3,12)\""
+
+  step-8:
+    name: "(hook) Bootstrap 사전 인프라 검증 — setup_init"
+    phase: "implementation_phase0"
+    type: "hook"
+    event: "Setup"
+    matcher: "init"
+    script: ".claude/hooks/scripts/setup_init_churchteam.py"
+    exit_code_on_fail: 2
+
+  step-9:
+    name: "Phase 0 — Bootstrap (0회차 진입 + DNA 상속 + 단일 슬래시 등록)"
+    phase: "implementation_phase0"
+    agent: "@bootstrapper"
+    model: "opus"
+    output_path:
+      - "Claude_skills/AI_churchteam/.claude/inheritance-manifest.json"
+      - "Claude_skills/AI_churchteam/.claude/commands/팀.md"
+      - "Claude_skills/AI_churchteam/.claude/state.yaml"
+    sot_write: true
+    post_processing: "validate_workflow.py --check-genome-inheritance"
+
+  step-10:
+    name: "Phase 1 — Core 부교역자 3~5인 활성화 + 신학 필터 + HITL"
+    phase: "implementation_phase1"
+    agent: "@phase1-builder"
+    model: "opus"
+    output_path:
+      - "Claude_skills/AI_churchteam/.claude/agents/"
+      - "Claude_skills/AI_churchteam/.claude/hooks/scripts/theology_filter_dual.py"
+      - "Claude_skills/AI_churchteam/.claude/hooks/scripts/dual_sot_pairing_guard.py"
+      - "Claude_skills/AI_churchteam/.claude/skills/health-dashboard/"
+      - "Claude_skills/AI_churchteam/.claude/agents/didim-bridge.md"
+    sot_write: true
+    post_processing:
+      - "validate_domain_knowledge.py --domain theology"
+      - "validate_pacs.py"
+
+  step-11:
+    name: "Phase 1 일상 운용 — 1주 사역 사이클 시연"
+    phase: "implementation_phase1"
+    agent: "@weekly-cycle-orchestrator"
+    model: "sonnet"
+    output_path: "Claude_skills/AI_churchteam/output/{사이클ID}/"
+    sot_write: true
+
+  step-12:
+    name: "Phase 1 SPOF 자가 복구 — D-5 fallback 4선"
+    phase: "implementation_phase1"
+    agent: "@spof-recovery"
+    model: "sonnet"
+    output_path: "Claude_skills/AI_churchteam/.claude/skills/spof-recovery/"
+    sot_write: false
+
+  step-13:
+    name: "Phase 2 — Hardening (D-3 자기 진화 + 부교역자 확장)"
+    phase: "implementation_phase2"
+    agent: "@phase2-hardener"
+    model: "opus"
+    output_path:
+      - "Claude_skills/AI_churchteam/.claude/hooks/scripts/self_evolution_gate.py"
+    sot_write: true
+
+  step-14:
+    name: "Phase 2 재해 복구 — BL-4 3종 시나리오"
+    phase: "implementation_phase2"
+    agent: "@disaster-recovery"
+    model: "opus"
+    output_path: "Claude_skills/AI_churchteam/.claude/skills/disaster-recovery/"
+    sot_write: false
+
+  step-15:
+    name: "(human) 시연 · 회중 노출 전 최종 검토"
+    phase: "implementation_phase2"
+    type: "human"
+    command: "/팀-회중허가"
+    block_until: "pastoral_final_review"
+
+# ── 메타 ──────────────────────────────────────────────────────
+meta:
+  sot_writer: "orchestrator"
+  sot_path: "prompt/workflow-research/state.yaml"
+  child_sot_path: "Claude_skills/AI_churchteam/.claude/state.yaml"
+  resume_command: "/resume"
+  created_at: "2026-05-06"
+  version: "1.0"

@@ -1,0 +1,68 @@
+# workflow-state.yaml — Lead Orchestrator 작업 중 상태 기록
+# 총괄팀장 + Lead Orchestrator 4인 쓰기 가능
+
+current_session:
+  session_id: null
+  started_at: null
+  request_summary: null
+
+  intent:
+    request_type: null
+    requires_strategy_team: null
+    urgency: null
+
+  plan:
+    plan_id: null
+    steps: []
+    current_step: null
+
+  routing:
+    strategy_team_required: null
+    execution_order: []
+
+  # 팀 간 파일 경로 추적
+  file_paths:
+    date: null  # YYYY-MM-DD 형식
+    strategy_report: null       # reports/strategy/YYYY-MM-DD-strategy-report.md
+    schedule_draft: null        # reports/planning/YYYY-MM-DD-schedule-draft.md
+    message_flow: null          # reports/planning/YYYY-MM-DD-message-flow.md
+    weekly_plan: null           # reports/planning/YYYY-MM-DD-weekly-plan.md
+    alignment_check: null       # reports/alignment-check/YYYY-MM-DD-alignment-check.md
+
+  # 팀 산출물 상태
+  team_outputs:
+    strategy_report:
+      path: null
+      status: null        # pending / complete / skipped
+    schedule_draft:
+      path: null
+      status: null
+    message_flow:
+      path: null
+      status: null
+    weekly_plan:
+      path: null
+      status: null
+    alignment_check:
+      path: null
+      grade: null         # A / B / C / D / skipped
+    execution_results:
+      word_team:
+        status: null      # pending / complete / partial / skipped
+        outputs: []       # 완료된 파일 목록
+        incomplete: []    # 미완료 항목 + 사유
+      education_team:
+        status: null
+        outputs: []
+        incomplete: []
+      content_team:
+        status: null
+        outputs: []
+        incomplete: []
+      operations_team:
+        status: null
+        outputs: []
+        incomplete: []
+
+  final_report: null
+  status: idle  # idle / running / awaiting_pastor / complete / awaiting_revision / partial

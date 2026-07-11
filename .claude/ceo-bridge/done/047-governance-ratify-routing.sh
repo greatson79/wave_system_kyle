@@ -1,0 +1,3 @@
+#!/bin/sh
+cmux send --workspace workspace:1 --surface surface:54 "[CEO→COO] ★거버넌스 비준(주인님 재확인 원문 기준): 블로그 포스팅 주체=개발본부가 원래 정본 — '작성·검수 완료 → 개발본부 커밋+vercel --prod 집행'. 주인님 배포승인 게이트는 폐지(품질 게이트 크리1차→적대→마스터2차 불변·SNS/인스타 업로드만 주인님 수동). COO는 정식 전파+SESSION_STATE·[[project_blog_publishing_schedule]]·[[feedback_publishing_gate_and_review_chain]] SOT 반영하라. ★Opus48 교육아티클 라우팅 확정(주인님: '오늘 포스팅'): ①CEO가 아티클 md+이미지 blog repo 스테이징까지 완비(이미지 gpt-image-2 생성 중) ②완비 push 시 개발 동결 해제 → 개발이 오늘 커밋+vercel --prod 단독 집행 ③COO 재실측+CEO 라이브 독립 curl → 주인님 보고. 섹션=교육(/education/·ministry 컬렉션 category 교육 — AI트렌드 아님·주인님 지시). 인스타툰 패키지(5컷+캡션+첫댓글)=CEO가 별도 제작·주인님 직접 업로드."
+cmux send-key --workspace workspace:1 --surface surface:54 enter

@@ -1,0 +1,114 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://wave.ai/harness/product_spec.schema.json",
+  "title": "Product Specification (structured sidecar to PRODUCT_SPEC.md)",
+  "description": "Machine-readable plan emitted by the Planner alongside PRODUCT_SPEC.md. The orchestrator reads sprints[] from here — never by regex-parsing the markdown.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["overview", "design_language", "features", "sprints", "tech_stack"],
+  "properties": {
+    "overview": {
+      "type": "string",
+      "minLength": 20,
+      "description": "2-3 sentence product vision"
+    },
+    "design_language": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["color_palette", "typography", "ui_mood", "key_ui_patterns"],
+      "properties": {
+        "color_palette": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["primary", "secondary", "accent", "background", "surface"],
+          "properties": {
+            "primary": { "type": "string" },
+            "secondary": { "type": "string" },
+            "accent": { "type": "string" },
+            "background": { "type": "string" },
+            "surface": { "type": "string" }
+          }
+        },
+        "typography": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["heading_font", "body_font", "tone"],
+          "properties": {
+            "heading_font": { "type": "string" },
+            "body_font": { "type": "string" },
+            "tone": { "type": "string" }
+          }
+        },
+        "ui_mood": {
+          "type": "array",
+          "minItems": 2,
+          "items": { "type": "string" },
+          "description": "2-3 descriptive words, e.g. 'clean, editorial, high-contrast'"
+        },
+        "key_ui_patterns": {
+          "type": "array",
+          "minItems": 1,
+          "items": { "type": "string" }
+        }
+      }
+    },
+    "features": {
+      "type": "array",
+      "minItems": 3,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["id", "title", "user_story"],
+        "properties": {
+          "id": { "type": "string" },
+          "title": { "type": "string" },
+          "user_story": {
+            "type": "string",
+            "description": "As a user, I want to..."
+          }
+        }
+      }
+    },
+    "sprints": {
+      "type": "array",
+      "minItems": 4,
+      "maxItems": 8,
+      "description": "4-8 sprints of roughly equal complexity",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["number", "name", "deliverables", "success_criteria"],
+        "properties": {
+          "number": { "type": "integer", "minimum": 1 },
+          "name": { "type": "string" },
+          "deliverables": {
+            "type": "array",
+            "minItems": 1,
+            "items": { "type": "string" }
+          },
+          "success_criteria": {
+            "type": "array",
+            "minItems": 1,
+            "items": { "type": "string" },
+            "description": "Testable outcomes; the Generator expands these into >=15 contract criteria"
+          }
+        }
+      }
+    },
+    "ai_integration_points": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "Where and how the Claude API is used inside the app"
+    },
+    "tech_stack": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["frontend", "backend", "ai"],
+      "properties": {
+        "frontend": { "type": "string" },
+        "backend": { "type": "string" },
+        "ai": { "type": "string" }
+      }
+    }
+  }
+}

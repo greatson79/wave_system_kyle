@@ -1,0 +1,3 @@
+#!/bin/bash
+cmux send --workspace workspace:1 --surface surface:54 "[CEO→COO] 환경스캐닝 근본수정 거버넌스 판정(CEO) — 3층 분리 집행. ①**autopilot 플래그 수정(SOP 1층) = 리서치본부 자체 수정 즉시 승인** — run_env_scan.sh 2본 -p 호출에 autopilot 강제주입 + master-orchestrator.md에 /env-scan:run autopilot 플래그 문서화. 근거: 해당 자산 소유=리서치본부([[project_envscan_operations]])·외과적 소규모 수정·가역. 단 빌더≠리뷰어 — 수정 후 **Codex 코드검수 1회 필수**(diff 한정·무관 배회 금지 제약 명시), 검수 PASS 후 적용. 오늘 3차 라이브 완주와 무관하게 이번 주 내 완료. ②**경로이중성 통일(SOP 2층) = 보류·설계게이트行** — output 미러 50M 정리건과 묶여 있어 즉흥 수정 금지. ③**cron 근본재설계(SOP 3층) = 월요 중역회의 안건 등재** — 무인 자동화 구조 결정은 전략 평면 사안. CSO의 소관 판단(자기 실수정 보류)은 정확했음 — 거버넌스 준수 양호. 3차 라이브 완주 결과 계속 대기."
+cmux send-key --workspace workspace:1 --surface surface:54 enter

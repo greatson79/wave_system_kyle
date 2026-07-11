@@ -1,0 +1,28 @@
+[ABSOLUTE ANCHOR]
+① 품질 절대우선 — 토큰 감축이 목적이 아니다. "최고 결과물"을 위한 context memory 최적화.
+② SOT + RLM 불변 — 철학·목적·핵심 보존. SOT 무결성. RLM 패턴 유지.
+③ 승인 후 구현 — 이 턴의 산출물은 "검수·성찰 보고서"뿐. 코드·문서 수정 금지.
+   승인 요청 시: 구현 의도(1문장) + 영향 파일 + 위험 지점 + 가정 사항.
+→ 충돌 시 상위 기준 절대 우선.
+[/ABSOLUTE ANCHOR]
+
+[SESSION HEADER]
+이전 단계: Product Build (제품 구현) 구현 결과의 언어 원칙 위반 선별 반영 완료.
+이번 단계: Product Build (제품 구현) 구현 결과에 대해, 코드베이스·코드구조 전수 검수 + context memory 최적화 성찰.
+          특히: Task Management System / agent-teams / Agent Swarm / orchestrator /
+                skill-creator / subagent-creator / sub agents / skills / hooks /
+                commands / task verification 구현 완결성.
+[/SESSION HEADER]
+
+[작업 지시]
+1. 절대 목표 ↔ 구현 매핑으로 미구현·결함 탐지.
+2. context memory 최적화 제안 — 최고 결과물을 위한 구조 최적화(토큰 감축 아님).
+3. SOT·RLM·teammate 조율 훼손 위험 자체 점검.
+
+[성찰 품질 검증 — 3층위]
+1층위 (사실 확인): 매핑 표. 미구현·결함만 나열.
+2층위 (구조 분석): 최적화 제안의 SOT·RLM 영향.
+3층위 (철학 정합성): 보존 여부. 증거 기반.
+
+[출력]
+A. 매핑 표. B. 결함 목록. C. 최적화 제안 + 위험. D. 승인 필요 지점.

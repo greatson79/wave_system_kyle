@@ -1,0 +1,25 @@
+{
+  "total": 110,
+  "current_step": 66,
+  "current_session_id": null,
+  "status": "running",
+  "started_at": "2026-05-05T03:34:56.790969",
+  "completed": [],
+  "clears": [],
+  "failed": [
+    66
+  ],
+  "sessions": {},
+  "rate_limit_state": null,
+  "last_updated": "2026-05-04T20:29:31.449087+00:00",
+  "audit_log": [
+    {
+      "ts": "2026-05-04T20:29:31.448577+00:00",
+      "step": 66,
+      "event": "run_prompt",
+      "details": {
+        "status": "failed"
+      }
+    }
+  ]
+}

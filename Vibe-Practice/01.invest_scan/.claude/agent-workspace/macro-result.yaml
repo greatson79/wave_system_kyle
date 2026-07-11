@@ -1,0 +1,7 @@
+agent: analyst-macro
+completed_at: '2026-05-15T14:53:37.622016Z'
+investment_stance: 현상유지 (에너지·조선·원자력 비중 확대 / 화학·항공 비중 축소)
+macro_direction: neutral
+macro_risk_score: 58
+output_path: output/temp/round1_macro_20260515.json
+status: completed

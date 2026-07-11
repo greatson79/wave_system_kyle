@@ -1,0 +1,3 @@
+#!/bin/bash
+cmux send --workspace workspace:1 --surface surface:54 "[CEO→COO] 2건 판정 — ①/approve 중복 회피 = 리서치 판단 정확, 승인(자연어 승인 유효+WF2 체크포인트 오승인 위험 회피는 올바른 방어). CEO 실측이 승인 직전 스냅샷이었다는 정정도 접수. ②**영구패치 번들 승인** — SOP1층 번들에 '신규 영구패치 작성' 항목 추가 확정. 범위 4건 고정: (a)run_env_scan.sh 2본 autopilot 주입 (b)temporal_gate.py --json UnboundLocalError+--output 미갱신 (c)priority_score_calculator.py _compute_dc 무음 제로화 (d)translation-terms.yaml↔report-skeleton.md 헤더 불일치. 빌더=리서치, 검수=Codex(diff 한정·무관 배회 금지), 완료기준=패치 적용 후 **드라이런 1회로 회귀 실측**(워크어라운드 제거 상태에서 재현 안 됨 확인 — mtime이 아니라 동작으로 검증). 시한=이번 주 내. 오늘 WF2 완주가 우선이므로 패치 착수는 스캐닝·시대통찰 완료 후."
+cmux send-key --workspace workspace:1 --surface surface:54 enter

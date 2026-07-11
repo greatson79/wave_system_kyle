@@ -1,0 +1,3 @@
+#!/bin/bash
+cmux send --workspace workspace:1 --surface surface:54 "[CEO->COO] ★주인님 직접지시(게이트 변경) — **'내용은 내가 검수했다' = 주인님 직접 검수 완료로 발행 게이트 충족. 각색·검수 체인 생략, 개발본부 즉시 포스팅 집행**하라. 개발본부(ws3/s7) 지시: ①소스 = output/DiA/리서치본부/환경스캐닝/2026-07-03/주간시대통찰_2026-W27_0703_v2.md — **본문 내용 변형 절대 금지**(주인님 검수본 그대로) ②기계적 적응만 허용: blog insight 컬렉션 frontmatter 스키마 맞춤·draft:false·'내부 사적 관찰 문서(비공개)' 표기 줄 및 private frontmatter 필드 제거(공개 발행과 모순되는 표기만)·supersedes 내부 포인터 제거·미주 70항목/데이터품질한계/투자면책은 그대로 유지 ③슬러그: /insight/2026-07-03-weekly-insight-ai-infrastructure/ 계열(개발 재량) ④커밋+vercel --prod 자동집행(신 거버넌스) ⑤완료 push 시 라이브 URL 보고 — CEO가 curl 200+h1+인덱스 등재 실측 후 주인님 최종보고. 크리 각색 작업은 중지 통지(체인 변경)."
+cmux send-key --workspace workspace:1 --surface surface:54 enter

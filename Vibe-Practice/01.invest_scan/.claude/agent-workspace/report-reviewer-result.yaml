@@ -1,0 +1,22 @@
+status: completed
+verdict: FAIL
+issues_critical: 2
+issues_warning: 4
+criteria_fail: [1, 6]
+criteria_ok: [2, 3, 4, 5, 7, 8, 9, 10]
+critical_issues:
+  - id: CRITICAL-1
+    description: "SK하이닉스 보고서 파일 부재 — weekly-report-2026-05-16.md는 NAVER 보고서"
+  - id: CRITICAL-2
+    description: "NAVER 매크로 환경 테이블 완전 공란 (Fed Rate, Inflation, Risk, USD 모두 빈값)"
+warning_issues:
+  - id: WARNING-1
+    description: "YoY 성장률 단일 분기만 제시 (기준 1: 최근 2분기 요구)"
+  - id: WARNING-2
+    description: "NAVER TAM 범위 불일치 — Korean TAM만 명시, 글로벌 수치 없음"
+  - id: WARNING-3
+    description: "'15-20% commerce revenue uplift' 추정 근거 없음 — 환각 의심"
+  - id: WARNING-4
+    description: "외국인 보유율 58.7% 원천 파일 및 수집 날짜 미명시"
+review_log: "review-logs/report-review-2026-05-15.md"
+completed_at: "2026-05-16T00:00:00+09:00"

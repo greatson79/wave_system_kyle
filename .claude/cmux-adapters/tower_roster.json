@@ -1,7 +1,23 @@
 {
- "CEO 관제타워": "surface:1",
- "COO": "surface:2",
- "CSO": "surface:8",
- "reviewer-codex": "surface:6",
- "reviewer-gemini": "surface:9"
+ "CEO 관제타워": "surface:4",
+ "COO": "surface:1",
+ "CSO": "surface:6",
+ "F5(주인님 직접명령 채널)": "mailbox:_round/mailbox.log",
+ "_F5_tty": "ttys019",
+ "_F5_수신범위": "CEO·CSO 한정(그 외 노드 F5 미수신 — 스푸핑 fail-closed 대상)",
+ "_F5_비고": "cmux tree 밖 세션(pane/surface 없음). 발신(F5->CEO/CSO)=cmux send 직접. 수신(CEO/CSO->F5)=mailbox append.",
+ "reviewer-codex": "surface:5",
+ "reviewer-gemini": "surface:3",
+ "리서치본부장": "surface:8",
+ "_리서치본부_ws": "workspace:3",
+ "크리에이티브본부장": "surface:28",
+ "_크리에이티브본부_ws": "workspace:6",
+ "마케팅본부장": "surface:32",
+ "_마케팅본부_ws": "workspace:7",
+ "AI-Tech 본부장": "surface:34",
+ "_개발본부_ws": "workspace:4",
+ "젬마 백로그API 워커": "surface:33",
+ "목회사역본부장": "surface:12",
+ "룻기수련회 워커": "surface:22",
+ "_목회사역본부_ws": "workspace:5"
 }

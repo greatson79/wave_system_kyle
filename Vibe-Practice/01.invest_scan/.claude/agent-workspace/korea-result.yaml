@@ -1,0 +1,9 @@
+status: completed
+agent: analyst-korea
+output_path: output/temp/round1_korea_20260515.json
+run_date: "2026-05-15"
+market_direction: "Neutral — monitor and wait"
+key_risks:
+  - 삼성전자 파업 18일 강행 여부
+  - 호르무즈 추가 에스컬레이션
+  - KOSPI 8,000 외국인 순매수 지속 여부

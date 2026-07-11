@@ -1,0 +1,43 @@
+{
+  "hooks": {
+    "Setup": [
+      {
+        "matcher": "init",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python3 .claude/hooks/scripts/setup_init_churchteam.py",
+            "timeout": 60,
+            "statusMessage": "인프라 사전 검증 중..."
+          }
+        ]
+      }
+    ],
+    "PreToolUse": [
+      {
+        "matcher": "Edit|Write",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python3 .claude/hooks/scripts/self_evolution_gate.py",
+            "timeout": 10,
+            "statusMessage": "에이전트 보호 게이트 검증 중..."
+          }
+        ]
+      }
+    ],
+    "PostToolUse": [
+      {
+        "matcher": "Edit|Write",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python3 .claude/hooks/scripts/theology_filter_dual.py",
+            "timeout": 30,
+            "statusMessage": "신학 필터 검증 중..."
+          }
+        ]
+      }
+    ]
+  }
+}

@@ -37,7 +37,10 @@ AI_churchteam (디딤 백본 오케스트레이터 · 31인)
 
 - **★완결성 불가침 규칙(2026-06-24, 26주차 누락 교훈)**:
   - **묵상 이미지**: `image-prompts.txt` 작성 완료 = **즉시 코덱스 자동 소환→gpt-image-2 이미지 생성(★샘플 스타일 통일·16:9)→insert-images 삽입→A4 PNG 캡쳐**. 프롬프트만 만들고 멈추면 미완료([[feedback_devotion_image_codex]]).
-  - **설교 단계**: 1→2-1~2-4→3→**4-1 제목·4-2 구조·4-3 예화·4-4 아웃라인**(★4-4 스킵 금지)→5 원고. 단계 건너뛰기 금지(품질 우선).
+  - **설교 단계**: 1→2-1~2-4→3→**4-1 제목·4-2 구조·4-3 예화·4-4 아웃라인**(★4-4 스킵 금지 — **Mode A/B/C 모두 필수**)→5 원고. 단계 건너뛰기 금지(품질 우선).
+    - Mode A 4-4: 나선아웃라인 (`4-4_나선아웃라인.md`)
+    - Mode B 4-4: 서사 플롯 상세 아웃라인 (`4-4_플롯아웃라인.md`)
+    - Mode C 4-4: M1-M5 + Bridge + Cross Impact 상세 아웃라인 (`4-4_Movement아웃라인.md`)
   - 완료 보고 전 **산출물 완결성 실측 대조**(파일 존재 ≠ 완료).
   - **★설교준비 불가침(2026-06-25 확정)**: weekly-works `sermon_SKILL.md`·`research-bridge.md`·`team-leader/agent-registry.md`·`team-leader/agent-protocol.md` = **단 한 줄도 수정 불가**. AI_churchteam 브릿지는 호출만, 내부 변경 절대 없음.
 

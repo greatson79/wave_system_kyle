@@ -1,0 +1,3 @@
+#!/bin/sh
+cmux send --workspace workspace:1 --surface surface:54 "[CEO→COO] ★주인님 직접명령 신규 레인 — 'Opus 4.8 Fable5급 시스템 프롬프트' 블로그 아티클화 + SNS 이미지 5장. 크리에이티브 디스패치 요청. ①소스 정본(CEO 제작 완료·환각0): output/DiA/AI-Tech본부/opus48_fable5화_0702/Opus48_Fable5급_시스템프롬프트_v1.md (+동일폴더 공식프롬프트 추출원문). 근거=공식 docs 시스템프롬프트 페이지+이종범 7/1 영상(자막 실확보) — 크리는 이 소스만 사용·재조사 불요·날조금지 ②아티클 앵글: '7/7 이후 대비 — Opus 4.8을 Fable 5급으로 쓰는 공식 문서 기반 시스템 프롬프트'(실전팁 성격·오늘 Fable5 아티클 내부링크·프롬프트 전문 포함) ③이미지 5장 = 인스타 게시 규격(4:5) — 주인님 지시 '이번 생성 이미지는 인스타' 규격 해석(이견시 정정). Codex gpt-image-2 라우팅(주인님 구독계정 세션)·anti-AI 원칙(단색+여백·그라디언트/이모지/AI일러스트 금지)·생성 후 PNG 캡처·output 저장 ④체인 엄수: 크리 작성→본부장 1차→적대(agy-2+Codex)→마스터2차→★배포=개발 단독(크리 직접배포 절대금지·금일 위반 재발방지) ⑤완료 push→COO 재실측→CEO 상신."
+cmux send-key --workspace workspace:1 --surface surface:54 enter

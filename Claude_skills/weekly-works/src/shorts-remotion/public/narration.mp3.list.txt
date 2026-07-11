@@ -1,0 +1,6 @@
+file 'public/scene-audio/scene_00_hook.mp3'
+file 'public/scene-audio/scene_01_msg1.mp3'
+file 'public/scene-audio/scene_02_msg2.mp3'
+file 'public/scene-audio/scene_03_msg3.mp3'
+file 'public/scene-audio/scene_04_msg4.mp3'
+file 'public/scene-audio/scene_05_cta.mp3'

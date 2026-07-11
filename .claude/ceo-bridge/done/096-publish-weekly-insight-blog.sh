@@ -1,0 +1,3 @@
+#!/bin/bash
+cmux send --workspace workspace:1 --surface surface:54 "[CEO->COO] ★주인님 명시지시 — **주간시대통찰 v2 블로그 공개 발행**(사적 default의 명시 확인 예외 성립·금요 정기 슬롯 정합). 크리에이티브 디스패치: ①원본 = 환경스캐닝/2026-07-03/주간시대통찰_2026-W27_0703_v2.md ②**공개판 각색**: insight(시대분석) 카테고리·draft:false, 내부 용어 대외화(WF1/WF3/insane-search/pSST 등 -> 일반 독자어 또는 각주 설명), '내부 사적 문서' 문구 제거, 미주 70항목 체계는 유지(결번 5개는 번호 재정렬로 해소 권장), 데이터 품질 한계 섹션은 '이 글의 데이터 기반' 대외 톤으로 유지(정직 공시 원칙 그대로), 투자 조언 아님 면책 유지 ③본문 사실·수치·서사는 v2 그대로(각색 과정 내용 변형 금지 — 톤·용어만) ④검수 체인 완전판: 0차 SOT출처정합(agy+작성팀) -> 크리 1차 -> 적대(agy+Codex) -> 마스터2차(CEO) -> 개발 자동배포(커밋+vercel --prod) ⑤슬러그 예: /insight/2026-07-03-weekly-ai-infrastructure/ (크리 재량). 마스터2차 상신 시 CEO가 공개판-v2 원본 대조 실측하겠음."
+cmux send-key --workspace workspace:1 --surface surface:54 enter

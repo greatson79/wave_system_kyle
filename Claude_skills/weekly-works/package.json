@@ -4,7 +4,9 @@
   "description": "",
   "main": "capture-a4.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "watch:images": "bash src/scripts/watch-devotion-images.sh",
+    "setup:watcher": "brew install fswatch && echo '✅ fswatch 설치 완료. npm run watch:images 로 감시 시작'"
   },
   "keywords": [],
   "author": "",

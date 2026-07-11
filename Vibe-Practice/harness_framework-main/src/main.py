@@ -109,6 +109,9 @@ def main() -> None:
     # Step 5: 내보내기
     logger.info("=== Step 5: Excel 내보내기 ===")
     am = AssignmentManager()
+    if args.master:
+        am.load_definitions(args.master)
+        am.load_status(args.master)
     timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
     output_path = output_dir / f"wave_academy_master_{timestamp}.xlsx"
 
@@ -154,6 +157,8 @@ def _run_export_only(master_path: Path, output_dir: Path, *, upload: bool) -> No
     master_df = calculate_all(master_df)
 
     am = AssignmentManager()
+    am.load_definitions(master_path)
+    am.load_status(master_path)
     timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
     output_path = output_dir / f"wave_academy_master_{timestamp}.xlsx"
 

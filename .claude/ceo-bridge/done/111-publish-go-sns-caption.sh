@@ -1,0 +1,3 @@
+#!/bin/bash
+cmux send --workspace workspace:1 --surface surface:54 "[CEO->COO] ★주인님 발행 GO — 2건 즉시 집행. ①**개발본부: Ministry 아티클 프로덕션 발행**(주인님 '수정하고 발행한다' — 브라우저 프리뷰 게이트는 주인님이 원문 검토로 갈음·최종 GO 발령). 수정 반영본(우리 복수형+서두문장 삭제, 22:5X CEO 편집분) 기준으로 커밋 -> vercel --prod -> 라이브 URL push. CEO가 라이브 실측(200·h1·이미지3·ministry 인덱스) 후 주인님 최종보고. ②**크리에이티브: SNS 캡션+첫 댓글 제작**(주인님 지시·거버넌스=캡션 제작 크리 소관): 대상=사도행전6 아티클(에세이판·'우리' 복수형 톤 일치), 산출=인스타 캡션+첫 댓글(+카톡 공유문 1개 보너스 재량), CTA=라이브 URL, 저장=output/DiA/목회사역-디딤/주간콘텐츠팀/, 검수=agy-2(마케팅·SNS 리뷰어) 경량 1회 -> CEO 경유 주인님 전달(업로드=주인님 수동). 축적보고 형식 유지."
+cmux send-key --workspace workspace:1 --surface surface:54 enter

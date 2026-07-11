@@ -1,3 +1,8 @@
+---
+name: church-admin
+description: 교회 행정 자동화 한국어 자연어 인터페이스. 비전문 행정간사·담임목사가 CLI 없이 한국어 명령으로 주보 생성·새신자 현황·교인 검색·재정 보고서 등을 실행한다. "시작하자", "주보 만들어줘", "새신자 현황", "교인 검색", "재정 보고서" 등 한국어 교회행정 명령 시 사용. (Church-Admin 프로젝트 디렉토리 컨텍스트 필요)
+---
+
 # Church Administration Natural Language Interface
 
 Korean natural language command interface for non-technical church administration staff.

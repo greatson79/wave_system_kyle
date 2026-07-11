@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Suno 30분 강의안 · 중고등부 교사용 — K-pop 사운드 + 성경 본문</title>
+<style>
+  :root{
+    --bg:#FAF5FF;--paper:#FFFFFF;--ink:#1F1A2E;--muted:#6F6680;
+    --line:#E5DEF2;--accent:#6E45C4;--accent2:#B388F0;--soft:#F1E8FF;
+    --pink:#F36BA8;--cyan:#3AC2D9;--warn:#E76F51;--ok:#4CAF82;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;font-family:"Pretendard","Apple SD Gothic Neo","Malgun Gothic",sans-serif;
+    background:var(--bg);color:var(--ink);line-height:1.6;}
+  header{
+    background:linear-gradient(135deg,#6E45C4 0%,#F36BA8 50%,#3AC2D9 100%);
+    color:#fff;padding:32px 28px;
+  }
+  header h1{margin:0;font-size:24px;letter-spacing:-0.4px}
+  header p{margin:8px 0 0;opacity:.95;font-size:14px}
+  header .tag{display:inline-block;background:rgba(255,255,255,.2);
+    padding:3px 10px;border-radius:999px;font-size:12px;margin-right:6px;margin-top:6px}
+  .wrap{max-width:980px;margin:0 auto;padding:22px}
+  section{background:var(--paper);border:1px solid var(--line);border-radius:14px;
+    padding:20px 22px;margin:16px 0;box-shadow:0 2px 8px rgba(110,69,196,.05);}
+  h2{margin:0 0 4px;font-size:18px;color:var(--accent);letter-spacing:-0.3px}
+  h3{margin:10px 0 6px;font-size:14.5px;color:var(--pink)}
+  .sub{color:var(--muted);font-size:13px;margin-bottom:10px}
+  .punch{
+    background:linear-gradient(135deg,#F1E8FF 0%,#FCEEF7 100%);
+    border:2px solid var(--accent2);border-radius:12px;
+    padding:14px 18px;margin:10px 0;font-size:15px;color:#3A2961
+  }
+  .punch b{color:var(--accent)}
+  .time-row{display:grid;grid-template-columns:80px 1fr;gap:12px;
+    padding:9px 0;border-bottom:1px dashed var(--line);align-items:start}
+  .time-row:last-child{border:none}
+  .min{color:var(--accent);font-weight:700;font-size:13.5px;font-feature-settings:"tnum"}
+  .min small{display:block;color:var(--muted);font-weight:400;font-size:11px}
+  .step{font-size:14px}
+  .say{background:#FFF6F9;border-left:3px solid var(--pink);
+    padding:7px 11px;margin:5px 0;border-radius:5px;font-size:13px;color:#5C2A48;}
+  .say:before{content:"강사 멘트 ▸ ";color:var(--pink);font-weight:700}
+  pre{background:#1F1A2E;color:#E8DEFD;padding:12px 14px;border-radius:8px;
+    overflow-x:auto;font-size:12px;line-height:1.5;
+    font-family:"D2Coding","Menlo",monospace;white-space:pre-wrap;margin:6px 0}
+  pre .gname{color:#F36BA8;font-weight:700}
+  pre .meta{color:#999;font-style:italic}
+  .group-card{
+    background:var(--paper);border:1px solid var(--line);border-radius:10px;
+    padding:13px 16px;margin:10px 0;border-left:5px solid var(--accent2);
+  }
+  .group-card h4{margin:0 0 4px;color:var(--accent);font-size:14.5px}
+  .group-card .vibe{color:var(--muted);font-size:12px;margin-bottom:6px}
+  .group-card .pill{display:inline-block;padding:2px 9px;border-radius:999px;
+    background:var(--soft);color:var(--accent);font-size:11px;margin-right:5px;margin-bottom:3px}
+  .group-card.pink{border-left-color:var(--pink)}
+  .group-card.cyan{border-left-color:var(--cyan)}
+  .group-card.dark{border-left-color:#2B2018;background:#FBFAFD}
+  ul.check{list-style:none;padding:0;margin:5px 0}
+  ul.check li{padding:5px 0;border-bottom:1px dashed var(--line);display:flex;gap:8px}
+  ul.check li:last-child{border:none}
+  ul.check input{margin-top:5px;accent-color:var(--accent)}
+  .warn{background:#FCEEE9;border-left:4px solid var(--warn);padding:9px 13px;
+    border-radius:5px;color:#7A2D17;font-size:13px;margin:8px 0}
+  .ok{background:#E5F4ED;border-left:4px solid var(--ok);padding:9px 13px;
+    border-radius:5px;color:#1F4F3A;font-size:13px;margin:8px 0}
+  .grid-2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+  @media(max-width:780px){.grid-2{grid-template-columns:1fr}}
+  footer{padding:20px;text-align:center;color:var(--muted);font-size:12px}
+  @media print{
+    body{background:#fff}
+    section{box-shadow:none;break-inside:avoid;page-break-inside:avoid}
+    pre{background:#fafafa;color:#222;border:1px solid #ddd}
+    pre .gname,pre .meta{color:#000}
+    .punch{background:#fff;border-color:#888}
+  }
+  .toolbar{position:sticky;top:0;background:rgba(250,245,255,.96);backdrop-filter:blur(6px);
+    border-bottom:1px solid var(--line);padding:10px 16px;z-index:50}
+  .toolbar button{background:var(--accent);color:#fff;border:none;padding:7px 14px;
+    border-radius:8px;cursor:pointer;font:inherit;font-size:13px;margin-right:6px}
+  .toolbar button.ghost{background:transparent;color:var(--accent);border:1px solid var(--accent)}
+</style>
+</head>
+<body>
+
+<header>
+  <h1>Suno 30분 — 중고등부 교사용 K-pop 스타일 워크숍</h1>
+  <p>중고등부 교사 대상 줌(Zoom) 실시간 30분 워크숍</p>
+  <span class="tag">아이돌 사운드 + 성경 본문 가사</span>
+  <span class="tag">저작권 안전 (스타일만 흉내)</span>
+  <span class="tag">중고딩 멘붕 보장</span>
+</header>
+
+<div class="toolbar">
+  <button onclick="window.print()">인쇄·PDF</button>
+  <button class="ghost" onclick="window.scrollTo(0,document.body.scrollHeight)">맨 아래로</button>
+</div>
+
+<div class="wrap">
+
+<!-- 0. 펀치라인 -->
+<section>
+  <h2>0. 이 강의 한 줄 펀치라인</h2>
+  <div class="punch">
+    <b>"뉴진스·에스파·르세라핌 사운드는 똑같이 만들 수 있다. 가사만 성경 본문이다."</b><br>
+    저작권 안전, 신학적 안전, 그리고 중고딩 멘붕. 30분이면 우리 부서 곡 1개가 손에 남는다.
+  </div>
+  <div class="ok">
+    <b>왜 안전한가</b><br>
+    · 노래 커버 ✕ — 원곡 멜로디·가사 그대로 따라 만들지 않음. 스타일(장르 분위기)만 흉내.<br>
+    · 가사 창작 ✕ — 성경 본문 그대로. AI가 가사 짓지 않음.<br>
+    · 결과물 = 새 곡이지만 듣는 느낌은 K-pop, 가사는 성경.
+  </div>
+</section>
+
+<!-- 1. 30분 타임라인 -->
+<section>
+  <h2>1. 30분 타임라인</h2>
+  <div class="time-row">
+    <div class="min">00:00–03:00<small>3분 · 충격 오프닝</small></div>
+    <div class="step">
+      <b>미리 만든 시연곡 30초 재생 (뉴진스 풍 + 빌립보서 4:13)</b>
+      <div class="say">"잠깐만요. 1분만 들어보세요. 이거 누구 곡인지 맞춰보세요."</div>
+      30초 재생 → "뉴진스 같죠? 근데 가사가 '내게 능력 주시는 자 안에서 내가 모든 것을 할 수 있느니라' 빌립보서예요. 오늘 30분이면 이런 곡 만드는 법 가르쳐 드립니다."
+      <div class="warn">⚠ 줌 화면 공유 → "컴퓨터 소리 공유" 반드시 체크</div>
+    </div>
+  </div>
+  <div class="time-row">
+    <div class="min">03:00–08:00<small>5분 · 기초·원리</small></div>
+    <div class="step">
+      <b>수노 Custom 모드 + 두 칸만 알면 끝</b>
+      · suno.com 가입 안내 (구글·애플 계정 연동, 3분)<br>
+      · Custom 모드 켜기<br>
+      · <b>Style 칸</b> = 사운드 (장르·BPM·악기·보컬) 쉼표로<br>
+      · <b>Lyrics 칸</b> = 가사 + 구조 태그 ([Intro][Verse][Chorus][Outro])<br>
+      · "오늘 우리 원칙 — 가사는 성경 본문 그대로. 멜로디·리듬만 AI 맡김."
+    </div>
+  </div>
+  <div class="time-row">
+    <div class="min">08:00–18:00<small>10분 · 라이브 시연 ★</small></div>
+    <div class="step">
+      <b>그룹별 사운드 4종 즉석 시연 (1곡씩 30초만 미리 만들어두고 들려주기)</b>
+      <ul class="check">
+        <li><input type="checkbox" disabled><label><b>뉴진스 풍</b> (UK Garage 2-Step) + 빌립보서 4:13</label></li>
+        <li><input type="checkbox" disabled><label><b>에스파 풍</b> (하이퍼팝·메탈릭) + 이사야 41:10</label></li>
+        <li><input type="checkbox" disabled><label><b>NCT 풍</b> (트랩 힙합) + 마태복음 28:19-20</label></li>
+        <li><input type="checkbox" disabled><label><b>드라마 OST 풍</b> (피아노 발라드) + 시편 23편</label></li>
+      </ul>
+      <div class="say">"같은 본문도 사운드만 바꾸면 분위기가 완전 달라요. 우리 부서 학생들 취향에 맞춰 고르세요. 그룹 이름은 안 적어요 — Suno에 '뉴진스 풍'이라 적으면 안 됩니다(거부함). 장르·BPM·악기로 적습니다."</div>
+    </div>
+  </div>
+  <div class="time-row" style="background:#FCEEF7">
+    <div class="min" style="color:var(--pink)">18:00–25:00<small>7분 · 한손 실습</small></div>
+    <div class="step">
+      <b>본인 곡 1개 만들기</b>
+      <ul class="check">
+        <li><input type="checkbox" disabled><label><b>18–20 (2분)</b> 부서에서 외울 본문 1개 + 그룹 스타일 1개 선택</label></li>
+        <li><input type="checkbox" disabled><label><b>20–23 (3분)</b> Style·Lyrics·Title 복붙 → 생성</label></li>
+        <li><input type="checkbox" disabled><label><b>23–25 (2분)</b> 듣고 마음에 드는 버전 mp3 다운로드, Suno 공유 링크 줌 채팅에 올리기</label></li>
+      </ul>
+      <div class="ok">막힌 분: 줌 채팅으로 도움 요청 → 강사가 그분 화면 공유 받아 함께 해결</div>
+    </div>
+  </div>
+  <div class="time-row">
+    <div class="min">25:00–30:00<small>5분 · 발표·마무리</small></div>
+    <div class="step">
+      <b>2~3개 들려주기 + 다음 주일 약속 + 짧은 기도</b>
+      <div class="say">"오늘 만든 곡 다음 주일 우리 부서에 한 번 틀어보세요. '얘들아 들어볼래?' 한 마디면 됩니다. 가사 알아채는 데 1분 안 걸려요. 그 1분이 시작입니다."</div>
+    </div>
+  </div>
+</section>
+
+<!-- 2. K-pop 사운드 6종 -->
+<section>
+  <h2>2. K-pop 그룹별 사운드 프롬프트 6종</h2>
+  <p class="sub">강사 시연 + 참가자 실습용. 그룹 이름은 Suno에 적지 않고 <b>장르·BPM·악기</b>로 표현. 한국어 발음 위해 <code>clear Korean pronunciation</code> 필수.</p>
+
+  <div class="group-card pink">
+    <h4>① 뉴진스 풍 — UK Garage / 2-Step</h4>
+    <div class="vibe">가볍고 그루비, 빈티지 R&amp;B, 핑거스냅, 미니멀. 여학생 압도적 선호</div>
+    <span class="pill">125 BPM</span><span class="pill">미니멀</span><span class="pill">서브베이스</span><span class="pill">여성 보컬</span>
+<pre>Korean K-pop, UK garage, 2-step, 125 BPM, minimal production, light finger snap, deep sub-bass, dreamy female vocals, breezy nostalgic R&B, clear Korean pronunciation</pre>
+  </div>
+
+  <div class="group-card">
+    <h4>② 에스파(aespa) 풍 — 하이퍼팝</h4>
+    <div class="vibe">메탈릭 신스, 변주 많은 비트, 강렬한 임팩트. 댄스·임팩트 좋아하는 학생</div>
+    <span class="pill">130 BPM</span><span class="pill">하이퍼팝</span><span class="pill">메탈릭</span><span class="pill">강한 드롭</span>
+<pre>Korean hyper-pop, futuristic synth, 130 BPM, hard-hitting drops, glitchy fx, powerful female vocals, metallic atmosphere, bold and edgy, clear Korean pronunciation</pre>
+  </div>
+
+  <div class="group-card dark">
+    <h4>③ 르세라핌 풍 — 다크 댄스팝</h4>
+    <div class="vibe">강한 808, 날카로운 신스, 자신감 넘치는 보컬·랩. 강렬한 메시지 본문에 적합</div>
+    <span class="pill">132 BPM</span><span class="pill">다크 팝</span><span class="pill">808 베이스</span><span class="pill">여성 랩+보컬</span>
+<pre>Korean dark dance-pop, 132 BPM, heavy 808 bass, sharp synth stabs, confident female rap and vocals, intense build-up, fierce and powerful, clear Korean pronunciation</pre>
+  </div>
+
+  <div class="group-card">
+    <h4>④ NCT·스트레이키즈 풍 — 트랩 힙합</h4>
+    <div class="vibe">강렬한 비트, 빠른 하이햇, 남성 랩. 남학생 선호. 사명·선포 본문에 좋음</div>
+    <span class="pill">140 BPM</span><span class="pill">트랩</span><span class="pill">힙합</span><span class="pill">남성 랩</span>
+<pre>Korean hip-hop, modern trap, 140 BPM, deep 808 bass, fast rolling hi-hats, energetic male rap, layered vocals, hard-hitting beat drops, clear Korean pronunciation</pre>
+  </div>
+
+  <div class="group-card cyan">
+    <h4>⑤ 아이브(IVE)·있지(ITZY) 풍 — 디스코팝</h4>
+    <div class="vibe">펑키 디스코, 밝은 신스, 캐치 멜로디. 여름·축제·기쁨 본문에 어울림</div>
+    <span class="pill">115 BPM</span><span class="pill">디스코팝</span><span class="pill">펑키</span><span class="pill">밝은</span>
+<pre>Korean disco-pop, 115 BPM, funky bass line, bright synth, shimmering hi-hats, catchy female vocals, sparkling chorus, summer vibe, clear Korean pronunciation</pre>
+  </div>
+
+  <div class="group-card cyan">
+    <h4>⑥ K-드라마 OST 풍 — 피아노 발라드</h4>
+    <div class="vibe">묵상·고백·감성 본문에. 학생회·수련회 마무리 시간 분위기. 시편 23편 같은 본문에 절대적</div>
+    <span class="pill">74 BPM</span><span class="pill">발라드</span><span class="pill">피아노</span><span class="pill">스트링</span>
+<pre>Korean K-drama ballad OST, 74 BPM, intimate piano intro, warm strings, soft brush snare, longing female vocal with airy tone, cinematic rainy evening mood, clear Korean pronunciation</pre>
+  </div>
+</section>
+
+<!-- 3. 시연용 본문 + Lyrics 예시 -->
+<section>
+  <h2>3. 시연용 곡 4종 — 본문 × 스타일 매칭</h2>
+  <p class="sub">강사가 강의 전 미리 만들어두는 시연곡. 가사는 모두 개역개정 본문 그대로.</p>
+
+  <div class="group-card pink">
+    <h4>시연 A · 뉴진스 풍 × 빌립보서 4:13 ("할 수 있느니라")</h4>
+<pre><span class="meta">[Intro]</span>
+
+<span class="meta">[Verse 1]</span>
+내게 능력 주시는 자 안에서
+내가 모든 것을 할 수 있느니라
+
+<span class="meta">[Chorus] [Energy: High]</span>
+내게 능력 주시는 자 안에서
+내가 모든 것을 할 수 있느니라
+내게 능력 주시는 자 안에서
+내가 모든 것을 할 수 있느니라
+
+<span class="meta">[Verse 2]</span>
+내게 능력 주시는 자 안에서
+내가 모든 것을 할 수 있느니라
+
+<span class="meta">[Outro] [Fade Out]</span></pre>
+  </div>
+
+  <div class="group-card dark">
+    <h4>시연 B · 르세라핌 풍 × 이사야 41:10 ("두려워하지 말라")</h4>
+<pre><span class="meta">[Intro]</span>
+
+<span class="meta">[Chorus] [Energy: High]</span>
+두려워하지 말라 내가 너와 함께 함이라
+
+<span class="meta">[Verse 1]</span>
+놀라지 말라 나는 네 하나님이 됨이라
+내가 너를 굳세게 하리라
+
+<span class="meta">[Verse 2]</span>
+참으로 너를 도와 주리라
+참으로 나의 의로운 오른손으로
+너를 붙들리라
+
+<span class="meta">[Chorus] [Energy: High]</span>
+두려워하지 말라 내가 너와 함께 함이라
+
+<span class="meta">[Outro] [Fade Out]</span></pre>
+  </div>
+
+  <div class="group-card">
+    <h4>시연 C · NCT·트랩 풍 × 마태복음 28:19-20 ("세상 끝날까지")</h4>
+<pre><span class="meta">[Intro]</span>
+
+<span class="meta">[Verse 1]</span>
+그러므로 너희는 가서
+모든 민족을 제자로 삼아
+
+<span class="meta">[Verse 2]</span>
+아버지와 아들과 성령의 이름으로
+세례를 베풀고
+
+<span class="meta">[Chorus] [Energy: High]</span>
+내가 너희에게 분부한
+모든 것을 가르쳐 지키게 하라
+
+<span class="meta">[Verse 3]</span>
+볼지어다 내가 세상 끝날까지
+너희와 항상 함께 있으리라
+
+<span class="meta">[Chorus] [Energy: High]</span>
+내가 너희에게 분부한
+모든 것을 가르쳐 지키게 하라
+
+<span class="meta">[Outro] [Fade Out]</span></pre>
+  </div>
+
+  <div class="group-card cyan">
+    <h4>시연 D · 드라마 OST 풍 × 시편 23:1-3 (묵상)</h4>
+<pre><span class="meta">[Intro]</span>
+
+<span class="meta">[Verse 1]</span>
+여호와는 나의 목자시니
+내게 부족함이 없으리로다
+
+<span class="meta">[Verse 2]</span>
+그가 나를 푸른 풀밭에 누이시며
+쉴 만한 물 가로 인도하시는도다
+
+<span class="meta">[Verse 3]</span>
+내 영혼을 소생시키시고
+자기 이름을 위하여
+의의 길로 인도하시는도다
+
+<span class="meta">[Outro] [Fade Out]</span></pre>
+  </div>
+</section>
+
+<!-- 4. 안전 가이드 -->
+<section>
+  <h2>4. 강사·교사 안전 가이드 (한 번에 정리)</h2>
+  <div class="grid-2">
+    <div class="ok" style="margin:0">
+      <h3 style="margin:0 0 5px;color:#1F4F3A">저작권 — 왜 안전한가</h3>
+      · 그룹 이름·곡명을 Suno에 입력하지 않음 — Suno가 거부<br>
+      · "장르·BPM·악기"로만 표현 → 완전히 새 곡이 생성됨<br>
+      · 가사는 성경 본문 (개역개정 = 대한성서공회)<br>
+      · 교회 내부 비영리 사용은 약관 OK
+    </div>
+    <div class="warn" style="margin:0">
+      <h3 style="margin:0 0 5px;color:#7A2D17">하지 말 것</h3>
+      · Suno에 "뉴진스", "NewJeans" 같은 그룹명 입력 ✕<br>
+      · 곡 제목·멜로디·가사를 따라 입력 ✕<br>
+      · 수익 나는 유튜브 채널에 업로드 ✕<br>
+      · 교회 밖 상업·배포 ✕
+    </div>
+  </div>
+  <div class="ok" style="margin-top:10px">
+    <h3 style="margin:0 0 5px;color:#1F4F3A">신학 — "AI 찬양 괜찮나" 질문 받았을 때 15초 답</h3>
+    "예배 찬양 자리가 아닙니다. 우리 부서 학생들이 한 구절이라도 더 잘 외우게 돕는 실용 도구예요. 가사는 성경 본문 그대로고요. PPT·영상에서 이미 우리가 걸어온 길에 음악을 더한 겁니다."
+  </div>
+</section>
+
+<!-- 5. 운영 체크 -->
+<section>
+  <h2>5. 강의 전 운영 체크</h2>
+  <div class="grid-2">
+    <div>
+      <h3>강사 준비</h3>
+      <ul class="check">
+        <li><input type="checkbox"><label>시연곡 4종 미리 생성·mp3 다운로드 (오프닝·시연·백업)</label></li>
+        <li><input type="checkbox"><label>줌 4종 점검 — 마이크·카메라·화면공유·<b>컴퓨터 소리 공유</b></label></li>
+        <li><input type="checkbox"><label>수노 초대 링크 발송 준비 (있는 경우)</label></li>
+        <li><input type="checkbox"><label>공동 호스트 1명 (채팅 모니터링)</label></li>
+        <li><input type="checkbox"><label>30분이라 시간 빡빡 — 시계 보면서 진행</label></li>
+      </ul>
+    </div>
+    <div>
+      <h3>참가자(중고등부 교사) 사전 안내 (D-3)</h3>
+      <ul class="check">
+        <li><input type="checkbox"><label>줌과 수노 두 창 띄울 환경 + 이어폰</label></li>
+        <li><input type="checkbox"><label>suno.com 미리 가입 (구글·애플 연동, 3분)</label></li>
+        <li><input type="checkbox"><label>우리 부서 올해 외울 본문 1개 정해오기</label></li>
+        <li><input type="checkbox"><label>"우리 부서 학생들이 좋아하는 K-pop 스타일" 한 개 미리 점찍어 오기</label></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+</div>
+
+<footer>
+  중고등부 교사용 Suno 30분 워크숍 v1.0
+</footer>
+
+</body>
+</html>

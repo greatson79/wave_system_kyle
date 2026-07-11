@@ -1,0 +1,36 @@
+# Theological Filter Regression Seed
+# Source: Reformed standards + Korean church consensus
+# Status: DEFAULT (목사님 승인 전 — 경고만 발행, 차단 미수행)
+# Required: ≥20 cases approved by pastor before blocking activates
+
+metadata:
+  version: "0.1"
+  status: "pending_pastor_approval"
+  approved_count: 0
+  required_count: 20
+  note: "/팀-신학시드 명령으로 목사님 검토 후 채택"
+
+forbidden_patterns:
+  # 이단/이단성 표현 (한국 공교회 합의)
+  - "신천지"
+  - "여호와의 증인"
+  - "하나님의 교회.*안상홍"
+  - "통일교"
+  - "구원파"
+
+  # 신학적 오류 패턴
+  - "믿음만 있으면 물질 축복"
+  - "십일조.*반드시.*복"
+  - "성령.*불.*내려"  # 신비주의적 표현
+  - "예수님이 아닌.*다른.*길"
+  - "선행으로.*구원"
+
+  # 개혁주의 위배
+  - "인간의 자유의지로.*구원"
+  - "하나님이.*죄를.*지으셨"
+
+# Cases awaiting pastor approval (add via /팀-신학시드)
+pending_approval: []
+
+# Pastor-approved cases (populated after /팀-신학시드 review)
+approved: []

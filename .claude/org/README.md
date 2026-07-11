@@ -23,6 +23,8 @@
 | **인텔리전스** (`intelligence`) | 투자신호·통찰보고서 | financial·투자분석·insight-report | Claude |
 | **비전교육** (`vision-edu`) | 청소년 인생계획·비전코칭 (66스킬) | vision-*·youth-life-planner | Claude |
 
+> ★**목회사역 사업부 내부 조직 (2026-07-01 밤 신설·주인님 임명·ai_churchteam 3계층 실노드화)**: **본부장 = 총괄팀장**(기존 디딤팀장 ws4/s8 승격·ai_churchteam lead-orchestrator) · **기획팀장 = Codex**(ws4/s44) · **실행팀장 = agy**(ws4/s45). 말씀·교육 등 부서워커는 각 팀장 산하 sub-agent. ※'총괄팀장'은 목회사역본부장 직함이며 경영본부 CEO(총괄팀장)와 별개. 노드 주소=회전대비 `SESSION_STATE.md` 레지스트리 정본.
+
 ### 공유기능본부 6 (가로축 — 전 사업부 지원, 전문가 센터)
 | 본부 | 역할 | 핵심 자산 | 엔진 |
 |---|---|---|---|

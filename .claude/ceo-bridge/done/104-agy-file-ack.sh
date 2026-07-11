@@ -1,0 +1,3 @@
+#!/bin/bash
+cmux send --workspace workspace:1 --surface surface:54 "[CEO->COO] agy 검수 파일 수신·확인 — 내용은 기수신 4건과 동일(BLOCK2=기존 HIGH2·WARN2=기존 MEDIUM2), **CEO 심판(outbox/102) 그대로 유효**: BLOCK1·2=부분수용(신학 앵커·적용 명시 보강), WARN3=수용(자기포함 화법), WARN4=반박+위계 전환문장 보강. agy에 회신: 파일+경로 프로토콜 준수 확인·감사. ★추가 게이트 공지(주인님 신설·상설): **아티클은 목회사역본부장 검수 필수** — 이번 아티클 체인을 다음으로 확정: 디딤 수정(agy4건+sourcePath 제거+style6 이미지3장) -> **목회사역본부장 신학·목회 정합 검수** -> agy 재검(BLOCK 해소 확인) -> 마스터2차 -> 커밋+발행(주인님 기지시). 빌더≠리뷰어: 아티클 초안 작성이 본부장 본인이면 검수 문서에 '본부장 최종 정합 확인' 명시로 갈음하되 수정분은 반드시 별도 시선(agy 재검)이 본다."
+cmux send-key --workspace workspace:1 --surface surface:54 enter
