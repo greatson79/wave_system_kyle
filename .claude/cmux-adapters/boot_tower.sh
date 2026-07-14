@@ -25,15 +25,17 @@ p.write_text(json.dumps(d, ensure_ascii=False, indent=1))
 PYEOF
 }
 
-tab_exists() { # $1=역할/탭명 → 생존 surface ref 출력(없으면 빈). ①명부 ref 생존 확인 ②탭명 매칭 폴백
+tab_exists() { # $1=역할/탭명 → 생존 surface ref 출력(없으면 빈). ①명부 ref 생존+탭명 일치 확인 ②탭명 매칭 폴백
+  # ★탭명 일치 검증(2026-07-14): surface 번호는 재시작마다 회전 — stale 명부 ref가 타 역할 pane을
+  # 가리키면 소환이 오생략된다(실사고: COO→s1(CEO)·gemini→s3(codex) 오멱등). ref 생존만으로 부족.
   $CMUX tree --all --json | python3 -c "
 import json,sys,pathlib
 d=json.load(sys.stdin)
-alive={s['ref'] for w in d['windows'] for ws in w['workspaces'] for p in ws['panes'] for s in p['surfaces']}
+title={s['ref']:(s.get('title') or '') for w in d['windows'] for ws in w['workspaces'] for p in ws['panes'] for s in p['surfaces']}
 rp=pathlib.Path('$ROSTER')
 if rp.exists():
     ref=json.loads(rp.read_text()).get('$1')
-    if ref in alive: print(ref); raise SystemExit
+    if ref in title and '$1'.lower() in title[ref].lower(): print(ref); raise SystemExit
 q='$1'.lower()
 for w in d['windows']:
   for ws in w['workspaces']:
