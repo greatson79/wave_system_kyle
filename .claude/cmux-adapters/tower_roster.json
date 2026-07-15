@@ -7,5 +7,16 @@
  "_F5_비고": "cmux tree 밖 세션(pane/surface 없음). 발신(F5->CEO/CSO)=cmux send 직접. 수신(CEO/CSO->F5)=mailbox append.",
  "reviewer-codex": "surface:3",
  "COO": "surface:4",
- "reviewer-gemini": "surface:5"
+ "reviewer-gemini": "surface:5",
+ "크리에이티브본부장": "surface:29",
+ "_크리에이티브본부_ws": "workspace:3",
+ "마케팅본부장": "surface:8",
+ "_마케팅본부_ws": "workspace:4",
+ "AI-Tech 본부장": "surface:9",
+ "_개발본부_ws": "workspace:5",
+ "목회사역본부장": "surface:15",
+ "_목회사역본부_ws": "workspace:6",
+ "환경스캐닝 워커(WF3-4-통합)": "surface:17",
+ "Edu 본부장": "surface:27",
+ "_Edu본부_ws": "workspace:7"
 }
