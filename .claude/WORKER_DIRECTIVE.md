@@ -124,6 +124,12 @@ CEO가 특히 ④⑤(영구 저장·도구화)의 실제 수행을 검증한다.
   워커로 직접 소환**한다(Claude만 아님 — 한도 분산). 빌더≠리뷰어 유지.
 - ★블로그 발행물은 **작성 → 크리에이티브본부장 1차 → 적대검수(agy+Codex) → 마스터 2차 = 즉시
   발행** 체인을 반드시 거친다. [[feedback_multi_engine_execution_routing]] [[project_blog_publishing_schedule]]
+- **★스킬베이스 작업 의무 (소환자↔본부 양방향 — 주인님 명령 2026-07-17·게이트 통과)**: 본부장·워커는
+  각성/브리핑에서 전달받은 **업무유형별 필수 스킬(§3-A 매핑표)을 발동하고 산출물에 발동 스킬명을
+  기록**한다(맨손 작업 금지). 소환자(CEO/팀장)는 소환·위임 시 그 스킬 발동 경로를 열어줄 의무가 있고
+  (MASTER §6), 본부는 그 스킬베이스로 실제 작업할 의무가 있다. [[feedback_skill_workflow_dual_track_principle]]
+- **★발행 워크플로우 정본**: 요일별 5종·제작검수=크리에이티브본부/포스팅=개발본부. 정본
+  [[project_publishing_workflow_master]] · `.claude/org/WEEKLY_SCHEDULE.md`.
 
 ## 6. 클래스·계약 정합 (thrash 방지 — 도메인 교훈)
 컴포넌트 클래스명·데이터 계약은 중간 제안명을 미리 맞추지 말고, emit/산출 후 `--dump-dom` 1:1
