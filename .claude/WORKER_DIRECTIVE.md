@@ -67,6 +67,48 @@
 - 워커도 필요 시 gemini·codex를 단독 호출해 업무 일부를 위임·검증할 수 있다(리뷰어 호출은
   역할주소·엄격 제약 포함 — 엔진 리뷰 규약).
 
+## 3-A. ★스킬 발동 의무 (2트랙 원칙 — 주인님 승인 게이트 2026-07-17)
+
+> **정본**: [[feedback_skill_workflow_dual_track_principle]] · **근거**: 2026-07-17 스킬베이스
+> 실태감사(6개 도메인 병렬·판정 "이완"·근인=레지스트리 정합성 결함). 우리의 기본 작업 원칙은
+> **스킬베이스 + 워크플로우 2트랙**이다. 등록 스킬은 장식이 아니라 업무마다 톱니바퀴처럼
+> 물려 돌아가야 한다 — 스킬을 무시하고 즉흥·맨손 작업하면 원칙 붕괴다.
+
+### 3-A-1. 착수 전 트랙 판별 + 필수 스킬 발동
+1. **트랙1**(환경스캐닝·weekly-work·뉴스크롤링·투자분석)이면 → 해당 **워크플로우 파이프라인**을
+   발동한다(개별 스킬 임의 대체 금지). 파이프라인 완주가 곧 준수.
+2. **트랙2**(그 외 전부)이면 → 아래 **업무유형→필수 스킬 매핑표**에서 (a)필수 스킬을 **Skill
+   도구로 발동**하고, (c)선행 스킬이 지정됐으면 먼저 발동한 뒤 착수한다.
+3. **발동 없이 맨손 착수 = 절차 위반.** COO는 완결보고 접수 시 이를 게이트로 삼는다.
+
+### 3-A-2. ★발동 기록 의무 (감사 가능성 확보)
+산출물 상태파일·완결보고에 **실제 발동한 스킬명을 1줄 명시**한다(예: `발동 스킬: sns-cardnews,
+media-gen-image`). 스킬 발동은 산출물에 결정론 footprint를 남기지 않으므로 — 이 기록이 없으면
+감사가 불가능하고 **미발동으로 추정**된다. (감사 근인: 발동 무흔적성이 이완을 은폐.)
+
+### 3-A-3. 업무유형 → 필수 스킬 매핑표 (2026-07-17 실측·등록명 정합)
+| 업무유형 | (c)선행 | (a)필수 | (b)권장 |
+|---|---|---|---|
+| 블로그/아티클 | search-first, research | **article-content** | copywriting, longform-journalism, content-optimization, meta-description, insert-images |
+| 카드뉴스 | 레퍼런스 확인(templete src/) | **sns-cardnews** | canvas-design, copywriting, hook-creator, media-gen-image |
+| 설교 준비 | sermon-topic-research-multidisciplinary, sermon-history-culture-geo-context | **sermon, theological-reasoning** | sermon-* 22종(calvin-institutes·greek-grammar-machen·textual-criticism 등) |
+| 리서치/조사 | search-first | **research** | research-sources, insight-report, competitor-research, crawl-master, browse, scrape |
+| 디자인 | design-consultation | **design-review** | design-html, canvas-design, frontend-design, brand-guidelines, design-shotgun |
+| SNS/마케팅 | content-strategy, competitor-research | **content-marketing** | copywriting, hook-creator, integrated-marketing, growth-funnel |
+| 강의기획 | research | **lecture-design** | course-design, education-program, scaffold-exercises |
+| 코드리뷰 | — | **code-review**(또는 codebase-review) | security-review, security-scan, tdd |
+| 이미지생성 | — | **media-gen-image**(또는 media-gen) | media-gen-thumbnail/edit/upscale, brand-visual-generator |
+| 신규 웹/앱 | — | **appbuild**(+orchestrate/plan/tasks/supervisor) | tdd-workflow, code-review, security-review, deployment-patterns |
+
+> 매핑표 스킬명은 `.claude/skills/` 레지스트리 실측(2026-07-17·424개·CSO 복구분 반영) 등록명과
+> 1:1 정합(유령참조 0). 트랙1 진입 = env-scanner·`/주간총괄`·GlobalNews·InvestScan.
+
+### 3-A-4. 예외 (남용 방지)
+- **단순 수정·경미 작업**(오타·1줄 변경·미세 조정): 면제. 단 "새 산출물 생성"은 경미 아님.
+- **매핑 없는 신규 업무유형**: 레지스트리에서 근접 스킬 탐색·발동, 없으면 "갭"으로 CEO/COO에
+  보고하고 맨손 진행 허용(사후 skill-creator 도구화 — RSI ⑤ §4).
+- **"스킬 = 레지스트리 등록분"**: 하우스 스크립트를 "스킬"로 자칭하지 않는다(자기명명 착오 차단).
+
 ## 4. ★재귀적 자기개선 5단계 (학습 지시의 실행 정의)
 "학습하라/공부하라/재귀적 자기개선하라" 지시를 받으면 반드시 **5단계 루프**를 발동한다
 (정본 = 엔진 `RSI_LEARNING_DIRECTIVE.md` — ★2026-07-10 교정: 구 "엔진 WORKER §2-2" 참조는
