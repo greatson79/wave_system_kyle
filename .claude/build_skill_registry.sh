@@ -92,6 +92,13 @@ ABS_MANIFEST=(
   "security-review|/Users/kylechoi/.claude/skills/security-review"
   "tdd-workflow|/Users/kylechoi/.claude/skills/tdd-workflow"
   "deployment-patterns|/Users/kylechoi/.claude/skills/deployment-patterns"
+  # ── 리서치 도메인 (2026-07-17 CEO — 감사 근인A 재발분) ──
+  "insane-search|/Users/kylechoi/.cys/pack/skills/insane-search"
+  "agent-reach|/Users/kylechoi/.claude/skills/agent-reach"
+  "search-first|/Users/kylechoi/.claude/skills/search-first"
+  "exa-search|/Users/kylechoi/.claude/skills/exa-search"
+  "deep-research|/Users/kylechoi/.claude/skills/deep-research"
+  "iterative-retrieval|/Users/kylechoi/.claude/skills/iterative-retrieval"
 )
 for entry in "${ABS_MANIFEST[@]}"; do
   name="${entry%%|*}"; tgt="${entry##*|}"
