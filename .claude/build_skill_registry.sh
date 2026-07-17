@@ -44,6 +44,8 @@ MANIFEST=(
 "church-admin|Claude_skills/Church-Admin-AgenticWorkflow-main/church-admin/.claude/skills/church-admin"
 # ── Wave-AI (오케스트레이터 정본) ──
 "wave-orchestrator|Claude_skills/Wave-AI"
+# ── 프로젝트 결합형: wave-homepage (RSI ⑤ 도구화, 2026-07-13) ──
+"deterministic-motion-capture|wave-homepage/.claude/skills/deterministic-motion-capture"
 # ── 프로젝트 결합형: 환경스캐닝 ──
 "env-scanner|Vibe-Practice/EnvironmentScan-system-main-v4-main/.claude/skills/env-scanner"
 "youtube-collector|Vibe-Practice/EnvironmentScan-system-main-v4-main/.claude/skills/youtube-collector"
@@ -80,6 +82,32 @@ for entry in "${MANIFEST[@]}"; do
   ok=$((ok+1))
   printf "✅ %-24s → %s\n" "$name" "$rel"
 done
+# ── 코드·앱빌드·미디어 스킬 편입 (2026-07-17 CSO — 스킬베이스 감사 근인A 복구·COO/CEO 요청) ──
+# 레지스트리 발견성 밖이던 코드리뷰/이미지생성/신규웹앱 스킬군을 프로젝트 레지스트리에 편입.
+# 소스: 전역 ~/.claude/skills · 엔진 팩 ~/.cys/pack/skills · Codex .agents. 정본1개 보존(기존 우선).
+# ⚠ 엔진 팩 경로(appbuild/media-gen)는 pack-update 시 이동 가능 — idempotent 재실행으로 복구.
+ABS_MANIFEST=(
+  "code-review|$BASE/Codex/.agents/skills/code-review"
+  "codebase-review|/Users/kylechoi/.claude/skills/codebase-review"
+  "security-review|/Users/kylechoi/.claude/skills/security-review"
+  "tdd-workflow|/Users/kylechoi/.claude/skills/tdd-workflow"
+  "deployment-patterns|/Users/kylechoi/.claude/skills/deployment-patterns"
+)
+for entry in "${ABS_MANIFEST[@]}"; do
+  name="${entry%%|*}"; tgt="${entry##*|}"
+  [ -f "$tgt/SKILL.md" ] || { echo "❌ SKIP  $name  (SKILL.md 없음: $tgt)"; skip=$((skip+1)); continue; }
+  if [ -e "$REG/$name" ]; then skip=$((skip+1)); continue; fi   # 정본1개 보존
+  ln -sfn "$tgt" "$REG/$name"; ok=$((ok+1)); printf "✅ %-24s → %s\n" "$name" "$tgt"
+done
+# appbuild·media-gen 패밀리 전체 (엔진 팩 정본 — 신규웹앱·이미지생성 오케스트레이션)
+PACK_SKILLS="/Users/kylechoi/.cys/pack/skills"
+for d in "$PACK_SKILLS"/appbuild "$PACK_SKILLS"/appbuild-* "$PACK_SKILLS"/media-gen "$PACK_SKILLS"/media-gen-*; do
+  { [ -d "$d" ] && [ -f "$d/SKILL.md" ]; } || continue
+  name="$(basename "$d")"
+  if [ -e "$REG/$name" ]; then skip=$((skip+1)); continue; fi
+  ln -sfn "$d" "$REG/$name"; ok=$((ok+1)); printf "✅ %-24s → %s\n" "$name" "$d"
+done
+
 # ── 외부 스킬 레포 자동편입 (주인님 결정 2026-06-23: 전부 통합) ──
 # external-skills/<repo> 하위의 모든 SKILL.md를 재귀 탐색해 디렉토리명으로 레지스트리 심링크.
 # 중첩 카테고리(marketing skills/<cat>/<skill>) 대응. 디렉토리명 충돌 시 기존(정본1개) 우선 보존.
