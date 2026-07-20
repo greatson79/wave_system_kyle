@@ -106,11 +106,11 @@ media-gen-image`). 스킬 발동은 산출물에 결정론 footprint를 남기�
 | 업무유형 | (c)선행 | (a)필수 | (b)권장 |
 |---|---|---|---|
 | 블로그/아티클 | search-first, research | **article-content** | copywriting, longform-journalism, content-optimization, meta-description, insert-images |
-| 카드뉴스 | 레퍼런스 확인(templete src/) | **sns-cardnews** | canvas-design, copywriting, hook-creator, media-gen-image |
+| 카드뉴스 | 레퍼런스 확인(templete src/) | **sns-cardnews** | canvas-design, copywriting, media-gen-image |
 | 설교 준비 | sermon-topic-research-multidisciplinary, sermon-history-culture-geo-context | **sermon, theological-reasoning** | sermon-* 22종(calvin-institutes·greek-grammar-machen·textual-criticism 등) |
 | 리서치/조사 | search-first | **research** | research-sources, insight-report, competitor-research, crawl-master, browse, scrape |
 | 디자인 | design-consultation | **design-review** | design-html, canvas-design, frontend-design, brand-guidelines, design-shotgun |
-| SNS/마케팅 | content-strategy, competitor-research | **content-marketing** | copywriting, hook-creator, integrated-marketing, growth-funnel |
+| SNS/마케팅 | content-strategy, competitor-research | **content-marketing, copywriting** | integrated-marketing, growth-funnel |
 | 강의기획 | research | **lecture-design** | course-design, education-program, scaffold-exercises |
 | 코드리뷰 | — | **code-review**(또는 codebase-review) | security-review, security-scan, tdd |
 | 이미지생성 | — | **media-gen-image**(또는 media-gen) | media-gen-thumbnail/edit/upscale, brand-visual-generator |
