@@ -1,6 +1,13 @@
 #!/usr/bin/env node
 /**
- * A4 HTML → PNG 자동 캡쳐 스크립트
+ * HTML → PNG 자동 캡쳐 스크립트 (메신저·모바일 공유용)
+ *
+ * ★용도 구분 (CEO 확정 2026-07-20 — 두 스크립트는 통합하지 않고 용도별로 병존한다)
+ *   - 이 파일 capture-a4.js       : **메신저·모바일 공유용**. 폭 540px, `.page` 엘리먼트 단위 캡처.
+ *   - src/scripts/capture-full-a4.js : **A4 인쇄용 캡처 표준**. 폭 794px + fullPage(문서 전체 높이).
+ *     매일묵상 인쇄본 산출은 이쪽을 쓴다(7월 3주차에서 하단 잘림 없음 검증).
+ *   용도가 다르므로 어느 한쪽으로 일원화하지 않는다.
+ *
  * 사용법:
  *   node capture-a4.js <월> <주차>          예: node capture-a4.js 4월 4주차
  *   node capture-a4.js <week-N_YYYY-MM-DD>  예: node capture-a4.js week-6_2026-02-09 (구형 호환)
