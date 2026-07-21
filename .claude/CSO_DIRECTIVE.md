@@ -36,6 +36,14 @@
   `PHOENIX_FORBID_LIVE=1` 존재를 확인한다(plist는 앱 재설치가 교체 가능한 계층). 소실 발견
   시 즉시 복구하고 CEO에 보고한다. 죽은 세션 auto-resume 부활은 절대 금지(정본: 루트
   CLAUDE.md 환경 선언).
+  - **★부서별 phoenix 저널 개별 스캔 (2026-07-20 CEO·주인님 게이트 확정 — 전역 플래그 보호범위
+    한정 교정)**: `PHOENIX_FORBID_LIVE`의 강제 차단(`die`)은 `LIVE_STATE`가 가리키는 **전역
+    `~/.local/state/cys`(전역 폴백) 스코프에만** 적용되고, `--socket`으로 명시 지정된 부서 소켓의
+    정상 스코프 복원에는 관여하지 않는다. 따라서 **부서별 `~/.local/state/cys-dept-*/phoenix/
+    desired_roster.json`을 세션시작 점검 시 전수 스캔**해 비-tombstone·session_id 보유 항목을
+    발견 즉시 tombstone 처리하는 것이 실질 방어선이다(전역 플래그가 부서 스코프까지 대신 막지
+    않음 — "플래그 하나로 모든 부활 차단"은 과대 서술). 이 부서별 스캔을 세션시작 체크리스트
+    고정 항목으로 둔다.
 - **★idle 무검출 구간 차단 (F9 — 자동업데이트는 idle에도 발생)**: 0-b 점검은 세션 시작 1회 +
   스윕 시 수행되나, CSO 장기 생존·전원 idle 구간엔 스윕이 멈춰(§2 감시 조건부) 무검출이
   생긴다. 이를 막기 위해 **idle 중에도 도는 저빈도 고정 주기 감시 1개**를 둔다(launchd 잡으로
@@ -137,6 +145,13 @@ cmux 메인에는 cysd의 기계 감시(watchdog·이벤트 push)가 없다. 엔
 - 부서 워크스페이스는 필요 시 기동·작업 종료 시 정리가 원칙. `cmux tree --all`로 현황을 주기
   파악하고, idle·고아 워크스페이스는 **CEO 승인 후** 정리한다(비가역 close 전 의도 확인 —
   "새 워커 = 기존 유지 + 추가" 원칙 준수).
+- **★이벤트 구동 소환해제 워크플로우 (2026-07-18 주인님 — CSO 상시 폴링 부담 해소)**: CSO가 본부의
+  작업 종료를 상시 확인하기는 어렵다. 따라서 해제는 **본부장 완료 보고 → CEO(팀장)가 해당 본부 ws를
+  CSO에 전달**하는 것을 트리거로 삼는다. CSO는 전달받은 ws를 **`read-screen`으로 idle/완료 실측
+  확인**한 뒤 소환해제(graceful `/exit` → 빈 pane reap)하고, **부활 금지**(auto-resume 안 함)·roster
+  stale 처리·1줄 회신한다. 상주 4종(CEO·COO·CSO·리뷰어)은 예외. 트리거 없이도 스윕에서 명백한 idle·
+  고아 ws를 발견하면 종전대로 CEO 승인 후 정리한다(이벤트 구동은 상시 스윕을 대체가 아니라 보완).
+  [[feedback_dept_summon_release_on_completion]]
 - cys 보조 세션의 부서(`cys-dept`)를 쓰는 경우에만 구 조항(`cys-dept list/down`·상한 8·
   `CYS_DEPT_CWD`)이 유효하다.
 

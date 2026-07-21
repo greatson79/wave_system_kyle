@@ -46,7 +46,13 @@
 자료 조회). cys 보조 세션으로 기동된 노드는 그 안에서 종전대로 cys 명령을 쓴다.
 
 - **역전 배경(실사고)**: cys.app 반복 불안정 — 앱 자멸 재시작(7/10 하루 2회), phoenix 죽은 세션
-  자동부활(차단 완료: launchd `PHOENIX_FORBID_LIVE=1` + 로스터 session_id 소거), 무통제
+  자동부활(★**2단 방어**: ①전역 폴백 차단 = launchd `PHOENIX_FORBID_LIVE=1`(2026-07-20 plist
+  영속화 완료·재로드 검증필·`~/.local/state/cys` 전역 스코프 한정) ②로스터 session_id 소거 =
+  **전역 로스터만** 상시 보장 — **부서별(`cys-dept-*`) 로스터는 대상 밖**이라 부서 소환·해제
+  시마다 종료 노드 role을 해당 부서 phoenix 저널에 **개별 tombstone** 하는 것이 실질 방어선
+  (전역 플래그가 부서 스코프까지 대신 막지 않음). 세션시작 시
+  `~/.local/state/cys-dept-*/phoenix/desired_roster.json` 전수 스캔해 비-tombstone·session_id
+  보유 항목 발견 즉시 tombstone), 무통제
   자동업데이트(IME 한글깨짐·플릿 전멸 원인), 물리 워크스페이스 가시성 퇴행.
 - **★부활 금지(절대)**: 죽은 노드·세션의 auto-resume 부활 금지. 복구 = fresh 기동 + 콜드 앵커
   (**`_round/SESSION_STATE.md`**(훅 주입 정본·실측 2026-07-10)·`RECOVERY.md`) 재독만. 세션 소환은
