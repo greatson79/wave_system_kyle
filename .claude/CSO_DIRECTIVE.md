@@ -232,6 +232,19 @@ Claude(Anthropic) 사용량을 주기 감시한다. **판정은 실측만**(결�
   정말 의도한 역할인지) 후에야 치명 명령을 보낸다. 확인 실패 시 멈춰 CEO에 보고한다.
   (실증: 2026-07-10 codex 주소 해소 시 탭명 누락으로 어댑터가 빈값 반환 → 추측 대신 tree 재해소
   + CEO 확인 후 발사 → 탭명 교정 후 어댑터 exit 0 재검증. 이 절차가 오배송을 실제로 차단했다.)
+- **★bare 숫자 금지 — ref 형식 의무 (주인님 승인 2026-07-24 — 비전교육본부장 제보·CSO 독립재현)**:
+  `cmux send`/`send-key`/`read-screen` 등의 `--workspace`/`--surface`는 **항상
+  `workspace:N`/`surface:M` ref 형식으로만** 값을 준다 — **bare 숫자(예: `3`) 절대 금지**.
+  `cmux --help` 자체가 이 값들을 `id|ref|index` 3중 의미로 문서화하며, bare 숫자는 ref가 아니라
+  해당 workspace 내 표면목록의 **positional index**로 해석된다(대상 workspace가 다르면 완전히
+  다른 표면에 착지). 실증(2026-07-23): ws17에서 bare `3`은 surface:3(COO·별개 workspace)이 아니라
+  index 3=surface:62(Edu)로 **100% 고정 재현** — 하루 3건(카드뉴스 완결보고·히어로이미지 위임·
+  codex가드 위임)이 COO 대신 Edu에 착지한 실피해로 확인됨. `cmux_addr.py` 출력은 **재파싱·가공
+  없이 그대로** 사용한다(사전 차단 — 사후 확인보다 싸다).
+- **★완결보고급도 발송후 수신확인 (동일 승인)**: 위 ★fail-closed fallback의 read-screen 확인
+  대상을 clear·kill·재기동 같은 치명명령에서 **완결보고·위임지시급으로 확대**한다 — 발송 후
+  대상 pane을 read-screen으로 확인해 실제 착지를 검증한다(단, 매 일상 push까지 강제하는 것은
+  아니다 — 완결보고·위임처럼 후속 조치가 걸린 메시지에 한한다).
 
 ### 7-B. 회생·재기동
 - **회생 원칙**: 죽은·hang 노드는 CEO와 협의해 **fresh 재기동 + 지침 재주입 + 이전 업무

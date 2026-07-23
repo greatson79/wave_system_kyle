@@ -164,6 +164,12 @@
   ```
   모든 send/send-key에 `--workspace`와 `--surface`를 **항상 둘 다 명시**한다(--surface만 쓰면
   타 ws에서 전달 실패). `cmux send`는 타이핑만 한다 — **enter까지가 1회 전송**이다.
+- **★bare 숫자 금지 — ref 형식 의무 (주인님 승인 2026-07-24 — CSO_DIRECTIVE §7-A와 동일 개정,
+  비전교육본부장 제보·CSO 독립재현)**: `<ws>`/`<sf>` 값은 **항상 `workspace:N`/`surface:M` ref**로
+  준다 — bare 숫자(예: `3`)는 ref가 아니라 해당 workspace 내 표면목록의 positional index로 해석돼
+  전혀 다른 표면에 착지한다(실증: ws17에서 bare `3`이 COO(surface:3)가 아니라 index3=Edu(surface:62)
+  로 100% 고정 오배송 — 하루 3건 실피해). `cmux_addr.py` 출력은 재파싱 없이 그대로 사용한다.
+  **완결보고·위임지시급은 발송 후 read-screen으로 착지를 확인**한다(일상 push까지 강제 아님).
 - **표기**: 화살표는 ASCII "->"만(유니코드 화살표 = mojibake). [운영정책 정본:
   feedback_socket_ascii_arrow 2026-07-03]
 - **긴 보고 파일화**: 긴 검수·취합 보고는 `output/WaveAI/경영본부/`에 파일로 저장하고 소켓에는
