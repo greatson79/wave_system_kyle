@@ -19,7 +19,7 @@
 2. **조직 확장층 = 이 저장소 `.claude/`** (아래 @import): DiA 매트릭스 조직(CEO·COO·사업부3·본부6)·
    발행 거버넌스·도메인 규칙 등 **주인님이 설계한 것**. 엔진 위에 얹혀 역할을 확장한다.
 
-- **`.claude/MASTER_DIRECTIVE.md`** — CEO(총괄팀장) 조직 확장 헌장.
+- **`.claude/MASTER_DIRECTIVE.md`** — CEO(총괄) 조직 확장 헌장.
 - **`.claude/COO_DIRECTIVE.md`** — 운영총괄(COO) 헌장 (CYS 엔진에 없는 고유 역할).
 - **`.claude/CSO_DIRECTIVE.md`** — CSO 조직 확장 (사용량 게이팅 등).
 - **`.claude/WORKER_DIRECTIVE.md`** — 워커·본부장 조직 확장.
