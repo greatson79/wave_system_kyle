@@ -105,15 +105,12 @@ MASTER §7·WORKER §1. 선례: 아래 목회사역 사업부 내부(기획팀�
 
 ### 사업부 (폐지 — 2026-07-23)
 - 인텔리전스 → [`_archive/intelligence_사업부폐지_2026-07-23.md`](_archive/intelligence_사업부폐지_2026-07-23.md)
-- 목회사역·비전교육 헌장 → `hq/목회사역본부/`·`hq/Edu본부/` 이관 예정(G-G). 현행 `divisions/ministry.md`·`vision-edu.md` = 과도기.
+- 목회사역·비전교육 헌장 → **이관 완료**: `hq/목회사역본부/_헌장.md`·`hq/Edu본부/_헌장.md`. 구본 `divisions/*`는 `_archive/`.
 
-### 본부 헌장 (구 6 → 8본부 재구성 예정 · G-G)
-- [기획·전략본부 헌장](./hq/strategy.md)
-- [크리에이티브본부 헌장](./hq/production.md)
-- [마케팅본부 헌장](./hq/marketing.md)
-- [AI Tech 본부 헌장](./hq/ai-tech.md)
-- [재무·관리본부 헌장](./hq/finance.md)
-- [리서치·검증본부 헌장](./hq/research.md)
+### 본부 헌장 (8본부 · L3 — 전체작업진행지침 상속)
+- [경영본부](./hq/경영본부/_헌장.md) · [개발본부](./hq/개발본부/_헌장.md) · [크리에이티브본부](./hq/크리에이티브본부/_헌장.md) · [마케팅본부](./hq/마케팅본부/_헌장.md)
+- [재무본부](./hq/재무본부/_헌장.md) · [리서치본부](./hq/리서치본부/_헌장.md) · [목회사역본부](./hq/목회사역본부/_헌장.md) · [Edu본부](./hq/Edu본부/_헌장.md)
+- (구 6본부 flat 헌장·divisions는 `_archive/`로 격하)
 
 ### 부서별 영구기억
 모든 부서의 누적 학습·SOP 개선: [`memory/` 폴더](./memory/)
