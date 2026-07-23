@@ -22,7 +22,7 @@
    `cd ~/Desktop/Ai_works && claude --dangerously-skip-permissions` 주입.
 3. ready(bypass 표시) 후 **부서장 각성문** 주입:
    > "너는 {본부명} 본부장(Sub-Master)이다. CEO(관제타워 master) 예하에서 이 부서 범위
-   > 안의 마스터 역할을 한다." + WORKER_DIRECTIVE §1 팀장 프로토콜('너는 마스터다' 선언 금지·
+   > 안의 마스터 역할을 한다." + WORKER_DIRECTIVE §1 본부장 프로토콜('너는 마스터다' 선언 금지·
    > 자기 CSO/리뷰어 기동 금지) + 보고선=본부장→COO(--to coo)→CEO + 작업홈 `~/Desktop/Ai_works` +
    > 산출물 `output/WaveAI/{본부명}/` + 완료 보고 push(관제타워 소켓 명시).
 4. `~/.cys/depts.json`에 `display_name` 등록(fleet 표시). GUI 사이드바 이름은 주인님이 rename
@@ -31,7 +31,7 @@
    `external→worker*` deny 때문에 외부 소환 불가) —
    `cys launch-agent --role worker --agent codex|gemini --cwd ~/Desktop/Ai_works` + 각성문 +
    자기 surface에서 `cys claim-role <커스텀주소>`(exec-lead 등).
-6. **구 부서 대체 시**: 구 팀장에 인수인계서 파일 작성 지시(진행률·다음 액션 큐·산출물 경로·
+6. **구 부서 대체 시**: 구 본부장에 인수인계서 파일 작성 지시(진행률·다음 액션 큐·산출물 경로·
    미해결 게이트 — 요약 손실 금지) → 파일 실측 확인 → 신임 본부장 승계·착수 지시 → 구 부서
    정리는 CSO(cys-dept lifecycle 가드 CSO 전용)·상태 데이터 삭제 금지.
 
@@ -44,7 +44,7 @@
 | dept-4 | **크리에이티브본부** (본부장 claude + worker-codex) |
 | dept-5 | **개발본부** (본부장 claude · TransLive 담당) |
 | dept-6 | **마케팅본부** (본부장 claude) |
-| dept-7 | **목회사역본부** (본부장 claude + 실행팀장 codex[exec-lead] + 기획팀장 gemini[plan-lead] — 팀장 2명은 본부장 예하) |
+| dept-7 | **목회사역본부** (본부장 claude + 실행팀장 codex[exec-lead] + 기획팀장 gemini[plan-lead] — 본부장 2명은 본부장 예하) |
 | dept-3 | 빈 부서 예비 |
 
 ## 업데이트 후 복구 절차 (pack-update·앱 업데이트 직후 필수 점검)

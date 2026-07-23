@@ -2,7 +2,7 @@
 
 > Wave AI Networks · 경영 · 엔진: Claude (Opus)
 
-**역할**: CEO = Master(총괄팀장)
+**역할**: CEO = Master(총괄)
 
 - **노드**: ✅ 주소화 노드(surface ID, cmux pane O).
 - **지침**: 원본은 `.claude/MASTER_DIRECTIVE.md`에 있음(여기는 조직 역할만 기록, 중복 금지).
@@ -18,7 +18,7 @@
 
 - **CSO(중앙)**: 자원·시스템 감시 공동.
 - **품질감사실(agy+codex)**: 검증 결과 수렴.
-- **13 부서 팀장**: 보고 수렴 및 능동 연결.
+- **13 부서 본부장**: 보고 수렴 및 능동 연결.
 
 ## 영구기억
 

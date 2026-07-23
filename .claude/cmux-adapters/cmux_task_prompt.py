@@ -27,6 +27,15 @@ d) 요약·압축 절대 금지: 최종 결과물은 모든 분석·수치·표�
    전문용어만 쉬운 말로 풀고 길이는 원문 수준 유지.
 게이트: b가 흔들리면 나머지 실행을 중단하고 보고한다. 완료·질문·충돌·막힘은 즉시 push 보고."""
 
+DIFF_ONLY_CLAUSE = """[★DIFF-ONLY 위임 — envscan R6 절차위반 재발방지 (2026-07-21 CEO 승인)]
+이 위임은 "diff 산출"이 목적이다 — 라이브 파일 직접수정 금지.
+①대상 파일을 스테이징 사본(예: 원본과 분리된 임시 디렉토리 또는 .bak-<timestamp>)으로 복사한 뒤
+  그 사본에서만 작업한다. 원본은 위임 완료·CEO 확정 전까지 변경되지 않아야 한다.
+②완료보고에 방식을 명시한다 — "방식=스테이징"(원본 불변) 또는 부득이 "방식=라이브직접수정"
+  (원본이 실제로 바뀐 경우) 중 하나를 반드시 밝힌다. 은폐 금지 — 확실하지 않으면 즉시 질문한다.
+③diff 산출물은 원본이 아니라 스테이징 결과와 원본의 비교여야 하며, 위임자가 최종 확정하기
+  전까지 원본 파일이 실행 경로(cron 등)에서 살아있는 상태로 남아있지 않게 주의한다."""
+
 
 def resolve(target):
     out = subprocess.run([sys.executable, str(ADDR), target, "--json"], capture_output=True, text=True)
@@ -44,17 +53,21 @@ def main():
     ap.add_argument("--scope", required=True)
     ap.add_argument("--success", required=True)
     ap.add_argument("--reply-to", default="master")
+    ap.add_argument("--diff-only", action="store_true",
+                     help="위임이 diff 산출 전용임을 명시 — 라이브 파일 직접수정 금지 조항을 티켓에 주입")
     a = ap.parse_args()
 
     addr = resolve(a.to)
     ws, sf = addr["workspace"], addr["surface"]
+
+    diff_only_block = f"\n\n{DIFF_ONLY_CLAUSE}" if a.diff_only else ""
 
     ticket = f"""[위임 티켓 → {a.to} ({ws} {sf})]
 과업: {a.task}
 범위(이 범위만 — 무관 파일·repo 배회 금지): {a.scope}
 성공 기준: {a.success}
 
-{FOUR_RULES}
+{FOUR_RULES}{diff_only_block}
 
 보고 채널(주소 회전 대비 — 보고 직전 재해소): python3 {ADDR} "{a.reply_to}" 로 현재 주소를 얻어
   cmux send --workspace <ws> --surface <sf> "[{a.to}->{a.reply_to}] <보고>" 실행 후
