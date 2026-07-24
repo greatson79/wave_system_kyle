@@ -1,6 +1,6 @@
 # <부서명> 헌장
 
-> Wave AI Networks · <계층: 경영/사업부/본부> · 엔진: <Claude/Codex/agy>
+> Wave AI Networks · <계층: 경영/본부(8본부 단층)> · 엔진: <Claude/Codex/agy>
 
 - **미션**: <한 줄 존재 이유>
 - **책임 범위(Owns)**: <무엇의 결과를 책임지는가>

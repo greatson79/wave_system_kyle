@@ -13,7 +13,7 @@
 - 희소 부서는 평소 L2, 활성 부서만 L1 단기. 전 부서 L1/L2 = 감시 루프 중단([[feedback_monitoring_only_when_working]]).
 
 ## CSO watchdog 책무
-- 14노드(정의상)·현행 활성 pane은 `SESSION_STATE.md` 참조 — 메모리·load·컨텍스트 60% 상시 감시.
+- 8본부+상주4 체계(실측=SESSION_STATE)(정의상)·현행 활성 pane은 `SESSION_STATE.md` 참조 — 메모리·load·컨텍스트 60% 상시 감시.
 - 컨텍스트 60% → 관리형 /clear. 장기 idle → L2 동면.
 - 메모리·동시 토큰예산 임계 → 회장 에스컬레이션.
 - "완전 상주"는 charter/identity 수준(전 부서 헌장 상주). 물리 pane은 수요 기반(활성 L1, 희소 L2). 14 pane(정의상) 동시 강제 기동 금지(현행 활성 pane은 `SESSION_STATE.md` 참조).

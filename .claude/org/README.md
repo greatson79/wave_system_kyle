@@ -122,7 +122,7 @@ MASTER §7·WORKER §1. 선례: 아래 목회사역 사업부 내부(기획팀�
 - **부서별 헌장 템플릿**: [_charter_template.md](./_charter_template.md)
 - **대기모드 수명주기 프로토콜**: [lifecycle.md](./lifecycle.md)
 - **커맨드·스킬 부서 귀속 매핑**: [command-map.md](./command-map.md)
-- **노드 레지스트리**: `SESSION_STATE.md` 14노드 + 상태(L0/L1/L2) 컬럼
+- **노드 레지스트리**: `SESSION_STATE.md` 8본부15팀 체계 + 상태(L0/L1/L2) 컬럼
 
 ---
 
