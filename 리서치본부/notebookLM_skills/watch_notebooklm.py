@@ -7,7 +7,7 @@ from watchdog.events import FileSystemEventHandler
 # -------------------------------------------------------------------
 # [설정]
 # 감시할 폴더 경로
-WATCH_FOLDER = "/Users/kylechoi/Desktop/Ai_works/Claude_skills/notebookLM"
+WATCH_FOLDER = "/Users/kylechoi/Desktop/Ai_works/리서치본부/notebookLM_skills"
 
 # 대상 노트북 ID (기본값: '테스트' 노트북의 ID)
 # 다른 노트북으로 변경하려면 아래 ID를 수정하세요.

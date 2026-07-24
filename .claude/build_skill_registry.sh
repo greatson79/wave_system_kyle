@@ -33,17 +33,17 @@ MANIFEST=(
 # ── 연구·콘텐츠·강의 ──
 "research|Claude_skills/.claude/skills/research"
 "nlm-skill|.agents/skills/nlm-skill"
-"writing-workflow|Claude_skills/Writingskills/writing-workflow"
-"course-design|opencode/course-design"
-"gpt-codex-intro|opencode/gpt-codex-intro"
+"writing-workflow|크리에이티브본부/Writingskills/writing-workflow"
+"course-design|개발본부/플랫폼·릴리즈팀/opencode/course-design"
+"gpt-codex-intro|개발본부/플랫폼·릴리즈팀/opencode/gpt-codex-intro"
 "lecture-design|Claude_skills/lecture_skill_build/skill"
 "youth-life-planner|Claude_skills/youth_life_plan"
-"brunch-writing-workflow|Claude_skills/Writingskills/brunch-writing-workflow"
-"aitoon-page-director|Claude_skills/aitoon-page-director"
+"brunch-writing-workflow|크리에이티브본부/Writingskills/brunch-writing-workflow"
+"aitoon-page-director|크리에이티브본부/aitoon-page-director"
 # ── 교회 행정 ──
 "church-admin|Claude_skills/Church-Admin-AgenticWorkflow-main/church-admin/.claude/skills/church-admin"
 # ── Wave-AI (오케스트레이터 정본) ──
-"wave-orchestrator|Claude_skills/Wave-AI"
+"wave-orchestrator|크리에이티브본부/Wave-AI"
 # ── 프로젝트 결합형: wave-homepage (RSI ⑤ 도구화, 2026-07-13) ──
 "deterministic-motion-capture|wave-homepage/.claude/skills/deterministic-motion-capture"
 # ── 프로젝트 결합형: 환경스캐닝 ──
@@ -52,10 +52,10 @@ MANIFEST=(
 "longform-journalism|Vibe-Practice/EnvironmentScan-system-main-v4-main/.claude/skills/longform-journalism"
 "translator|Vibe-Practice/EnvironmentScan-system-main-v4-main/.claude/skills/translator"
 # ── 프로젝트 결합형: 투자분석 (translator는 위 env 정본과 이름충돌→제외) ──
-"data-collector|Vibe-Practice/01.invest_scan/.claude/skills/data-collector"
-"module-builder|Vibe-Practice/01.invest_scan/.claude/skills/module-builder"
-"sot-inspector|Vibe-Practice/01.invest_scan/.claude/skills/sot-inspector"
-"tdd-runner|Vibe-Practice/01.invest_scan/.claude/skills/tdd-runner"
+"data-collector|리서치본부/invest_scan/.claude/skills/data-collector"
+"module-builder|리서치본부/invest_scan/.claude/skills/module-builder"
+"sot-inspector|리서치본부/invest_scan/.claude/skills/sot-inspector"
+"tdd-runner|리서치본부/invest_scan/.claude/skills/tdd-runner"
 # ── 프로젝트 결합형: 교회행정·뉴스크롤링 ──
 "health-dashboard|Claude_skills/AI_churchteam/.claude/skills/health-dashboard"
 "theological-reasoning|Claude_skills/AI_churchteam/.claude/skills/theological-reasoning"
@@ -87,7 +87,7 @@ done
 # 소스: 전역 ~/.claude/skills · 엔진 팩 ~/.cys/pack/skills · Codex .agents. 정본1개 보존(기존 우선).
 # ⚠ 엔진 팩 경로(appbuild/media-gen)는 pack-update 시 이동 가능 — idempotent 재실행으로 복구.
 ABS_MANIFEST=(
-  "code-review|$BASE/Codex/.agents/skills/code-review"
+  "code-review|$BASE/개발본부/AI제품개발팀/Codex/.agents/skills/code-review"
   "codebase-review|/Users/kylechoi/.claude/skills/codebase-review"
   "security-review|/Users/kylechoi/.claude/skills/security-review"
   "tdd-workflow|/Users/kylechoi/.claude/skills/tdd-workflow"
