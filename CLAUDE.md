@@ -1,7 +1,7 @@
 # CLAUDE.md — Ai_works 루트
 
 **Wave AI Networks** — 디딤교회 AI 자동화 허브.
-`목회사역본부/weekly-works/`가 핵심 운영 공간(STEP7 이동완료·내부 상대구조 보존). `Vibe-Practice/`는 실험 공간.
+`목회사역본부/weekly-works/`가 핵심 운영 공간(STEP7 이동완료·내부 상대구조 보존). `_workflowhome/`는 워크플로우 정본 저장소(구 Vibe-Practice·STEP10 rename).
 
 ---
 
@@ -19,7 +19,7 @@
    부트 시퀀스·결정론 검증(javis_*.py)·양방향 소켓·자율주행 3축·라운드 루프·컨텍스트 사이클의 **정본**.
    `cys launch-agent`·SessionStart hook이 역할 세션에 자동 주입한다. **이 계층은 여기서 수정하지 않는다**
    (pack-update로 진화 — 로컬 수정은 덮어써지며 denylist).
-2. **조직 확장층 = 이 저장소 `.claude/`** (아래 @import): Wave AI Networks 매트릭스 조직(CEO·COO·사업부3·본부6)·
+2. **조직 확장층 = 이 저장소 `.claude/`** (아래 @import): Wave AI Networks 8본부 단층 조직(CEO·COO·8본부15팀 — 2026-07-23 개정)·
    발행 거버넌스·도메인 규칙 등 **주인님이 설계한 것**. 엔진 위에 얹혀 역할을 확장한다.
 
 - **`.claude/MASTER_DIRECTIVE.md`** — CEO(총괄) 조직 확장 헌장.
@@ -97,14 +97,14 @@ reviewer-gemini(agy·greatson79@dia-io.com) 4종을 소환 표준(권한허용�
 
 > **★주간작업 일정·담당부서 정본 (git 추적·cys 업데이트 무손실)**: 요일별 발행 편성·검수 체인·작성팀
 > 담당 = `.claude/org/WEEKLY_SCHEDULE.md` / 조직 매트릭스·부서 업무지침 = `.claude/org/README.md` +
-> `divisions/`·`hq/` 헌장. 이 둘은 **git 추적 조직 확장층**이라 cys terminal(`~/.cys/pack/`) 업데이트와
+> `hq/` 8본부 헌장(divisions 폐지). 이 둘은 **git 추적 조직 확장층**이라 cys terminal(`~/.cys/pack/`) 업데이트와
 > 분리돼 소실되지 않는다(엔진 팩 메모리 저장 금지). 새 마스터는 이 경로에서 일정·지침을 발견한다.
 
 **계층형 조직** (정본 = `.claude/org/README.md` 매트릭스 · 상세 = MASTER_DIRECTIVE 확장 헌장):
-- **관제타워 = 메인 cys 소켓**: **CEO(=cys master 역할)** + **COO**(워커 보고 1차취합 — worker 역할로
-  기동·COO_DIRECTIVE 주입) + **CSO**(cys cso 역할) + **품질감사 리뷰어**(reviewer-gemini=agy·
-  reviewer-codex) 상주. `cys boot`가 4종 의무 노드를 자동 기동한다.
-- **사업부 3**(목회사역·인텔리전스·비전교육) + **본부 6**(기획·크리에이티브·마케팅·AI Tech·재무·리서치).
+- **관제타워 = 경영본부 워크스페이스(cmux 메인·ws1)**: **CEO(총괄·master)** + **COO**(워커 보고 1차취합 —
+  COO_DIRECTIVE 주입) + **CSO** + **품질감사 리뷰어**(reviewer-gemini=agy·
+  reviewer-codex) 상주. `bash .claude/cmux-adapters/boot_tower.sh`가 4종 의무 노드를 소환 표준으로 편성한다(cys 보조 세션에서만 `cys boot`).
+- **8본부 단층**(경영·개발·크리에이티브·마케팅·재무·리서치·목회사역·Edu — 15팀·사업부 폐지 2026-07-23·정본=`.claude/org/전체작업진행지침.md §1`).
   실무 본부의 격리 작업공간 = **`cys-dept launch <본부명>`**(독립 소켓·전용 pack) — **필요할 때만
   기동**하고 작업 종료 시 정리한다(상시 6부서 상주 아님 — 자원 위생).
   (⚠ `cys-dept` 실체 정본 = `~/.cys/pack/bin/cys-dept`. PATH 배선 = `~/.local/bin/cys-dept`
@@ -112,7 +112,7 @@ reviewer-gemini(agy·greatson79@dia-io.com) 4종을 소환 표준(권한허용�
   앱 동봉분(`/Applications/cys.app/Contents/MacOS/cys-dept`)은 로컬 빌드 교체 시 탈락할 수
   있으니 경로 의존을 두지 마라 — 2차 IME 설치 때 무음 탈락 전례.)
 - **운영 평면**(불변): Worker → 본부장 → **COO** → CEO(요약·게이트) → 주인님. ⊥ **전략 평면**:
-  중역회의(사업부문장3+CEO+COO, 매주 월요일 오전·개시=주인님 호출). 사업부문장=본부장 겸직(점선).
+  본부장 전략회의(CEO+COO+안건 본부장, 매주 월요일 오전·개시=주인님 호출 — B안 2026-07-23·사업부문장 폐기).
 - **★표준 작업 홈 = 이 저장소(`~/Desktop/Ai_works`)** (2026-07-04 주인님 확정): 모든 작업 실행의
   기본 위치다. 워커·부서는 이 저장소(또는 그 하위 워크플로우 폴더)를 cwd로 기동한다 — master
   각성도 이 폴더에서 하는 것이 표준(git 루트 프리플라이트 활성).
@@ -143,8 +143,8 @@ reviewer-gemini(agy·greatson79@dia-io.com) 4종을 소환 표준(권한허용�
 | 폴더 | 목적 | 상세 문서 |
 |------|------|----------|
 | `목회사역본부/` | ⭐ 주간사역·교회행정 운영 공간(구 Claude_skills 재편·소멸) | `목회사역본부/CLAUDE.md` |
-| `Vibe-Practice/` | 실험적 에이전트 프로젝트 | `Vibe-Practice/CLAUDE.md` |
-| `Vibe-Practice/AgenticWorkflow-main/` | 에이전트 설계 방법론·개발 규율 원본 (전체 하네스 틀) | `Vibe-Practice/AgenticWorkflow-main/AGENTS.md` |
+| `_workflowhome/` | 워크플로우 정본 저장소 (구 Vibe-Practice) | `_workflowhome/CLAUDE.md` |
+| `_workflowhome/AgenticWorkflow-main/` | 에이전트 설계 방법론·개발 규율 원본 (전체 하네스 틀) | `_workflowhome/AgenticWorkflow-main/AGENTS.md` |
 | `목회사역본부/church-accounting/` | 교회 회계 웹앱 (Next.js/Vercel) | `목회사역본부/church-accounting/README.md` |
 | `개발본부/harness/` | 3-에이전트 하네스 (Planner/Generator/Evaluator) | `개발본부/harness/CLAUDE.md` |
 | `리서치본부/notebookLM/` | NotebookLM 작업 파일 | `{노트북명}/` 하위 |
@@ -176,7 +176,7 @@ reviewer-gemini(agy·greatson79@dia-io.com) 4종을 소환 표준(권한허용�
 
 ## 스킬 레지스트리 (스킬 베이스 운영)
 
-루트 `.claude/skills/`에 **45개 스킬 심링크 레지스트리**가 있다. 마스터는 흩어진 프로젝트
+루트 `.claude/skills/`에 **스킬 심링크 레지스트리(436개·2026-07-24 실측)**가 있다. 마스터는 흩어진 프로젝트
 스킬을 여기서 **상시 발견·선택**해 스킬 베이스로 작동한다(워크플로우 베이스 → 스킬 베이스).
 
 - **네이밍 규칙**: `frontmatter name = 레지스트리 dir = 소문자 kebab-case 영문, 벤더·버전 접두 없음`.

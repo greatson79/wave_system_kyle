@@ -2,7 +2,7 @@
 const puppeteer = require('puppeteer');
 const path = require('path');
 const fs = require('fs');
-const W = '/Users/kylechoi/Desktop/Ai_works/Claude_skills/weekly-works';
+const W = '/Users/kylechoi/Desktop/Ai_works/목회사역본부/weekly-works';
 const src = path.join(W, 'output/7월/2주차/매일묵상/html-with-images');
 const out = path.join(W, 'output/7월/2주차/매일묵상/captured');
 (async () => {

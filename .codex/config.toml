@@ -4,3 +4,42 @@ url = "https://smithery-composio.smithery.workers.dev/instagram/mcp"
 [mcp_servers.notebooklm]
 command = "npx"
 args = ["notebooklm-mcp@latest"]
+
+[mcp_servers.korean-law]
+command = "npx"
+args = [
+    "-y",
+    "korean-law-mcp@latest",
+]
+
+[mcp_servers.korean-law-mcp]
+command = "/Users/kylechoi/.local/state/fnm_multishells/3941_1783317340807/bin/korean-law-mcp"
+env_vars = ["LAW_OC"]
+
+[mcp_servers.notebooklm-mcp]
+command = "/Users/kylechoi/.local/bin/notebooklm-mcp"
+
+[mcp_servers.serena]
+command = "/Users/kylechoi/.local/bin/uvx"
+args = [
+    "--python",
+    "3.13",
+    "--from",
+    "serena-agent==1.5.3",
+    "serena",
+    "start-mcp-server",
+    "--context",
+    "claude-code",
+    "--transport",
+    "stdio",
+    "--project",
+    "/Users/kylechoi/Desktop/CYSjavis",
+    "--mode",
+    "no-onboarding",
+    "--mode",
+    "no-memories",
+    "--enable-web-dashboard",
+    "false",
+    "--open-web-dashboard",
+    "false",
+]

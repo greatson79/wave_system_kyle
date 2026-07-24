@@ -7,7 +7,7 @@ const path = require('path');
   await page.setViewport({ width: 540, height: 540, deviceScaleFactor: 2 });
 
   const filePath = path.resolve(
-    '/Users/kylechoi/Desktop/Ai_works/Claude_skills/weekly-works',
+    '/Users/kylechoi/Desktop/Ai_works/목회사역본부/weekly-works',
     'output/6월/2주차/카드뉴스/카드뉴스_24주차.html'
   );
 

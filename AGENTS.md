@@ -6,7 +6,7 @@
 > 이 문서는 `CLAUDE.md` 변경 시 함께 동기화된다(CSO §0-b 스냅샷 diff 관리 대상).
 
 **Wave AI Networks** — 디딤교회 AI 자동화 허브.
-`목회사역본부/weekly-works/`가 핵심 운영 공간(STEP7 이동완료). `Vibe-Practice/`는 실험 공간.
+`목회사역본부/weekly-works/`가 핵심 운영 공간(STEP7 이동완료). `_workflowhome/`는 워크플로우 정본 저장소(구 Vibe-Practice·STEP10 rename).
 
 ---
 
@@ -53,7 +53,7 @@
 2. **조직 확장층 = 이 저장소 `.claude/`** (아래 @import): Wave AI Networks 매트릭스 조직·발행 거버넌스·
    도메인 규칙 등 **주인님이 설계한 것**. 엔진 위에 얹혀 역할을 확장한다.
 
-- **`.claude/MASTER_DIRECTIVE.md`** — CEO(총괄팀장) 조직 확장 헌장.
+- **`.claude/MASTER_DIRECTIVE.md`** — CEO(총괄) 조직 확장 헌장.
 - **`.claude/COO_DIRECTIVE.md`** — 운영총괄(COO) 헌장.
 - **`.claude/CSO_DIRECTIVE.md`** — CSO 조직 확장 헌장.
 - **`.claude/WORKER_DIRECTIVE.md`** — 워커·본부장 조직 확장 헌장.
@@ -109,16 +109,16 @@
 > 오케스트레이션할 때만 워커 체제를 가동한다.
 
 > **★주간작업 일정·담당부서 정본**: `.claude/org/WEEKLY_SCHEDULE.md` / 조직 매트릭스·부서 지침 =
-> `.claude/org/README.md` + `divisions/`·`hq/` 헌장 (git 추적 조직 확장층 — cys 업데이트와 분리).
+> `.claude/org/README.md` + `hq/` 8본부 헌장(divisions 폐지) (git 추적 조직 확장층 — cys 업데이트와 분리).
 
 **계층형 조직** (정본 = `.claude/org/README.md` 매트릭스):
 - **관제타워 = 메인 소켓(경영본부)**: **CEO(master)** + **COO**(워커 보고 1차 취합) + **CSO**(시스템 총괄) +
   **품질감사 리뷰어**(reviewer-gemini=agy · reviewer-codex) — **4종 의무 노드 상주**. `boot_tower.sh`가 자동 편성한다.
   (구 3-노드 관제타워 모델은 폐기 — COO 신설·리뷰어 2종 상주.)
-- **사업부 3**(목회사역·인텔리전스·비전교육) + **본부 6**(기획·크리에이티브·마케팅·AI Tech·재무·리서치).
+- **8본부 단층**(경영·개발·크리에이티브·마케팅·재무·리서치·목회사역·Edu — 15팀·사업부 폐지 2026-07-23·정본=`.claude/org/전체작업진행지침.md §1`).
   실무 본부는 **필요할 때만 기동**하고 작업 종료 시 정리한다(상시 6부서 상주 아님 — 자원 위생).
 - **운영 평면**(불변): Worker → 본부장 → **COO** → CEO(요약·게이트) → 주인님. ⊥ **전략 평면**:
-  중역회의(사업부문장3+CEO+COO, 매주 월요일 오전).
+  본부장 전략회의(CEO+COO+안건 본부장, 매주 월요일 오전 — B안).
 - **★표준 작업 홈 = 이 저장소(`~/Desktop/Ai_works`)**: 워커·부서는 이 저장소(또는 하위 워크플로우 폴더)를
   cwd로 기동한다. 산출물 = `output/WaveAI/{본부}/{팀}/`.
 - **엔진·모델 배정**: 위 "현행 거버넌스 핵심 요약" ①②(2엔진 선발·모델 티어) 참조.
@@ -144,8 +144,8 @@
 | 폴더 | 목적 | 상세 문서 |
 |------|------|----------|
 | `목회사역본부/` | ⭐ 주간사역·교회행정 운영 공간(구 Claude_skills 재편·소멸) | `목회사역본부/CLAUDE.md` |
-| `Vibe-Practice/` | 실험적 에이전트 프로젝트 | `Vibe-Practice/CLAUDE.md` |
-| `Vibe-Practice/AgenticWorkflow-main/` | 에이전트 설계 방법론·개발 규율 원본 | `Vibe-Practice/AgenticWorkflow-main/AGENTS.md` |
+| `_workflowhome/` | 워크플로우 정본 저장소 (구 Vibe-Practice) | `_workflowhome/CLAUDE.md` |
+| `_workflowhome/AgenticWorkflow-main/` | 에이전트 설계 방법론·개발 규율 원본 | `_workflowhome/AgenticWorkflow-main/AGENTS.md` |
 | `목회사역본부/church-accounting/` | 교회 회계 웹앱 (Next.js/Vercel) | `목회사역본부/church-accounting/README.md` |
 | `개발본부/harness/` | 3-에이전트 하네스 (Planner/Generator/Evaluator) | `개발본부/harness/CLAUDE.md` |
 | `리서치본부/notebookLM/` | NotebookLM 작업 파일 | `{노트북명}/` 하위 |

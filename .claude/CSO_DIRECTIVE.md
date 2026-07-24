@@ -129,7 +129,7 @@ cmux 메인에는 cysd의 기계 감시(watchdog·이벤트 push)가 없다. 엔
 - launchd 자동화 잡(주간 발행 등)의 생존·플래그는 0-b 점검과 함께 주기 확인한다.
   **★`cys schedule` 의존 자동화는 launchd로 이관을 원칙으로 한다**(CSO 실무 입력1 — 오늘
   `dia-output-materialize-preflight` 침묵 실패·output dataless 967건 실측. 근거:
-  `output/WaveAI/경영본부/dataless근본대책_권고안_2026-07-10.md` §2). **★이관 대상에 게이팅 감시
+  `output/WaveAI/경영본부/_archive/구본정리_2026-07-23/dataless근본대책_권고안_2026-07-10.md` §2). **★이관 대상에 게이팅 감시
   잡 `cso-usage-gating-watch`를 포함한다**(F5 — §6이 이 잡을 실측원으로 인용하는데, 침묵 실패
   계열을 안전 임계 감시에 쓰는 자기모순. 침묵 실패 시 게이팅 미발동 = 한도 사고 직결).
 

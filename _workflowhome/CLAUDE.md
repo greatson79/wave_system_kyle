@@ -1,60 +1,28 @@
-# Vibe-Practice — 실험적 AI 에이전트 프로젝트
+# CLAUDE.md — _workflowhome/ (워크플로우 정본 저장소)
 
-AI 에이전트 아이디어를 빠르게 검증하는 실험 공간.
-완성도보다 속도·탐색이 우선. 검증된 것은 `Claude_skills/`로 이전.
+> **★모든 워크플로우 정본은 이 폴더에 둔다**(주인님 확정 2026-07-24 · 구 Vibe-Practice → STEP10 rename).
+> 본부 작업축(개발본부·리서치본부 등)에서는 **심링크로 접근**한다 — 원본 이동 금지(gitlink 물리이동 금지 원칙).
+> 산출물은 `output/WaveAI/{본부}/`(산출물 축)에 — 여기엔 워크플로우 코드·설계만.
 
----
+## 워크플로우 목록 (2026-07-24 실측)
 
-## 프로젝트 목록
+| 폴더 | 내용 | 소관(심링크 위치) |
+|---|---|---|
+| `AgenticWorkflow-main/` | 에이전트 설계 방법론·개발 규율 원본(전체 하네스 틀) — `AGENTS.md` | 전사 공용 |
+| `EnvironmentScan-system-main-v4-main/` | 환경스캐닝(envscan) 5WF [gitlink] | 리서치본부 |
+| `GlobalNews-Crawling-AgenticWorkflow/` | 뉴스크롤링 [gitlink] | 리서치본부(리서치2팀) |
+| `Dissertation-Simulator-AgenticWorkflow-main/` | 박사논문 시뮬레이터 [gitlink] | 리서치본부(관리)·결과물=`output/개인/` |
+| `Sermon-Assistant-AgenticWorkflow-main/` | 설교 어시스턴트 [gitlink] | 목회사역본부 |
+| `Wave Landing Page/` | 랜딩 페이지 [gitlink] | 개발본부 |
+| `Agent-Reach/` | agent-reach 스킬 소스 repo [gitlink·외부] — 스킬 실체는 `~/.claude/skills/agent-reach`(전역) | 개발본부 |
+| `AgentWorkFlow-Lite/` · `harness_framework-main/` · `harness-landing/` · `harness-template/` | 하네스 프레임워크·템플릿 | 개발본부 |
+| `SaaS-AgenticWorkflow-main/` | SaaS 워크플로우 | 개발본부 |
+| `notebooklm-mcp-main/` | NotebookLM MCP 소스 | 리서치본부 |
+| `AI_churchteam_archived_20260625/` | (아카이브 — 현행 ai_churchteam은 `목회사역본부/AI_churchteam`) | 이력 |
+| `*.zip` | 백업 아카이브(원본 zip) | 이력 |
 
-| 프로젝트 | 상태 | 설명 |
-|---------|------|------|
-| `01.invest_test/` | 🟡 개발 중 | 주식 투자 주간 스캔 시스템 (Python) |
-| `GlobalNews-Crawling-AgenticWorkflow/` | 🟢 운영 중 | 글로벌 뉴스 수집·분석 파이프라인 |
-| `EnvironmentScan-system-main-v4-main/` | 🟢 운영 중 | 환경 스캐닝 자동화 |
-| `Dissertation-Simulator-AgenticWorkflow-main/` | 🔵 대기 | 박사논문 설계 자동화 |
-| `Sermon-Assistant-AgenticWorkflow-main/` | 🔵 대기 | 설교 보조 에이전트 |
-| `AI_churchteam/` | 🔵 대기 | 교회 팀 AI 지원 |
-| `harness-template/` | 📦 템플릿 | 에이전트 하네스 기본 구조 |
-| `Wave Landing Page/` | 📦 보관 | WAVE AI 랜딩 페이지 |
-| `연습_챌린지/` | 📦 학습 | 챌린지·연습 프로젝트 모음 |
-
----
-
-## InvestScan 커맨드 (01.invest_test/)
-
-```bash
-cd Vibe-Practice/01.invest_test
-
-# Done Gate 검증 (API 호출 없음)
-python3 run_m05.py --dry-run        # M0.5 게이트 DG-01~08
-python3 run_m1.py --dry-run         # M1 게이트 DG-09~16
-
-# 파이프라인 실행
-python3 -m investscan.weekly_orchestrator    # 전체 주간 파이프라인
-
-# 보고서
-python3 -m investscan.preview_report         # 미리보기
-python3 -m investscan.approve_hitl           # HITL 승인
-python3 -m investscan.export_report          # 최종 내보내기
-
-# 단일 게이트 테스트
-python3 run_m05.py --gate DG-04
-```
-
-**현재 브랜치:** `feat-0-mvp` — Phase 0 완료, `main` 머지 대기 중.
-상세: `01.invest_test/CLAUDE.md`
-
----
-
-## 산출물 경로
-
-- 환경스캐닝: `output/환경스캐닝/{날짜}_{주제}/`
-- 뉴스 크롤링: `output/뉴스크롤링/{날짜}/`
-- InvestScan 보고서: `01.invest_test/output/reports/`
-
----
-
-## 개별 프로젝트 진입점
-
-각 프로젝트 폴더 내 `CLAUDE.md` 참조.
+## 규율
+1. **신규 워크플로우 = 여기에 생성**하고, 소관 본부 작업축에 상대경로 심링크를 건다.
+2. **gitlink(외부 repo)는 물리이동 금지** — 심링크 접근만(원칙G).
+3. 각 워크플로우 내부 규율은 각자의 `CLAUDE.md`/`AGENTS.md`가 정본(예: envscan·weekly 파이프라인 내부 불가침).
+4. 구 경로 `Vibe-Practice/`는 소멸 — 참조 발견 시 이 폴더로 교정.

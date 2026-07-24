@@ -2,8 +2,8 @@ const puppeteer = require("puppeteer");
 const fs = require("fs");
 const path = require("path");
 
-const htmlPath = "/Users/kylej.choi/Desktop/Ai_works/Claude_skills/weekly-works/output/4월/1주차/카드뉴스/easter-article.html";
-const pdfPath = "/Users/kylej.choi/Desktop/Ai_works/Claude_skills/weekly-works/output/4월/1주차/카드뉴스/easter-article.pdf";
+const htmlPath = "/Users/kylechoi/Desktop/Ai_works/목회사역본부/weekly-works/output/4월/1주차/카드뉴스/easter-article.html";
+const pdfPath = "/Users/kylechoi/Desktop/Ai_works/목회사역본부/weekly-works/output/4월/1주차/카드뉴스/easter-article.pdf";
 
 (async () => {
   // Read HTML and remove slide images

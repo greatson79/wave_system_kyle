@@ -1,11 +1,11 @@
 # 품질감사 — agy 헌장 (Value & Logic Validation)
 
-> Wave AI Networks · 품질감사실(2노드 분해 중) · 엔진: Claude
+> Wave AI Networks · 품질감사실(2노드 분해 중) · 엔진: Antigravity(Gemini 계열·greatson79@dia-io.com)
 
 **역할**: agy = 품질감사 — 콘텐츠·신학·전략 검증
 
 - **노드**: ✅ 주소화 노드(surface ID, cmux pane O).
-- **지침**: 원본은 `.claude/WORKER_DIRECTIVE.md` 6조(리뷰 및 반박)에 있음(여기는 조직 역할만 기록, 중복 금지).
+- **지침**: 원본은 엔진 REVIEWER_DIRECTIVE·WORKER §3(오케스트레이션·리뷰어 호출)에 있음(여기는 조직 역할만 기록, 중복 금지).
 
 ## 조직상 책무(이원화 검증 中 가치·논리)
 

@@ -1,0 +1,538 @@
+- generic [active] [ref=e1]:
+  - banner [ref=e2]:
+    - generic [ref=e3]:
+      - link "Wave AI Networks 홈" [ref=e4] [cursor=pointer]:
+        - /url: "#top"
+        - img "Wave AI Networks" [ref=e5]
+      - navigation "주 메뉴" [ref=e6]:
+        - list [ref=e7]:
+          - listitem [ref=e8]:
+            - link "철학" [ref=e9] [cursor=pointer]:
+              - /url: "#philosophy"
+          - listitem [ref=e10]:
+            - link "클래스" [ref=e11] [cursor=pointer]:
+              - /url: "#academy"
+          - listitem [ref=e12]:
+            - link "세미나" [ref=e13] [cursor=pointer]:
+              - /url: "#seminars"
+          - listitem [ref=e14]:
+            - link "컨설팅" [ref=e15] [cursor=pointer]:
+              - /url: "#consulting"
+          - listitem [ref=e16]:
+            - link "운영진" [ref=e17] [cursor=pointer]:
+              - /url: "#team"
+          - listitem [ref=e18]:
+            - link "문의" [ref=e19] [cursor=pointer]:
+              - /url: "#contact"
+  - main [ref=e20]:
+    - region [ref=e21]:
+      - generic [ref=e29]:
+        - paragraph [ref=e30]: AI EDUCATION · SEMINAR · CONSULTING
+        - heading "기술이 아니라, 현장으로 흐르는 물결." [level=1] [ref=e31]:
+          - generic [ref=e32]: 기술이 아니라,
+          - generic [ref=e33]:
+            - text: 현장으로 흐르는
+            - emphasis [ref=e34]: 물결
+            - text: .
+        - paragraph [ref=e35]:
+          - text: Wave AI Networks는 AI를 사역과 일상의 현장으로 흘려보내는
+          - strong [ref=e36]: 연결의 도구
+          - text: 로 이해합니다.
+        - generic [ref=e37]:
+          - link "클래스 보러 가기" [ref=e38] [cursor=pointer]:
+            - /url: "#academy"
+          - link "문의하기" [ref=e39] [cursor=pointer]:
+            - /url: "#contact"
+      - generic [ref=e40]:
+        - generic [ref=e41]: Flow · Field · People
+        - list [ref=e42]:
+          - listitem [ref=e43]
+          - listitem [ref=e45]
+          - listitem [ref=e47]
+    - region [ref=e49]:
+      - generic [ref=e50]:
+        - img "최종학 대표" [ref=e52]
+        - generic [ref=e53]:
+          - paragraph [ref=e54]: About
+          - heading "기술이 사람을 앞서가는 시대에, 기술을 사람 곁으로 되돌리는 일을 합니다." [level=2] [ref=e55]
+          - paragraph [ref=e56]: 새로운 기능을 쫓기보다 현장에서 오래 쓰이는 기본을 가르치고, 앞서가기보다 함께 가는 길을 만듭니다. 직접 만들어 보고, 검증한 것만 나눕니다. 그렇게 AI라는 물결이 작은 교회와 교실, 큰 대행사에 맡기기 어려운 작은 현장까지 흘러가도록 — 목사로, 교육자로, 컨설턴트로 그 길을 잇고 있습니다.
+          - paragraph [ref=e57]:
+            - text: 디딤교회 담임목사 · 호서대학교 AI콘텐츠융합학과 박사과정 · DiA Ai Edu. Solution 공동대표 · CSO · 한국기독AI작가협회 이사 — AI로 더 나은 미래를 연결하는
+            - strong [ref=e58]: 컨설턴트
+            - text: 입니다.
+          - paragraph [ref=e59]: "#에듀테크 #컨설팅 #AI교육 #AI융합"
+          - list [ref=e60]:
+            - listitem [ref=e61]:
+              - link "블로그 — 대표의 기록" [ref=e62] [cursor=pointer]:
+                - /url: https://www.kylechoi.com
+            - listitem [ref=e63]:
+              - link "Instagram" [ref=e64] [cursor=pointer]:
+                - /url: https://www.instagram.com/greatson79/
+    - region [ref=e65]:
+      - generic [ref=e67]:
+        - generic [ref=e68]: “
+        - heading "AI를 기술이 아닌 사역과 일상의 현장으로 흘려보내는 연결의 도구로 이해합니다." [level=2] [ref=e69]
+        - paragraph [ref=e70]: Wave AI Networks의 철학
+      - generic [ref=e71]:
+        - generic [ref=e72]:
+          - heading "앞서가기보다, 함께 가는 것" [level=3] [ref=e73]
+          - paragraph [ref=e74]: 속도 경쟁이 아니라 현장의 보폭에 맞춥니다. 한 사람도 흐름 밖에 남지 않도록.
+        - generic [ref=e75]:
+          - heading "화려함보다, 기본에 충실한 것" [level=3] [ref=e76]
+          - paragraph [ref=e77]: 유행하는 기능보다 오래 쓰이는 원리를 가르칩니다. 기본이 서면 도구는 따라옵니다.
+        - generic [ref=e78]:
+          - heading "개인의 역량보다, 공동의 흐름" [level=3] [ref=e79]
+          - paragraph [ref=e80]: 혼자 잘 쓰는 AI가 아니라 공동체가 함께 쓰는 AI — 그것이 우리가 말하는 물결입니다.
+    - region [ref=e81]:
+      - generic [ref=e82]:
+        - generic [ref=e83]:
+          - paragraph [ref=e84]: Services
+          - heading "세 갈래로 흐르는 일" [level=2] [ref=e85]
+        - list [ref=e86]:
+          - listitem [ref=e87]:
+            - generic [ref=e88]: "01"
+            - heading "AI 교육 — Wave Academy" [level=3] [ref=e89]
+            - paragraph [ref=e90]: AI 입문에서 목회 실전, 에이전틱 워크플로까지 이어지는 단계별 러닝 패스.
+            - list [ref=e91]:
+              - listitem [ref=e92]: AI Starter Lab
+              - listitem [ref=e93]: AI Creator Lab
+              - listitem [ref=e94]: Ministry AI Lab
+              - listitem [ref=e95]: Agentic Workflow Lab
+          - listitem [ref=e96]:
+            - generic [ref=e97]: "02"
+            - heading "강연 · 세미나" [level=3] [ref=e98]
+            - paragraph [ref=e99]: 교회·공공기관·교육기관 현장으로 찾아가는 오프라인 강연과 세미나.
+            - list [ref=e100]:
+              - listitem [ref=e101]: 지역별 세미나 (서울·경기 / 영남 / 광주)
+              - listitem [ref=e102]: 기관 초청 강연 · 정기 출강
+          - listitem [ref=e103]:
+            - generic [ref=e104]: "03"
+            - heading "웹 · AI 컨설팅" [level=3] [ref=e105]
+            - paragraph [ref=e106]: 작은 기관과 현장을 위한 웹사이트 구축과 AI 도입 컨설팅.
+            - list [ref=e107]:
+              - listitem [ref=e108]: 랜딩페이지 · 웹사이트 구축과 호스팅
+              - listitem [ref=e109]: AI 활용 컨설팅
+        - link "모집 소식 보러 가기" [ref=e111] [cursor=pointer]:
+          - /url: "#academy"
+    - region [ref=e112]:
+      - generic [ref=e113]:
+        - generic [ref=e114]:
+          - paragraph [ref=e115]: Wave Academy
+          - heading "지금, 함께 배우는 클래스" [level=2] [ref=e116]
+        - generic [ref=e117]:
+          - paragraph [ref=e118]:
+            - text: Wave Academy는
+            - strong [ref=e119]: 배우고, 만들고, 현장에 적용하는
+            - text: 단계별 AI 교육 과정입니다. 생성형 AI의 첫걸음부터 콘텐츠 제작, 목회 실전, 에이전틱 워크플로 설계까지 이어집니다.
+          - paragraph [ref=e120]:
+            - text: 수료로 끝나지 않습니다. 검증된 프롬프트와 실습 리소스, 분기별 Networking Day가
+            - strong [ref=e121]: 배움과 현장의 다음 단계
+            - text: 를 계속 잇습니다.
+        - generic [ref=e122]:
+          - paragraph [ref=e123]: 다음 기수를 준비하고 있습니다.
+          - paragraph [ref=e124]:
+            - text: 모집 소식은 오픈톡방과 이메일로 가장 먼저 전해드립니다 —
+            - link "waveainetworks@gmail.com" [ref=e125] [cursor=pointer]:
+              - /url: mailto:waveainetworks@gmail.com
+        - generic [ref=e126]:
+          - generic [ref=e127]:
+            - heading "Learning Path" [level=3] [ref=e128]
+            - paragraph [ref=e129]: 처음 배우는 순간부터 나만의 AI 시스템을 만드는 단계까지.
+          - generic [ref=e130]:
+            - article [ref=e131]:
+              - paragraph [ref=e132]: "CLASS #1 · FOUNDATION"
+              - heading "AI Starter Lab" [level=4] [ref=e133]
+              - paragraph [ref=e134]: 생성형 AI 첫걸음
+              - paragraph [ref=e135]: 생성형 AI를 처음 시작하는 분들을 위한 첫 3주. 개념을 이해하고, 핵심 도구를 비교하고, 이미지와 영상까지 직접 만들어보는 입문 과정입니다.
+              - group [ref=e136]:
+                - generic "커리큘럼 보기" [ref=e137] [cursor=pointer]:
+                  - text: 커리큘럼 보기
+                  - generic [ref=e138]: ↘
+            - article [ref=e139]:
+              - paragraph [ref=e140]: "CLASS #2 · CREATE"
+              - heading "AI Creator Lab" [level=4] [ref=e141]
+              - paragraph [ref=e142]: 컨텍스트에서 콘텐츠까지
+              - paragraph [ref=e143]: 단순한 도구 사용을 넘어 AI가 더 정확히 일하도록 맥락을 설계하고, 나만의 AI와 미디어 콘텐츠를 만드는 다음 단계입니다.
+              - group [ref=e144]:
+                - generic "커리큘럼 보기" [ref=e145] [cursor=pointer]:
+                  - text: 커리큘럼 보기
+                  - generic [ref=e146]: ↘
+            - article [ref=e147]:
+              - paragraph [ref=e148]: ADVANCED · MINISTRY
+              - heading "Ministry AI Lab" [level=4] [ref=e149]
+              - paragraph [ref=e150]: 설교 · 목양 · 교육을 잇는 AI 실전
+              - paragraph [ref=e151]: 설교 준비부터 목양과 교육까지, 목회 현장의 실제 과제를 AI와 함께 풀어보는 3주 실습 과정입니다.
+              - group [ref=e152]:
+                - generic "커리큘럼 보기" [ref=e153] [cursor=pointer]:
+                  - text: 커리큘럼 보기
+                  - generic [ref=e154]: ↘
+            - article [ref=e155]:
+              - paragraph [ref=e156]: ADVANCED · AGENTIC
+              - heading "Agentic Workflow Lab" [level=4] [ref=e157]
+              - paragraph [ref=e158]: Claude Code로 만드는 나만의 AI 시스템
+              - paragraph [ref=e159]: 터미널에서 일하는 AI 비서 Claude Code를 시작으로, 반복 업무를 실행하는 에이전틱 워크플로와 나만의 AI 운영체계를 완성하는 5주 심화 과정입니다.
+              - group [ref=e160]:
+                - generic "커리큘럼 보기" [ref=e161] [cursor=pointer]:
+                  - text: 커리큘럼 보기
+                  - generic [ref=e162]: ↘
+        - generic [ref=e163]:
+          - generic [ref=e164]:
+            - generic [ref=e165]:
+              - paragraph [ref=e166]: SEASONAL PROGRAM
+              - heading "계절마다, 현장의 다음 과제를 함께" [level=3] [ref=e167]
+            - paragraph [ref=e168]: Summer Class와 Winter Class로 이어지는 Wave Academy 시즌 강좌.
+          - generic [ref=e169]:
+            - article [ref=e170]:
+              - generic [ref=e171]:
+                - paragraph [ref=e172]: SUMMER · SEASON 1
+                - generic [ref=e173]: COMPLETED
+              - heading "Summer Class — Season 1" [level=4] [ref=e174]
+              - paragraph [ref=e175]: 여름사역 준비, AI와 함께 3주 완성
+              - paragraph [ref=e176]: 2026. 6. 16–6. 30 · 매주 화요일 20:00–22:00
+              - paragraph [ref=e177]: ONLINE ZOOM · VOLUNTARY FEE · 3 SESSIONS
+              - paragraph [ref=e178]: 혼자 준비하느라 지친 사역자를 위해 기획부터 홍보, 참여를 이끄는 콘텐츠까지 한 흐름으로 완성한 시즌형 실전 클래스입니다.
+              - paragraph [ref=e179]: INSTRUCTORS 최종학 · 이진민 · 김재준 · 이지철 · 이신혜
+              - group [ref=e180]:
+                - generic "세션 전체 보기" [ref=e181] [cursor=pointer]:
+                  - text: 세션 전체 보기
+                  - generic [ref=e182]: ↘
+            - article [ref=e183]:
+              - generic [ref=e184]:
+                - paragraph [ref=e185]: SUMMER · SEASON 2
+                - generic [ref=e186]: IN PROGRESS
+              - heading "Summer Class — Season 2" [level=4] [ref=e187]
+              - paragraph [ref=e188]: AI Collaboration — 혼자 쓰는 AI에서 함께 일하는 AI로
+              - paragraph [ref=e189]: 2026. 7. 14–8. 18 · 화요일 20:00–22:00
+              - paragraph [ref=e190]: FREE ZOOM · VOLUNTARY DONATION · 5 SESSIONS
+              - paragraph [ref=e191]: Codex, Suno, 생성형 이미지·영상, 목회 지식창고, SNS 브랜딩을 다섯 명의 강사와 연결하는 여름 오픈 렉처입니다.
+              - link "소개 페이지 보기" [ref=e192] [cursor=pointer]:
+                - /url: https://wave-academy-donation.vercel.app/donation-20260706
+                - text: 소개 페이지 보기
+                - generic [ref=e193]: ↗
+              - group [ref=e194]:
+                - generic "세션 전체 보기" [ref=e195] [cursor=pointer]:
+                  - text: 세션 전체 보기
+                  - generic [ref=e196]: ↘
+            - article [ref=e197]:
+              - generic [ref=e198]:
+                - paragraph [ref=e199]: SEASONAL · COMING NEXT
+                - generic [ref=e200]: PREVIEW
+              - heading "Winter Class" [level=4] [ref=e201]
+              - paragraph [ref=e202]: 겨울 사역과 새해를 준비하는 시즌 클래스
+              - paragraph [ref=e203]: 세부 일정 확정 후 공개
+              - paragraph [ref=e204]: WINTER SEASON PROGRAM
+              - paragraph [ref=e205]: Winter Class의 세부 일정과 커리큘럼은 확정 후 안내합니다. 오픈 소식은 Wave Academy 채널에서 가장 먼저 전합니다.
+        - article [ref=e206]:
+          - generic [ref=e207]:
+            - paragraph [ref=e208]: QUARTERLY · YEAR 4
+            - heading "WAVE Networking Day" [level=3] [ref=e209]
+            - paragraph [ref=e210]: AI Trend & Knowledge Sharing
+          - paragraph [ref=e211]: 매 분기 한 번, 연 4회 만나는 WAVE 커뮤니티 데이. 빠르게 변하는 AI 트렌드를 함께 읽고 각자의 현장에서 얻은 지식과 사례를 나눕니다.
+        - generic [ref=e212]:
+          - generic [ref=e213]:
+            - paragraph [ref=e214]: OUR MINISTRY
+            - heading "AI가 필요한 현장으로" [level=3] [ref=e215]
+            - paragraph [ref=e216]: 기술보다 사람을 먼저 보고, 배움이 필요한 자리로 직접 찾아갑니다.
+          - list [ref=e217]:
+            - listitem [ref=e218]:
+              - generic [ref=e219]: "01"
+              - generic [ref=e220]: 탈북 목회자를 위한 AI 활용 교육
+              - generic [ref=e221]: 오프라인
+            - listitem [ref=e222]:
+              - generic [ref=e223]: "02"
+              - generic [ref=e224]: 선교사를 위한 AI 활용 교육
+              - generic [ref=e225]: 온 · 오프라인
+            - listitem [ref=e226]:
+              - generic [ref=e227]: "03"
+              - generic [ref=e228]: 교회를 위한 AI 활용 교육
+              - generic [ref=e229]: 교사 세미나 · 목회자를 위한 신년 목회 세미나
+            - listitem [ref=e230]:
+              - generic [ref=e231]: "04"
+              - generic [ref=e232]: 여성 사역자를 위한 AI 활용 교육
+              - generic [ref=e233]: 온 · 오프라인
+            - listitem [ref=e234]:
+              - generic [ref=e235]: "05"
+              - generic [ref=e236]: 청소년 AI 진로 캠프
+              - generic [ref=e237]: 캠프 · 진로 탐색
+        - generic [ref=e238]:
+          - heading "강사진" [level=3] [ref=e239]
+          - list [ref=e240]:
+            - listitem [ref=e241]:
+              - img "최종학 대표 · 강사" [ref=e243]
+              - paragraph [ref=e244]: 대표 · 강사
+              - heading "최종학" [level=4] [ref=e245]
+              - paragraph [ref=e246]: AI 리터러시 교육·컨설팅 / AI 활용 수업 설계 / AI 교육 앱 개발
+            - listitem [ref=e247]:
+              - img "이진민 강사" [ref=e249]
+              - paragraph [ref=e250]: 강사
+              - heading "이진민" [level=4] [ref=e251]
+              - paragraph [ref=e252]: 조직신학 Ph.D. / AI 융합 연구 / AI 기반 행정·디자인 솔루션
+            - listitem [ref=e253]:
+              - img "이신혜 강사" [ref=e255]
+              - paragraph [ref=e256]: 강사
+              - heading "이신혜" [level=4] [ref=e257]
+              - paragraph [ref=e258]: AI 아트·그림책·영상 콘텐츠 교육 / AI 아트지도사 1급
+    - region [ref=e259]:
+      - generic [ref=e260]:
+        - generic [ref=e261]:
+          - paragraph [ref=e262]: Seminar & Lecture
+          - heading "교회에서 공공기관까지, 찾아가는 강의" [level=2] [ref=e263]
+        - paragraph [ref=e264]:
+          - generic [ref=e265]: 교회 · 공공기관 · 교육기관 · 청년 현장
+          - generic [ref=e266]: ·
+          - generic [ref=e267]: AI 리터러시 · 목회 · 업무 활용
+          - generic [ref=e268]: ·
+          - generic [ref=e269]: 최종학 대표 강의 2023~현재
+        - generic [ref=e270]:
+          - complementary [ref=e271]:
+            - heading "함께한 기관·현장" [level=3] [ref=e272]
+            - list [ref=e273]:
+              - listitem [ref=e274]:
+                - paragraph [ref=e275]:
+                  - text: 법무부 진천연수원
+                  - generic [ref=e276]: 정기 출강 중
+                - paragraph [ref=e277]: 2024.2 ~ 현재
+              - listitem [ref=e278]:
+                - paragraph [ref=e279]: 이천청년센터
+                - paragraph [ref=e280]: 2026 (월 확인 중)
+              - listitem [ref=e281]:
+                - paragraph [ref=e282]: 성북강북교육지원청
+                - paragraph [ref=e283]: 2025.9–11
+              - listitem [ref=e284]:
+                - paragraph [ref=e285]: 한신대학교
+                - paragraph [ref=e286]: "2025.9"
+              - listitem [ref=e287]:
+                - paragraph [ref=e288]: 수원신학교
+                - paragraph [ref=e289]: "2025.6"
+              - listitem [ref=e290]:
+                - paragraph [ref=e291]: 서울 영상고등학교
+                - paragraph [ref=e292]: "2024.11"
+              - listitem [ref=e293]:
+                - paragraph [ref=e294]: CMBC
+                - paragraph [ref=e295]: "2024.8"
+              - listitem [ref=e296]:
+                - paragraph [ref=e297]: 스파크 AI 교육연구소
+                - paragraph [ref=e298]: 2024~ (기수별 시기 확인 중)
+          - generic [ref=e299]:
+            - heading "유형별 현장" [level=3] [ref=e300]
+            - generic [ref=e301]:
+              - article [ref=e302]:
+                - heading "교회" [level=4] [ref=e303]
+                - paragraph [ref=e304]: 광주호남 · 서울경기 · 영남
+              - article [ref=e305]:
+                - heading "교육기관" [level=4] [ref=e306]
+                - paragraph [ref=e307]: 성북강북교육지원청 · 한신대학교 · 수원신학교 · 서울 영상고등학교 · 스파크 AI 교육연구소
+              - article [ref=e308]:
+                - heading "일반" [level=4] [ref=e309]
+                - paragraph [ref=e310]: 일반
+              - article [ref=e311]:
+                - heading "청년센터" [level=4] [ref=e312]
+                - paragraph [ref=e313]: 이천청년센터
+              - article [ref=e314]:
+                - heading "공공기관" [level=4] [ref=e315]
+                - paragraph [ref=e316]: 법무부 진천연수원
+        - paragraph [ref=e317]:
+          - text: 교회·공공기관·교육기관 초청 강연 문의 —
+          - link "강연 섭외하기" [ref=e318] [cursor=pointer]:
+            - /url: mailto:waveainetworks@gmail.com?subject=%5B%EA%B0%95%EC%97%B0%20%EC%84%AD%EC%99%B8%20%EB%AC%B8%EC%9D%98%5D
+    - region [ref=e319]:
+      - generic [ref=e320]:
+        - generic [ref=e321]:
+          - paragraph [ref=e322]: Web · AI Consulting
+          - heading "작은 현장을 위한 구축" [level=2] [ref=e323]
+        - paragraph [ref=e324]: 큰 대행사에 맡기기 어려운 현장 — 교회, 복지기관, 소상공인의 웹과 AI 도입을 실속 있게 돕습니다.
+        - list [ref=e325]:
+          - listitem [ref=e326]:
+            - paragraph [ref=e327]: 사회복지기관
+            - heading "랜딩페이지 + 웹호스팅 구축" [level=3] [ref=e328]
+            - paragraph [ref=e329]: 기관 소개와 문의 동선을 담은 랜딩페이지를 만들고, 호스팅 셋업까지 함께했습니다.
+          - listitem [ref=e330]:
+            - paragraph [ref=e331]: 체육시설
+            - heading "웹사이트 구축" [level=3] [ref=e332]
+            - paragraph [ref=e333]: 시설 안내·프로그램 소개를 담은 웹사이트를 구축했습니다.
+          - listitem [ref=e334]:
+            - paragraph [ref=e335]: 다음 현장
+            - heading "당신의 기관" [level=3] [ref=e336]
+            - paragraph [ref=e337]: 웹사이트가 필요하거나, AI를 어디서 시작할지 막막하다면.
+            - link "컨설팅 의뢰하기" [ref=e338] [cursor=pointer]:
+              - /url: mailto:waveainetworks@gmail.com?subject=%5B%EC%BB%A8%EC%84%A4%ED%8C%85%20%EC%9D%98%EB%A2%B0%20%EB%AC%B8%EC%9D%98%5D
+    - region [ref=e339]:
+      - generic [ref=e340]:
+        - generic [ref=e341]:
+          - paragraph [ref=e342]: Who it's for
+          - heading "이런 분들과 함께 갑니다" [level=2] [ref=e343]
+        - list [ref=e344]:
+          - listitem [ref=e345]:
+            - text: "01"
+            - heading "목회자" [level=3] [ref=e346]
+            - paragraph [ref=e347]: AI를 설교 준비와 사역 운영의 동역자로 삼고 싶은 분
+          - listitem [ref=e348]:
+            - text: "02"
+            - heading "교회행정 사역자" [level=3] [ref=e349]
+            - paragraph [ref=e350]: 반복 업무를 덜고 섬김의 본질에 시간을 쓰고 싶은 분
+          - listitem [ref=e351]:
+            - text: "03"
+            - heading "교육자" [level=3] [ref=e352]
+            - paragraph [ref=e353]: 교회교육과 수업 현장에 AI를 접목하고 싶은 분
+          - listitem [ref=e354]:
+            - text: "04"
+            - heading "AI 입문 일반인" [level=3] [ref=e355]
+            - paragraph [ref=e356]: 처음이라 막막하지만, 기본부터 차근차근 시작하고 싶은 분
+    - region [ref=e357]:
+      - generic [ref=e358]:
+        - generic [ref=e359]:
+          - paragraph [ref=e360]: Values
+          - heading "우리가 약속하는 것" [level=2] [ref=e361]
+        - list [ref=e362]:
+          - listitem [ref=e363]:
+            - heading "실전 중심 교육" [level=3] [ref=e364]
+            - paragraph [ref=e365]: 이론 나열이 아니라, 내일 아침 현장에서 바로 쓰는 방법을 익힙니다.
+          - listitem [ref=e366]:
+            - heading "지속적 커뮤니티" [level=3] [ref=e367]
+            - paragraph [ref=e368]: 수료가 끝이 아닙니다. 오픈톡방과 후속 모임으로 흐름이 이어집니다.
+          - listitem [ref=e369]:
+            - heading "실용 리소스" [level=3] [ref=e370]
+            - paragraph [ref=e371]: 검증된 프롬프트와 템플릿을 나눕니다. 처음부터 만들 필요가 없도록.
+    - region [ref=e372]:
+      - generic [ref=e373]:
+        - generic [ref=e374]:
+          - paragraph [ref=e375]: AI Virtual Lab
+          - heading "우리는 AI로 이렇게 일합니다" [level=2] [ref=e376]
+        - generic [ref=e377]:
+          - generic [ref=e378]:
+            - paragraph [ref=e379]:
+              - text: Wave는 AI 조직 운영을 가르치기만 하지 않습니다 —
+              - strong [ref=e380]: 실제로 멀티에이전트 AI 조직을 운영합니다.
+              - text: 관제타워가 조율하고, 역할별 AI 에이전트가 실행하며, 모든 산출물이 검수를 거쳐 나갑니다.
+            - paragraph [ref=e381]: 강의와 컨설팅에서 나누는 방법론은 이 운영 경험에서 나옵니다. 아래 구조도는 역할 개념도이며, 실시간 시스템과 연결되어 있지 않습니다.
+            - list [ref=e382]:
+              - listitem [ref=e383]: 위임 →
+              - listitem [ref=e384]: 실행 →
+              - listitem [ref=e385]: 검수 →
+              - listitem [ref=e386]: 보고
+          - figure "역할 개념도 — 정적 다이어그램(실시간 데이터 · 내부 시스템 정보 미포함)" [ref=e387]:
+            - img "Wave AI Networks 멀티에이전트 조직 구조도 — 관제타워(CEO·COO·CSO·검수)와 실행 본부들" [ref=e388]:
+              - generic [ref=e389]: 관제타워 — 조율·검증
+              - generic [ref=e392]: CEO
+              - generic [ref=e393]: 총괄·조율
+              - generic [ref=e395]: COO
+              - generic [ref=e396]: 운영 취합
+              - generic [ref=e398]: CSO
+              - generic [ref=e399]: 시스템·자원
+              - generic [ref=e401]: Reviewers
+              - generic [ref=e402]: 품질 검수
+              - generic [ref=e404]: 위임 · 보고
+              - generic [ref=e405]: 실행 본부 — 역할별 AI 에이전트
+              - generic [ref=e408]: 목회사역
+              - generic [ref=e409]: 사역 콘텐츠
+              - generic [ref=e411]: 인텔리전스
+              - generic [ref=e412]: 리서치·분석
+              - generic [ref=e414]: 비전교육
+              - generic [ref=e415]: 교육 설계
+              - generic [ref=e417]: 크리에이티브·Tech
+              - generic [ref=e418]: 제작·개발
+              - generic [ref=e419]: 검수를 거친 산출물
+    - region [ref=e421]:
+      - generic [ref=e422]:
+        - generic [ref=e423]:
+          - paragraph [ref=e424]: History
+          - heading "지나온 물길" [level=2] [ref=e425]
+        - list [ref=e426]:
+          - listitem [ref=e427]:
+            - generic [ref=e428]: 2025. 5
+            - generic [ref=e429]: 발족
+          - listitem [ref=e430]:
+            - generic [ref=e431]: 2025. 6
+            - generic [ref=e432]: 신학생 AI 기초강의 — 수원신학교
+          - listitem [ref=e433]:
+            - generic [ref=e434]: 2025. 6. 28
+            - generic [ref=e435]: 여름행사 준비 세미나
+          - listitem [ref=e436]:
+            - generic [ref=e437]: 2025. 9
+            - generic [ref=e438]: 한신대 목회자 컨퍼런스
+          - listitem [ref=e439]:
+            - generic [ref=e440]: 2025. 10–12
+            - generic [ref=e441]: 신년목회세미나 — 서울·경기 / 영남 / 광주
+          - listitem [ref=e442]:
+            - generic [ref=e443]: 2025. 12. 25
+            - generic [ref=e444]: ‘Wave AI Networks’로 새 이름
+          - listitem [ref=e445]:
+            - generic [ref=e446]: 2026. 1–3
+            - generic [ref=e447]: 기본반·목회자 세미나·AI 아카데미 클래스(목회자용 / 일반인 AI 활용 UP) 개시
+    - region [ref=e451]:
+      - generic [ref=e452]:
+        - generic [ref=e453]:
+          - paragraph [ref=e454]: People
+          - heading "물결을 만드는 사람들" [level=2] [ref=e455]
+        - list [ref=e456]:
+          - listitem [ref=e457]:
+            - generic [ref=e458]: "01"
+            - generic [ref=e459]: 대표
+            - heading "최종학" [level=3] [ref=e460]
+            - paragraph [ref=e461]: AI 교육 및 컨설턴트 · 디딤교회 담임목사 · 한국기독AI작가협회 이사 · DiA Ai Edu. Solution 공동대표 · CSO
+          - listitem [ref=e462]:
+            - generic [ref=e463]: "02"
+            - generic [ref=e464]: 이사
+            - heading "곽한영" [level=3] [ref=e465]
+            - paragraph [ref=e466]: 분당비젼교회 담임 · 비전AI교육연구소
+          - listitem [ref=e467]:
+            - generic [ref=e468]: "03"
+            - generic [ref=e469]: 이사
+            - heading "김종현" [level=3] [ref=e470]
+            - paragraph [ref=e471]: 다담AI교육연구소
+          - listitem [ref=e472]:
+            - generic [ref=e473]: "04"
+            - generic [ref=e474]: 이사
+            - heading "방은배" [level=3] [ref=e475]
+            - paragraph [ref=e476]: 글로벌코칭아카데미 대표
+          - listitem [ref=e477]:
+            - generic [ref=e478]: "05"
+            - generic [ref=e479]: 이사
+            - heading "이신혜" [level=3] [ref=e480]
+            - paragraph [ref=e481]: 꿈꾸는별들교육연구소
+          - listitem [ref=e482]:
+            - generic [ref=e483]: "06"
+            - generic [ref=e484]: 이사
+            - heading "이진민" [level=3] [ref=e485]
+            - paragraph [ref=e486]: 한세대 교수 · DiA Ai Edu. Solution 공동대표 · CTO
+          - listitem [ref=e487]:
+            - generic [ref=e488]: "07"
+            - generic [ref=e489]: 대외협력이사
+            - heading "최종철" [level=3] [ref=e490]
+            - paragraph [ref=e491]: 153예인교회 담임 · 153AI교육연구소
+          - listitem [ref=e492]:
+            - generic [ref=e493]: "08"
+            - generic [ref=e494]: 이사
+            - heading "최준호" [level=3] [ref=e495]
+            - paragraph [ref=e496]: 숭실대학교 서울통일교육센터 사무처장 · 충현교회 통일선교부 & 외국인선교부
+    - region [ref=e497]:
+      - generic [ref=e499]:
+        - paragraph [ref=e500]: Contact
+        - heading "흐름에 합류하기" [level=2] [ref=e501]
+        - paragraph [ref=e502]: 무엇이든 편하게 물어보세요. 물결은 언제나 연결에서 시작됩니다.
+        - link "waveainetworks@gmail.com" [ref=e503] [cursor=pointer]:
+          - /url: mailto:waveainetworks@gmail.com
+        - generic [ref=e504]:
+          - link "강연 · 세미나 섭외" [ref=e505] [cursor=pointer]:
+            - /url: mailto:waveainetworks@gmail.com?subject=%5B%EA%B0%95%EC%97%B0%20%EC%84%AD%EC%99%B8%20%EB%AC%B8%EC%9D%98%5D
+          - link "웹 · AI 컨설팅 의뢰" [ref=e506] [cursor=pointer]:
+            - /url: mailto:waveainetworks@gmail.com?subject=%5B%EC%BB%A8%EC%84%A4%ED%8C%85%20%EC%9D%98%EB%A2%B0%20%EB%AC%B8%EC%9D%98%5D
+      - generic [ref=e508]:
+        - heading "세미나 소식, 가장 먼저 받아보세요." [level=2] [ref=e509]: 세미나 소식,가장 먼저 받아보세요.
+        - paragraph [ref=e510]: 모집·세미나 공지가 가장 먼저 흐르는 곳 — Wave AI Networks 세미나 (카카오 오픈톡방)
+        - link "세미나 오픈톡방 참여" [ref=e511] [cursor=pointer]:
+          - /url: https://open.kakao.com/o/gbcnvaZh
+  - contentinfo [ref=e512]:
+    - generic [ref=e513]:
+      - paragraph [ref=e514]: Wave AI Networks
+      - paragraph [ref=e515]: 협력 · 파트너 — 한국기독AI작가협회 · DiA Ai Edu. Solution
+      - paragraph [ref=e516]:
+        - link "waveainetworks@gmail.com" [ref=e517] [cursor=pointer]:
+          - /url: mailto:waveainetworks@gmail.com
+        - link "세미나 오픈톡방 참여" [ref=e518] [cursor=pointer]:
+          - /url: https://open.kakao.com/o/gbcnvaZh
+        - link "Instagram" [ref=e519] [cursor=pointer]:
+          - /url: https://www.instagram.com/waveainetworks/
+        - link "Facebook" [ref=e520] [cursor=pointer]:
+          - /url: https://www.facebook.com/profile.php?id=61591876706540
+      - paragraph [ref=e521]: © 2026 Wave AI Networks
