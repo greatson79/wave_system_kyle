@@ -66,7 +66,7 @@ Claude skills/
 
 ### 청소년 인생계획 (youth_life_plan/)
 
-스킬 위치: `Claude_skills/youth_life_plan/SKILL.md`
+스킬 위치: `Edu본부/youth_life_plan/SKILL.md`
 
 **사용 방법:** Claude Code에서 이 디렉토리를 열고 SKILL.md를 참조하면 자동 활성화.
 

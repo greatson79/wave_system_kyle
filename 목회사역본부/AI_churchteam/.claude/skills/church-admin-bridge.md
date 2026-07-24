@@ -12,7 +12,7 @@ description: AI_churchteam 백본에서 church-admin 교회행정 시스템을 �
 
 | 항목 | 절대 경로 |
 |------|----------|
-| church-admin ROOT | `/Users/kylechoi/Desktop/Ai_works/Claude_skills/Church-Admin-AgenticWorkflow-main/church-admin/` |
+| church-admin ROOT | `/Users/kylechoi/Desktop/Ai_works/목회사역본부/church-admin/church-admin/` |
 | 스킬 | `.claude/skills/church-admin/SKILL.md` |
 | 데이터 | `data/` (교인·교적·재정 DB) |
 

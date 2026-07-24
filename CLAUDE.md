@@ -1,7 +1,7 @@
 # CLAUDE.md — Ai_works 루트
 
 **Wave AI Networks** — 디딤교회 AI 자동화 허브.
-`Claude_skills/weekly-works/`가 핵심 운영 공간. `Vibe-Practice/`는 실험 공간.
+`목회사역본부/weekly-works/`가 핵심 운영 공간(STEP7 이동완료·내부 상대구조 보존). `Vibe-Practice/`는 실험 공간.
 
 ---
 
@@ -142,10 +142,10 @@ reviewer-gemini(agy·greatson79@dia-io.com) 4종을 소환 표준(권한허용�
 
 | 폴더 | 목적 | 상세 문서 |
 |------|------|----------|
-| `Claude_skills/` | ⭐ 핵심 스킬·콘텐츠 운영 공간 | `Claude_skills/CLAUDE.md` |
+| `목회사역본부/` | ⭐ 주간사역·교회행정 운영 공간(구 Claude_skills 재편·소멸) | `목회사역본부/CLAUDE.md` |
 | `Vibe-Practice/` | 실험적 에이전트 프로젝트 | `Vibe-Practice/CLAUDE.md` |
 | `Vibe-Practice/AgenticWorkflow-main/` | 에이전트 설계 방법론·개발 규율 원본 (전체 하네스 틀) | `Vibe-Practice/AgenticWorkflow-main/AGENTS.md` |
-| `church-accounting/` | 교회 회계 웹앱 (Next.js/Vercel) | `church-accounting/README.md` |
+| `목회사역본부/church-accounting/` | 교회 회계 웹앱 (Next.js/Vercel) | `목회사역본부/church-accounting/README.md` |
 | `개발본부/harness/` | 3-에이전트 하네스 (Planner/Generator/Evaluator) | `개발본부/harness/CLAUDE.md` |
 | `리서치본부/notebookLM/` | NotebookLM 작업 파일 | `{노트북명}/` 하위 |
 | `output/` | 루트 산출물 — ★`output/WaveAI/{본부}/{팀}/` 구조 | `경영본부/`·`리서치본부/` 등 |
@@ -191,7 +191,7 @@ reviewer-gemini(agy·greatson79@dia-io.com) 4종을 소환 표준(권한허용�
 
 ## 주요 커맨드 빠른 참조
 
-### 주간 콘텐츠 (Claude_skills/weekly-works/)
+### 주간 콘텐츠 (목회사역본부/weekly-works/)
 | 커맨드 | 동작 |
 |--------|------|
 | `/주간총괄 [주차]` | 설교·묵상·기도카드·나눔지·카드뉴스 통합 생성 |
@@ -200,7 +200,7 @@ reviewer-gemini(agy·greatson79@dia-io.com) 4종을 소환 표준(권한허용�
 | `/wave [요청]` | WAVE AI Orchestrator |
 | `/연구 [주제]` | 리서치 에이전트 |
 
-### 청소년 인생계획 (Claude_skills/youth_life_plan/)
+### 청소년 인생계획 (Edu본부/youth_life_plan/)
 | 커맨드 | 동작 |
 |--------|------|
 | `/인터뷰` | 인생계획 시작 — 학년대 분기 |
@@ -227,5 +227,5 @@ uv tool install notebooklm-mcp-cli && nlm login
 uv tool install yt-dlp
 
 # weekly-works Node.js (Puppeteer)
-cd Claude_skills/weekly-works && npm install
+cd 목회사역본부/weekly-works && npm install
 ```

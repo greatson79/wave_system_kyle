@@ -12,7 +12,7 @@ description: AI_churchteam 백본에서 weekly-works 설교준비·주간콘텐�
 
 | 항목 | 절대 경로 |
 |------|----------|
-| weekly-works ROOT | `/Users/kylechoi/Desktop/Ai_works/Claude_skills/weekly-works/` |
+| weekly-works ROOT | `/Users/kylechoi/Desktop/Ai_works/목회사역본부/weekly-works/` |
 | 설교 SOT | `data/sermon-plan-2026.json` |
 | 매일묵상 SOT | `.claude/skills/weekly-devotion/devotion-data.json` |
 | sermon-context.md | `output/{월}/{주차}/설교/sermon-context.md` |
