@@ -51,3 +51,31 @@ build/
 .cache/
 *.bak
 CLAUDE.md.bak
+
+# ── 개인 자료·로컬 전용 (2026-07-24 주인님 지시: 원격 = 시스템만) ──
+_Docs/
+_archive/
+_zip-archives/
+_round/
+Mail/
+tmp/
+phoenix/
+Claude_cowork/
+수련회웹앱.zip
+*.db
+*.db-shm
+*.db-wal
+heartbeat
+event.seq
+schedule_state.json
+.mcp.json.bak*
+.moai/
+.DS_Store
+크리에이티브본부/Claude Designe/
+크리에이티브본부/shorts-sample/
+크리에이티브본부/SUNO AI/
+리서치본부/notebookLM/
+개발본부/AI제품개발팀/Codex/
+Edu본부/youth_life_plan/
+_workflowhome/AI_churchteam_archived_20260625/
+_workflowhome/*.zip
