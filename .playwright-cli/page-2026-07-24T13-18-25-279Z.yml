@@ -1,0 +1,109 @@
+- generic [active] [ref=e1]:
+  - generic:  
+  - text: 
+  - generic:
+    - list [ref=e3]: 
+    - text: 
+  - banner:
+    - generic [ref=e5]:
+      - generic [ref=e6]:
+        - generic [ref=e11]:
+          - paragraph [ref=e24]: 언제든 문의주시면 항상 친절히 상담드립니다!
+          - paragraph [ref=e32]:
+            - strong [ref=e34]: 상담문의
+            - strong [ref=e36]
+            - generic [ref=e37]: 031-567-7686
+            - generic [ref=e38]: "|"
+            - generic [ref=e39]: ocolabs004@gmail.com
+        - generic [ref=e49]:
+          - link "SEO 최적화 웹사이트 제작 | 오코랩스 - 네이버, 구글 노출 SEO 최적화 웹사이트 제작 | 오코랩스 - 네이버, 구글 노출 SEO 최적화 웹사이트 제작 | 오코랩스 - 네이버, 구글 노출" [ref=e56] [cursor=pointer]:
+            - /url: /
+            - generic [ref=e57]: SEO 최적화 웹사이트 제작 | 오코랩스 - 네이버, 구글 노출
+            - img "SEO 최적화 웹사이트 제작 | 오코랩스 - 네이버, 구글 노출" [ref=e58]
+            - img "SEO 최적화 웹사이트 제작 | 오코랩스 - 네이버, 구글 노출" [ref=e59]
+          - generic [ref=e60]:
+            - list [ref=e68]:
+              - generic [ref=e69]:
+                - listitem [ref=e70]:
+                  - link "회사 소개" [ref=e71] [cursor=pointer]:
+                    - /url: /about
+                - listitem [ref=e72]:
+                  - link "서비스 소개" [ref=e73] [cursor=pointer]:
+                    - /url: /service
+                - listitem [ref=e74]:
+                  - link "포트폴리오" [ref=e75] [cursor=pointer]:
+                    - /url: /48
+                - listitem [ref=e76]:
+                  - link "오코바스켓" [ref=e77] [cursor=pointer]:
+                    - /url: /50
+                - listitem [ref=e78]:
+                  - generic [ref=e79] [cursor=pointer]: 
+              - listitem [ref=e83]:
+                - generic [ref=e84] [cursor=pointer]: 
+            - link "문의하기" [ref=e92] [cursor=pointer]:
+              - /url: /inquiry
+      - text: 
+  - main [ref=e101]:
+    - generic [ref=e113]:
+      - heading [level=2] [ref=e114]:
+        - strong [ref=e116]: 아이디어만 가져오세요.
+      - strong [ref=e118]:
+        - generic [ref=e119]: 나머지는
+        - text: "|"
+  - main [ref=e129]:
+    - paragraph [ref=e144]:
+      - strong [ref=e147]: 가격은 적당한지, 퀄리티는 믿을 수 있는지,
+      - strong [ref=e150]: 일정은 제대로 지켜질지…
+  - main [ref=e169]
+  - main [ref=e183]
+  - main [ref=e226]
+  - main [ref=e257]
+  - main [ref=e294]
+  - main [ref=e353]
+  - main [ref=e441]
+  - main [ref=e452]
+  - main [ref=e498]
+  - text:      
+  - main [ref=e563]
+  - main [ref=e609]
+  - main [ref=e655]
+  - main [ref=e692]
+  - main [ref=e750]
+  - text:  
+  - main [ref=e836]
+  - main [ref=e875]
+  - main [ref=e929]:
+    - generic [ref=e937]:
+      - generic [ref=e961]:
+        - paragraph [ref=e962]:
+          - text: "상호명 : 주식회사 오코랩스"
+          - generic [ref=e963]: "| 대표자 : 오일환 | 사업자번호 : 296-86-03505"
+        - paragraph [ref=e965]:
+          - generic [ref=e966]: "E-Mail : ocolabs004@gmail.com"
+        - paragraph [ref=e968]: "주소 : 경기도 남양주시 다산순환로 20, 제이에이동 7층 07-004호 (다산현대프리미어캠퍼스)"
+      - separator [ref=e981]
+      - paragraph [ref=e989]:
+        - generic [ref=e990]: Copyright ⓒ ocolabs
+        - link "이용약관" [ref=e991] [cursor=pointer]:
+          - /url: https://ocolabs.co.kr/?mode=policy
+        - link "개인정보처리방침" [ref=e994] [cursor=pointer]:
+          - /url: https://ocolabs.co.kr/?mode=privacy
+  - contentinfo [ref=e1002]:
+    - paragraph [ref=e1010]:
+      - generic [ref=e1011]: "상호명: 오코랩스"
+      - generic [ref=e1012]: "대표자: 오일환"
+      - generic [ref=e1013]: "연락처: 031-567-7686"
+      - generic [ref=e1014]: "대표자 이메일: ocolabs004@gmail.com"
+      - generic [ref=e1015]: "호스팅 제공자: (주)아임웹"
+  - iframe [ref=e1016]:
+    
+  - generic:
+    - link "Primary Image Hover Image":
+      - /url: javascript:SITE.openModalMenu('m20240202ac085e3ffb7f0');
+      - img "Primary Image" [ref=e1017] [cursor=pointer]
+      - img "Hover Image" [ref=e1018] [cursor=pointer]
+  - generic:
+    - link "Primary Image Hover Image":
+      - /url: tel:0315677686
+      - img "Primary Image" [ref=e1019] [cursor=pointer]
+      - img "Hover Image" [ref=e1020] [cursor=pointer]
