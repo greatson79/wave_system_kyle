@@ -1,4 +1,0 @@
-interface:
-  display_name: "Drive Data Report Workflow"
-  short_description: "Google Drive 자료 정리·보고·시각화"
-  default_prompt: "Use $drive-data-report-workflow to organize Google Drive spreadsheets and produce a cleaned sheet, PDF report, and visualization."
