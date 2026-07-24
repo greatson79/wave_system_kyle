@@ -11,12 +11,12 @@ mkdir -p "$REG"
 # 타겟은 SKILL.md(또는 별칭)를 가진 실제 스킬 디렉토리.
 MANIFEST=(
 # ── 인프라/메타 (정본 1개씩) ──
-"workflow-generator|Vibe-Practice/AgenticWorkflow-main/.claude/skills/workflow-generator"
-"doctoral-writing|Vibe-Practice/AgenticWorkflow-main/.claude/skills/doctoral-writing"
-"skill-creator|Vibe-Practice/EnvironmentScan-system-main-v4-main/.claude/skills/skill-creator"
-"subagent-creator|Vibe-Practice/EnvironmentScan-system-main-v4-main/.claude/skills/subagent-creator"
-"slash-command-creator|Vibe-Practice/EnvironmentScan-system-main-v4-main/.claude/skills/slash-command-creator"
-"hook-creator|Vibe-Practice/EnvironmentScan-system-main-v4-main/.claude/skills/hook-creator"
+"workflow-generator|_workflowhome/AgenticWorkflow-main/.claude/skills/workflow-generator"
+"doctoral-writing|_workflowhome/AgenticWorkflow-main/.claude/skills/doctoral-writing"
+"skill-creator|_workflowhome/EnvironmentScan-system-main-v4-main/.claude/skills/skill-creator"
+"subagent-creator|_workflowhome/EnvironmentScan-system-main-v4-main/.claude/skills/subagent-creator"
+"slash-command-creator|_workflowhome/EnvironmentScan-system-main-v4-main/.claude/skills/slash-command-creator"
+"hook-creator|_workflowhome/EnvironmentScan-system-main-v4-main/.claude/skills/hook-creator"
 # ── 교회 주간사역 (weekly-works) ──
 "sermon|목회사역본부/weekly-works/.claude/skills/sermon"
 "weekly-devotion|목회사역본부/weekly-works/.claude/skills/weekly-devotion"
@@ -47,10 +47,10 @@ MANIFEST=(
 # ── 프로젝트 결합형: wave-homepage (RSI ⑤ 도구화, 2026-07-13) ──
 "deterministic-motion-capture|wave-homepage/.claude/skills/deterministic-motion-capture"
 # ── 프로젝트 결합형: 환경스캐닝 ──
-"env-scanner|Vibe-Practice/EnvironmentScan-system-main-v4-main/.claude/skills/env-scanner"
-"youtube-collector|Vibe-Practice/EnvironmentScan-system-main-v4-main/.claude/skills/youtube-collector"
-"longform-journalism|Vibe-Practice/EnvironmentScan-system-main-v4-main/.claude/skills/longform-journalism"
-"translator|Vibe-Practice/EnvironmentScan-system-main-v4-main/.claude/skills/translator"
+"env-scanner|_workflowhome/EnvironmentScan-system-main-v4-main/.claude/skills/env-scanner"
+"youtube-collector|_workflowhome/EnvironmentScan-system-main-v4-main/.claude/skills/youtube-collector"
+"longform-journalism|_workflowhome/EnvironmentScan-system-main-v4-main/.claude/skills/longform-journalism"
+"translator|_workflowhome/EnvironmentScan-system-main-v4-main/.claude/skills/translator"
 # ── 프로젝트 결합형: 투자분석 (translator는 위 env 정본과 이름충돌→제외) ──
 "data-collector|리서치본부/invest_scan/.claude/skills/data-collector"
 "module-builder|리서치본부/invest_scan/.claude/skills/module-builder"
@@ -59,21 +59,21 @@ MANIFEST=(
 # ── 프로젝트 결합형: 교회행정·뉴스크롤링 ──
 "health-dashboard|목회사역본부/AI_churchteam/.claude/skills/health-dashboard"
 "theological-reasoning|목회사역본부/AI_churchteam/.claude/skills/theological-reasoning"
-"crawl-master|Vibe-Practice/GlobalNews-Crawling-AgenticWorkflow/.claude/skills/crawl-master"
-"insight-report|Vibe-Practice/GlobalNews-Crawling-AgenticWorkflow/.claude/skills/insight-report"
+"crawl-master|_workflowhome/GlobalNews-Crawling-AgenticWorkflow/.claude/skills/crawl-master"
+"insight-report|_workflowhome/GlobalNews-Crawling-AgenticWorkflow/.claude/skills/insight-report"
 # ── 하네스 템플릿 제작 4단계 ──
-"harness-init|Vibe-Practice/harness-template/.claude/skills/harness-init"
-"skill-build|Vibe-Practice/harness-template/.claude/skills/skill-build"
-"skill-design|Vibe-Practice/harness-template/.claude/skills/skill-design"
-"skill-plan|Vibe-Practice/harness-template/.claude/skills/skill-plan"
-"skill-review|Vibe-Practice/harness-template/.claude/skills/skill-review"
-# ── 스킬모음 정식 등록 (2026-07-24·.skill zip 압축해제) ──
-"blog-thumbnail-prompt|스킬모음/blog-thumbnail-prompt"
-"pastor-life-planner|스킬모음/pastor-life-planner"
-"prompt-polish-lite|스킬모음/prompt-polish-lite"
-"suno-music-workflow|스킬모음/suno-music-workflow"
-"write-content|스킬모음/write-content"
-"write-question|스킬모음/write-question"
+"harness-init|_workflowhome/harness-template/.claude/skills/harness-init"
+"skill-build|_workflowhome/harness-template/.claude/skills/skill-build"
+"skill-design|_workflowhome/harness-template/.claude/skills/skill-design"
+"skill-plan|_workflowhome/harness-template/.claude/skills/skill-plan"
+"skill-review|_workflowhome/harness-template/.claude/skills/skill-review"
+# ── _skills/standalone 정식 등록 (2026-07-24·.skill zip 압축해제) ──
+"blog-thumbnail-prompt|_skills/standalone/blog-thumbnail-prompt"
+"pastor-life-planner|_skills/standalone/pastor-life-planner"
+"prompt-polish-lite|_skills/standalone/prompt-polish-lite"
+"suno-music-workflow|_skills/standalone/suno-music-workflow"
+"write-content|_skills/standalone/write-content"
+"write-question|_skills/standalone/write-question"
 )
 
 ok=0; skip=0; nofm=0
@@ -123,13 +123,13 @@ for d in "$PACK_SKILLS"/appbuild "$PACK_SKILLS"/appbuild-* "$PACK_SKILLS"/media-
 done
 
 # ── 외부 스킬 레포 자동편입 (주인님 결정 2026-06-23: 전부 통합) ──
-# external-skills/<repo> 하위의 모든 SKILL.md를 재귀 탐색해 디렉토리명으로 레지스트리 심링크.
+# _skills/external/<repo> 하위의 모든 SKILL.md를 재귀 탐색해 디렉토리명으로 레지스트리 심링크.
 # 중첩 카테고리(marketing skills/<cat>/<skill>) 대응. 디렉토리명 충돌 시 기존(정본1개) 우선 보존.
 EXT_WHITELIST=(cys-claude-sermon-skills cys-claude-vision-coaching-skills marketing-skills skills gstack)
 # deprecated 경로 필터: 이 패턴을 포함하는 경로는 레지스트리에서 제외 (원본 파일은 보존됨)
 DEPRECATED_FILTER="/deprecated/"
 for repo in "${EXT_WHITELIST[@]}"; do
-  [ -d "$BASE/external-skills/$repo" ] || continue
+  [ -d "$BASE/_skills/external/$repo" ] || continue
   while IFS= read -r sk; do
     # deprecated 경로 필터링 (idempotent — 재실행 시에도 deprecated 스킬 자동 제외)
     case "$sk" in *"$DEPRECATED_FILTER"*) skip=$((skip+1)); continue;; esac
@@ -140,7 +140,7 @@ for repo in "${EXT_WHITELIST[@]}"; do
     case "$nm" in *" "*|"") skip=$((skip+1)); continue;; esac   # 공백·빈 name 무효 차단
     if [ -e "$REG/$nm" ]; then skip=$((skip+1)); continue; fi    # 정본1개 보존
     ln -sfn "$skdir" "$REG/$nm"; ok=$((ok+1))
-  done < <(find "$BASE/external-skills/$repo" -name SKILL.md -type f 2>/dev/null)
+  done < <(find "$BASE/_skills/external/$repo" -name SKILL.md -type f 2>/dev/null)
   echo "  ✅ $repo 편입 완료"
 done
 echo "─────────────────────────────────────────────"
