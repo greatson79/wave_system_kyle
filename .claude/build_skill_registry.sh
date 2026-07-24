@@ -36,7 +36,7 @@ MANIFEST=(
 "writing-workflow|크리에이티브본부/Writingskills/writing-workflow"
 "course-design|개발본부/플랫폼·릴리즈팀/opencode/course-design"
 "gpt-codex-intro|개발본부/플랫폼·릴리즈팀/opencode/gpt-codex-intro"
-"lecture-design|Claude_skills/lecture_skill_build/skill"
+"lecture-design|Edu본부/lecture_skill_build/skill"
 "youth-life-planner|Edu본부/youth_life_plan"
 "brunch-writing-workflow|크리에이티브본부/Writingskills/brunch-writing-workflow"
 "aitoon-page-director|크리에이티브본부/aitoon-page-director"
@@ -67,6 +67,13 @@ MANIFEST=(
 "skill-design|Vibe-Practice/harness-template/.claude/skills/skill-design"
 "skill-plan|Vibe-Practice/harness-template/.claude/skills/skill-plan"
 "skill-review|Vibe-Practice/harness-template/.claude/skills/skill-review"
+# ── 스킬모음 정식 등록 (2026-07-24·.skill zip 압축해제) ──
+"blog-thumbnail-prompt|스킬모음/blog-thumbnail-prompt"
+"pastor-life-planner|스킬모음/pastor-life-planner"
+"prompt-polish-lite|스킬모음/prompt-polish-lite"
+"suno-music-workflow|스킬모음/suno-music-workflow"
+"write-content|스킬모음/write-content"
+"write-question|스킬모음/write-question"
 )
 
 ok=0; skip=0; nofm=0
