@@ -4,7 +4,7 @@
     {
       "name": "easter-article",
       "runtimeExecutable": "/usr/local/bin/python3",
-      "runtimeArgs": ["-m", "http.server", "3847", "-d", "/Users/kylej.choi/Desktop/Ai_works/Claude_skills/weekly-works/output/4월/1주차/카드뉴스"],
+      "runtimeArgs": ["-m", "http.server", "3847", "-d", "/Users/kylechoi/Desktop/Ai_works/목회사역본부/weekly-works/output/4월/1주차/카드뉴스"],
       "port": 3847
     }
   ]
