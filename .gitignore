@@ -30,7 +30,7 @@ Claude_skills/weekly-works/.wp-config.json
 # 교회 회계 데이터
 church-accounting/data/
 # NotebookLM 개인 작업
-notebookLM/
+리서치본부/notebookLM/
 # 마스터 작업기억 (개인 세션 상태)
 SESSION_STATE.md
 RECOVERY.md
