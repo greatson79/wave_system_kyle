@@ -1,9 +1,8 @@
 """
 insert-images.py
 -----------------
-1. WordPress 미디어 라이브러리에 이미지 업로드
-2. A4 HTML → 로컬 상대 경로로 교체 → html-with-images/ 저장
-3. WordPress HTML → WP URL로 교체 → html-with-images/ 저장
+1. 매일묵상 HTML의 이미지 플레이스홀더를 로컬 상대 경로로 교체
+2. A4 HTML을 PNG로 캡처
 
 사용법:
     python insert-images.py <주차번호> <output경로>
@@ -19,36 +18,7 @@ import shutil
 import sys
 from pathlib import Path
 
-import requests
-
 DAYS = ["mon", "tue", "wed", "thu", "fri"]
-
-
-def load_wp_config(base_dir: Path) -> dict:
-    config_file = base_dir / ".wp-config.json"
-    with open(config_file, encoding="utf-8") as f:
-        return json.load(f)
-
-
-def upload_to_wp(img_path: Path, filename: str, wp: dict) -> str | None:
-    """이미지를 WordPress 미디어 라이브러리에 업로드하고 URL 반환"""
-    url = f"{wp['site_url']}/wp-json/wp/v2/media"
-    with open(img_path, "rb") as f:
-        resp = requests.post(
-            url,
-            auth=(wp["username"], wp["app_password"]),
-            headers={
-                "Content-Disposition": f'attachment; filename="{filename}"',
-                "Content-Type": "image/png",
-            },
-            data=f,
-            timeout=60,
-        )
-    if resp.status_code in (200, 201):
-        return resp.json().get("source_url")
-    else:
-        print(f"  ❌ 업로드 실패 ({resp.status_code}): {resp.text[:200]}")
-        return None
 
 
 def replace_placeholders(html: str, img_url: str, orig_url: str) -> str:
@@ -75,22 +45,6 @@ def run(week: str, output_base: str):
                 break
     print(f"✅ 이미지 {len(image_files)}/5개 확인: {list(image_files.keys())}\n")
 
-    # ── WordPress 업로드
-    wp = load_wp_config(base_dir)
-    wp_urls = {}
-    print("📤 WordPress 업로드 중...")
-    for day, img_path in image_files.items():
-        filename = f"week{week}-{day}.png"
-        print(f"  [{day.upper()}] {filename} 업로드... ", end="", flush=True)
-        url = upload_to_wp(img_path, filename, wp)
-        if url:
-            wp_urls[day] = url
-            print(f"✅ {url}")
-        else:
-            print(f"❌ 건너뜀")
-
-    print(f"\n✅ WP 업로드 완료 {len(wp_urls)}/5\n")
-
     # ── HTML 파일 처리
     print("📝 HTML 파일 이미지 삽입 중...")
     success = 0
@@ -100,8 +54,6 @@ def run(week: str, output_base: str):
             continue
 
         local_rel = f"../images/{day}.png"
-        wp_url = wp_urls.get(day, local_rel)  # WP 업로드 실패 시 로컬 경로 fallback
-
         for variant in ["adult-a4", "youth-a4", "adult-wordpress"]:
             src_file = html_orig / f"{day}-{variant}.html"
             if not src_file.exists():
@@ -117,17 +69,11 @@ def run(week: str, output_base: str):
                 success += 1
                 continue
 
-            if "wordpress" in variant:
-                # WP URL 사용
-                new_html = replace_placeholders(html, wp_url, wp_url)
-            else:
-                # 로컬 상대 경로 사용
-                new_html = replace_placeholders(html, local_rel, local_rel)
+            new_html = replace_placeholders(html, local_rel, local_rel)
 
             out_file = html_out / src_file.name
             out_file.write_text(new_html, encoding="utf-8")
-            tag = "WP URL" if "wordpress" in variant else "로컬 경로"
-            print(f"  [{day}-{variant}] ✅ ({tag})")
+            print(f"  [{day}-{variant}] ✅ (로컬 경로)")
             success += 1
 
     print(f"\n✅ HTML 처리 완료 {success}/15\n")
@@ -196,7 +142,7 @@ const TYPES = ['adult-a4','youth-a4'];
 ✅ 이미지 삽입 완료 — {week}주차 ({output_base})
 ├── html-with-images/: {success}개 HTML
 ├── images/: {len(image_files)}개 이미지
-└── WP 업로드: {len(wp_urls)}개
+└── 모든 HTML: 로컬 이미지 경로
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 """)
 

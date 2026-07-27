@@ -43,7 +43,7 @@ run_insert_pipeline() {
 
   cd "$WEEKLY_WORKS_DIR" || exit 1
 
-  # 1단계: insert-images.py (이미지 교체 + WP 업로드)
+  # 1단계: insert-images.py (이미지 교체; 모든 HTML에 로컬 상대 경로 사용)
   log "  1단계: 이미지 삽입 중..."
   python3 src/scripts/insert-images.py "$week_num" "$output_rel" >> "$LOG_FILE" 2>&1
   if [ $? -ne 0 ]; then
