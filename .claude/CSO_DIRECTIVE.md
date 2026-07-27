@@ -115,9 +115,14 @@ cmux 메인에는 cysd의 기계 감시(watchdog·이벤트 push)가 없다. 엔
 ## 3. ★서버·프로세스 위생 (cys run 치환)
 - 서버성 프로세스에 `cys run`(그룹 등록·자동 전멸)을 쓸 수 없다 — cmux 메인 규율:
   ①서버 불요 방식 우선(정적 체크·헤드리스·file://) ②부득이하면 **단일 인스턴스**를 ★**전용
-  wrapper/subshell에서 새 세션·프로세스 그룹으로 기동**한다(codex T1 — `setsid` 또는
-  `(setsid cmd &)` 격리. 공유 pane의 `trap "kill 0" EXIT`는 **금지** — `kill 0`은 현재 프로세스
-  그룹 전체에 신호를 보내 agent shell·동료 하위 프로세스까지 죽인다). ③작업 직후 종료는
+  wrapper/subshell에서 새 세션·프로세스 그룹으로 기동**한다(codex T1 — ★`setsid`는 macOS에
+  부재 실측 확인(2026-07-27 · `command not found`) — **`python3 -c "import subprocess;
+  subprocess.Popen([...], start_new_session=True)"`를 macOS 정본 방식으로 사용**한다.
+  `nohup cmd & disown`·bare `(cmd &)` 서브셸은 **금지** — 실측 결과 둘 다 부모 셸과 PGID를
+  공유해(새 프로세스 그룹을 얻지 못함) 그 pane의 그룹시그널에 동반사망한다(2026-07-27
+  ceo_bridge.py 침묵사망 사고의 확정 근본원인). 공유 pane의 `trap "kill 0" EXIT`는 **금지** —
+  `kill 0`은 현재 프로세스 그룹 전체에 신호를 보내 agent shell·동료 하위 프로세스까지 죽인다).
+  ③작업 직후 종료는
   **원장에 기록된 PGID만** 대상으로 한다(`kill -TERM -<PGID>`). **`pkill` 패턴 종료는 금지**
   하거나 CEO 승인 + 명령/PPID/PGID 대조 후에만 허용한다(무관 프로세스 오살 방지·엔진 "노드
   강제 종료는 승인 후" 안전선 유지). ④장시간 서버는 CEO 보고. 동일 서버 2개+·미종료 절대
@@ -298,7 +303,7 @@ Claude(Anthropic) 사용량을 주기 감시한다. **판정은 실측만**(결�
 | `cys send --to <역할>` | §7-A 어댑터 계약으로 주소 해소(실패 시 tree fallback) → `cmux send --workspace --surface` + `send-key enter` |
 | `cys ps` (스코프 원장) | `ps`/`pgrep`/`lsof` 실측 + CSO 수기 원장(§3) |
 | `cys kill <pid>` | `kill`/`pkill` (노드 강제 종료·surface 폐쇄는 master/CEO 승인 후) |
-| `cys run -- <명령>` | §3 절차 준용 — 전용 wrapper/subshell + **`setsid`로 새 세션·프로세스 그룹 기동** + 원장에 pid·PGID 기록 + 단일 인스턴스 + 작업 직후 **기록된 PGID만** 종료(`kill -TERM -<PGID>`). ★공유 pane `trap "kill 0" EXIT` **금지**·무조건 `pkill` 패턴 종료 **금지**(CEO 승인+명령/PPID/PGID 대조 후만) |
+| `cys run -- <명령>` | §3 절차 준용 — 전용 wrapper/subshell + **`python3 subprocess.Popen(..., start_new_session=True)`로 새 세션·프로세스 그룹 기동**(★`setsid` macOS 부재 실측·2026-07-27 교정 — `nohup`·서브셸은 PGID 미격리로 금지) + 원장에 pid·PGID 기록 + 단일 인스턴스 + 작업 직후 **기록된 PGID만** 종료(`kill -TERM -<PGID>`). ★공유 pane `trap "kill 0" EXIT` **금지**·무조건 `pkill` 패턴 종료 **금지**(CEO 승인+명령/PPID/PGID 대조 후만) |
 | `cys cycle-agent --role master` | §5의 cmux 6단계(ack SOT고정 + sha256 4중검증 + `/clear` send+enter + clear후 복원검증) |
 | `cys launch-agent --role <r>` | §7 cmux 소환 절차(new-split→`claude --dangerously-skip-permissions` 등→지침 주입→enter→각성 확인) |
 | `cys-dept list/down` | `cmux tree --all` 워크스페이스 현황 + CEO 승인 정리(§4) |

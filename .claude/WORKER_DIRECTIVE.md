@@ -105,6 +105,26 @@
 5. 주소는 항상 **`workspace:N` / `surface:M` ref 형식**(bare 숫자 절대 금지 — positional index로
    해석돼 다른 표면에 착지). 화살표는 ASCII `->`.
 
+## 2-B. ★행동 경계 결정론 probe — javis_actprobe.py 활용 의무 (2026-07-27 CSO조사·CEO승인·실배선)
+
+> 정본: `output/WaveAI/경영본부/_round/CSO_조사_actprobe_2026-07-27.md`(cysd 무의존 확인
+> 3종 한정 배선. `submit`은 cmux `read-screen` 주입 래퍼가 필요해 이번 배선 제외·백로그,
+> `ctx-compare`는 cys 전용 surface 네임스페이스라 cmux 체제 불가로 제외).
+
+위험·비가역 행동 직전에는 기억·자기신고가 아니라 결정론 exit code(0=PASS·2=FAIL·3=판정불가)로
+확인한다. 3종 모두 파이썬 표준 라이브러리만 사용해 **cysd(cys 데몬)와 완전 무관하게 동작**함이
+실측 확인됐다(cmux 체제에서 즉시 사용 가능):
+
+- **kill-preflight** — 프로세스를 kill하기 전: `javis_actprobe.py kill-preflight --pid <PID>`
+  1회 실행. exit0=고아 확정(kill 진행)·exit2=데몬/타부서 소유 발견(kill 금지·상급 보고)·
+  exit3=판정불가(승인 대기 — 기존 원칙과 동일).
+- **artifact** — 완료(done) 보고 전: `javis_actprobe.py artifact --path <산출물경로> --min-size
+  <N> [--since <지시시각>]` 1회 실행해 산출물의 실재·크기·시각을 결정론 확인한 뒤에만 완료
+  보고한다. "started"는 완료가 아니다 — exit0(PASS)만 완료 보고의 근거가 된다.
+- **verdict-match** — 리뷰어 verdict를 수용하기 전: `javis_actprobe.py verdict-match --file
+  <verdict경로> --task <디스패치 task-id> [--since <디스패치시각>]` 1회 실행. 파일명 관례·
+  대상 task 일치·스키마 유효성·mtime을 한 호출로 검증한다.
+
 ## 3. 전(全) 기능 오케스트레이션 (엔진 §2 계승·강조)
 받은 일을 할 때 Claude Code의 모든 기능(TodoWrite 분해 → sub-agent 병렬 → skill 발동 →
 자기검증 → 취합·보고)을 능동으로 오케스트레이션하라. 단일 sub-agent 수준에 머무는 것은 치명적
