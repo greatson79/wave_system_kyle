@@ -5,7 +5,10 @@
 ②절대 강조 4규칙(엔진 WORKER §3)을 모든 티켓에 자동 주입 ③보고 채널(--workspace+--surface
 병기 + enter 필수)을 티켓에 명시. 수기 티켓 위임 금지의 집행 도구.
 
-사용: cmux_task_prompt.py --to <역할|탭명> --task "<T>" --scope "<범위>" --success "<성공 기준>"
+사용: cmux_task_prompt.py --to <역할|탭명> --task "<T>" --scope "<범위>" --success "<성공 기준>" [--source-sot <원천 SOT 경로>]
+★원천 SOT 규율(2026-07-27 CEO): 위임티켓은 SOT가 아니다 — 원천(노션 기획·시리즈 스펙 등)에
+  스코프 구조가 있으면 티켓에 없어도 원천이 이긴다. --source-sot로 원천 경로를 명시하고, 미지정 시
+  티켓에 "착수 전 원천 선확인" 경고가 자동 주입된다. (codex sites 시리즈 스코프 사고 재발방지)
 출력: 전송용 티켓 본문 + 전송 명령 2줄(send / send-key enter).
 """
 import argparse
@@ -55,6 +58,8 @@ def main():
     ap.add_argument("--reply-to", default="master")
     ap.add_argument("--diff-only", action="store_true",
                      help="위임이 diff 산출 전용임을 명시 — 라이브 파일 직접수정 금지 조항을 티켓에 주입")
+    ap.add_argument("--source-sot", default="",
+                     help="원천 SOT 경로(노션 기획·시리즈 스펙·리서치 정본 등). 미지정 시 착수 전 원천 선확인 경고를 티켓에 주입")
     a = ap.parse_args()
 
     addr = resolve(a.to)
@@ -62,9 +67,18 @@ def main():
 
     diff_only_block = f"\n\n{DIFF_ONLY_CLAUSE}" if a.diff_only else ""
 
+    if a.source_sot:
+        sot_line = (f"원천 SOT(★위임티켓보다 우선 — 착수 전 필독): {a.source_sot}\n"
+                    "  이 원천에 시리즈/부분/스코프 구조가 있으면 티켓 문구가 아니라 원천이 이긴다.")
+    else:
+        sot_line = ("원천 SOT: 미지정 — ★착수 전 원천(노션 기획·시리즈 스펙·리서치 정본 등) 존재 여부를 반드시 확인.\n"
+                    "  ★위임티켓은 SOT가 아니다 — 원천에 스코프 구조가 있으면 티켓에 없어도 원천이 이긴다.\n"
+                    "  원천 불명·해석 갈림 시 착수 전 발주자에 질의(티켓만 보고 백지 제작 금지). [2026-07-27 CEO 규율]")
+
     ticket = f"""[위임 티켓 → {a.to} ({ws} {sf})]
 과업: {a.task}
 범위(이 범위만 — 무관 파일·repo 배회 금지): {a.scope}
+{sot_line}
 성공 기준: {a.success}
 
 {FOUR_RULES}{diff_only_block}
