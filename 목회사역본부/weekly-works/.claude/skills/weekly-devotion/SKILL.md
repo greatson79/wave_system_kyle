@@ -608,3 +608,13 @@ output/
 - [ ] Midjourney: 50~80단어, `--ar 16:9 --v 7` 파라미터 포함
 - [ ] GPT-image-2: 60~100단어 자연어 서술형, "16:9 horizontal (landscape) format" 명시
 - [ ] `image-prompts.txt` 파일 저장 확인 (두 형식 모두 포함)
+
+## 템플릿 상단 주석 관례 (명문화 — 2026-07-27)
+
+> 기존 관례를 문서화한 것이다. **기준 변경 아님**(CEO 승인 조건 c).
+
+- 템플릿(`templates/adult-a4.html`·`adult-wordpress.html`·`youth-a4.html`) 상단의 HTML 주석(`<!-- ... {플레이스홀더}를 실제 콘텐츠로 교체 -->`)은 산출물(`html-original`·`html-with-images`)에 **그대로 복사되어 남는다**. 이는 **HTML 주석이므로 브라우저·인쇄 렌더에 노출되지 않는 무해 잔존**이다.
+- **검수 지침**: 이 주석 안의 `{플레이스홀더}` 문구는 **본문 미치환 플레이스홀더가 아니다**. 템플릿 주석은 **여러 줄에 걸친 블록**(`{플레이스홀더}`가 닫는 `-->`보다 앞 행에 위치)이므로, `grep -v`로 한 줄만 제외하는 검사는 **거짓 양성**을 낸다. 본문 미치환 여부는 **주석 블록 전체를 제거한 뒤**(comment-aware) 판정한다:
+  - 예1(다줄 주석 제거): `python3 -c "import re,sys; t=open(sys.argv[1]).read(); print(re.sub(r'<!--.*?-->','',t,flags=re.DOTALL).count('{플레이스홀더}'))" <파일>` → 0이어야 통과.
+  - 예2(본문만 검사): `<body>…</body>` 내부만 추출해 `{...}` 미치환 토큰을 검사.
+- **선례**: 7월 4주차 html-with-images에도 동일 주석이 파일당 남아 있었고 dual 적대검수 ACCEPT로 발행됨.
