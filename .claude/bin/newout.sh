@@ -23,7 +23,8 @@ BASE="$ROOT/output/WaveAI"
 # 본부 실재 확인 — 오타로 새 본부 폴더가 생기는 것을 막는다
 if [ ! -d "$BASE/$DIV" ]; then
   echo "본부 폴더가 없다: $BASE/$DIV" >&2
-  echo "실재하는 본부: $(ls -1 "$BASE" | grep -v '^_' | tr '\n' ' ')" >&2
+  # ★디렉토리만 나열한다 — ls -1은 루트의 낱개 파일까지 본부인 것처럼 섞어 보여준다(CSO 지적 2026-07-28)
+  echo "실재하는 본부: $(find "$BASE" -maxdepth 1 -mindepth 1 -type d ! -name '_*' ! -name '.*' -exec basename {} \; | sort | tr '\n' ' ')" >&2
   exit 2
 fi
 
