@@ -57,6 +57,7 @@ MANIFEST=(
 "sot-inspector|리서치본부/invest_scan/.claude/skills/sot-inspector"
 "tdd-runner|리서치본부/invest_scan/.claude/skills/tdd-runner"
 # ── 프로젝트 결합형: 교회행정·뉴스크롤링 ──
+"ai-churchteam|목회사역본부/AI_churchteam/.claude/skills/ai-churchteam"
 "health-dashboard|목회사역본부/AI_churchteam/.claude/skills/health-dashboard"
 "theological-reasoning|목회사역본부/AI_churchteam/.claude/skills/theological-reasoning"
 "crawl-master|_workflowhome/GlobalNews-Crawling-AgenticWorkflow/.claude/skills/crawl-master"

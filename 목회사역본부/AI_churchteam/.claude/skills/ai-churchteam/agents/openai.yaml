@@ -1,0 +1,4 @@
+interface:
+  display_name: "AI Church Team"
+  short_description: "교회 사역 요청을 전문 팀과 스킬로 연결"
+  default_prompt: "Use $ai-churchteam to route this church ministry request through the correct team and safeguards."
