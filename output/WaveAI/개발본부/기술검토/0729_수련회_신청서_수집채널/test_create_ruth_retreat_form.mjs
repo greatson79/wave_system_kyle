@@ -43,8 +43,13 @@ class FakeForm {
     this.items = [];
     this.settings = {};
     this.destination = null;
+    this.setDescriptionCalls = 0;
   }
-  setDescription(value) { this.description = value; return this; }
+  setDescription(value) {
+    this.setDescriptionCalls += 1;
+    this.description = value;
+    return this;
+  }
   setCollectEmail(value) { this.settings.collectEmail = value; return this; }
   setLimitOneResponsePerUser(value) { this.settings.limitOne = value; return this; }
   setAllowResponseEdits(value) { this.settings.allowEdits = value; return this; }
@@ -146,7 +151,7 @@ assert.equal(
 assert.equal(
   form.description,
   [
-    "8월 2일(주일) · 8월 9일(주일) 오후 2시 ~ 6시 · 교회 강당",
+    "8월 2일(주일) · 8월 9일(주일) 오후 2시 시작 · 교회 강당",
     "",
     "이번 수련회는 온 교우가 함께하는 전교인 수련회입니다.",
     "아이부터 어른까지 한자리에서 같은 말씀을 나눕니다.",
@@ -250,6 +255,11 @@ assert.equal(result.responseSheetUrl, "https://sheets.example/sheet-1");
 const secondResult = context.createRuthRetreatForm();
 assert.equal(createdForms.length, 1, "재실행은 중복 Form을 만들면 안 된다");
 assert.equal(createdSheets.length, 1, "재실행은 중복 Sheet를 만들면 안 된다");
+assert.equal(
+  form.setDescriptionCalls,
+  1,
+  "완료된 Form 재실행은 기존 설명을 자동 갱신하지 않는다",
+);
 assert.deepEqual(secondResult, result);
 
 console.log("PASS: Form schema, privacy settings, branching, idempotency");
