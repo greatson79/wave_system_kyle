@@ -174,6 +174,24 @@ reviewer-gemini(agy·greatson79@dia-io.com) 4종을 소환 표준(권한허용�
 
 ---
 
+## my ingest folder — 주인님 수동 투입 공유 볼트 (★전 엔진 공유)
+
+> **★경로(절대)**: `/Users/kylechoi/Library/CloudStorage/GoogleDrive-greatson79@gmail.com/내 드라이브/KyleChoi Project/my ingest folder/`
+> 정본 = 그 폴더의 `_GUIDE.md` (엔진별 진입 = `CLAUDE.md`·`AGENTS.md`·`GEMINI.md` 포인터)
+> 개설: 주인님 지시 2026-07-30
+
+주인님이 **자료를 그냥 던져 넣는 공유 자료함**이다. 분류·이름 규칙을 요구하지 않는다.
+넣는 즉시 **Claude·Codex·Gemini·로컬 LLM 전부가 참조 가능**하다.
+
+- ★**원본을 수정하지 마라 — 읽기만 한다.** 가공물은 별도 파일로 만들고 원본은 그대로 둔다.
+- 처리 기록은 그 폴더 `_처리기록.md`에만 append(원본에 메모 금지).
+- 파일명 앞 `!` = 주인님 우선 처리 요청 표식.
+- ★**"이거 처리해"라는 지시가 없어도** 노드는 작업 중 관련 자료를 이 볼트에서 찾는다.
+- 이 볼트의 자료가 기존 결정·정본과 **충돌하면 임의 판단 금지 · CEO 에스컬레이션**.
+
+**★[[llm-wiki]]와 다르다**: llm-wiki는 AI가 컴파일하는 위키(raw→wiki, ingest는 주인님 승인 시점만),
+이쪽은 주인님이 던져 넣는 자유 자료함(즉시 참조). 혼동 금지.
+
 ## 스킬 레지스트리 (스킬 베이스 운영)
 
 루트 `.claude/skills/`에 **스킬 심링크 레지스트리(436개·2026-07-24 실측)**가 있다. 마스터는 흩어진 프로젝트
