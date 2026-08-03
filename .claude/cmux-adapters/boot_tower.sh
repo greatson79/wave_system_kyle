@@ -8,6 +8,8 @@ set -u
 CMUX="/Applications/cmux.app/Contents/Resources/bin/cmux"
 WS="workspace:1"
 AIWORKS="$HOME/Desktop/Ai_works"
+LLM_WIKI="/Users/kylechoi/Library/CloudStorage/GoogleDrive-greatson79@gmail.com/내 드라이브/KyleChoi Project/llm-wiki"
+LLM_WIKI_BRIEF="공유 지식베이스: $LLM_WIKI/_AGENT_GUIDE.md 를 읽고 그 규약을 적용하라."
 
 # master(호출자) 주소
 CALLER=$($CMUX tree --all --json | python3 -c "import json,sys; print(json.load(sys.stdin)['caller']['surface_ref'])")
@@ -56,6 +58,16 @@ send_line() { # $1=surface $2=텍스트
   $CMUX send --workspace $WS --surface "$1" -- "$2" && $CMUX send-key --workspace $WS --surface "$1" enter
 }
 
+nick_of() { # 역할명 → 애칭 병기 탭 타이틀(주인님 확정 애칭 2026-07-31·표시 표준 2026-08-02)
+  case "$1" in
+    COO) echo "COO·벤" ;;
+    CSO) echo "CSO·리오" ;;
+    reviewer-codex) echo "reviewer-codex·리프" ;;
+    reviewer-gemini) echo "reviewer-gemini·젠" ;;
+    *) echo "$1" ;;
+  esac
+}
+
 summon() { # $1=탭명 $2=기동명령 $3=부팅마커 $4=각성문 [$5=후속명령]
   local exist; exist=$(tab_exists "$1")
   if [ -n "$exist" ]; then echo "[boot_tower] $1: 기존 생존($exist) — 소환 생략(멱등)"; return 0; fi
@@ -63,11 +75,11 @@ summon() { # $1=탭명 $2=기동명령 $3=부팅마커 $4=각성문 [$5=후속�
   out=$($CMUX new-split "${SPLIT_DIR:-down}" --workspace $WS --surface "${SPLIT_FROM:-$CALLER}")
   sf=$(echo "$out" | grep -o "surface:[0-9]*" | head -1)
   [ -z "$sf" ] && { echo "[boot_tower] FAIL: $1 pane 생성 실패"; return 1; }
-  $CMUX rename-tab --workspace $WS --surface "$sf" -- "$1"
+  $CMUX rename-tab --workspace $WS --surface "$sf" -- "$(nick_of "$1")"
   roster_set "$1" "$sf"
   send_line "$sf" "cd $AIWORKS && $2"
   wait_boot "$sf" "$3" 90 || true
-  send_line "$sf" "$4"
+  send_line "$sf" "$4 $LLM_WIKI_BRIEF"
   [ -n "${5:-}" ] && { sleep 3; send_line "$sf" "$5"; }
   echo "[boot_tower] $1: 소환 완료($sf)"
 }
@@ -94,7 +106,7 @@ CODEX_SF=$(tab_exists "reviewer-codex")
 SPLIT_DIR=down SPLIT_FROM=${CODEX_SF:-$CALLER} summon "reviewer-gemini" \
   "agy --dangerously-skip-permissions" \
   "Antigravity|Gemini" \
-  "[리뷰어 각성] 너는 reviewer-gemini(적대적 반박 리뷰어 - 전략·UX·콘텐츠·사실성)다. 계약: 지정 파일만·수정 금지·verdict+근거·score 금지·ASCII '->' 표기. 회신: cmux send --workspace workspace:1 --surface <master> + send-key enter. 계정이 greatson79@dia-io.com 이 아니면 즉시 보고하라. 각성 완료를 회신하라."
+  "[리뷰어 각성] 너는 reviewer-gemini(적대적 반박 리뷰어 - 전략·UX·콘텐츠·사실성)다. 계약: 지정 파일만·수정 금지·verdict+근거·score 금지·ASCII '->' 표기. 회신: cmux send --workspace workspace:1 --surface <master> + send-key enter. 계정 정본 = greatson79@gmail.com(2026-07-27 개정 — dia-io.com은 소멸계정·재인증 금지). 계정이 그 gmail 계정이 아니면 즉시 보고하라. 각성 완료를 회신하라."
 
 echo "[boot_tower] 편성 결과:"
 $CMUX tree --all | grep -E "surface:"

@@ -148,14 +148,14 @@ reviewer-gemini(agy·greatson79@dia-io.com) 4종을 소환 표준(권한허용�
 | `목회사역본부/church-accounting/` | 교회 회계 웹앱 (Next.js/Vercel) | `목회사역본부/church-accounting/README.md` |
 | `개발본부/harness/` | 3-에이전트 하네스 (Planner/Generator/Evaluator) | `개발본부/harness/CLAUDE.md` |
 | `리서치본부/notebookLM/` | NotebookLM 작업 파일 | `{노트북명}/` 하위 |
-| `output/` | 루트 산출물 — ★`output/WaveAI/{본부}/{팀}/` 구조 | `경영본부/`·`리서치본부/` 등 |
+| `output/` | 루트 산출물 정본 — 정본 = [[feedback_output_storage_rule]] | `경영본부/`·`리서치본부/` 등 |
 
 ---
 
 ## LLM Wiki — 개인 지식베이스 (★Ai_works 밖 — Google Drive/Obsidian vault)
 
 > 정본: [Karpathy — LLM Wiki](https://gist.github.com/karpathy/442a6bf555914893e9891c11519de94f)
-> **★경로(절대)**: `/Users/kylechoi/Library/CloudStorage/GoogleDrive-greatson79@gmail.com/내 드라이브/KyleChoi Project/llm-wiki/`
+> ★경로 등 상세 — 정본 = [[reference_llm_wiki_vault]]
 > (주인님이 Obsidian vault로 직접 관리 — `KyleChoi Project/`가 vault 루트, `llm-wiki/`는 그 하위)
 > 세부 스키마: 위 경로의 `CLAUDE.md`(+ `raw/`·`wiki/`·`Output/` 하위 CLAUDE.md)
 
@@ -165,10 +165,7 @@ reviewer-gemini(agy·greatson79@dia-io.com) 4종을 소환 표준(권한허용�
 
 - `raw/` = 불변 원본(주인님이 채움, AI는 읽기만) · `wiki/` = AI가 전담 컴파일하는 마크다운 위키
   (index.md·log.md·entities/·concepts/·sources/) · `Output/` = 질의 결과물.
-- **★ingest 트리거 = 주인님의 명시적 완료 승인** (파일 저장 자체가 아님). 최종 산출물에 대해
-  주인님이 "완료"·"승인"·"이걸로 최종"·"발행하자" 등으로 확정하면, 그 산출물을 위 경로의
-  `wiki/CLAUDE.md` 절차대로 ingest한다. 무분별한 자동 ingest로 위키가 지저분해지는 것을 피하기
-  위해 **매 저장마다가 아니라 승인 시점에만** 수행한다(주인님 2026-07-08 확정).
+- ★ingest 트리거(승인 시점만) 상세 — 정본 = [[reference_llm_wiki_vault]]
 - 이 워크스페이스의 모든 노드(master·워커·본부장)는 이 wiki를 만나면 ingest(수집)·
   query(질의)·lint(건강검진) 3대 운영을 그 `CLAUDE.md`대로 수행한다.
 
@@ -176,7 +173,7 @@ reviewer-gemini(agy·greatson79@dia-io.com) 4종을 소환 표준(권한허용�
 
 ## my ingest folder — 주인님 수동 투입 공유 볼트 (★전 엔진 공유)
 
-> **★경로(절대)**: `/Users/kylechoi/Library/CloudStorage/GoogleDrive-greatson79@gmail.com/내 드라이브/KyleChoi Project/my ingest folder/`
+> ★경로 등 상세 — 정본 = [[reference_my_ingest_folder]]
 > 정본 = 그 폴더의 `_GUIDE.md` (엔진별 진입 = `CLAUDE.md`·`AGENTS.md`·`GEMINI.md` 포인터)
 > 개설: 주인님 지시 2026-07-30
 
@@ -186,11 +183,10 @@ reviewer-gemini(agy·greatson79@dia-io.com) 4종을 소환 표준(권한허용�
 - ★**원본을 수정하지 마라 — 읽기만 한다.** 가공물은 별도 파일로 만들고 원본은 그대로 둔다.
 - 처리 기록은 그 폴더 `_처리기록.md`에만 append(원본에 메모 금지).
 - 파일명 앞 `!` = 주인님 우선 처리 요청 표식.
-- ★**"이거 처리해"라는 지시가 없어도** 노드는 작업 중 관련 자료를 이 볼트에서 찾는다.
+- ★지시 없어도 능동 확인하는 행동수칙 — 정본 = [[reference_my_ingest_folder]]
 - 이 볼트의 자료가 기존 결정·정본과 **충돌하면 임의 판단 금지 · CEO 에스컬레이션**.
 
-**★[[llm-wiki]]와 다르다**: llm-wiki는 AI가 컴파일하는 위키(raw→wiki, ingest는 주인님 승인 시점만),
-이쪽은 주인님이 던져 넣는 자유 자료함(즉시 참조). 혼동 금지.
+**★llm-wiki와의 구분** — 정본 = [[reference_my_ingest_folder]] (교차참조: [[reference_llm_wiki_vault]])
 
 ## 스킬 레지스트리 (스킬 베이스 운영)
 

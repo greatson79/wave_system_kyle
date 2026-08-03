@@ -69,11 +69,7 @@ cmux 메인에는 cysd의 기계 감시(watchdog·이벤트 push)가 없다. 엔
 - **주기 스윕(1차 수단)**: `cmux tree --all`(전 워크스페이스·surface 스냅샷) + 이상 징후
   pane의 `cmux read-screen` + `ps`/`pgrep` 프로세스 원장 점검을 1회 스윕으로 묶어 주기
   실행한다. push 대기는 보조다 — cmux에서 이벤트는 오지 않는다.
-- **★스윕 티어링 (필수 — CSO 실측 회신1)**: read-screen은 pane당 출력이 커 **CSO 자신의
-  컨텍스트 예산을 잠식**한다(스윕의 실질 제약은 CPU가 아니라 CSO 컨텍스트다). 따라서 스윕 =
-  `tree --all` **전량** + read-screen은 **이상 징후·작업 중 pane만** 선별 판독한다.
-- **★스윕 주기 (CSO 실측 회신1)**: 고정 숫자를 박지 않는다 — **작업 라운드 경계 + 작업 중
-  15~30분 기준, CEO가 강도 조정**. 무규정 시 스윕이 형해화되거나 과잉 폴링이 된다.
+- ★스윕 티어링·주기 상세 — 정본 = [[project_cso_sweep_tiering_and_ledger]]
 - **★pane.idle 상태 영속 + 스윕 원장 필드 (CSO 회신1 + codex C1-1)**: "스윕 간 화면 무변화
   대조"는 이전 스냅샷이 있어야 성립한다 — CSO clear 시 대조 기준이 증발하므로, 스윕 결과를
   `output/WaveAI/경영본부/_round/CSO_스윕원장.md`에 영속한다. **원장 필드(pane당)**: 역할 · 마지막
@@ -84,9 +80,7 @@ cmux 메인에는 cysd의 기계 감시(watchdog·이벤트 push)가 없다. 엔
   (queue 대기·권한 다이얼로그 대기·응답 hang)를 잡기 위해, 다음 중 하나면 read-screen으로
   승격한다: ㉠원장상 "다음 예상 이벤트" 시각 초과 ㉡마지막 출력 후 무변화 5분+ ㉢작업 중
   선언 pane인데 tree 상태 변화 없음. 승격 판독도 timeout(각 30s) 내 미확인 시 hang 처리.
-- **★proc_count_high 번역 (codex C1-1)**: 한 surface의 자식 프로세스 폭증은 tree에 안 보인다 —
-  `pgrep -P <pane_pid>`/PGID 자식 수 산술로 임계(예: 20+) 초과 시 해당 노드 점검·경고, 필요
-  시 CEO 승인 후 정리(엔진 `watchdog.proc_count_high` 대응 유지).
+- ★proc_count_high 번역 상세 — 정본 = [[reference_proc_count_high_watchdog_translation]]
 - **★감시 조건부(MASTER §6 정합)**: 스윕 루프는 **워커가 작업 중일 때만** 가동한다. 전원
   idle/완료면 루프를 중단하고 새 작업 시작 시 재개한다. 단 0-b 플래그 점검·팩 diff 감사는
   세션 시작 시 1회는 항상 수행한다(idle 무검출 구간은 0-b §의 저빈도 잡이 보완).
@@ -132,11 +126,7 @@ cmux 메인에는 cysd의 기계 감시(watchdog·이벤트 push)가 없다. 엔
   대화형 pane에서 nohup/백그라운드로 띄우면 `trap kill 0`은 무효라 원장이 이 보고로만 채워짐).
   종료 확인 시 말소. 고아 프로세스는 CEO 승인 후 kill(작업 손실 위험 조치는 승인 후 — 엔진 §4).
 - launchd 자동화 잡(주간 발행 등)의 생존·플래그는 0-b 점검과 함께 주기 확인한다.
-  **★`cys schedule` 의존 자동화는 launchd로 이관을 원칙으로 한다**(CSO 실무 입력1 — 오늘
-  `dia-output-materialize-preflight` 침묵 실패·output dataless 967건 실측. 근거:
-  `output/WaveAI/경영본부/_archive/구본정리_2026-07-23/dataless근본대책_권고안_2026-07-10.md` §2). **★이관 대상에 게이팅 감시
-  잡 `cso-usage-gating-watch`를 포함한다**(F5 — §6이 이 잡을 실측원으로 인용하는데, 침묵 실패
-  계열을 안전 임계 감시에 쓰는 자기모순. 침묵 실패 시 게이팅 미발동 = 한도 사고 직결).
+  ★`cys schedule`→launchd 이관 원칙 상세 — 정본 = [[project_cys_schedule_to_launchd_migration]]
 
 ## 4. ★부서(워크스페이스) 위생 (cys-dept 치환)
 - cmux 메인의 부서 = **물리 cmux 워크스페이스**다(`cys-dept` 독립 데몬 아님). **워크스페이스
@@ -212,11 +202,7 @@ cmux 메인에는 cysd의 기계 감시(watchdog·이벤트 push)가 없다. 엔
 Claude(Anthropic) 사용량을 주기 감시한다. **판정은 실측만**(결정론 환원) — 세션 `/status`·
 사용량 표시의 실측값, **cysd 생존 시 `cys status --json`의 5h `used_pct`(보조 실측원)**, 또는
 주인님 제공 수치를 근거로 하고, 체감·추정으로 게이팅을 발동하지 않는다(실측 불가 시 "측정
-불가"로 CEO에 보고하고 판단을 구한다). **★보조 실측원 사용 시 잡 생존 확인 선행 (F5 —
-자기모순 해소)**: `cso-usage-gating-watch`는 launchd 이관 대상(§3)이자 침묵 실패 위험이 있으므로,
-그 `used_pct`를 쓰기 전 **잡의 마지막 실행 timestamp가 신선한지 검증**한다(오래됐으면 침묵 실패
-간주 — 이 실측원을 신뢰하지 않고 세션 `/status` 직접 확인으로 대체). 이관 완료 후엔 launchd 잡
-기준으로 갱신한다.
+불가"로 CEO에 보고하고 판단을 구한다). ★보조 실측원 신선도 검증 상세 — 정본 = [[project_cys_schedule_to_launchd_migration]]
 ### 6-A. ★두 창(窓) 동시 감시 — 5h·7d 둘 다 체크 (주인님 확정 2026-07-25)
 
 > **개정 배경(실사고)**: 2026-07-25 실측에서 **5h 12%·7d 94~95%**가 관측됐다. 구 조항은
@@ -252,9 +238,7 @@ Claude(Anthropic) 사용량을 주기 감시한다. **판정은 실측만**(결�
 ### 6-B. 한도 분산
 - **agy·Antigravity·Codex는 별도 한도**(Anthropic 무관) — 게이팅 중에도 가동 가능. 코드성
   작업은 codex, 팩트체크·문체·구조 검수는 agy로 이관해 Claude 한도를 아낀다.
-- **★정직한 한계**: `insane-search`·`agent-reach` 등 **Claude 전용 스킬**이 필수인 작업(AI트렌드
-  리서치 등)은 agy로 대체 불가다. 분산은 만능이 아니며 하이브리드가 현실적이다 — 과대 절감
-  약속을 하지 않는다.
+- ★정직한 한계(Claude 전용 스킬은 agy 대체불가) — 정본 = [[feedback_claude_only_skills_not_agy_substitutable]]
 
 ## 7. ★워커 회생·재기동 + cys 명령 치환표
 
@@ -321,11 +305,7 @@ Claude(Anthropic) 사용량을 주기 감시한다. **판정은 실측만**(결�
   ②**`OK` 반환은 착지 증거가 아니다** — `read-screen` 착지 확인까지가 1회 전송
   ③**긴 위임·판정문은 하향에도 파일 저장 후 경로만 push**(개행 없는 긴 단일 줄도 수신 pane에서
   **"Pasted Content"로 접혀** 본문이 읽히지 않는 사례 확인).
-- **★"설정 반영"을 완료로 보고하지 마라 (2026-07-27 신설 — 사이드바 4회 왕복의 근인)**:
-  렌더·화면 결과를 **검증할 수단이 없는 작업**(권한 부재로 스크린샷 불가 등)에서 코드·plist·
-  설정 반영만 확인하고 "완료"로 보고하면 왕복이 반복된다. **불확실을 명시하고 육안 확인을
-  선요청**하는 것이 표준이다. 이는 §0-b **실물(렌더) 검수** 조항의 일반화이며, 메타(파일·설정)가
-  정상이어도 실물이 다를 수 있다는 원칙은 동일하다.
+- ★"설정 반영"≠완료 보고 상세 — 정본 = [[feedback_config_applied_not_render_verified]]
 - **상태 SOT**: 공유 = 루트 `_round/SESSION_STATE.md`(훅 주입 정본·CEO 주 편집) / CSO 전용
   todo = `output/WaveAI/경영본부/_round/CSO_TODO.md`(세부 완료마다 갱신) / CSO 핸드오프 =
   `output/WaveAI/경영본부/_round/CSO_핸드오프_{날짜}.md`. 복원 우선순위: 핸드오프 → 공유 SOT →
