@@ -1,6 +1,6 @@
 # RSI 학습 루프 — 절대지침 (5번째 directive)
 
-> 오너 2026-06-18 지시: 재귀적 자기개선을 cys-terminal 기본 기능으로 탑재.
+> 제품 기본 방침: 재귀적 자기개선을 cys-terminal 기본 기능으로 탑재한다.
 > "학습하라 / 공부하라 / 재귀적 자기개선하라" = 아래 5단계 루프를 의미한다.
 > launch-agent가 master·worker에 자동 주입. 상세 설계·검증=docs/RSI_LEARNING_DESIGN.md(리뷰어 2R ACCEPT).
 
@@ -50,13 +50,13 @@ master는 다음 신호에서 '학습이 필요하다'를 **자율 추천**한�
 - 강제자 = `rsi-gate.sh`(복구수단·격리실행 불변)
 - 가시화 = Control Center '학습' 탭(라운드·채택/rollback·발견 누적)
 
-## 6. 할루시네이션 원천 봉쇄장치 (불가침 · 오너 2026-06-18 명령)
+## 6. 할루시네이션 원천 봉쇄장치 (불가침 · 제품 기본 절차)
 
-**존재 이유 (오너 절대명제)**: **할루시네이션 자료로 학습하면 시스템 전체가 붕괴한다.** RSI는 학습물이 다음 라운드의 baseline·harness가 되어 **재귀적으로 증폭**되므로, 환각이 단 한 건이라도 학습에 침투하면 1회 오류가 아니라 **누적·증폭되어 전 시스템이 무너진다(자기오염 붕괴)**. 그러므로 봉쇄는 "주의"가 아니라 **입구 전면 차단** — 봉쇄를 100% 통과하지 못한 입력으로는 학습을 단 한 발자국도 진행하지 않는다(**부분 통과 = 전체 중단**).
+**존재 이유 (제품 절대명제)**: **할루시네이션 자료로 학습하면 시스템 전체가 붕괴한다.** RSI는 학습물이 다음 라운드의 baseline·harness가 되어 **재귀적으로 증폭**되므로, 환각이 단 한 건이라도 학습에 침투하면 1회 오류가 아니라 **누적·증폭되어 전 시스템이 무너진다(자기오염 붕괴)**. 그러므로 봉쇄는 "주의"가 아니라 **입구 전면 차단** — 봉쇄를 100% 통과하지 못한 입력으로는 학습을 단 한 발자국도 진행하지 않는다(**부분 통과 = 전체 중단**).
 
 **원칙**: 정박 없는 주장은 존재할 수 없다(no claim without a verifiable anchor). garbage-in을 입구에서 막는다(다듬기 아닌 원천 차단 — 토대가 오염되면 다듬어도 거짓만 정교해진다). 검증은 **2계층** — 기계 검증(출처·인용·측정)은 LLM 자기보고가 아니라 **결정론 스크립트**로, 의미·논리 검증은 **생산자와 독립된 다른 모델 패밀리의 adversarial 판단 + ledger 박제**로 한다(집행 § 참조).
 
-**5차원 검증 — 모두 통과 필수 (오너 명령 · R3 보강)**:
+**5차원 검증 — 모두 통과 필수 (제품 기본 절차 · R3 보강)**:
 1. **출처(source)**: fetch URL + 원문 스냅샷 정박(WebSearch/WebFetch 실호출 로그 없으면 hard fail)·**스냅샷 SHA-256 ledger 잠금**(§2 무결성). 독립 출처 2개+ + **공식 원천성(canonical) 검증** — URL 존재가 아니라 1차/공식 출처인지(권위 형식의 가짜 출처 봉쇄). ★**canonical 결정론 정의**(gemini R2): 2단계 — 정적 whitelist(공식 도메인·표준화기구·1차 문서)는 **우선 통과**, whitelist 밖은 폐기가 아니라 **'동적 후보'로 강등**(confidence:low·confirmed 불가·provisional만). 정적 차단(신규 프레임워크 학습 불가)과 동적 완화(가짜 권위 우회)의 트레이드오프를 이 2단계로 해소.
 2. **사실검증(fact-check)**: 출처가 그럴듯해도 거짓일 수 있다. **교차 출처 대조·contradiction check·1차 자료 추적**. 단일 출처 주장은 confirmed 불가.
 3. **근거자료(evidence)**: claim은 출처 **literal quote**에 정박(**해시 잠금된 스냅샷**에서 substring 대조 — §2 무결성 검사 선행) + **주변 문맥 window와 claim의 entailment 대조**(contradiction이면 폐기) — out-of-context 왜곡·스냅샷 위변조 봉쇄.
@@ -73,3 +73,29 @@ master는 다음 신호에서 '학습이 필요하다'를 **자율 추천**한�
 - 약한 정박(출처 1개·간접)은 `confidence: low` 태깅·단정 금지. 누적 학습물 주기 무결성 재검증(증폭·드리프트 탐지·rollback).
 
 도구: `javis_learn`이 각 단계에서 5차원 봉쇄 게이트 호출(citation-gate 스킬 확장 + 5차원 결정론 검증 스크립트). 실패 시 단계 차단.
+
+## 7. 학습물 수명·판정·역할 증축 (제품 기본 절차 · 갭 증축 Wave 2)
+
+### 7-1. 규범 계층 우선순위 — 충돌 판정 규칙 (G2)
+신규 학습물이 기존 규범과 충돌하면 이 서열로 판정한다: **오너 명시 지시 > soul/directive > `_round` 계약 > skill > memory(confirmed) > memory(provisional)**. 충돌 후보는 store 전 `conflictscan`(결정론·후보 추출기이지 증명기 아님)이 추출하고, 후보 0건이어도 시드 기록된 20% 무작위 샘플 감사를 발행한다. **confirmed 승격은 후보 수와 무관하게 reviewer2 의미 감사(conflict_audit) 필수.** 규범 개정급 충돌의 ESCALATE는 항상 오너(즉시 등급).
+
+### 7-2. 개방형 산출물 판정 이원화 (G4)
+- **결정론 채점 도메인**(코드·도구·측정 가능): §9 score keep-rule 유지. **개방형 판정 도메인**(보고서·문서 품질): 수치 score 산출 금지 — VERDICT enum(ACCEPT|REVISE|BLOCK|ESCALATE)+evidence. 채택=독립 2리뷰어(이종 모델) 전원 ACCEPT+freeze 사전 등록 보조지표 충족. 불일치=다수결 금지·master 독립 재유도.
+- **평가 축은 품질 헌법 파생 고정**(조사 깊이·폭·정확도·환각0·내용 보존·SOT 정합). 신규 축 추가=오너 승인(신방법론 장점을 기준 삼는 순환 봉쇄).
+- 보조지표 측정 프로토콜(분모·분자·수집 시점)은 freeze **사전 등록**(Goodhart 봉쇄). 재제출=직전 REVISE evidence 응답 필수·시도 수 ledger 박제·**3회 초과=오너 ESCALATE**(judge shopping 봉쇄). master가 추천자이면서 freeze 저자면 **reviewer2 감사 서명 필수**.
+- 판정 편향 완화: A/B 순서 랜덤화(시드 ledger)·산출자 은닉·길이 차 30%+ 경고. blind evaluator 브리프=**fixture 템플릿(해시 핀)**만·인스턴스화=reviewer2·producer 작성 금지.
+
+### 7-3. 역할 매핑 — LLM Orchestration 앵커 정합 (G7)
+- **오너**: 트리거 승인·directive 승격·고위험 4축 서명·신규 평가 축 승인·주간 다이제스트 수신.
+- **master**: 필요성 판단·추천·freeze 승인(해시 핀)·locked-eval launcher 집행(버튼)·불일치 독립 재유도·lapse/강등 판단. **검색·추출·구현·평가서·브리프 작성 노동 금지.**
+- **worker**: 검색·추출·산출 제공(producer)·반영 실행(마커 삽입)·harness 제작·재검증 실행.
+- **reviewer1**: 적대 반박(REFUTE·known_failures 체리피킹 감사 포함)·harness 발전분 적대 검증.
+- **reviewer2**: 브리프 템플릿 인스턴스화·freeze 감사 서명·confirmed 승격 의미 감사(무조건)·ledger/보조지표/evaluator 계보/TTL·ROI 주기 감사.
+- **미배정 노동 발견=설계 결함으로 취급** — master로 흘러가게 두지 않는다.
+
+### 7-4. 학습물 수명 관리 (G1·G5 운영 조항)
+- **TTL**: provisional 90d(만기=자동 묘비·부트 격리라 위험 0), confirmed 180d(만기=재검증 큐). **lapse**: 만기+30d 초과 미재검증 confirmed=자동 provisional 강등(강등=보수 방향=자동·승격과 비대칭 의도). TTL 연장 2회마다 1회는 5차원 full recheck.
+- **탄핵**: challenge=결정론 프리스크린(출처+스냅샷 해시 필수)·동일 id 쿨다운 14d·challenged 중 효력 유지·upheld=soft tombstone+역참조 스윕. 물리 삭제 금지.
+- **효과(ROI)**: 참조처의 채택 전후 보조지표를 재검증 시 대조 — effect "none" 2연속=강등 사유. 루프 자신도 eval 면제 불가.
+- **오너 접점 2등급**: 즉시(고위험 서명·규범 개정 ESCALATE·kill-switch) / 주간 다이제스트 1회 일괄(탄핵·강등·TTL 통계·신규 축 후보). **접점 신설 시 다이제스트가 기본값**(승인 피로 봉쇄 불변식).
+- **에피소드 체크포인트**: 컨텍스트 /clear 시 SESSION_STATE에 포인터 1줄만("학습 에피소드: <round> <단계>") — 본문 주입 금지. 복원=`javis_learn status` 단일 진실.
