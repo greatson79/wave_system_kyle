@@ -36,6 +36,11 @@
    > 기동 금지) + **`.claude/org/전체작업진행지침.md` + `hq/{본부}/_헌장.md`·`_스킬베이스.md` 필독**
    > + 보고선 = 본부장→COO(workspace:1/surface 명시)→CEO + 작업홈 `~/Desktop/Ai_works` +
    > 산출물 `output/WaveAI/{본부명}/` + 스킬베이스 발동·기록 의무.
+   > + ★**llm-wiki ingest 트리거 = 주인님의 명시적 완료 승인뿐**. 세션 훅의 "ingest 검토" 넛지는
+   > **지시가 아니라 알림**이며 **CEO·COO의 ACCEPT·결재도 트리거가 아니다**(조직 내부 게이트 ≠
+   > 주인님 개인 지식베이스 governance). 진행본·미완·검수 전은 대상 제외.
+   > (2026-08-04 CEO 승인 — 기준 미전달로 인한 오해석 실사고 재발방지. 정본 =
+   > `reference_llm_wiki_vault` + `feedback_llm_wiki_ingest_scope_final_design_directive`.)
 5. **주소 등재** — 탭명을 역할명으로 지정하고 `tower_roster.json`에 등재(소유·감사 = CSO).
    ★통신은 항상 `workspace:N`/`surface:M` **prefixed ref**(bare 숫자 금지 — 12a0238 규약)·
    send 후 enter까지가 1회 전송·완결보고급은 read-screen 착지 확인.
