@@ -98,10 +98,21 @@ for w in d['windows']:
   # 낳는다(오늘 실사고: CSO s7). 여기서 그 관측을 편입(adopt)한다 — 단 재실측값만 쓴다(기존
   # roster 값을 그대로 되쓰면 stale이 영속화된다는 것이 CEO 제약 ①).
   # ★2026-08-05 CEO 승인 — D 근본조치(H-01) 배선 변경: 편입(adopt)된 노드는 "생존"과
-  # "각성"을 같은 것으로 취급하지 않는다 — ADOPTED 마커를 붙여 summon()이 무조건 스킵하는
-  # 대신 각성문을 재전송하도록 신호를 분리한다. ★HIGH-1(귀속 근거)은 이 변경의 대상이
-  # 아니다 — 별개 축(CEO 판정) — 그래서 ADOPT_EXISTING_ENABLED는 여전히 0으로 묶어둔다.
-  [ "$ADOPT_EXISTING_ENABLED" = "1" ] && { _adopt_existing "$1" "$ref" && { echo "$ref ADOPTED"; return 0; }; }
+  # "각성"을 같은 것으로 취급하지 않는다 — summon()이 무조건 스킵하는 대신 각성문을
+  # 재전송하도록 신호를 분리한다.
+  # ★2026-08-05 노아 REVISE(HIGH-2) 재수정: 이전엔 이 신호를 "$ref ADOPTED" 복합 문자열로
+  # stdout에 섞어 반환했다 — tab_exists는 순수 surface ref 전용 계약이었는데(주석 상단),
+  # COO_SF·CODEX_SF 같은 일반 소비자가 이 오염된 문자열을 그대로 SPLIT_FROM에 넣어
+  # new-split --surface 인자를 깨뜨릴 수 있었다. 수정: stdout에는 항상 순수 ref만 쓰고,
+  # "방금 편입했다"는 신호는 **exit code 2**로만 전달한다(exit 0=이미 존재/생존, exit 2=
+  # 방금 편입·각성 미검증). `$(...)` 명령치환도 그 서브셸의 exit code는 그대로 `$?`에
+  # 남기므로(변수 대입 직후 한정 — 다른 명령이 끼면 덮인다) 호출부는 대입 직후 즉시
+  # `$?`를 캡처해 분기한다. ★HIGH-1(귀속 근거)은 이 변경의 대상이 아니다 — 별개 축(CEO
+  # 판정) — 그래서 ADOPT_EXISTING_ENABLED는 여전히 0으로 묶어둔다.
+  if [ "$ADOPT_EXISTING_ENABLED" = "1" ] && _adopt_existing "$1" "$ref"; then
+    echo "$ref"
+    return 2
+  fi
   return 0
 }
 
@@ -358,23 +369,45 @@ nick_of() { # 역할명 → 애칭 병기 탭 타이틀(주인님 확정 애칭 
 }
 
 summon() { # $1=탭명 $2=기동명령 $3=부팅마커 $4=각성문 [$5=후속명령] → exit0=완전성공 exit1=degraded(수동확인필요)
-  local exist; exist=$(tab_exists "$1")
+  local exist exist_rc
+  exist=$(tab_exists "$1"); exist_rc=$?
   if [ -n "$exist" ]; then
-    case "$exist" in
-      *" ADOPTED")
-        # ★D 근본조치(H-01): 편입된 노드는 "생존"만 확인됐지 "각성"은 검증 안 됐으므로
-        # (§0 — awakened=False로 정직 기록) 무조건 스킵하지 않고 각성문을 재전송한다.
-        # 이미 존재하는 send_line+각성문($4) 로직을 그대로 재사용 — 신규 설계 아님.
-        local adopted_ref="${exist% ADOPTED}"
-        echo "[boot_tower] $1: 기존생존 편입 노드($adopted_ref) — 각성문 재전송(재소환은 생략)"
-        send_line "$adopted_ref" "$4 $LLM_WIKI_BRIEF"
+    if [ "$exist_rc" -eq 2 ]; then
+      # ★D 근본조치(H-01) 재수정: 편입된 노드는 "생존"만 확인됐지 "각성"은 검증 안 됐으므로
+      # (§0 — awakened=False로 정직 기록) 무조건 스킵하지 않고 각성문을 재전송한다. 노아
+      # REVISE(HIGH-1·HIGH-3) 반영 — send_line 실패를 삼키지 않고 전파하며(HIGH-1),
+      # 후속명령($5)까지 성공해야 mark_awakened로 exact-match 기록한다(HIGH-3 — 편입 직후
+      # 기록된 정확한 pid/start/command 지문을 재조회해 넘긴다). 넷 다 성공해야 exit0.
+      local adopted_ref="$exist"
+      echo "[boot_tower] $1: 기존생존 편입 노드($adopted_ref) — 각성문 재전송(재소환은 생략)"
+      local awk_wake_ok=0 awk_post_ok=1 awk_mark_ok=0
+      send_line "$adopted_ref" "$4 $LLM_WIKI_BRIEF" && awk_wake_ok=1
+      if [ "$awk_wake_ok" -eq 1 ] && [ -n "${5:-}" ]; then
+        awk_post_ok=0
+        sleep 3
+        send_line "$adopted_ref" "$5" && awk_post_ok=1
+      fi
+      if [ "$awk_wake_ok" -eq 1 ] && [ "$awk_post_ok" -eq 1 ]; then
+        local ap_pid ap_start ap_cmd
+        IFS=$'\t' read -r ap_pid ap_start ap_cmd < <(python3 - "$1" <<'PYEOF'
+import json, os, sys
+p = os.path.expanduser("~/Desktop/Ai_works/.claude/cmux-adapters/tower_roster.json")
+d = json.loads(open(p).read()) if os.path.exists(p) else {}
+b = (d.get("_pidbind") or {}).get(sys.argv[1]) or {}
+print(f"{b.get('pid','')}\t{b.get('start','')}\t{b.get('command','')}")
+PYEOF
+)
+        mark_awakened "$1" "$adopted_ref" "$ap_pid" "$ap_start" "$ap_cmd" && awk_mark_ok=1
+      fi
+      if [ "$awk_wake_ok" -eq 1 ] && [ "$awk_post_ok" -eq 1 ] && [ "$awk_mark_ok" -eq 1 ]; then
+        echo "[boot_tower] $1: 편입 각성 완료($adopted_ref, 각성문전송 성공, 각성기록 성공)"
         return 0
-        ;;
-      *)
-        echo "[boot_tower] $1: 기존 생존($exist, pid결속 확인) — 소환 생략(멱등)"
-        return 0
-        ;;
-    esac
+      fi
+      echo "[boot_tower] ⚠ FAIL(degraded): $1 편입 노드 — 각성문전송=${awk_wake_ok}·후속명령=${awk_post_ok}·각성기록=${awk_mark_ok}. 이 노드는 다음 멱등판정에서 죽음으로 오판돼 재소환(이중화)될 수 있다 — master 수동 확인 필요($adopted_ref)."
+      return 1
+    fi
+    echo "[boot_tower] $1: 기존 생존($exist, pid결속 확인) — 소환 생략(멱등)"
+    return 0
   fi
   local out sf
   out=$($CMUX new-split "${SPLIT_DIR:-down}" --workspace $WS --surface "${SPLIT_FROM:-$CALLER}")
