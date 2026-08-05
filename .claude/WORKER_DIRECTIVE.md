@@ -173,6 +173,33 @@ media-gen-image`). 스킬 발동은 산출물에 결정론 footprint를 남기�
   `design-consultation`(선행) 등 디자인 스킬을 발동하고 발동기록을 남긴다(§3-A-2).
 - ★채널별 소관(홈페이지=개발본부 / 카드뉴스·포스팅=크리에이티브) 상세 — 정본 = [[feedback_design_skills_shared_cross_division]]
 
+### 3-A-3-c. ★신규 판정형 스킬 12종과 기존 실행형 스킬의 사용 구분 (2026-08-05 설치)
+
+★**핵심 원리**: **무엇을 할지 정할 때는 신규(판정·채점) · 정해진 것을 만들 때는 기존(실행·생성).**
+
+| # | 신규(판정·채점) | 기존(실행·생성) |
+|---|---|---|
+| 1 | `chief-content-officer` — 무엇을 만들지 채점·순위 | `content-strategy`·`content-marketing` — 정해진 뒤 어떻게 만들지 |
+| 2 | `landing-page-cro-expert` — 기존 페이지 감사·채점 | `landing-page-generator`·`conversion-optimization` — 페이지 생성·A/B 실행 |
+| 3 | `marketing-campaign-planner` — 캠페인 1건 전 과정 설계 | `integrated-marketing` — 채널 간 조율 체계 |
+| 4 | `ai-research-analyst` — 조사 방법론·보고서 구조 | `research`·`deep-research` — 도구 파이프라인(YouTube→NotebookLM / firecrawl·exa) |
+| 5 | `ai-workflow-architect` — 자동화 후보 발굴·우선순위 채점 | `workflow-generator` — `workflow.md` 파일 생성 |
+| 6 | `youtube-producer` — 기획·패키징·리텐션 | `youtube-seo` — 검색 최적화·설명문 |
+| 7 | `business-growth-consultant` — 제약 진단 | `growth-funnel`·`pmf-strategy` — AARRR·PMF 측정 |
+| 8 | `ux-product-auditor` — UX 감사 + 비즈니스 연결·심각도 등급 | `design-review` — 시각 QA·AI슬롭 |
+| 9 | `newsletter-writer` — 본문 작성 | `email-marketing` — 전략·전달률 |
+| 10 | `saas-idea-validator` — SaaS 아이디어 검증 판정 | `pmf-strategy` — PMF 측정 |
+
+★**단독 신규 2종**
+- `ceo-advisor` — 대응하는 기존 스킬 없음
+- `prompt-optimizer` — 기존은 실체 없이 이름만 있었고 **이번에 채워졌다**
+
+★**함께 지킬 것 3건**
+1. 신규 12종은 전부 **채점 기준·심각도 등급·검증 프레임워크**를 갖고 있다 — ★**판정이 필요한
+   국면에서 발동**한다.
+2. 둘 다 필요한 작업은 ★**신규로 정하고 기존으로 만든다**(순서 고정).
+3. 발동 기록은 **§3-A-2**대로 산출물에 명시한다.
+
 ### 3-A-4. 예외 (남용 방지)
 - **단순 수정·경미 작업**(오타·1줄 변경·미세 조정): 면제. 단 "새 산출물 생성"은 경미 아님.
 - **매핑 없는 신규 업무유형**: 레지스트리에서 근접 스킬 탐색·발동, 없으면 "갭"으로 CEO/COO에
