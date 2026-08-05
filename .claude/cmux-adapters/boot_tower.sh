@@ -32,6 +32,11 @@
 #             바뀌었을 때만(재기동 등) 무효화→재소환 경로를 탄다. ④모델 배정 정본(MASTER §7)
 #           ⑤부활 금지 — 전부 fresh 기동(이 스크립트 실행 자체가 주인님/CEO 명시 명령의 집행)
 set -u
+# H-01 귀속 근거 부재로 CEO 결재 2026-08-05 비활성 — 정식 수정은 통합 처방
+# (CSO_통합처방_노아교차반영_v1.2_2026-08-05.md §2 D — 최신판 참조 필수). 코드는 남기고 호출만 차단, 값을
+# 1로 되돌리면 즉시 복구된다. 비활성 시 대가=이중소환(회수 가능·오늘 s49로 실증) —
+# 오귀속(무음 오류)보다 안전하다는 것이 CEO 판단.
+ADOPT_EXISTING_ENABLED=0
 CMUX="/Applications/cmux.app/Contents/Resources/bin/cmux"
 WS="workspace:1"
 AIWORKS="$HOME/Desktop/Ai_works"
@@ -84,7 +89,95 @@ for w in d['windows']:
         if q in (s.get('title') or '').lower(): print(s['ref']); raise SystemExit
 ")
   [ -z "$ref" ] && return 0
-  is_bound_alive "$1" "$ref" && echo "$ref"
+  is_bound_alive "$1" "$ref" && { echo "$ref"; return 0; }
+  # ★2026-08-05 데릭 수정(CEO 승인 — 오늘 아침 CSO 이중소환 실사고 원인분석): 여기까지 왔다는
+  # 것은 "제목은 일치하는데 _pidbind가 없거나 어긋난다"는 뜻이다 — 신규소환 경로(bind_process)를
+  # 거치지 않고 생존한 노드(예: 어제 세션이 오늘 아침까지 그대로 살아있는 경우)가 정확히 이
+  # 상태였다. 관측(제목일치=생존 정황)은 했으나 그 관측을 _pidbind에 기록하지 않으면 다음
+  # 판정(is_bound_alive)에서 "결속 기록 없음→fail-closed"로 처음부터 다시 물어 이중소환을
+  # 낳는다(오늘 실사고: CSO s7). 여기서 그 관측을 편입(adopt)한다 — 단 재실측값만 쓴다(기존
+  # roster 값을 그대로 되쓰면 stale이 영속화된다는 것이 CEO 제약 ①).
+  # ★2026-08-05 CEO 승인 — D 근본조치(H-01) 배선 변경: 편입(adopt)된 노드는 "생존"과
+  # "각성"을 같은 것으로 취급하지 않는다 — ADOPTED 마커를 붙여 summon()이 무조건 스킵하는
+  # 대신 각성문을 재전송하도록 신호를 분리한다. ★HIGH-1(귀속 근거)은 이 변경의 대상이
+  # 아니다 — 별개 축(CEO 판정) — 그래서 ADOPT_EXISTING_ENABLED는 여전히 0으로 묶어둔다.
+  [ "$ADOPT_EXISTING_ENABLED" = "1" ] && { _adopt_existing "$1" "$ref" && { echo "$ref ADOPTED"; return 0; }; }
+  return 0
+}
+
+_expected_bin_of() { # $1=역할 → 그 역할이 기동될 때 쓰는 실행파일명 부분일치 패턴(_adopt_existing 전용)
+  case "$1" in
+    reviewer-codex) echo "codex" ;;
+    reviewer-gemini) echo "agy" ;;
+    *) echo "claude" ;;  # CEO·COO·CSO 전부 claude
+  esac
+}
+
+_adopt_existing() { # $1=역할 $2=surface ref(title-match로 찾았으나 is_bound_alive 실패한 후보)
+                     # → exit0=재실측 지문을 _pidbind에 편입 성공 / exit1=편입 실패(호출부가 정상 재소환 경로로 폴백 — 실패를 성공으로 삼키지 않는다, CEO 제약②)
+  # ★정직한 한계: cmux 자기보고 tty는 capture_tty의 코멘트가 실측으로 밝힌 대로 신뢰도가 낮다
+  # (5건중2건 오귀속 전례). 이 함수는 신규소환 시의 capture_tty(맨 셸 상태에서 "tty" 명령 직접
+  # 실행)를 쓸 수 없다 — 이미 에이전트가 화면을 장악한 기존 pane에 "tty"를 보내면 그 세션의
+  # 실제 작업(예: 진행 중인 turn)에 임의 텍스트를 주입하는 부작용이 있다. 따라서 cmux 자기보고
+  # tty에 의존하되, ①역할에 맞는 바이너리인지 ②bare shell이 아닌지 이중 확인해 오귀속 위험을
+  # 낮춘다(완전 제거는 아님 — 노아 코드리뷰에서 이 한계를 특히 검토해달라).
+  local role="$1" ref="$2"
+  local tty
+  tty=$($CMUX tree --all --json | python3 -c "
+import json,sys
+d=json.load(sys.stdin)
+for w in d['windows']:
+  for ws in w['workspaces']:
+    for p in ws['panes']:
+      for s in p['surfaces']:
+        if s['ref']=='$ref': print(s.get('tty') or ''); raise SystemExit
+")
+  [ -z "$tty" ] && return 1
+  local binpat; binpat=$(_expected_bin_of "$role")
+  local pid
+  pid=$(ps -t "$tty" -o pid=,command= 2>/dev/null | grep -F "$binpat" | grep -vE '/bin/(z|ba)?sh( -l)?$' | awk '{print $1}' | head -1)
+  [ -z "$pid" ] && return 1
+  local lstart cmdline
+  lstart=$(ps -p "$pid" -o lstart= 2>/dev/null | sed 's/^ *//;s/ *$//')
+  cmdline=$(ps -p "$pid" -o command= 2>/dev/null | sed 's/^ *//;s/ *$//')
+  [ -z "$lstart" ] && return 1
+  [ -z "$cmdline" ] && return 1
+  # ★2026-08-05 CEO 안전조치 지시(HIGH-1·HIGH-2 — 노아 REVISE 대응, 재설계는 아니고 밤새
+  # 버티는 최소조치. 근본 재설계는 CSO 시스템 전수점검 Phase3로 이관) — 단일 원자 쓰기로
+  # pidbind+roster_set을 함께 기록한다(HIGH-4/원자성). 기록 전 두 가지를 거부(fail-closed)한다:
+  # ①HIGH-1(tty 오귀속): 이 pid가 이미 *다른* 역할의 _pidbind에 결속돼 있으면 귀속 근거가
+  #   불충분한 것으로 보고 편입을 포기한다(로직을 강화해 더 확신하려 하지 않는다 — 약한 근거면
+  #   그냥 포기). ②HIGH-2(미검증 각성): 여기서 각성 여부를 검증할 수단이 없으므로 awakened를
+  #   True로 쓰지 않는다 — False로 정직하게 남겨 is_bound_alive()의 멱등스킵 판정이 이 필드에
+  #   의존하지 못하게 한다(검증 못 하면 참으로 기록하지 않는다 — 오늘의 원칙 그대로).
+  python3 - "$role" "$pid" "$lstart" "$cmdline" "$ref" <<'PYEOF'
+import json, os, pathlib, sys, tempfile
+role, pid, lstart, cmdline, ref = sys.argv[1:6]
+p = pathlib.Path(os.path.expanduser("~/Desktop/Ai_works/.claude/cmux-adapters/tower_roster.json"))
+d = json.loads(p.read_text()) if p.exists() else {}
+pidbind = d.setdefault("_pidbind", {})
+for other_role, b in pidbind.items():
+    if other_role != role and isinstance(b, dict) and b.get("pid") == pid:
+        print(f"[boot_tower] REFUSE adopt {role}: pid={pid}는 이미 역할 '{other_role}'에 결속됨(귀속 불충분·fail-closed)", file=sys.stderr)
+        sys.exit(1)  # HIGH-1: 약한 근거 → 편입 포기
+pidbind[role] = {
+    "pid": pid, "start": lstart, "command": cmdline, "surface": ref,
+    "awakened": False, "adopted": True,  # HIGH-2: 미검증은 거짓 True로 기록하지 않는다
+}
+d[role] = ref  # roster_set과 동일한 단순 키도 같은 원자 쓰기에 포함(HIGH-4)
+fd, tmp_path = tempfile.mkstemp(dir=str(p.parent), prefix=".tower_roster.", suffix=".tmp")
+try:
+    with os.fdopen(fd, "w") as f:
+        f.write(json.dumps(d, ensure_ascii=False, indent=1))
+    os.replace(tmp_path, p)  # 원자 교체 — 중간 상태 노출 없음
+except BaseException:
+    try:
+        os.unlink(tmp_path)
+    except OSError:
+        pass
+    raise
+print(f"[boot_tower] {role}: 기존생존 노드 편입(adopt) 완료(pid={pid}, surface={ref}, awakened=False·미검증) — 재실측 지문 원자기록", file=sys.stderr)
+PYEOF
 }
 
 _fingerprint_alive() { # $1=역할 $2=대조할 surface ref → exit0(pid+start+command+surface 4종 동시일치=그 프로세스가 여전히 생존) / exit1(그 외=fail-closed)
@@ -253,10 +346,12 @@ send_line() { # $1=surface $2=텍스트
 }
 
 nick_of() { # 역할명 → 애칭 병기 탭 타이틀(주인님 확정 애칭 2026-07-31·표시 표준 2026-08-02)
+  # ★2026-08-05 개명 반영: 리오→데릭(Derek·주인님 둘째 아드님 성함·히브리어 데레크=길) / 리프→노아(Noah).
+  #   ★어제 개명 전파에서 이 파일이 누락돼 있었다(그대로 부팅하면 옛 이름으로 되돌아간다).
   case "$1" in
     COO) echo "COO·벤" ;;
-    CSO) echo "CSO·리오" ;;
-    reviewer-codex) echo "reviewer-codex·리프" ;;
+    CSO) echo "CSO·데릭" ;;
+    reviewer-codex) echo "reviewer-codex·노아" ;;
     reviewer-gemini) echo "reviewer-gemini·젠" ;;
     *) echo "$1" ;;
   esac
@@ -264,7 +359,23 @@ nick_of() { # 역할명 → 애칭 병기 탭 타이틀(주인님 확정 애칭 
 
 summon() { # $1=탭명 $2=기동명령 $3=부팅마커 $4=각성문 [$5=후속명령] → exit0=완전성공 exit1=degraded(수동확인필요)
   local exist; exist=$(tab_exists "$1")
-  if [ -n "$exist" ]; then echo "[boot_tower] $1: 기존 생존($exist, pid결속 확인) — 소환 생략(멱등)"; return 0; fi
+  if [ -n "$exist" ]; then
+    case "$exist" in
+      *" ADOPTED")
+        # ★D 근본조치(H-01): 편입된 노드는 "생존"만 확인됐지 "각성"은 검증 안 됐으므로
+        # (§0 — awakened=False로 정직 기록) 무조건 스킵하지 않고 각성문을 재전송한다.
+        # 이미 존재하는 send_line+각성문($4) 로직을 그대로 재사용 — 신규 설계 아님.
+        local adopted_ref="${exist% ADOPTED}"
+        echo "[boot_tower] $1: 기존생존 편입 노드($adopted_ref) — 각성문 재전송(재소환은 생략)"
+        send_line "$adopted_ref" "$4 $LLM_WIKI_BRIEF"
+        return 0
+        ;;
+      *)
+        echo "[boot_tower] $1: 기존 생존($exist, pid결속 확인) — 소환 생략(멱등)"
+        return 0
+        ;;
+    esac
+  fi
   local out sf
   out=$($CMUX new-split "${SPLIT_DIR:-down}" --workspace $WS --surface "${SPLIT_FROM:-$CALLER}")
   sf=$(echo "$out" | grep -o "surface:[0-9]*" | head -1)
