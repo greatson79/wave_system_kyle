@@ -39,7 +39,17 @@
 > `.claude/`(4개 DIRECTIVE)에 배치되어야 @import·상호 참조가 해소된다(매핑 정본:
 > `.claude/_merge-draft/_DEPLOY.md`).
 
-## ⚠ 환경 선언 — ★메인 런타임 = cmux.app · cys.app = 보조 (2026-07-10 주인님 확정 — 7/6 CYS 단독 체제 역전)
+## ⚠ 환경 선언 — ★하이브리드 런타임 (2026-08-06 주인님 승인 — 파일럿 통과 후 개정)
+
+> ★★**2026-08-06 개정(이 블록이 아래 구 선언에 우선)**: **관제 = cmux**(CEO 카이·CSO 데릭 유지) ·
+> **본부 소환 표준 = cys 메인 소켓 `cys launch-agent`**(자동 가시화·지침 자동주입·queued 역할주소·
+> watchdog·Control Center 관측 — 파일럿 4항목 실측 통과 2026-08-06). **cys-dept 격리 데몬은 사용
+> 안 함**(GUI 탭 연결 경로 부재 = 가시성 미충족). COO 벤의 cys 이동은 본부 1~2개 실운영 통과 후
+> 마지막(보고망 보호). 운영 규율: ①GUI `＋부서` 버튼 사용 금지(신규 부서 오생성) ②pane 한글 IME
+> 직접입력 시 Enter 미제출 가능 — 노드 직접 지시는 CEO 경유가 안전 ③cys 격리 계정(~/.cys/claude)
+> 사용량 창을 CSO 게이팅 감시에 포함. 결정 기록 =
+> `output/WaveAI/경영본부/_round/주인님결정_엔진자율권_2026-08-06.md`(엔진 자율권과 동일 세션).
+> 아래 구 선언(cys=보조 한정)은 이 개정으로 갱신됐다 — 부활 금지·콜드 앵커 절차는 그대로 유효.
 
 **메인 런타임은 cmux.app이다.** 새 시스템 구축·플릿 편성·워커 소환은 cmux 위에서 한다.
 **cys.app은 보조**로, 필요할 때만 호출한다(예: `cys recall` 축적 기억 검색, cys 데몬 기능·기존
@@ -165,7 +175,7 @@ reviewer-gemini(agy·greatson79@dia-io.com) 4종을 소환 표준(권한허용�
 
 - `raw/` = 불변 원본(주인님이 채움, AI는 읽기만) · `wiki/` = AI가 전담 컴파일하는 마크다운 위키
   (index.md·log.md·entities/·concepts/·sources/) · `Output/` = 질의 결과물.
-- ★ingest 트리거(승인 시점만) 상세 — 정본 = [[reference_llm_wiki_vault]]
+- ★ingest 트리거(프로젝트 논의·산출물 자동 수집, 명시 승인 불요) 상세 — 정본 = [[reference_llm_wiki_vault]]
 - 이 워크스페이스의 모든 노드(master·워커·본부장)는 이 wiki를 만나면 ingest(수집)·
   query(질의)·lint(건강검진) 3대 운영을 그 `CLAUDE.md`대로 수행한다.
 
@@ -187,6 +197,15 @@ reviewer-gemini(agy·greatson79@dia-io.com) 4종을 소환 표준(권한허용�
 - 이 볼트의 자료가 기존 결정·정본과 **충돌하면 임의 판단 금지 · CEO 에스컬레이션**.
 
 **★llm-wiki와의 구분** — 정본 = [[reference_my_ingest_folder]] (교차참조: [[reference_llm_wiki_vault]])
+
+## 탐구하는 kyle — 주인님 개인 연구 볼트 (★전 엔진 공유)
+
+> 정확한 경로: `/Users/kylechoi/Library/CloudStorage/GoogleDrive-greatson79@gmail.com/내 드라이브/KyleChoi Project/탐구하는 kyle/`
+> 정본: 위 볼트의 `_AGENT_GUIDE.md`
+
+Claude·Codex·Gemini와 호출된 로컬 LLM이 함께 참조하는 독립 Obsidian 연구 볼트다. 모든 엔진은
+읽을 수 있고, 주인님이 지정한 프로젝트 하위폴더에는 직접 작성할 수 있다. `my ingest folder`의
+읽기 전용 규칙과 혼동하지 않는다. 이 볼트에서 생긴 프로젝트 논의·산출물도 llm-wiki에 자동 ingest한다.
 
 ## 스킬 레지스트리 (스킬 베이스 운영)
 
