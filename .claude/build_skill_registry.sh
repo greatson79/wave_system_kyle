@@ -30,6 +30,18 @@ MANIFEST=(
 "team-leader|목회사역본부/weekly-works/.claude/skills/team-leader"
 "brand-guidelines|목회사역본부/weekly-works/.agents/skills/brand-guidelines"
 "canvas-design|목회사역본부/weekly-works/.agents/skills/canvas-design"
+# ── T&T 내러티브 설교 (제작 최종학 목사·원저 임도균 교수·2026-08-06 이론병합 완료) ──
+"tnt-sermon-coach|목회사역본부/tnt-narrative-sermon/skills/tnt-sermon-coach"
+"tnt-step01-select|목회사역본부/tnt-narrative-sermon/skills/tnt-step01-select"
+"tnt-step02-read|목회사역본부/tnt-narrative-sermon/skills/tnt-step02-read"
+"tnt-step03-retell|목회사역본부/tnt-narrative-sermon/skills/tnt-step03-retell"
+"tnt-step04-compress|목회사역본부/tnt-narrative-sermon/skills/tnt-step04-compress"
+"tnt-step05-connect|목회사역본부/tnt-narrative-sermon/skills/tnt-step05-connect"
+"tnt-step06-path|목회사역본부/tnt-narrative-sermon/skills/tnt-step06-path"
+"tnt-step07-draft|목회사역본부/tnt-narrative-sermon/skills/tnt-step07-draft"
+"tnt-step08-polish|목회사역본부/tnt-narrative-sermon/skills/tnt-step08-polish"
+"tnt-step09-resolve|목회사역본부/tnt-narrative-sermon/skills/tnt-step09-resolve"
+"tnt-step10-deliver|목회사역본부/tnt-narrative-sermon/skills/tnt-step10-deliver"
 # ── 연구·콘텐츠·강의 ──
 "research|목회사역본부/.claude/skills/research"
 "nlm-skill|.agents/skills/nlm-skill"
