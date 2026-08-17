@@ -20,6 +20,40 @@
 .mcp.json
 **/credentials/
 
+# --- 키·인증서 파일 확장자 (2026-08-17 주인님 지시 — 공개 저장소 전환 후 보강) ---
+*.p12
+*.pfx
+*.jks
+*.keystore
+*.ppk
+id_rsa*
+id_ed25519*
+id_ecdsa*
+*.asc
+*.gpg
+
+# --- 자격증명 파일명 관행 ---
+*secret*.json
+*secrets.y*ml
+secrets.*
+*.secret
+.netrc
+.npmrc
+.pypirc
+.htpasswd
+auth.json
+*_auth.json
+*.token
+.aws/
+.config/gcloud/
+gha-creds-*.json
+
+# --- API 키 파일명 관행 (★값은 항상 환경변수로 — 파일 커밋 금지) ---
+*api*key*.json
+*api*key*.txt
+*apikey*
+*.apikey
+
 # ---------- 🗂 개인 / 교회 데이터 (주인님 전용 — 누구나 사용 위해 제외) ----------
 # 작업 산출물 (설교·투자·환경스캐닝·강의 등 개인 콘텐츠)
 output/
